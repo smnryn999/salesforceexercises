@@ -17,7 +17,7 @@ var wrongs = 0, corrects = 0;
 const test = ["Which one is full-code?", "The User Interface section makes up what percentage of the Platform Developer I Certification exam?", "What is the output of this code? <br> <code>System.debug(3+5);</code>", "Apex works in server side. True or false?", "What is the output of this code? <br> <code>Integer[] numbers = new Integer[]{3,5,7,10};<br>Integer sum = 0;<br>for(Integer num:numbers){<br><samp>sum += num;</samp><br>}<br>System.debug(sum + num);</code>",
               "What is the output of this code? <br> <code>final integer x = 5; <br> x = 10; <br> System.debug(x);</code>",
               "We want to create a related contact automatically when we create an account. Which event should we use?"];
-const options1 = [["Apex","Flow","Formula Fields","Validation Rules"], ["10%","15%","25%","40%"], [35, "3+5", 8, "Error"], ["True", "False"], [10,25,35,"Error"], [5,10,"x","Error"], ["before insert","after insert","before delete","after delete"]];
+const options1 = [["Apex","Flow","Formula Fields","Validation Rules"], ["10%","15%","25%","40%"], [35, "3+5", 8, "Error"], ["True", "False"], [10,25,35,"Error"], [5,10,"x","Error"], ["before insert","after insert","before update","after update"]];
 const answers = [A, C, C, A, D, D, B];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
