@@ -83,7 +83,7 @@ submit.onclick = function () {
 // PASS BUTTON
 pass.onclick = function () {
    if(n==test1.length-1) {
-      explanation.innerHTML = `Test Completed. Total questions: ${test.length}, correct answers: ${corrects}, wrong answers: ${wrongs}`;
+      explanation.innerHTML = `Test Completed. Total questions: ${test1.length}, correct answers: ${corrects}, wrong answers: ${wrongs}`;
       explanation.style.color = "navy";
    }else {
       n++;
