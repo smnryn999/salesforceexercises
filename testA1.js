@@ -20,14 +20,16 @@ const test1 = ["Which one is not about security?", "If we make a field required 
               "What tool do you use to see the scheduled paths that run in the future, such as the path that runs 5 days after an Opportunity closes?",
               "Which formula should we use for validation rule, if we want to be filled a field necessarily when converting a lead?",
               "When a user first requests approval for a record, initial submission actions occur. The default initial submission action locks the record. This action ensures that other users (except for approvers and admins) can’t change the record while it's pending approval. True or false?",
-              "What happens if there are two approval steps in an approval process and the first approver rejects the request?"];
+              "What happens if there are two approval steps in an approval process and the first approver rejects the request?",
+              "Which of the following fields can be made read-only in a screen flow?"];
 
 const options1 = [["Formula-level","Object-level","Record-level","Field-level"], ["True", "False"], [10,15,20,25], ["True", "False"], ["Least Privilege","Multi-Factor Authentication (MFA)","Audit Privileged Access Users","All of above"], ["Yes, he/she can","No, he/she can't","We cannot say anything"], ["Chatter object already shares polls with all users","We go to public groups and create a group. Then we share the poll","We create a group from group object. Then we share the poll","We cannot share polls from Chatter"], ["Yes","No","It is up to App Manager settings"], ["Read","Read - Edit","Read - Edit - Delete","Read - Edit - Delete - Change Owner"], ["We go to profiles and restrict edit permission for that field","We go to profiles and restrict edit permission for the object","We go to profiles and uncheck 'edit read only fields'","We cannot fix it because Salesforce automatically grants this permission to a user"], ["True","False"], ["Login IP hours","Network Access","Business Hours","Holidays"], ["Service Metrics","Recommended Setup","Service Console","Current Usage"],
                   ["Autolaunched Flows","Approval Processes","Lightning Components","All of above"], ["Screen Flows","Autolaunched Flows","Record-Triggered Flows","Schedule-Triggered Flows"],
                  ["Flow Trigger Explorer","Orchestration Runs List","Time-Based Workflow page","Flow Builder"],
                  ["isConverted = true && ISBLANK(field)","ISBLANK(field)","isConverted = field","isConverted = true || ISBLANK(field)"], ["True","False"],
-                 ["The request is submitted to the second approver for the approval","The final rejection actions are executed, setting the position’s approval status to Rejected","More than one approval steps can not be existed in Salesforce","None of above"]];
-const answers1 = [A, B, D, A, D, B, C, B, D, C, A, C, C, D, B, C, A, A, B];
+                 ["The request is submitted to the second approver for the approval","The final rejection actions are executed, setting the position’s approval status to Rejected","More than one approval steps can not be existed in Salesforce","None of above"],
+                 ["Text","Email","URL","B and C"]];
+const answers1 = [A, B, D, A, D, B, C, B, D, C, A, C, C, D, B, C, A, A, B, D];
 
 document.querySelector("#numberOfQuestion").innerHTML = test1.length;
 
