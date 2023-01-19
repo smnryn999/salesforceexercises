@@ -19,11 +19,11 @@ const test = ["Which one is full-code?", "The User Interface section makes up wh
               "We want to create a related contact automatically when we create an account. Which event should we use?",
              "We have 10 accounts in the production org. And when we execute the following code, how many accounts do we have in total? <br> <code>Account acc =  new Account(Name = 'New Account'); <br> insert acc; <br> List&lt;Account&gt; listAcc = new List&lt;Account&gt; (); <br> for(integer i=1; i<5; i++){<br><samp>Account acc =  new Account(Name = 'New Account' + i);</samp> <br><samp>listAcc.add(acc);</samp> <br>}</code>",
              "Abstract classes cannot have instances. True or false?", "Which format does SOAP API support?", "Which of the following is true?", "Which file is not required in LWC?", "Which of the following methods converts JSON format to Apex format?",
-             "Which of the following methods is not to manipulate the database?"];
+             "Which of the following methods is not to manipulate the database?", "We can use DML in an Apex method that is annotated with @AuraEnabled(cacheable=true). True or false?"];
 const options1 = [["Apex","Flow","Formula Fields","Validation Rules"], ["10%","15%","25%","40%"], [35, "3+5", 8, "Error"], ["True", "False"], [10,25,35,"Error"], [5,10,"x","Error"], ["before insert","after insert","before update","after update"],
                  [10,11,14,15], ["True","False"], ["Text","JSON","XML","CSV"], ["SOAP API supports JSON files","XML is more useful than JSON","REST API is more secure than SOAP API","REST API is faster than SOAP API"],
-                 ["HTML","CSS","JavaScript","XML"], ["JSON.stringify()","JSON.destringify()","JSON.serializeUntyped()","JSON.deserializeUntyped()"], ["@track adapter","@wire adapter","LDS functions","<lighting-record-form> tag"]];
-const answers = [A, C, C, A, D, D, B, B, A, C, D, B, D, A];
+                 ["HTML","CSS","JavaScript","XML"], ["JSON.stringify()","JSON.destringify()","JSON.serialize()","JSON.deserialize()"], ["@track adapter","@wire adapter","LDS functions","<lighting-record-form> tag"], ["True", "False"]];
+const answers = [A, C, C, A, D, D, B, B, A, C, D, B, D, A, B];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
