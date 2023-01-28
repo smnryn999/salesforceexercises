@@ -14,9 +14,9 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test1 = [""];
-const options1 = [[]];
-const answers1 = [];
+const test1 = ["We can deliver connected, intelligent, more personalized service from the phone to the field with Field Service. True or false?"];
+const options1 = [["True","False"]];
+const answers1 = [A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test1.length;
 
