@@ -14,9 +14,9 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test1 = ["We can deliver connected, intelligent, more personalized service from the phone to the field with Field Service. True or false?"];
-const options1 = [["True","False"]];
-const answers1 = [A];
+const test1 = ["Omni-Channel Routing enables companies to:", "We can deliver connected, intelligent, more personalized service from the phone to the field with Field Service. True or false?"];
+const options1 = [["Push cases to available agents","Connect customers to the right expert for their issue","Route cases from any service channel","All of the above"], ["True","False"]];
+const answers1 = [D,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test1.length;
 
