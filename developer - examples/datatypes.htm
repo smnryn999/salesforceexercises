@@ -48,9 +48,10 @@
          <span class="datatype">String</span> str = <span class="string">'https://d8e000000dhdkeai-dev-ed.develop.lightning.force.com/lightning/r/Opportunity/0068e00000G8GQmAAN/view'</span>;
          str = str.substring(str.lastIndexOf('/')-18, str.lastIndexOf('/'));
          <var>System.debug</var>(str);  <em>// 0068e00000G8GQmAAN</em>
-            
-         str = str.split("/");
-         <var>System.debug</var>(str[str.size()-2]);  <em>// 0068e00000G8GQmAAN</em>
+
+         <em>// Another way</em>
+         <span class="datatype">String[]</span> strArray = str.split("/");
+         <var>System.debug</var>(strArray[strArray.size()-2]);  <em>// 0068e00000G8GQmAAN</em>
       </pre>
       
       <p><span class="counter"></span> - External bir systemden "elma, armut, kiraz" formatında gelen bir değeri multiselect picklist formatına çeviriniz.</p>
