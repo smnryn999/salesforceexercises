@@ -18,13 +18,19 @@ header h1 {
    text-align: center;
    margin: 0;
 }
-#test-list .title {
+h2 {
+   margin: 20px;
+   padding: 5px 10px;
+   background: lightgreen;
+}
+.test-list .title {
    font-size: 20px;
    font-weight: bold;
 }
-#test-list li {
+.test-list li {
    margin: 10px;
 }
+
 
 /* MAIN */
 main {
@@ -93,15 +99,25 @@ button {
    font-weight: bold;
 }
 
-      
 
-
-
-
-
-
-
-
-
-
-
+/* DATATYPES.HTM */
+section {margin: 20px;}
+section p {font-size: 19px; background: #fafafa; padding: 5px;}
+section button {padding: 5px 10px; background: lightgreen;}
+pre {
+   background: rgb(10,0,50);
+   line-height: 30px;
+   padding-top: 30px;
+   border: 1px solid blue;
+   border-radius: 5px;
+   overflow: scroll;
+   color: bisque;
+   font-family: verdana;
+   margin: 20px;
+   display: none;
+}
+var {color: white; font-style: normal;}
+em {color: darkcyan;}
+.datatype {color: darkorange; text-transform: capitalize;}
+.string {color: pink;}
+.loop {color: red;}
