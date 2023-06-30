@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+   <meta charset="UTF-8">
+   <title>Datatypes Examples</title>
+   <link rel="stylesheet" href="test.css">
+</head>
+<body>
+   <header>
+      <h1>Datatypes Examples</h1>
+   </header>
+   
+   <section>
+      
+      <p><span class="counter"></span> - Get the name and extension of "salesforce.com".</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         <span class="datatype">String</span> str = <span class="string">'salesforce.com'</span>;
+         <em>// str = str.substring(str.IndexOf('.')+1);</em>
+         <span class="datatype">String</span> str1 = str.substringAfter('.'); 
+         <var>System.debug</var>(str1);    <span class="comment">// com</span> 
+         <span class="datatype">String</span> str2 = str.substringBefore('.'); 
+         <var>System.debug</var>(str2);  <em>// salesforce</em>        
+      </pre>
+      
+      <p><span class="counter"></span> - Take the words "World" and "Everybody" in the phrase "Hello World Everybody".</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         <span class="datatype">String</span> str = <span class="string">'Hello World Everbody'</span>;
+         <span class="datatype">String</span> str1 = str.substringAfterLast(' ');
+         <var>System.debug</var>(str1);  <em>// Everbody</em>
+         <span class="datatype">String</span> str2 = str.substringBetween(' ');
+         <var>System.debug</var>(str2);  <em>// World</em>
+      </pre>
+      
+      <p><span class="counter"></span> - "/services/apexrest/Cases/0068e00000G8GQVAA3" ifadesindeki id değerini alınız.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         <span class="datatype">String</span> str = <span class="string">'/services/apexrest/Cases/0068e00000G8GQVAA3'</span>;
+         <em>// str = str.substring(str.lastIndexOf('/')+1);</em>
+         str = str.substringAfterLast('/');
+         <var>System.debug</var>(str);  <em>// 0068e00000G8GQVAA3</em>
+      </pre>
+      
+      <p><span class="counter"></span> - Bir record URL'deki id değerini alınız.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         <span class="datatype">String</span> str = <span class="string">'https://d8e000000dhdkeai-dev-ed.develop.lightning.force.com/lightning/r/Opportunity/0068e00000G8GQmAAN/view'</span>;
+         str = str.substring(str.lastIndexOf('/')-18, str.lastIndexOf('/'));
+         <var>System.debug</var>(str);  <em>// 0068e00000G8GQmAAN</em>
+            
+         str = str.split("/");
+         <var>System.debug</var>(str[str.size()-2]);  <em>// 0068e00000G8GQmAAN</em>
+      </pre>
+      
+      <p><span class="counter"></span> - External bir systemden "elma, armut, kiraz" formatında gelen bir değeri multiselect picklist formatına çeviriniz.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         <span class="datatype">String</span> str = <span class="string">'elma, armut, kiraz'</span>;
+         str = str.replaceAll(',', ';');
+         <var>System.debug</var>(str);  <em>// elma; armut; kiraz</em>
+      </pre>
+      
+      <p><span class="counter"></span> - Convert a value in "15 Nov 2012" format from an external system to date format.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         <span class="datatype">String</span> tarih = <span class="string">'15 Nov 2012'</span>;
+                  
+         <span class="datatype">String</span> day = tarih.substring(0, 2);  // 15
+         <span class="datatype">String</span> tarih.substringBetween(' ');  // Nov
+         <span class="datatype">String</span> tarih.substringAfterLast(' ');  // 2012
+         
+         <em>// Elimizde olması gereken format '15.11.2012'dir.</em>         
+         <span class="loop">switch on month</span> {
+            <var>when</var> 'Jan' {month = '01';}
+            <var>when</var> 'Feb' {month = '02';}
+            <var>when</var> 'Mar' {month = '03';}
+            <var>when</var> 'Apr' {month = '04';}
+            <var>when</var> 'May' {month = '05';}
+            <var>when</var> 'Jun' {month = '06';}
+            <var>when</var> 'Jul' {month = '07';}
+            <var>when</var> 'Aug' {month = '08';}
+            <var>when</var> 'Sep' {month = '09';}
+            <var>when</var> 'Oct' {month = '10';}
+            <var>when</var> 'Nov' {month = '11';}
+            <var>when</var> 'Dec' {month = '12';}
+         }
+         
+         tarih = day + '.' + month + '.' + year;  <em>// '15.11.2012' (String)</em>
+         <span class="datatype">Date</span> newDate = Date.parse(tarih);
+         <var>System.debug</var>(newDate);  <em>// 15.11.2012 (Date)</em>
+      </pre>
+      
+      <p><span class="counter"></span> - Convert a string word to a list and then restore it.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         <span class="datatype">string</span> str = <span class="string">'Hello'</span>;
+         <span class="datatype">List&#60;String&#62;</span> liste = str.split('');
+         <var>System.debug</var>(liste);  <em>// (H,e,l,l,o)</em>
+
+         <span class="datatype">string</span> strAgain = liste.toString();
+         strAgain = strAgain.substringBetween('(',')').remove(',').deleteWhiteSpace();
+         <var>System.debug</var>(strAgain);  <em>// Hello</em>
+         
+         <em>// Another way</em>
+         <span class="datatype">string</span> text = '';
+         <span class="loop">for</span>(<span class="datatype">string</span> w:liste){
+            text += w;
+         }    
+         <var>System.debug</var>(strAgain);  <em>// Hello</em> 
+      </pre>
+      
+      <p><span class="counter"></span> - Convert a string sentence to a list and then undo it again.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         <span class="datatype">String</span> text = <span class="string">'Bu bir cümledir.'</span>;
+         <span class="datatype">List&#60;String&#62;</span> textList = text.remove('.').split(' ');
+         <var>System.debug</var>(textList);  <em>// (Bu, bir, cümledir)</em>
+         
+         <span class="datatype">String</span> strAgain = textList.toString();
+         strAgain = strAgain.substringBetween('(',')').remove(',') + '.';
+         <var>System.debug</var>(strAgain);  <em>// Bu bir cümledir.</em>
+         
+         <em>// Another way</em>
+         <span class="datatype">string</span> text = '';
+         <span class="loop">for</span>(<span class="datatype">string</span> w:textList){
+            text += w + ' ';
+         }
+         text = text.trim() + '.';
+         <var>System.debug</var>(text);  <em>// (Bu, bir, cümledir)</em> 
+      </pre>
+      
+   </section>
+   
+   <script src="examples.js"></script>
+</body>
+</html>
