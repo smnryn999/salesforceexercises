@@ -117,7 +117,7 @@ pre {
    display: none;
 }
 var {color: white; font-style: normal;}
-em {color: darkcyan;}
+em {color: darkcyan !important;}
 .datatype {color: darkorange; text-transform: capitalize;}
 .string {color: pink;}
 .loop {color: red;}
