@@ -34,6 +34,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       content = content.replaceAll(/[0-9]/g, function (x) {return `<span class='number'>${x}</span>`;});
       
       content = content.replaceAll(/List<string>/gi, "<span class='datatype'>List&#60;String&#62;</span>");
+      content = content.replaceAll(/string[]/gi, "<span class='datatype'>String[]</span>");
       content = content.replaceAll(/Set<string>/gi, "<span class='datatype'>Set&#60;String&#62;</span>");      
       
       var punctuation = ["(", ")", "{", "}", "[", "]", ","];
