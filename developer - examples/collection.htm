@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+   <meta charset="UTF-8">
+   <title>Collections</title>
+   <link rel="stylesheet" href="../test.css">
+</head>
+<body>
+   <header>
+      <h1>Datatypes Examples</h1>
+   </header>
+   
+   <section>
+      <p><span class="counter"></span> - Create a 3-element list and add some elements.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         list<string> Colors = new list<string>(3);  <em> // null, null, null</em>
+         Colors.set(0, 'Green');  <em> // Green, null, null</em>
+         Colors[1]='Blue';  <em> // Green, Blue, null</em>
+         Colors.add('Yellow');  <em> // Green, Blue, null, Yellow</em>
+         Colors[3]='Red';  <em> // Green, Blue, null, Red</em>
+         Colors.add(1, 'White');  <em> // Green, White, Blue, null, Red</em>
+         System.debug(Colors);  <em> // (Green, White, Blue, null, Red)</em>
+      </pre>
+      
+      <!-- EXAMPLE 2 -->
+      <p><span class="counter"></span> - Remove repeating elements from a list.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         list<string> listColors = new List<string>{'Green', 'Blue', 'Yellow', 'Blue'};
+         set<string> setColors = new Set<string>(listColors);  <em> // Blue, Green, Yellow</em>
+         System.debug(setColors);  <em> // {Blue, Green, Yellow}</em>
+      </pre>
+      
+      <!-- EXAMPLE 3 -->
+      <p><span class="counter"></span> - Remove different elements between two lists. (Take the common elements.)</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         List<String> listColors = new List<String></span>{'Green', 'Blue', 'Yellow'};
+         List<string> listColors2 = new List<string>{'Green', 'Blue', 'White', 'Red'};
+         
+         Set<string> setColors = new Set<string>(listColors);
+         setColors.retainAll(listColors2);
+         System.debug(setColors);  <em> // {Blue, Green}</em>
+      </pre>
+      
+      <!-- EXAMPLE 4 -->
+      <p><span class="counter"></span> - Remove common elements between two lists. (Take the different elements.)</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         List<string> listColors = new List<string>{'Black', 'White', 'Gray', 'Blue'};
+         List<String> listColors2 = new List<string>{'Black','Gray'};
+         
+         Set<String> setColors = new Set<string>(listColors);
+         setColors.removeAll(listColors2);
+         System.debug(setColors);  <em> // {Blue, White}</em>
+      </pre>
+      
+      <!-- EXAMPLE 5 -->
+      <p><span class="counter"></span> - Check if an element exists in a list.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         List<String> colors = new List<string>{'Black', 'White', 'Gray', 'Blue'};
+         Boolean containsBlue = colors.contains('Blue');
+         System.debug(containsBlue);  <em> // true</em>
+      </pre>
+      
+      <!-- EXAMPLE 6 -->
+      <p><span class="counter"></span> - Check if a list exists in another list.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         List<String> colors = new List<String>{'White', 'Blue', 'Orange', 'Black'};
+         List<String> colors2 = new List<String>{'White', 'Orange'};
+         Set<String> setColors = new Set<String>(colors);
+         Boolean containsAll = setColors.containsAll(colors2);
+         System.debug(containsAll);  <em> // true</em>
+      </pre>
+      
+   </section>
+   
+   <script src="examples.js"></script>
+   
+</body>
+</html>
