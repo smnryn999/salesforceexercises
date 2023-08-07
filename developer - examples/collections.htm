@@ -75,6 +75,52 @@
          Boolean containsAll = setColors.containsAll(colors2);
          System.debug(containsAll);  <em> // true</em>
       </pre>
+
+      <!-- EXAMPLE 7 -->
+      <p><span class="counter"></span> - Create a Map and specify the sequence number for the list.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         List<String> colors = new List<String>{'White', 'Blue', 'Orange', 'Black'};
+         Integer num = 1;
+         <span class="datatype">Map<Integer, String></span> mapColors = new Map<integer, string>(); // {5=>'Yellow'}
+         for(string c:colors){
+            mapColors.put(num, c);
+         }
+         System.debug(mapColors);  <em> // {1=Black}</em>
+         
+         <span class="datatype">Map<string, integer></span> colorsMap = new Map<string, integer>();
+         for(string c:colors){
+            mapColors.put(c, num); 
+         }
+         System.debug(mapColors);  <em> // {Black=1, Blue=1, Orange=1, White=1}</em>
+         
+         <span class="datatype">Map<integer, string></span> mapColors = new Map<integer, string>{5=>'Yellow'};
+         for(string c:colors){
+            mapColors.put(num, c);
+            num++;
+         }
+         System.debug(mapColors);  <em> // {1=White, 2=Blue, 3=Orange, 4=Black, 5=Yellow}</em>
+      </pre>
+      
+      <!-- EXAMPLE 8 -->
+      <p><span class="counter"></span> - Create a Map consisting of countries and currencies, take the key and value parts and match them.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         <span class="datatype">Map&#60;string, string&#62;</span> mapCountry = new <span class="datatype">Map&#60;string, string&#62;</span>();
+         mapCountry.put('Türkiye', 'TL');
+         mapCountry.put('India', 'Rupee');
+         mapCountry.put('Europe', 'Euro');
+         mapCountry.put('Japan', 'Yen');
+         System.debug(mapCountry);
+         
+         for(string c:mapCountry.values()){
+            System.debug(c);
+         }
+         
+         for(string c:mapCountry.keySet()){
+            System.debug(c + ' => ' + mapCountry.get(c));
+         }
+      </pre>
       
    </section>
    
