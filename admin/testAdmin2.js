@@ -14,9 +14,11 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test1 = ["What type of relationship in Salesforce represents a parent-child relationship, where the child record can't exist without the parent and inherits its sharing and security settings?", "Omni-Channel Routing enables companies to:", "We can deliver connected, intelligent, more personalized service from the phone to the field with Field Service. True or false?"];
-const options1 = [["Lookup Relationship","Master-Detail Relationship","External Relationship","Hierarchical Relationship"], ["Push cases to available agents","Connect customers to the right expert for their issue","Route cases from any service channel","All of the above"], ["True","False"]];
-const answers1 = [B,D,A];
+const test1 = ["What type of relationship in Salesforce represents a parent-child relationship, where the child record can't exist without the parent and inherits its sharing and security settings?", "In Salesforce, what are Record Types used for?",
+               "Omni-Channel Routing enables companies to:", "We can deliver connected, intelligent, more personalized service from the phone to the field with Field Service. True or false?"];
+const options1 = [["Lookup Relationship","Master-Detail Relationship","External Relationship","Hierarchical Relationship"], ["Providing quality data.","Ensuring that relevant data are entered for each record.","Providing different sets of picklist values for a field.","All of above."],
+                  ["Push cases to available agents","Connect customers to the right expert for their issue","Route cases from any service channel","All of the above"], ["True","False"]];
+const answers1 = [B,D,D,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test1.length;
 
