@@ -45,8 +45,8 @@ main {
    }
 #questionBlock {margin: 15px 0;}
 #question {
-   font-weight: bold;
-   font-size: 24px;
+   font-weight: 800;
+   font-size: 23px;
 }
 #question code {
    font-size: 18px;
