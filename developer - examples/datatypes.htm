@@ -33,9 +33,9 @@
       <pre>
          String str = <span class="string">'Hello World Everbody'</span>;
          String str1 = str.substringAfterLast(' ');
-         <var>System.debug</var>(str1);  <em>// Everbody</em>
+         System.debug(str1);  <em>// Everbody</em>
          String str2 = str.substringBetween(' ');
-         <var>System.debug</var>(str2);  <em>// World</em>
+         System.debug(str2);  <em>// World</em>
       </pre>
 
       <p>
@@ -48,7 +48,7 @@
          String str = <span class="string">'/services/apexrest/Cases/0068e00000G8GQVAA3'</span>;
          <em>// str = str.substring(str.lastIndexOf('/')+1);</em>
          str = str.substringAfterLast('/');
-         <var>System.debug</var>(str);  <em>// 0068e00000G8GQVAA3</em>
+         System.debug(str);  <em>// 0068e00000G8GQVAA3</em>
       </pre>
 
       <p>
@@ -58,11 +58,11 @@
       <pre>
          String str = <span class="string">'https://d8e000000dhdkeai-dev-ed.develop.lightning.force.com/lightning/r/Opportunity/0068e00000G8GQmAAN/view'</span>;
          str = str.substring(str.lastIndexOf('/')-18, str.lastIndexOf('/'));
-         <var>System.debug</var>(str);  <em>// 0068e00000G8GQmAAN</em>
+         System.debug(str);  <em>// 0068e00000G8GQmAAN</em>
 
          <em>// Another way</em>
          <span class="datatype">String[]</span> strArray = str.split('/');
-         <var>System.debug</var>(strArray[strArray.size()-2]);  <em>// 0068e00000G8GQmAAN</em>
+         System.debug(strArray[strArray.size()-2]);  <em>// 0068e00000G8GQmAAN</em>
       </pre>
 
       <p>
@@ -116,7 +116,7 @@
       </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         string str = <span class="string">'Hello'</span>;
+         String str = <span class="string">'Hello'</span>;
          List<String> liste = str.split('');
          System.debug(liste);  <em>// (H,e,l,l,o)</em>
 
@@ -125,7 +125,7 @@
          System.debug(strAgain);  <em>// Hello</em>
          
          <em>// Another way</em>
-         string text = '';
+         String text = '';
          <span class="loop">for</span>(<span class="datatype">string</span> w:liste){
             text += w;
          }    
@@ -147,7 +147,7 @@
          System.debug(strAgain);  <em>// Bu bir cümledir.</em>
          
          <em>// Another way</em>
-         string text = '';
+         String text = '';
          <span class="loop">for</span>(<span class="datatype">string</span> w:textList){
             text += w + ' ';
          }

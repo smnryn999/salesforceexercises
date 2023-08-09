@@ -82,14 +82,14 @@
       <pre>
          List<String> colors = new List<String>{'White', 'Blue', 'Orange', 'Black'};
          Integer num = 1;
-         <span class="datatype">Map<Integer, String></span> mapColors = new Map<integer, string>(); // {5=>'Yellow'}
-         for(string c:colors){
+         <span class="datatype">Map&#60;string, string&#62;</span> mapColors = new Map<integer, string>(); // {5=>'Yellow'}
+         for(String c:colors){
             mapColors.put(num, c);
          }
          System.debug(mapColors);  <em> // {1=Black}</em>
          
          <span class="datatype">Map&#60;string, string&#62;</span> colorsMap = new Map<string, integer>();
-         for(string c:colors){
+         for(String c:colors){
             mapColors.put(c, num); 
          }
          System.debug(mapColors);  <em> // {Black=1, Blue=1, Orange=1, White=1}</em>
@@ -113,11 +113,11 @@
          mapCountry.put('Japan', 'Yen');
          System.debug(mapCountry);
          
-         for(string c:mapCountry.values()){
+         for(String c:mapCountry.values()){
             System.debug(c);
          }
          
-         for(string c:mapCountry.keySet()){
+         for(String c:mapCountry.keySet()){
             System.debug(c + ' => ' + mapCountry.get(c));
          }
       </pre>
