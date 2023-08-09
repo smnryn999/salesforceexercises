@@ -29,7 +29,7 @@ const options1 = [["Apex","Flow","Formula Fields","Validation Rules"], ["final",
                  ["A server-side framework for building web applications.","A programming language used to create custom objects in Salesforce.","A user interface framework for developing dynamic web apps for mobile and desktop devices.","A database management tool provided by Salesforce."],
                  ["Creating custom objects in Salesforce.","Building server-side logic for Apex classes.","Designing user interfaces for web applications using a markup language.","Integrating external databases with Salesforce."],
                  ["Creating visually appealing user interfaces for web applications.","Managing and organizing Salesforce records in the database.","Writing server-side logic and business processes.","Connecting Salesforce with external services."], [75, "75.0", "Null", "Error"],
-                 ["<code>Calculator.calculateTotal()</code>","<code>Calculator c = new Calculator(); <br> c.calculateTotal();</code>","x","y"]];
+                 ["<code>Calculator.calculateTotal();</code>","<code>Calculator c = new Calculator(); <br> c.calculateTotal();</code>","<code>calculateTotal();</code>","The method cannot be called because it is private."]];
 const answers = [A, A, C, A, D, D, B, B, A, C, D, B, D, A, B, C, C, A, B, B];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
