@@ -53,11 +53,11 @@ main {
 #questionBlock code {
    font-size: 17px;
    font-family: "Lucida Console", "Courier New", monospace;
-   font-weight: normal;
-   background: rgb(10,0,50); /*GhostWhite;*/
+   font-weight: ;
+   background: rgb(10,10,70); /*GhostWhite;*/
    color: whitesmoke;
    border: 1px solid Gainsboro;
-   border-radius:3px;
+   border-radius: 3px;
    padding: 10px;
    margin-top: 7px;
    display: block;
