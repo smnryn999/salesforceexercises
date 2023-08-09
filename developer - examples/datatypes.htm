@@ -17,11 +17,11 @@
       </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         <span class="datatype">String</span> str = <span class="string">'salesforce.com'</span>;
+         String str = <span class="string">'salesforce.com'</span>;
          <em>// str = str.substring(str.IndexOf('.')+1);</em>
-         <span class="datatype">String</span> str1 = str.substringAfter('.'); 
+         String str1 = str.substringAfter('.'); 
          <var>System.debug</var>(str1);    <span class="comment">// com</span> 
-         <span class="datatype">String</span> str2 = str.substringBefore('.'); 
+         String str2 = str.substringBefore('.'); 
          <var>System.debug</var>(str2);  <em>// salesforce</em>        
       </pre>
 
@@ -31,10 +31,10 @@
       </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         <span class="datatype">String</span> str = <span class="string">'Hello World Everbody'</span>;
-         <span class="datatype">String</span> str1 = str.substringAfterLast(' ');
+         String str = <span class="string">'Hello World Everbody'</span>;
+         String str1 = str.substringAfterLast(' ');
          <var>System.debug</var>(str1);  <em>// Everbody</em>
-         <span class="datatype">String</span> str2 = str.substringBetween(' ');
+         String str2 = str.substringBetween(' ');
          <var>System.debug</var>(str2);  <em>// World</em>
       </pre>
 
@@ -45,7 +45,7 @@
       </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         <span class="datatype">String</span> str = <span class="string">'/services/apexrest/Cases/0068e00000G8GQVAA3'</span>;
+         String str = <span class="string">'/services/apexrest/Cases/0068e00000G8GQVAA3'</span>;
          <em>// str = str.substring(str.lastIndexOf('/')+1);</em>
          str = str.substringAfterLast('/');
          <var>System.debug</var>(str);  <em>// 0068e00000G8GQVAA3</em>
@@ -56,7 +56,7 @@
       </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         <span class="datatype">String</span> str = <span class="string">'https://d8e000000dhdkeai-dev-ed.develop.lightning.force.com/lightning/r/Opportunity/0068e00000G8GQmAAN/view'</span>;
+         String str = <span class="string">'https://d8e000000dhdkeai-dev-ed.develop.lightning.force.com/lightning/r/Opportunity/0068e00000G8GQmAAN/view'</span>;
          str = str.substring(str.lastIndexOf('/')-18, str.lastIndexOf('/'));
          <var>System.debug</var>(str);  <em>// 0068e00000G8GQmAAN</em>
 
@@ -72,9 +72,9 @@
       </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         <span class="datatype">String</span> str = <span class="string">'elma, armut, kiraz'</span>;
+         String str = <span class="string">'elma, armut, kiraz'</span>;
          str = str.replaceAll(',', ';');
-         <var>System.debug</var>(str);  <em>// elma; armut; kiraz</em>
+         System.debug(str);  <em>// elma; armut; kiraz</em>
       </pre>
 
       <p>
@@ -106,8 +106,8 @@
          }
          
          tarih = day + '.' + month + '.' + year;  <em>// '15.11.2012' (String)</em>
-         <span class="datatype">Date</span> date = Date.parse(tarih);
-         <var>System.debug</var>(date);  <em> // 15.11.2012 (Date)</em>
+         Date date = Date.parse(tarih);
+         System.debug(date);  <em> // 15.11.2012 (Date)</em>
       </pre>
 
       <p>
@@ -116,20 +116,20 @@
       </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         <span class="datatype">string</span> str = <span class="string">'Hello'</span>;
-         <span class="datatype">List&#60;String&#62;</span> liste = str.split('');
-         <var>System.debug</var>(liste);  <em>// (H,e,l,l,o)</em>
+         string str = <span class="string">'Hello'</span>;
+         List<String> liste = str.split('');
+         System.debug(liste);  <em>// (H,e,l,l,o)</em>
 
          <span class="datatype">string</span> strAgain = liste.toString();
          strAgain = strAgain.substringBetween('(',')').remove(',').deleteWhiteSpace();
-         <var>System.debug</var>(strAgain);  <em>// Hello</em>
+         System.debug(strAgain);  <em>// Hello</em>
          
          <em>// Another way</em>
-         <span class="datatype">string</span> text = '';
+         string text = '';
          <span class="loop">for</span>(<span class="datatype">string</span> w:liste){
             text += w;
          }    
-         <var>System.debug</var>(strAgain);  <em>// Hello</em> 
+         System.debug(strAgain);  <em>// Hello</em> 
       </pre>
 
       <p>
@@ -138,21 +138,21 @@
       </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         <span class="datatype">String</span> text = <span class="string">'Bu bir cümledir.'</span>;
-         <span class="datatype">List&#60;String&#62;</span> textList = text.remove('.').split(' ');
-         <var>System.debug</var>(textList);  <em>// (Bu, bir, cümledir)</em>
+         String text = <span class="string">'Bu bir cümledir.'</span>;
+         List<String> textList = text.remove('.').split(' ');
+         System.debug(textList);  <em>// (Bu, bir, cümledir)</em>
          
-         <span class="datatype">String</span> strAgain = textList.toString();
+         String strAgain = textList.toString();
          strAgain = strAgain.substringBetween('(',')').remove(',') + '.';
-         <var>System.debug</var>(strAgain);  <em>// Bu bir cümledir.</em>
+         System.debug(strAgain);  <em>// Bu bir cümledir.</em>
          
          <em>// Another way</em>
-         <span class="datatype">string</span> text = '';
+         string text = '';
          <span class="loop">for</span>(<span class="datatype">string</span> w:textList){
             text += w + ' ';
          }
          text = text.trim() + '.';
-         <var>System.debug</var>(text);  <em>// (Bu, bir, cümledir)</em> 
+         System.debug(text);  <em>// (Bu, bir, cümledir)</em> 
       </pre>
     </section>
 
