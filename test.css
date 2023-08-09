@@ -51,6 +51,7 @@ main {
 #question code {
    font-size: 18px;
    font-family: "Lucida Console", "Courier New", monospace;
+   font-weight: normal;
    background: GhostWhite;
    border: 1px solid Gainsboro;
    padding: 5px;
