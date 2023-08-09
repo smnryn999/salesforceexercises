@@ -38,6 +38,8 @@ main {
    background: azure;
    height: ;
    padding: 0 15px;
+   border: 1px solid darkblue;
+   border-radius: 5px;
    display: flex;
    justify-content: center;
    flex-direction: column;
