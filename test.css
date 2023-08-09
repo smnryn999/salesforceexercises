@@ -48,7 +48,7 @@ main {
    font-weight: bold;
    font-size: 23px;
 }
-#question code {
+#questionBlock code {
    font-size: 17px;
    font-family: "Lucida Console", "Courier New", monospace;
    font-weight: normal;
