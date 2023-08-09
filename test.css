@@ -54,6 +54,7 @@ main {
    background: GhostWhite;
    border: 1px solid Gainsboro;
    padding: 5px;
+   margin-top: 5px;
    display: block;
    }
 #question samp {
