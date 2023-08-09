@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-   <meta charset="UTF-8">
-   <title>Datatypes Examples</title>
-   <link rel="stylesheet" href="../test.css">
-</head>
-<body>
-   <header>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Datatypes Examples</title>
+    <link rel="stylesheet" href="../test.css" />
+  </head>
+  <body>
+    <header>
       <h1>Datatypes Examples</h1>
-   </header>
-   
-   <section>
-      
-      <p><span class="counter"></span> - Get the name and extension of "salesforce.com".</p>
+    </header>
+
+    <section>
+      <p>
+        <span class="counter"></span> - Get the name and extension of
+        "salesforce.com".
+      </p>
       <button class="showSolution">Show Solution</button>
       <pre>
          <span class="datatype">String</span> str = <span class="string">'salesforce.com'</span>;
@@ -22,8 +24,11 @@
          <span class="datatype">String</span> str2 = str.substringBefore('.'); 
          <var>System.debug</var>(str2);  <em>// salesforce</em>        
       </pre>
-      
-      <p><span class="counter"></span> - Take the words "World" and "Everybody" in the phrase "Hello World Everybody".</p>
+
+      <p>
+        <span class="counter"></span> - Take the words "World" and "Everybody"
+        in the phrase "Hello World Everybody".
+      </p>
       <button class="showSolution">Show Solution</button>
       <pre>
          <span class="datatype">String</span> str = <span class="string">'Hello World Everbody'</span>;
@@ -32,8 +37,12 @@
          <span class="datatype">String</span> str2 = str.substringBetween(' ');
          <var>System.debug</var>(str2);  <em>// World</em>
       </pre>
-      
-      <p><span class="counter"></span> - "/services/apexrest/Cases/0068e00000G8GQVAA3" ifadesindeki id değerini alınız.</p>
+
+      <p>
+        <span class="counter"></span> -
+        "/services/apexrest/Cases/0068e00000G8GQVAA3" ifadesindeki id değerini
+        alınız.
+      </p>
       <button class="showSolution">Show Solution</button>
       <pre>
          <span class="datatype">String</span> str = <span class="string">'/services/apexrest/Cases/0068e00000G8GQVAA3'</span>;
@@ -41,8 +50,10 @@
          str = str.substringAfterLast('/');
          <var>System.debug</var>(str);  <em>// 0068e00000G8GQVAA3</em>
       </pre>
-      
-      <p><span class="counter"></span> - Bir record URL'deki id değerini alınız.</p>
+
+      <p>
+        <span class="counter"></span> - Bir record URL'deki id değerini alınız.
+      </p>
       <button class="showSolution">Show Solution</button>
       <pre>
          <span class="datatype">String</span> str = <span class="string">'https://d8e000000dhdkeai-dev-ed.develop.lightning.force.com/lightning/r/Opportunity/0068e00000G8GQmAAN/view'</span>;
@@ -53,16 +64,23 @@
          <span class="datatype">String[]</span> strArray = str.split('/');
          <var>System.debug</var>(strArray[strArray.size()-2]);  <em>// 0068e00000G8GQmAAN</em>
       </pre>
-      
-      <p><span class="counter"></span> - External bir systemden "elma, armut, kiraz" formatında gelen bir değeri multiselect picklist formatına çeviriniz.</p>
+
+      <p>
+        <span class="counter"></span> - External bir systemden "elma, armut,
+        kiraz" formatında gelen bir değeri multiselect picklist formatına
+        çeviriniz.
+      </p>
       <button class="showSolution">Show Solution</button>
       <pre>
          <span class="datatype">String</span> str = <span class="string">'elma, armut, kiraz'</span>;
          str = str.replaceAll(',', ';');
          <var>System.debug</var>(str);  <em>// elma; armut; kiraz</em>
       </pre>
-      
-      <p><span class="counter"></span> - Convert a value in "15 Nov 2012" format from an external system to date format.</p>
+
+      <p>
+        <span class="counter"></span> - Convert a value in "15 Nov 2012" format
+        from an external system to date format.
+      </p>
       <button class="showSolution">Show Solution</button>
       <pre>
          <span class="datatype">String</span> tarih = <span class="string">'15 Nov 2012'</span>;
@@ -91,8 +109,11 @@
          <span class="datatype">Date</span> date = Date.parse(tarih);
          <var>System.debug</var>(date);  <em> // 15.11.2012 (Date)</em>
       </pre>
-      
-      <p><span class="counter"></span> - Convert a string word to a list and then restore it.</p>
+
+      <p>
+        <span class="counter"></span> - Convert a string word to a list and then
+        restore it.
+      </p>
       <button class="showSolution">Show Solution</button>
       <pre>
          <span class="datatype">string</span> str = <span class="string">'Hello'</span>;
@@ -110,8 +131,11 @@
          }    
          <var>System.debug</var>(strAgain);  <em>// Hello</em> 
       </pre>
-      
-      <p><span class="counter"></span> - Convert a string sentence to a list and then undo it again.</p>
+
+      <p>
+        <span class="counter"></span> - Convert a string sentence to a list and
+        then undo it again.
+      </p>
       <button class="showSolution">Show Solution</button>
       <pre>
          <span class="datatype">String</span> text = <span class="string">'Bu bir cümledir.'</span>;
@@ -130,9 +154,8 @@
          text = text.trim() + '.';
          <var>System.debug</var>(text);  <em>// (Bu, bir, cümledir)</em> 
       </pre>
-      
-   </section>
-   
-   <script src="examples.js"></script>
-</body>
+    </section>
+
+    <script src="examples.js"></script>
+  </body>
 </html>
