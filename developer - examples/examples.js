@@ -28,7 +28,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       var content = pres[i].innerHTML;
       content = content.replaceAll("new", "<var>new</var>");
       content = content.replaceAll("System.debug", "<span class='key'>System.debug</span>");
-      content = content.replaceAll("for", "<span class='loop'>for</span>");
+     // content = content.replaceAll("for", "<span class='loop'>for</span>");
      // content = content.replaceAll("String", "<span class='datatype'>String</span>");
      // content = content.replaceAll(/boolean/gi, "<span class='datatype'>Boolean</span>");
       
