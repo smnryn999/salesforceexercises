@@ -16,13 +16,14 @@ var wrongs = 0, corrects = 0;
 // QUESTIONS AND OPTIONS CONTENTS
 const test1 = ["What type of relationship in Salesforce represents a parent-child relationship, where the child record can't exist without the parent and inherits its sharing and security settings?", "In Salesforce, what are Record Types used for?",
                "Omni-Channel Routing enables companies to:", "We can deliver connected, intelligent, more personalized service from the phone to the field with Field Service. True or false?", "In Salesforce, what is a primary purpose of a page layout?",
-               "Which of the following statements about validation rules is true?", "Which statement accurately describes a profile?"];
+               "Which of the following statements about validation rules is true?", "Which statement accurately describes a profile?", "What can formula fields in Salesforce NOT do?"];
 const options1 = [["Lookup Relationship","Master-Detail Relationship","External Relationship","Hierarchical Relationship"], ["Providing quality data.","Ensuring that relevant data are entered for each record.","Providing different sets of picklist values for a field.","All of above."],
                   ["Push cases to available agents","Connect customers to the right expert for their issue","Route cases from any service channel","All of the above"], ["True","False"],
                   ["To define the data model for custom objects.","To define the relationships between objects.","To control the visibility of fields for different profiles.","To create custom reports and dashboards."],
                   ["Validation rules run before workflow rules.","Validation rules can only be applied to standard objects, not custom objects.","Validation rules can only be triggered when creating records, not when editing.",'Validation rules can be bypassed by users with the "Modify All Data" permission.'],
-                  ["A profile is used to define data validation rules.","A profile controls access to standard and custom objects.","A profile determines the layout of a record detail page.","A profile is used to manage email templates."]];
-const answers1 = [B,D,D,A,C,A,B];
+                  ["A profile is used to define data validation rules.","A profile controls access to standard and custom objects.","A profile determines the layout of a record detail page.","A profile is used to manage email templates."],
+                  ["Perform calculations using fields from related records.","Reference fields from parent records in a master-detail relationship.",""Update itself automatically based on data in other fields.","Store and display images directly within the formula."]];
+const answers1 = [B,D,D,A,C,A,B,D];
 
 document.querySelector("#numberOfQuestion").innerHTML = test1.length;
 
