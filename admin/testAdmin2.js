@@ -22,7 +22,7 @@ const options1 = [["Lookup Relationship","Master-Detail Relationship","External 
                   ["To define the data model for custom objects.","To define the relationships between objects.","To control the visibility of fields for different profiles.","To create custom reports and dashboards."],
                   ["Validation rules run before workflow rules.","Validation rules can only be applied to standard objects, not custom objects.","Validation rules can only be triggered when creating records, not when editing.",'Validation rules can be bypassed by users with the "Modify All Data" permission.'],
                   ["A profile is used to define data validation rules.","A profile controls access to standard and custom objects.","A profile determines the layout of a record detail page.","A profile is used to manage email templates."],
-                  ["Perform calculations using fields from related records.","Reference fields from parent records in a master-detail relationship.",""Update itself automatically based on data in other fields.","Store and display images directly within the formula."], ["Text Area","Currency","Rich Text","Email"],
+                  ["Perform calculations using fields from related records.","Reference fields from parent records in a master-detail relationship.","Update itself automatically based on data in other fields.","Store and display images directly within the formula."], ["Text Area","Currency","Rich Text","Email"],
                   ["EndDate - TODAY()","DAY(EndDate) - DAY(TODAY())","EndDate - DAY(TODAY)","NOW() - EndDate"]];
 const answers1 = [B,D,D,A,C,A,B,D,C,A];
 
