@@ -83,19 +83,19 @@
          List<String> colors = new List<String>{'White', 'Blue', 'Orange', 'Black'};
          Integer num = 1;
          <span class="datatype">Map&#60;integer, string&#62;</span> mapColors = new <span class="datatype">Map&#60;integer, string&#62;</span>(); // {5=>'Yellow'}
-         for(String c:colors){
+         <span class='loop'>for</span>(String c:colors){
             mapColors.put(num, c);
          }
          System.debug(mapColors);  <em> // {1=Black}</em>
          
          <span class="datatype">Map&#60;string, integer&#62;</span> colorsMap = new <span class="datatype">Map&#60;string, integer&#62;</span>();
-         for(String c:colors){
+         <span class='loop'>for</span>(String c:colors){
             colorsMap.put(c, num); 
          }
          System.debug(colorsMap);  <em> // {Black=1, Blue=1, Orange=1, White=1}</em>
          
          <span class="datatype">Map&#60;integer, string&#62;</span> mapColors = new <span class="datatype">Map&#60;integer, string&#62;</span>{5=>'Yellow'};
-         for(String c:colors){
+         <span class='loop'>for</span>(String c:colors){
             mapColors.put(num, c);
             num++;
          }
@@ -113,11 +113,11 @@
          mapCountry.put('Japan', 'Yen');
          System.debug(mapCountry);
          
-         for(String c:mapCountry.values()){
+         <span class='loop'>for</span>(String c:mapCountry.values()){
             System.debug(c);
          }
          
-         for(String c:mapCountry.keySet()){
+         <span class='loop'>for</span>(String c:mapCountry.keySet()){
             System.debug(c + ' => ' + mapCountry.get(c));
          }
       </pre>
