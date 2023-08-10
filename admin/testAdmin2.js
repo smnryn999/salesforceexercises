@@ -18,7 +18,8 @@ const test1 = ["What type of relationship in Salesforce represents a parent-chil
                "Omni-Channel Routing enables companies to:", "We can deliver connected, intelligent, more personalized service from the phone to the field with Field Service. True or false?", "In Salesforce, what is a primary purpose of a page layout?",
                "Which of the following statements about validation rules is true?", "Which statement accurately describes a profile?", "What can formula fields in Salesforce NOT do?","Which field type can contain an image?","Which formula shows how many days are left until the end of the contract in the Contract object?", 
                "Which Salesforce feature is used to visualize and present data in a graphical format, allowing users to gain insights at a glance?", "Which object does Data Import Wizard not support?", "Which is not a report type in Salesforce?",
-               "It is mandatory to enter an entry criteria in the approval process. True or false?","As an admin, we need to import 20 thousand records for custom Book_c object. What tool can we use for this?"];
+               "It is mandatory to enter an entry criteria in the approval process. True or false?","As an admin, we need to import 20 thousand records for custom Book_c object. What tool can we use for this?",
+               "We want to create a Validation Rule that gives an error if the website field is empty while creating an Account record. Which of the following provides this?"];
 const options1 = [["Lookup Relationship","Master-Detail Relationship","External Relationship","Hierarchical Relationship"], ["Providing quality data.","Ensuring that relevant data are entered for each record.","Providing different sets of picklist values for a field.","All of above."],
                   ["Push cases to available agents","Connect customers to the right expert for their issue","Route cases from any service channel","All of the above"], ["True","False"],
                   ["To define the data model for custom objects.","To define the relationships between objects.","To control the visibility of fields for different profiles.","To create custom reports and dashboards."],
@@ -26,8 +27,8 @@ const options1 = [["Lookup Relationship","Master-Detail Relationship","External 
                   ["A profile is used to define data validation rules.","A profile controls access to standard and custom objects.","A profile determines the layout of a record detail page.","A profile is used to manage email templates."],
                   ["Perform calculations using fields from related records.","Reference fields from parent records in a master-detail relationship.","Update itself automatically based on data in other fields.","Store and display images directly within the formula."], ["Text Area","Currency","Rich Text","Email"],
                   ["EndDate - TODAY()","DAY(EndDate) - DAY(TODAY())","EndDate - DAY(TODAY)","NOW() - EndDate"], ["Workflow Rules","Approval Processes","Reports and Dashboards","Validation Rules"], ["Account","Contact","Opportunity","Lead"], ["Dynamic","Tabular","Summary","Matrix"], ["True","False"],
-                  ["Data Import Wizard","Data Loader","Dataloader.io","All of above"]];
-const answers1 = [B,D,D,A,C,A,B,D,C,A,C,C,A,B,D];
+                  ["Data Import Wizard","Data Loader","Dataloader.io","All of above"], ["ISBLANK(Website)","ISBLANK(Website) && ISNEW()","ISNULL(Website) && ISNEW(Website)","ISNULL(Website) || ISCHANGED(Website)"]];
+const answers1 = [B,D,D,A,C,A,B,D,C,A,C,C,A,B,D,B];
 
 document.querySelector("#numberOfQuestion").innerHTML = test1.length;
 
