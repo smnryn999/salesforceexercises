@@ -20,7 +20,7 @@ const test1 = ["What type of relationship in Salesforce represents a parent-chil
 const options1 = [["Lookup Relationship","Master-Detail Relationship","External Relationship","Hierarchical Relationship"], ["Providing quality data.","Ensuring that relevant data are entered for each record.","Providing different sets of picklist values for a field.","All of above."],
                   ["Push cases to available agents","Connect customers to the right expert for their issue","Route cases from any service channel","All of the above"], ["True","False"],
                   ["To define the data model for custom objects.","To define the relationships between objects.","To control the visibility of fields for different profiles.","To create custom reports and dashboards."],
-                  ["Validation rules run before workflow rules.","Validation rules can only be applied to standard objects, not custom objects.","Validation rules can only be triggered when creating records, not when editing.","Validation rules can be bypassed by users with the "Modify All Data" permission."]];
+                  ["Validation rules run before workflow rules.","Validation rules can only be applied to standard objects, not custom objects.","Validation rules can only be triggered when creating records, not when editing.",'Validation rules can be bypassed by users with the "Modify All Data" permission.']];
 const answers1 = [B,D,D,A,C,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test1.length;
