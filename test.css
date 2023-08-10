@@ -62,7 +62,7 @@ main {
    margin-top: 7px;
    display: block;
    }
-#question samp {
+#questionBlock samp {
    font-size: 17px;
    font-family: "Lucida Console", "Courier New", monospace;
    margin-left: 20px;
