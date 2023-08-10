@@ -57,7 +57,7 @@ main {
    background: rgb(10,10,70); /*GhostWhite;*/
    color: whitesmoke;
    border: 1px solid Gainsboro;
-   border-radius: 3px;
+   border-radius: 5px;
    padding: 10px;
    margin-top: 7px;
    display: block;
