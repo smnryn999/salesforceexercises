@@ -18,7 +18,7 @@ const test1 = ["What type of relationship in Salesforce represents a parent-chil
                "Omni-Channel Routing enables companies to:", "We can deliver connected, intelligent, more personalized service from the phone to the field with Field Service. True or false?", "In Salesforce, what is a primary purpose of a page layout?"];
 const options1 = [["Lookup Relationship","Master-Detail Relationship","External Relationship","Hierarchical Relationship"], ["Providing quality data.","Ensuring that relevant data are entered for each record.","Providing different sets of picklist values for a field.","All of above."],
                   ["Push cases to available agents","Connect customers to the right expert for their issue","Route cases from any service channel","All of the above"], ["True","False"],
-               ["To define the data model for custom objects.","To define the relationships between objects.","To control the visibility of fields for different profiles.","To create custom reports and dashboards."]];
+                  ["To define the data model for custom objects.","To define the relationships between objects.","To control the visibility of fields for different profiles.","To create custom reports and dashboards."]];
 const answers1 = [B,D,D,A,C];
 
 document.querySelector("#numberOfQuestion").innerHTML = test1.length;
