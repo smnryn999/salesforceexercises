@@ -38,36 +38,40 @@ main {
    background: azure;
    height: ;
    padding: 0 15px;
+   border: 1px solid darkblue;
+   border-radius: 5px;
    display: flex;
    justify-content: center;
    flex-direction: column;
    position: relative;
    }
-#questionBlock {margin: 15px 0;}
+#questionBlock {margin: 14px 0;}
 #question {
    font-weight: bold;
    font-size: 23px;
 }
-#question code {
-   font-size: 18px;
+#questionBlock code {
+   font-size: 17px;
    font-family: "Lucida Console", "Courier New", monospace;
-   font-weight: normal;
-   background: GhostWhite;
+   font-weight: bold;
+   background: rgb(10,10,70); /*GhostWhite;*/
+   color: whitesmoke;
    border: 1px solid Gainsboro;
-   padding: 5px;
-   margin-top: 5px;
+   border-radius: 5px;
+   padding: 10px;
+   margin-top: 7px;
    display: block;
    }
-#question samp {
-   font-size: 18px;
+#questionBlock samp {
+   font-size: 17px;
    font-family: "Lucida Console", "Courier New", monospace;
    margin-left: 20px;
    }
 #twoOptions {display: none;}
 .option {
-   font-size: 20px;
-   margin: 20px 0;
-   padding: 10px 0;
+   font-size: 19px;
+   margin: 19px 0;
+   padding: 9px 0;
 }
 .bullet {
    border: 3px solid gray;
@@ -75,9 +79,9 @@ main {
    padding: 7px 12px;
    margin-right: 5px;
 }
-.optionContent {line-height: 35px;}
+.optionContent {line-height: 30px;}
 #explanation {
-   font-size: 20px;
+   font-size: 19px;
    color: green;
    position: absolute;
    bottom: -15px;
@@ -87,18 +91,19 @@ main {
    display: flex;
    justify-content: space-around;
    margin-top: 15px;
+   margin-bottom: 15px;
 }
 button {
    background: seagreen;
    color: #fafafa;
    border-radius: 5px;
-   padding: 0 25px;
-   font-size: 20px;
+   padding: 0 24px;
+   font-size: 19px;
    font-weight: bold;
 }
 #reset {padding-bottom: 5px;}
 #reset span {
-   font-size: 25px;
+   font-size: 24px;
    font-weight: bold;
 }
 

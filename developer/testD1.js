@@ -17,17 +17,24 @@ var wrongs = 0, corrects = 0;
 const test = ["Which one is full-code?", "Which keyword is used to declare a constant in Apex?", "What is the output of this code? <br> <code>System.debug(3+5);</code>", "Apex works in server side. True or false?", "What is the output of this code? <br> <code>Integer[] numbers = new Integer[]{3,5,7,10};<br>Integer sum = 0;<br>for(Integer num:numbers){<br><samp>sum += num;</samp><br>}<br>System.debug(sum + num);</code>",
               "What is the output of this code? <br> <code>final integer x = 5; <br> x = 10; <br> System.debug(x);</code>",
               "We want to create a related contact automatically when we create an account. Which event should we use?",
+<<<<<<< HEAD
              "We have 10 accounts in the production org. And when we execute the following code, how many accounts do we have in total? <br> <code>Account acc =  new Account(Name = 'New Account'); <br> insert acc; <br> List&lt;Account&gt; listAcc = new List&lt;Account&gt;(); <br> for(integer i=1; i<5; i++){<br><samp>Account acc =  new Account(Name = 'New Account' + i);</samp> <br><samp>listAcc.add(acc);</samp> <br>}</code>",
+=======
+             "We have 10 accounts in the production org. And when we execute the following code, how many accounts do we have in total? <br> <code>Account acc =  new Account(Name = 'New Account'); <br> insert acc; <br><br> List&lt;Account&gt; listAcc = new List&lt;Account&gt;(); <br> for(integer i=1; i<5; i++){<br><samp>Account acc =  new Account(Name = 'New Account' + i);</samp> <br><samp>listAcc.add(acc);</samp> <br>}</code>",
+>>>>>>> 471d10f037955c33f14cfe7311d0df10324b8442
              "Abstract classes cannot have instances. True or false?", "Which format does SOAP API support?", "Which of the following is true?", "Which file is not required in LWC?", "Which of the following methods converts JSON format to Apex format?",
              "Which of the following methods is not to manipulate the database?", "We can use DML in an Apex method that is annotated with @AuraEnabled(cacheable=true). True or false?", "Which of the following best describes Salesforce Aura Components?",
-             "What is Salesforce Visualforce primarily used for?"];
+             "What is Salesforce Visualforce primarily used for?", "What is Apex not used for?", "What is the result of the expression Calculator.calculateTotal(15, 5) according to the following class and method? <br> <code>public class Calculator{<br> <samp>public static decimal calculateTotal(decimal unitPrice, integer quantity){</samp><br> <samp><samp>return unitPrice * quantity;</samp></samp> <br><samp>}</samp><br>}</code>",
+             "<code>public class MyClass{<br> <samp>public string myMethod(){</samp><br> <samp><samp>return 'Hello World';</samp></samp> <br><samp>}</samp><br>}</code> <br> How do we call the method named myMethod above?"];
 
 const options1 = [["Apex","Flow","Formula Fields","Validation Rules"], ["final","constant","static","const"], [35, "3+5", 8, "Error"], ["True", "False"], [10,25,35,"Error"], [5,10,"x","Error"], ["before insert","after insert","before update","after update"],
                  [10,11,14,15], ["True","False"], ["Text","JSON","XML","CSV"], ["SOAP API supports JSON files","XML is more useful than JSON","REST API is more secure than SOAP API","REST API is faster than SOAP API"],
                  ["HTML","CSS","JavaScript","XML"], ["JSON.stringify()","JSON.destringify()","JSON.serialize()","JSON.deserialize()"], ["@track adapter","@wire adapter","LDS functions","<lighting-record-form> tag"], ["True", "False"],
                  ["A server-side framework for building web applications.","A programming language used to create custom objects in Salesforce.","A user interface framework for developing dynamic web apps for mobile and desktop devices.","A database management tool provided by Salesforce."],
-                 ["Creating custom objects in Salesforce.","Building server-side logic for Apex classes.","Designing user interfaces for web applications using a markup language.","Integrating external databases with Salesforce."]];
-const answers = [A, A, C, A, D, D, B, B, A, C, D, B, D, A, B, C, C];
+                 ["Creating custom objects in Salesforce.","Building server-side logic for Apex classes.","Designing user interfaces for web applications using a markup language.","Integrating external databases with Salesforce."],
+                 ["Creating visually appealing user interfaces for web applications.","Managing and organizing Salesforce records in the database.","Writing server-side logic and business processes.","Connecting Salesforce with external services."], [75, "75.0", "Null", "Error"],
+                 ["<code>MyClass.myMethod();</code>","<code>MyClass mc = new MyClass(); <br> mc.myMethod();</code>","<code>myMethod();</code>","<code>myMethod instanceOf MyClass;</code>"]];
+const answers = [A, A, C, A, D, D, B, B, A, C, D, B, D, A, B, C, C, A, B, B];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
