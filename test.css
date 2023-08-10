@@ -110,11 +110,11 @@ button {
 
 /* DATATYPES.HTM */
 section {margin: 20px;}
-section p {font-size: 19px; background: #fafafa; padding: 5px;}
-section button {padding: 5px 10px; background: lightgreen;}
+section p {font-size: 19px; background: #fafafa; padding: 5px; border: 1px solid lightgrey; border-radius: 5px; text-indent: 5px;}
+section button {padding: 4px 9px; background: lightgreen; font-size: 15px; color: black;}
 pre {
    background: rgb(10,0,50);
-   line-height: 30px;
+   line-height: 28px;
    padding-top: 30px;
    border: 1px solid blue;
    border-radius: 5px;
