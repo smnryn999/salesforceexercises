@@ -14,9 +14,9 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test = ["Which of the following Visualforce code snippets correctly creates a command button that calls the \"updateRecord\" method in the controller when clicked?"];
+const test = ['Which of the following Visualforce code snippets correctly creates a command button that calls the "updateRecord" method in the controller when clicked?'];
 
-const options1 = [["<code><apex:commandButton action="{!updateRecord}" value="Update"/></code>","<code><apex:commandButton method="updateRecord" value="Update"/></code>","<code><apex:commandButton onclick="{!updateRecord}" value="Update"/></code>","<code><apex:commandButton actionName="updateRecord" value="Update"/></code>"]];
+const options1 = [['<code><apex:commandButton action="{!updateRecord}" value="Update"/></code>','<code><apex:commandButton method="updateRecord" value="Update"/></code>','<code><apex:commandButton onclick="{!updateRecord}" value="Update"/></code>','<code><apex:commandButton actionName="updateRecord" value="Update"/></code>']];
 const answers = [A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
