@@ -33,7 +33,7 @@ const options1 = [["Lookup Relationship","Master-Detail Relationship","External 
                   ["Custom metadata types can be used to create custom fields on standard objects.","Custom metadata types can be used to define record-level security.","Custom metadata types can be used to create custom objects with records.","Custom metadata types support data import and export through the data loader."],
                   ["Record-Triggered Flows","Autolaunched Flows","Screen Flows","Visual Flows"], ["True","False"],
                   ["A graphical tool for creating automated business processes","A feature for managing email campaigns","A reporting and analytics platform","A module for managing customer support tickets"]];
-const answers1 = [B,D,D,A,C,A,B,D,C,A,C,C,A,B,D,B,C,C,B,A];
+const answers = [B,D,D,A,C,A,B,D,C,A,C,C,A,B,D,B,C,C,B,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test1.length;
 
@@ -65,7 +65,7 @@ submit.onclick = function () {
       alert("Please select an option or click pass button");
    }
    else {
-      if(answers1[n].style.backgroundColor == "dodgerblue") {
+      if(answers[n].style.backgroundColor == "dodgerblue") {
          explanation.innerHTML = "Correct Answer";
          explanation.style.color = "green";
          corrects++;
@@ -84,8 +84,8 @@ submit.onclick = function () {
          }
       }
       
-      answers1[n].style.color = "white";
-      answers1[n].style.backgroundColor = "green";      
+      answers[n].style.color = "white";
+      answers[n].style.backgroundColor = "green";      
    }
 }
 
