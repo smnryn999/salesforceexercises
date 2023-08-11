@@ -25,7 +25,7 @@ const options1 = [['<code>&lt;apex:commandButton action="{!updateRecord}" value=
                  ["Integer i = 10;","Int i = 10;","i = Integer(10);","Integer i; i = 10;"],
                  ["<code>List&lt;String&gt; fruits = new List&lt;String&gt;(); <br> fruits.add('Apple'); <br> fruits.add('Banana'); <br> fruits.add('Cherry');</code>","<code>List&lt;Text&gt; fruits = new List&lt;Text&gt;(); <br> fruits.add('Apple'); <br> fruits.add('Banana'); <br> fruits.add('Cherry');</code>",'<code>List&lt;String&gt; fruits = new List&lt;String&gt;{ "Apple", "Banana", "Cherry" };</code>',"<code>List&lt;String&gt; fruits = new ListList&lt;String&gt;{'Apple', 'Banana', 'Cherry'};</code>"],
                  [4,5,48,72], ["Screen Flows","Asynchronous Apex","Visualforce","Aura Components"], ["We implement the batch class into Database.Stateful.","We schedule the batch class","We implement the batch class into Database.BatchableContext.","We do not need to take any action. This is already provided in a batch class."],
-                 ["Queueable classes can be used to implement callouts to external services.","Queueable classes can be executed synchronously.","Queueable classes can only be enqueued from trigger context.","Queueable classes can't be scheduled to run at a specific time."]];
+                 ["Queueable classes can be used to implement callouts to external services.","Queueable classes can be executed synchronously.","Queueable classes can only be enqueued from trigger context.","Queueable classes can't be scheduled to run at a specific time."], ["True","False"]];
 const answers = [A,B,C,A,D,C,B,A,A,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
