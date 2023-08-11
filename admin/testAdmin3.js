@@ -14,10 +14,12 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test = ["If we cannot delete a field, what could be the reason?"];
+const test = ["If we cannot delete a field, what could be the reason?", "If we want to make a field required universally and only for some profiles, how do we do it?", "Which field type cannot be used as External ID?"];
 
-const options1 = [["It may have been used in a formula field.","It may be a master-detail relationship field in an object whose data is used by a roll-up summary field.","It may be a standard field.","All of above."]];
-const answers = [D];
+const options1 = [["It may have been used in a formula field.","It may be a master-detail relationship field in an object whose data is used by a roll-up summary field.","It may be a standard field.","All of above."],
+                 ["We mark required checkbox in the field settings.","We make the field required on the page layout.","We make the field required using a validation rule.","None of above. Because, this cannot be performed."],
+                 ["Text","Number","Email","URL"]];
+const answers = [D,C,D];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
