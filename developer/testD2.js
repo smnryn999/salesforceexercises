@@ -23,7 +23,7 @@ const options1 = [['<code>&lt;apex:commandButton action="{!updateRecord}" value=
                  ["Integer i = 10;","Int i = 10;","i = Integer(10);","Integer i; i = 10;"],
                  ["<code>List&lt;String&gt; fruits = new List&lt;String&gt;(); <br> fruits.add('Apple'); <br> fruits.add('Banana'); <br> fruits.add('Cherry');</code>","<code>List&lt;Text&gt; fruits = new List&lt;Text&gt;(); <br> fruits.add('Apple'); <br> fruits.add('Banana'); <br> fruits.add('Cherry');</code>",'<code>List&lt;String&gt; fruits = new List&lt;String&gt;{ "Apple", "Banana", "Cherry" };</code>',"<code>List&lt;String&gt; fruits = new ListList&lt;String&gt;{'Apple', 'Banana', 'Cherry'};</code>"],
                  [4,5,48,72]];
-const answers = [A,B,C,A,D,B,C];
+const answers = [A,B,C,A,D,C];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
