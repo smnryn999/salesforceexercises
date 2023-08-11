@@ -20,7 +20,7 @@ const test1 = ["What type of relationship in Salesforce represents a parent-chil
                "Which Salesforce feature is used to visualize and present data in a graphical format, allowing users to gain insights at a glance?", "Which object does Data Import Wizard not support?", "Which is not a report type in Salesforce?",
                "It is mandatory to enter an entry criteria in an Approval Process. True or false?","As an admin, we need to import 20 thousand records for custom Book__c object. What tool can we use for this?",
                "We want to create a Validation Rule that gives an error if the website field is empty while creating an Account record. Which of the following provides this?", "Which of the following statements is true about custom metadata types?",
-               "Which type of flow is used to guide users through screens and collect data?", "We can create a Record-Triggered Flow that is triggered after one or more records are deleted by users. True or false?"];
+               "Which type of flow is used to guide users through screens and collect data?", "We can create a Record-Triggered Flow that is triggered after one or more records are deleted by users. True or false?", "Which of the following best describes Salesforce Flow?"];
 
 const options1 = [["Lookup Relationship","Master-Detail Relationship","External Relationship","Hierarchical Relationship"], ["Providing quality data.","Ensuring that relevant data are entered for each record.","Providing different sets of picklist values for a field.","All of above."],
                   ["Push cases to available agents","Connect customers to the right expert for their issue","Route cases from any service channel","All of the above"], ["True","False"],
@@ -31,8 +31,9 @@ const options1 = [["Lookup Relationship","Master-Detail Relationship","External 
                   ["EndDate - TODAY()","DAY(EndDate) - DAY(TODAY())","EndDate - DAY(TODAY)","NOW() - EndDate"], ["Workflow Rules","Approval Processes","Reports and Dashboards","Validation Rules"], ["Account","Contact","Opportunity","Lead"], ["Dynamic","Tabular","Summary","Matrix"], ["True","False"],
                   ["Data Import Wizard","Data Loader","Dataloader.io","All of above"], ["ISBLANK(Website)","ISBLANK(Website) && ISNEW()","ISNULL(Website) && ISNEW(Website)","ISNULL(Website) || ISCHANGED(Website)"],
                   ["Custom metadata types can be used to create custom fields on standard objects.","Custom metadata types can be used to define record-level security.","Custom metadata types can be used to create custom objects with records.","Custom metadata types support data import and export through the data loader."],
-                  ["Record-Triggered Flows","Autolaunched Flows","Screen Flows","Visual Flows"], ["True","False"]];
-const answers1 = [B,D,D,A,C,A,B,D,C,A,C,C,A,B,D,B,C,C,B];
+                  ["Record-Triggered Flows","Autolaunched Flows","Screen Flows","Visual Flows"], ["True","False"],
+                  ["A graphical tool for creating automated business processes","A feature for managing email campaigns","A reporting and analytics platform","A module for managing customer support tickets"]];
+const answers1 = [B,D,D,A,C,A,B,D,C,A,C,C,A,B,D,B,C,C,B,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test1.length;
 
@@ -167,3 +168,6 @@ reset.onclick = function () {
          }
       }
 }
+
+
+  
