@@ -70,7 +70,7 @@ submit.onclick = function () {
          explanation.style.color = "green";
          corrects++;
          }
-      else if(answers1[n].style.backgroundColor == "green") {
+      else if(answers[n].style.backgroundColor == "green") {
          null;
       }
       else {
@@ -91,7 +91,7 @@ submit.onclick = function () {
 
 // PASS BUTTON
 pass.onclick = function () {
-   if(n==test1.length-1) {
+   if(n==test.length-1) {
       explanation.innerHTML = `Test Completed. Total questions: ${test.length}, correct answers: ${corrects}, wrong answers: ${wrongs}`;
       explanation.style.color = "navy";
    }else {
@@ -119,7 +119,7 @@ pass.onclick = function () {
       }
    }
    
-   if(index==test1.length) {return;}
+   if(index==test.length) {return;}
    index++;
    document.getElementById("index").innerHTML = index;
    
