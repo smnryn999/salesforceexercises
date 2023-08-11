@@ -18,7 +18,7 @@ const test = ['Which of the following Visualforce code snippets correctly create
              "What is the term used to describe the ability of a subclass to inherit attributes and methods from its superclass?", "What is the correct syntax for declaring a variable of type Integer and initializing it to the value 10?",
              'Which of the following Apex code snippets correctly initializes a List of Strings with three elements: "Apple", "Banana", and "Cherry"', "What is the output of this code block? <br> <code>Date firstDate = Date.newInstance(1987, 11, 25); <br> Date secondDate = Date.newInstance(1991, 11, 30); <br> Integer monthsBetween = firstDate.monthsBetween(secondDate); <br> System.debug(monthsBetween);</code>",
              "Which of the following cannot we design an user interface with?", "We want to use a variable value that we assigned in the execute method in a batch class, in the finish method. How do we provide this?",
-             "Which of the following statements about Queueable classes is true?"];
+             "Which of the following statements about Queueable classes is true?", "Lightning Web Components (LWC) can be exposed in Lightning App Builder. True or false?"];
 
 const options1 = [['<code>&lt;apex:commandButton action="{!updateRecord}" value="Update"/&gt;</code>','<code>&lt;apex:commandButton method="updateRecord" value="Update"/&gt;</code>','<code>&lt;apex:commandButton onclick="{!updateRecord}" value="Update"/&gt;</code>','<code>&lt;apex:commandButton actionName="updateRecord" value="Update"/&gt;</code>'],
                  ["It represents the old values of records before they were updated.","It refers to the new values of records after they were updated.","It represents the values of records before they were deleted.","It's used to access the values of records in a related object."], ["Overloading","Polymorphism","Inheritance","Abstraction"],
@@ -26,7 +26,7 @@ const options1 = [['<code>&lt;apex:commandButton action="{!updateRecord}" value=
                  ["<code>List&lt;String&gt; fruits = new List&lt;String&gt;(); <br> fruits.add('Apple'); <br> fruits.add('Banana'); <br> fruits.add('Cherry');</code>","<code>List&lt;Text&gt; fruits = new List&lt;Text&gt;(); <br> fruits.add('Apple'); <br> fruits.add('Banana'); <br> fruits.add('Cherry');</code>",'<code>List&lt;String&gt; fruits = new List&lt;String&gt;{ "Apple", "Banana", "Cherry" };</code>',"<code>List&lt;String&gt; fruits = new ListList&lt;String&gt;{'Apple', 'Banana', 'Cherry'};</code>"],
                  [4,5,48,72], ["Screen Flows","Asynchronous Apex","Visualforce","Aura Components"], ["We implement the batch class into Database.Stateful.","We schedule the batch class","We implement the batch class into Database.BatchableContext.","We do not need to take any action. This is already provided in a batch class."],
                  ["Queueable classes can be used to implement callouts to external services.","Queueable classes can be executed synchronously.","Queueable classes can only be enqueued from trigger context.","Queueable classes can't be scheduled to run at a specific time."]];
-const answers = [A,B,C,A,D,C,B,A,A];
+const answers = [A,B,C,A,D,C,B,A,A,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
