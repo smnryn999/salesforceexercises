@@ -14,7 +14,7 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test1 = ["What type of relationship in Salesforce represents a parent-child relationship, where the child record can't exist without the parent and inherits its sharing and security settings?", "In Salesforce, what are Record Types used for?",
+const test = ["What type of relationship in Salesforce represents a parent-child relationship, where the child record can't exist without the parent and inherits its sharing and security settings?", "In Salesforce, what are Record Types used for?",
                "Omni-Channel Routing enables companies to:", "We can deliver connected, intelligent, more personalized service from the phone to the field with Field Service. True or false?", "In Salesforce, what is a primary purpose of a page layout?",
                "Which of the following statements about validation rules is true?", "Which statement accurately describes a profile?", "What can formula fields in Salesforce NOT do?","Which field type can contain an image?","Which formula shows how many days are left until the end of the contract in the Contract object?", 
                "Which Salesforce feature is used to visualize and present data in a graphical format, allowing users to gain insights at a glance?", "Which object does Data Import Wizard not support?", "Which is not a report type in Salesforce?",
@@ -35,9 +35,9 @@ const options1 = [["Lookup Relationship","Master-Detail Relationship","External 
                   ["A graphical tool for creating automated business processes","A feature for managing email campaigns","A reporting and analytics platform","A module for managing customer support tickets"]];
 const answers = [B,D,D,A,C,A,B,D,C,A,C,C,A,B,D,B,C,C,B,A];
 
-document.querySelector("#numberOfQuestion").innerHTML = test1.length;
+document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
-question.innerHTML = test1[n];
+question.innerHTML = test[n];
 
 for(opt of optionContents){
    opt.innerHTML = options1[m][i];
@@ -78,7 +78,7 @@ submit.onclick = function () {
          explanation.style.color = "red";
          wrongs++;
          for(b of bullets){
-            if(b.style.backgroundColor == "dodgerblue" && b != answers1[n]) {
+            if(b.style.backgroundColor == "dodgerblue" && b != answers[n]) {
                b.style.backgroundColor = "red";
             }
          }
@@ -92,11 +92,11 @@ submit.onclick = function () {
 // PASS BUTTON
 pass.onclick = function () {
    if(n==test1.length-1) {
-      explanation.innerHTML = `Test Completed. Total questions: ${test1.length}, correct answers: ${corrects}, wrong answers: ${wrongs}`;
+      explanation.innerHTML = `Test Completed. Total questions: ${test.length}, correct answers: ${corrects}, wrong answers: ${wrongs}`;
       explanation.style.color = "navy";
    }else {
       n++;
-      question.innerHTML = test1[n];
+      question.innerHTML = test[n];
    
       i=0;
       m++;
@@ -141,7 +141,7 @@ reset.onclick = function () {
    corrects = 0;
    index = 1;
    document.getElementById("index").innerHTML = index;
-   question.innerHTML = test1[n];
+   question.innerHTML = test[n];
    for(opt of optionContents){
       opt.innerHTML = options1[m][i];
       i++;
