@@ -14,12 +14,14 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test = ["If we cannot delete a field, what could be the reason?", "If we want to make a field required universally and only for some profiles, how do we do it?", "Which field type cannot be used as External ID?"];
+const test = ["What is Salesforce?", "What is CRM (Customer Relationship Management)?,", "If we cannot delete a field, what could be the reason?", "If we want to make a field required universally and only for some profiles, how do we do it?", "Which field type cannot be used as External ID?"];
 
-const options1 = [["It may have been used in a formula field.","It may be a master-detail relationship field in an object whose data is used by a roll-up summary field.","It may be a standard field.","All of above."],
+const options1 = [["A popular social media platform.","A cloud-based customer relationship management (CRM) software.","A mobile operating system.","A programming language for web development."],
+                 ["A system for tracking customer interactions and managing relationships.","A tool for managing employee performance.","A cloud-based data storage solution.","A type of email marketing software."],
+                 ["It may have been used in a formula field.","It may be a master-detail relationship field in an object whose data is used by a roll-up summary field.","It may be a standard field.","All of above."],
                  ["We mark required checkbox in the field settings.","We make the field required on the page layout.","We make the field required using a validation rule.","None of above. Because, this cannot be performed."],
                  ["Text","Number","Email","URL"]];
-const answers = [D,C,D];
+const answers = [B,A,D,C,D];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
