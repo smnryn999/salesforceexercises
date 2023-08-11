@@ -14,10 +14,11 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test = ['Which of the following Visualforce code snippets correctly creates a command button that calls the "updateRecord" method in the controller when clicked?'];
+const test = ['Which of the following Visualforce code snippets correctly creates a command button that calls the "updateRecord" method in the controller when clicked?', 'What does the "trigger.new" keyword refer to in Salesforce Apex triggers?'];
 
-const options1 = [['<code>&lt;apex:commandButton action="{!updateRecord}" value="Update"/&gt;</code>','<code>&lt;apex:commandButton method="updateRecord" value="Update"/&gt;</code>','<code>&lt;apex:commandButton onclick="{!updateRecord}" value="Update"/&gt;</code>','<code>&lt;apex:commandButton actionName="updateRecord" value="Update"/&gt;</code>']];
-const answers = [A];
+const options1 = [['<code>&lt;apex:commandButton action="{!updateRecord}" value="Update"/&gt;</code>','<code>&lt;apex:commandButton method="updateRecord" value="Update"/&gt;</code>','<code>&lt;apex:commandButton onclick="{!updateRecord}" value="Update"/&gt;</code>','<code>&lt;apex:commandButton actionName="updateRecord" value="Update"/&gt;</code>'],
+                 ["It represents the old values of records before they were updated.","It refers to the new values of records after they were updated.","It represents the values of records before they were deleted.","It's used to access the values of records in a related object."]];
+const answers = [A,B];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
