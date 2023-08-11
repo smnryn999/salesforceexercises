@@ -50,18 +50,70 @@
 
         Cake apple = new Cake('Apple Cake', 18, true);
         System.debug(apple); <em> // Cake:[cream=true, name=Apple Cake, sugar=18] </em>
-
       </pre>
       
       <!-- EXAMPLE 2 -->
-      <p><span class="counter"></span> - Remove repeating elements from a list.</p>
+      <p><span class="counter"></span> - Encapsulation</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         list<string> listColors = new List<string>{'Green', 'Blue', 'Yellow', 'Blue'};
-         set<string> setColors = new Set<string>(listColors);  <em> // Blue, Green, Yellow</em>
-         System.debug(setColors);  <em> // {Blue, Green, Yellow}</em>
+      public class Cake {
+         public string name;
+         public integer sugar;
+         private boolean cream = true; <em> // {get; private set;} readonly </em>
+         
+         <em> // getter method </em>
+         public boolean getCream(){
+            return this.cream;
+         }
+         
+         <em> // setter method </em>
+         public void setCream(Boolean cream){
+            this.cream = cream;
+         }
+      }
+      
+      <em> // And we are creating some instances and using getCream() and setCream() methods </em>
+      Cake lemon = new Cake();
+      lemon.name = 'Lemon Cake';
+      lemon.sugar = 15;
+      System.debug(lemon); <em> // Cake:[cream=true, name=Lemon Cake, sugar=15] </em>
+
+      System.debug(lemon.getCream()); <em> // true </em>
+      lemon.setCream(false);
+      System.debug(lemon.getCream()); <em> // false </em>
+      
+      Cake apple = new Cake('Apple Cake', 18, false);
+      System.debug(apple); <em> // Cake:[cream=false, name=Apple Cake, sugar=18]</em>
       </pre>
       
+      <!-- EXAMPLE 3 -->
+      <p><span class="counter"></span> - Inheritance</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+      <em> // Cake Class (Parent)</em>
+        public virtual class Cake {
+           public string name;
+           public integer sugar=25;
+           public boolean cream;
+         
+           public void cakeMethod(){
+           System.debug('This is Cake Class');
+           }
+         }
+
+      <em> // Pie Class (Child)</em>
+        public class Pie extends Cake {
+           public integer sugarPie = sugar;
+           public void pieMethod(){
+              cakeMethod();
+           }
+         }
+
+        Pie cinnamon = new Pie();
+        cinnamon.name = 'cinnamon';  
+        System.debug(cinnamon.sugarPie); <em> // 25 </em>
+        System.debug(cinnamon.pieMethod); <em> // This is Cake Class </em>
+      </pre>
       
    </section>
    
@@ -69,5 +121,3 @@
    
 </body>
 </html>
-
-
