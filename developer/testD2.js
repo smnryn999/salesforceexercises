@@ -20,7 +20,7 @@ const test = ['Which of the following Visualforce code snippets correctly create
 const options1 = [['<code>&lt;apex:commandButton action="{!updateRecord}" value="Update"/&gt;</code>','<code>&lt;apex:commandButton method="updateRecord" value="Update"/&gt;</code>','<code>&lt;apex:commandButton onclick="{!updateRecord}" value="Update"/&gt;</code>','<code>&lt;apex:commandButton actionName="updateRecord" value="Update"/&gt;</code>'],
                  ["It represents the old values of records before they were updated.","It refers to the new values of records after they were updated.","It represents the values of records before they were deleted.","It's used to access the values of records in a related object."], ["Overloading","Polymorphism","Inheritance","Abstraction"]
                  ["Integer i = 10;","Int i = 10;","i = Integer(10);","Integer i; i = 10;"]];
-const answers = [A,B,C,D];
+const answers = [A,B,C,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
