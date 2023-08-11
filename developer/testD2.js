@@ -16,13 +16,17 @@ var wrongs = 0, corrects = 0;
 // QUESTIONS AND OPTIONS CONTENTS
 const test = ['Which of the following Visualforce code snippets correctly creates a command button that calls the "updateRecord" method in the controller when clicked?', 'What does the "trigger.new" keyword refer to in Salesforce Apex triggers?',
              "What is the term used to describe the ability of a subclass to inherit attributes and methods from its superclass?", "What is the correct syntax for declaring a variable of type Integer and initializing it to the value 10?",
-             'Which of the following Apex code snippets correctly initializes a List of Strings with three elements: "Apple", "Banana", and "Cherry"'];
+             'Which of the following Apex code snippets correctly initializes a List of Strings with three elements: "Apple", "Banana", and "Cherry"', "What is the output of this code block? <br> <code>Date firstDate = Date.newInstance(2006, 12, 2);
+Date secondDate = Date.newInstance(2012, 12, 8);
+Integer monthsBetween = firstDate.monthsBetween(secondDate);
+System.assertEquals(72, monthsBetween);</code>"];
 
 const options1 = [['<code>&lt;apex:commandButton action="{!updateRecord}" value="Update"/&gt;</code>','<code>&lt;apex:commandButton method="updateRecord" value="Update"/&gt;</code>','<code>&lt;apex:commandButton onclick="{!updateRecord}" value="Update"/&gt;</code>','<code>&lt;apex:commandButton actionName="updateRecord" value="Update"/&gt;</code>'],
                  ["It represents the old values of records before they were updated.","It refers to the new values of records after they were updated.","It represents the values of records before they were deleted.","It's used to access the values of records in a related object."], ["Overloading","Polymorphism","Inheritance","Abstraction"],
                  ["Integer i = 10;","Int i = 10;","i = Integer(10);","Integer i; i = 10;"],
-                 ["<code>List&lt;String&gt; fruits = new List&lt;String&gt;(); <br> fruits.add('Apple'); <br> fruits.add('Banana'); <br> fruits.add('Cherry');</code>","<code>List&lt;Text&gt; fruits = new List&lt;Text&gt;(); <br> fruits.add('Apple'); <br> fruits.add('Banana'); <br> fruits.add('Cherry');</code>",'<code>List&lt;String&gt; fruits = new List&lt;String&gt;{ "Apple", "Banana", "Cherry" };</code>',"<code>List&lt;String&gt; fruits = new ListList&lt;String&gt;{'Apple', 'Banana', 'Cherry'};</code>"]];
-const answers = [A,B,C,A,D];
+                 ["<code>List&lt;String&gt; fruits = new List&lt;String&gt;(); <br> fruits.add('Apple'); <br> fruits.add('Banana'); <br> fruits.add('Cherry');</code>","<code>List&lt;Text&gt; fruits = new List&lt;Text&gt;(); <br> fruits.add('Apple'); <br> fruits.add('Banana'); <br> fruits.add('Cherry');</code>",'<code>List&lt;String&gt; fruits = new List&lt;String&gt;{ "Apple", "Banana", "Cherry" };</code>',"<code>List&lt;String&gt; fruits = new ListList&lt;String&gt;{'Apple', 'Banana', 'Cherry'};</code>"],
+                 [4,72,48,15]];
+const answers = [A,B,C,A,D,B];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
