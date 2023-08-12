@@ -20,7 +20,7 @@ const test = ["What is Salesforce?", "What is CRM (Customer Relationship Managem
               "What is a Compact Layout used for in Salesforce?", "What is the primary purpose of the Lead object?",
               "If we cannot delete a field, what could be the reason?", "If we want to make a field required universally and only for some profiles, how do we do it?", "Which field type cannot be used as External ID?",
               "Which of the following is not a function of roll-up summary field?", "In Salesforce, what is the primary purpose of Roles?", "In Salesforce, what is the main purpose of Dashboards?",
-              "What does Salesforce Web-to-Case allow you to do?", "What is the primary purpose of an approval process in Salesforce?", "What is an Autolaunched Flow?"];
+              "What does Salesforce Web-to-Case allow you to do?", "What is the primary purpose of an approval process in Salesforce?", "What is an Autolaunched Flow?", "What happens when a lead is converted?"];
 
 const options1 = [["A popular social media platform.","A cloud-based customer relationship management (CRM) software.","A mobile operating system.","A programming language for web development."],
                  ["A system for tracking customer interactions and managing relationships.","A tool for managing employee performance.","A cloud-based data storage solution.","A type of email marketing software."],
@@ -35,8 +35,9 @@ const options1 = [["A popular social media platform.","A cloud-based customer re
                  ["To import and export data between Salesforce and external systems.","To create custom objects and fields for specific reporting needs.","To visualize and display key business metrics and data from Salesforce reports.","To automate the process of lead generation and qualification."],
                  ["Create new cases in Salesforce org when customers submit inquiries through a web form.","Automatically convert leads into contacts when they submit a web form.","Send automated marketing emails to leads who visit your website.","Generate custom reports based on website traffic."],
                  ["To automatically generate leads from website inquiries.","To enable users to create custom reports and dashboards.","To manage user roles and access levels within the organization.","To streamline and automate the approval of records, such as opportunities."],
-                 ["A flow that runs in the background and doesn’t require user interaction.","A flow that we can create an interface and interact with the user.","A flow that automatically send emails to leads and contacts.","A flow that manage user permissions and access controls."]];
-const answers = [B,A,C,B,A,D,C,B,C,D,C,D,A,B,C,A,D,A];
+                 ["A flow that runs in the background and doesn’t require user interaction.","A flow that we can create an interface and interact with the user.","A flow that automatically send emails to leads and contacts.","A flow that manage user permissions and access controls."],
+                 ["The lead is deleted from the system.","The lead is converted into a report for further analysis.","The lead is automatically converted into an opportunity.","The lead is converted into a contact, account, and optionally, an opportunity."]];
+const answers = [B,A,C,B,A,D,C,B,C,D,C,D,A,B,C,A,D,A,D];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
