@@ -19,7 +19,7 @@ const test = ["What is Salesforce?", "What is CRM (Customer Relationship Managem
               "In Salesforce, what type of relationship allows a record from one object to be linked to multiple records in another object, but it is not mandatory those records in the second object to be related to any record in the first object?",
               "What is a Compact Layout used for in Salesforce?", "What is the primary purpose of the Lead object?",
               "If we cannot delete a field, what could be the reason?", "If we want to make a field required universally and only for some profiles, how do we do it?", "Which field type cannot be used as External ID?",
-              "Which of the following is not a function of roll-up summary field?"];
+              "Which of the following is not a function of roll-up summary field?", "In Salesforce, what is the primary purpose of a Role?"];
 
 const options1 = [["A popular social media platform.","A cloud-based customer relationship management (CRM) software.","A mobile operating system.","A programming language for web development."],
                  ["A system for tracking customer interactions and managing relationships.","A tool for managing employee performance.","A cloud-based data storage solution.","A type of email marketing software."],
@@ -30,8 +30,8 @@ const options1 = [["A popular social media platform.","A cloud-based customer re
                  ["To track sales opportunities.","To automate marketing campaigns.","To store information about prospective customers.","To manage customer support cases."],
                  ["It may have been used in a formula field.","It may be a master-detail relationship field in an object whose data is used by a roll-up summary field.","It may be a standard field.","All of above."],
                  ["We mark required checkbox in the field settings.","We make the field required on the page layout.","We make the field required using a validation rule.","None of above. Because, this cannot be performed."],
-                 ["Text","Number","Email","URL"], ["AVG()","MIN()","SUM()","COUNT()"]];
-const answers = [B,A,C,B,A,D,C,B,C,D,C,D,A];
+                 ["Text","Number","Email","URL"], ["AVG()","MIN()","SUM()","COUNT()"], ["To determine which users can access the Salesforce AppExchange.","To define the level of access a user has to records and data.","To assign tasks and events to specific users.","To create custom objects and fields in the database."]];
+const answers = [B,A,C,B,A,D,C,B,C,D,C,D,A,B];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
