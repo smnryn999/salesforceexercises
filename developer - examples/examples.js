@@ -27,6 +27,7 @@ var showButtons = document.querySelectorAll(".showSolution");
    for(var i=0; i<pres.length; i++){
       var content = pres[i].innerHTML;
       content = content.replaceAll("new", "<var>new</var>");
+     content = content.replaceAll("class", "<var>class</var>");
       content = content.replaceAll("System.debug", "<span class='key'>System.debug</span>");
      // content = content.replaceAll("for", "<span class='loop'>for</span>");
      // content = content.replaceAll("String", "<span class='datatype'>String</span>");
