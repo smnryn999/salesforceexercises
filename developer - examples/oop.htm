@@ -112,7 +112,12 @@
         Pie cinnamon = new Pie();
         cinnamon.name = 'Cinnamon Pie';  
         System.debug(cinnamon.sugarPie); <em> // 25 </em>
-        System.debug(cinnamon.pieMethod); <em> // This is Cake Class </em>
+        cinnamon.pieMethod(); <em> // This is Cake Class </em>
+        System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=Cinnamon Pie, Cake.sugar=25, sugarPie=25] </em>
+
+        cinnamon.sugarPie = 35;
+        System.debug(cinnamon.sugarPie); <em> // 35 <em>
+        System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=Cinnamon Pie, Cake.sugar=25, sugarPie=35] </em>
       </pre>
       
    </section>
