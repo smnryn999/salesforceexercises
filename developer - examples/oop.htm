@@ -113,11 +113,43 @@
         cinnamon.name = 'Cinnamon Pie'; <em> // Pie class inherits name property from Cake class </em>
         System.debug(cinnamon.sugarPie); <em> // 25 </em>
         cinnamon.pieMethod(); <em> // This is Cake Class </em>
+        cinnamon.cakeMethod(); <em> // This is Cake Class </em>
         System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=Cinnamon Pie, Cake.sugar=25, sugarPie=25] </em>
 
         cinnamon.sugarPie = 35;
         System.debug(cinnamon.sugarPie); <em> // 35 </em>
         System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=Cinnamon Pie, Cake.sugar=25, sugarPie=35] </em>
+      </pre>
+
+      <!-- EXAMPLE 4 -->
+      <p><span class="counter"></span> - Overriding a method</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         public virtual class Cake {
+            public string name;
+            public integer sugar=25;
+            public boolean cream;
+            
+            public virtual void cakeMethod(){ <em> // We make the method to be overridden virtual </em>
+               System.debug('This is Cake Class');
+            }
+         }
+
+         public class Pie extends Cake {
+            public integer sugarPie = sugar;
+            public void pieMethod(){
+                cakeMethod();
+            }
+            
+            public override void cakeMethod(){ <em> // We override cakeMethod() </em>
+                System.debug('This is Pie Class');
+            }      
+         }
+
+         Pie cinnamon = new Pie();
+         cinnamon.pieMethod(); <em> // This is Pie Class </em>
+         cinnamon.cakeMethod(); <em> // This is Pie Class </em>
+         System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=null, Cake.sugar=25, sugarPie=25] </em>
       </pre>
       
    </section>

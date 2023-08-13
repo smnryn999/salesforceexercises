@@ -125,7 +125,7 @@ pre {
 }
 var {color: rgb(204, 204, 255);}
 em, em span {color: darkcyan !important;}
-.datatype, .datatype span {color: LightSalmon; text-transform: capitalize;}
+.datatype, .datatype span {color: LightSalmon;} /* text-transform: capitalize; */
 .string, .string span {color: pink;}
 .loop {color: #DE3163;}
 .key {color: #9FE2BF;}
