@@ -20,7 +20,7 @@ const test = ['Which of the following Visualforce code snippets correctly create
              "Which of the following cannot we design an user interface with?", "We want to use a variable value that we assigned in the execute method in a batch class, in the finish method. How do we provide this?",
              "Which of the following statements about Queueable classes is true?", "Lightning Web Components (LWC) can be exposed in Lightning App Builder. True or false?", "Which of the following best describes Visualforce?",
              "Which of the following cron expression will run a class implemented with the Schedulable interface at 10 am on the third of every month in 2025?", "Which of the following is NOT a valid data type in Salesforce Apex",
-             "Which of the following is the correct syntax for creating a new Apex class?", "Which of the following is the correct way to create a new Map in Apex?"];
+             "Which of the following is the correct syntax for creating a new Apex class?", "Which of the following is the correct way to create a new Map in Apex?", "Which code block has not an error?"];
 
 const options1 = [['<code>&lt;apex:commandButton action="{!updateRecord}" value="Update"/&gt;</code>','<code>&lt;apex:commandButton method="updateRecord" value="Update"/&gt;</code>','<code>&lt;apex:commandButton onclick="{!updateRecord}" value="Update"/&gt;</code>','<code>&lt;apex:commandButton actionName="updateRecord" value="Update"/&gt;</code>'],
                  ["It represents the old values of records before they were updated.","It refers to the new values of records after they were updated.","It represents the values of records before they were deleted.","It's used to access the values of records in a related object."], ["Overloading","Polymorphism","Inheritance","Abstraction"],
@@ -29,8 +29,9 @@ const options1 = [['<code>&lt;apex:commandButton action="{!updateRecord}" value=
                  [4,5,48,72], ["Screen Flows","Asynchronous Apex","Visualforce","Aura Components"], ["We implement the batch class into Database.Stateful.","We schedule the batch class","We implement the batch class into Database.BatchableContext.","We do not need to take any action. This is already provided in a batch class."],
                  ["Queueable classes can be used to implement callouts to external services.","Queueable classes can be executed synchronously.","Queueable classes can only be enqueued from trigger context.","Queueable classes can't be scheduled to run at a specific time."], ["True","False"],
                  ["A server-side scripting language.","A client-side JavaScript framework.","A declarative tool for creating user interfaces.","A markup language for building custom UI components in Salesforce."], ["0 0 10 ? * 3 2025","0 0 10 ? 3 * 2025","0 0 10 3 * ? 2025","0 0 10 * * 3 2025"], ["Decimal","Id","Object","Percent"],
-                 ["class MyClass extends Object { }","public class MyClass { }","MyClass extends Object { }","class MyClass { }"], ["Map&lt;String, Integer&gt; myMap = new Map&lt;String, Integer&gt;();","Map&lt;String, Integer&gt; myMap = new Map&lt;String, Integer&gt;{};","Map&lt;String, Integer&gt; myMap = new Map<>();","Map&lt;String, Integer&gt; myMap = new HashMap<>();"]];
-const answers = [A,B,C,A,D,C,B,A,A,A,D,C,D,B,A];
+                 ["class MyClass extends Object { }","public class MyClass { }","MyClass extends Object { }","class MyClass { }"], ["Map&lt;String, Integer&gt; myMap = new Map&lt;String, Integer&gt;();","Map&lt;String, Integer&gt; myMap = new Map&lt;String, Integer&gt;{};","Map&lt;String, Integer&gt; myMap = new Map<>();","Map&lt;String, Integer&gt; myMap = new HashMap<>();"],
+                 ["","","",""]];
+const answers = [A,B,C,A,D,C,B,A,A,A,D,C,D,B,A,];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
