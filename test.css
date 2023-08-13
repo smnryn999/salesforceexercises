@@ -109,6 +109,7 @@ button {
 
 /* DATATYPES.HTM */
 section {margin: 20px;}
+.example {border: 1px solid gray;}
 section p {font-size: 19px; background: #fafafa; padding: 5px; border: 1px solid lightgrey; border-radius: 5px; text-indent: 5px;}
 section button {padding: 4px 9px; background: lightgreen; font-size: 15px; color: black;}
 pre {
