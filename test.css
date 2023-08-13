@@ -2,7 +2,6 @@ body {
    margin: 0;
    padding: 0;
    font-family: Arial;
-   background-color: #9FE2BF;
 }
 .container {
    width: 90%;
@@ -110,7 +109,7 @@ button {
 
 /* DATATYPES.HTM */
 section {margin: 20px;}
-.example {border: 1px solid gray; border-radius:5px; padding: 10px; margin-top: 10px; background:white}
+.example {border: 1px solid gray; border-radius:5px; padding: 10px; margin-top: 10px;background: #fafafa}
 section p {font-size: 19px; background: #fafafa; padding: 5px; border: 1px solid lightgrey; border-radius: 5px; text-indent: 5px;}
 section button {padding: 4px 9px; background: lightgreen; font-size: 15px; color: black;}
 pre {
