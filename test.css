@@ -53,8 +53,8 @@ main {
    font-size: 17px;
    font-family: "Lucida Console", "Courier New", monospace;
    font-weight: normal;
-   background: rgb(10,10,70); /*GhostWhite;*/
-   color: whitesmoke;
+   background: ; /*GhostWhite;*/ /*rgb(10,10,70)*/
+   color: blue; /*whitesmoke*/
    border: 1px solid Gainsboro;
    border-radius: 5px;
    padding: 10px;
