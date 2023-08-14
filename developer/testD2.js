@@ -30,8 +30,8 @@ const options1 = [['<code>&lt;apex:commandButton action="{!updateRecord}" value=
                  ["Queueable classes can be used to implement callouts to external services.","Queueable classes can be executed synchronously.","Queueable classes can only be enqueued from trigger context.","Queueable classes can't be scheduled to run at a specific time."], ["True","False"],
                  ["A server-side scripting language.","A client-side JavaScript framework.","A declarative tool for creating user interfaces.","A markup language for building custom UI components in Salesforce."], ["0 0 10 ? * 3 2025","0 0 10 ? 3 * 2025","0 0 10 3 * ? 2025","0 0 10 * * 3 2025"], ["Decimal","Id","Object","Percent"],
                  ["class MyClass extends Object { }","public class MyClass { }","MyClass extends Object { }","class MyClass { }"], ["Map&lt;String, Integer&gt; myMap = new Map&lt;String, Integer&gt;();","Map&lt;String, Integer&gt; myMap = new Map&lt;String, Integer&gt;{};","Map&lt;String, Integer&gt; myMap = new Map<>();","Map&lt;String, Integer&gt; myMap = new HashMap<>();"],
-                 ["","","",""]];
-const answers = [A,B,C,A,D,C,B,A,A,A,D,C,D,B,A,];
+                 ["import { LightningElement, wire } from 'lwc'; <br> import getContactList from '@salesforce/apex/ContactController.getContactList'; <br> export default class ApexWireMethodToProperty extends LightningElement {<br> @wire(getContactList) contacts; <br> }","","",""]];
+const answers = [A,B,C,A,D,C,B,A,A,A,D,C,D,B,A,D];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
