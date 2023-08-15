@@ -54,7 +54,7 @@ main {
    font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace; /*"Lucida Console", "Courier New", monospace;*/
    font-weight: normal;
    background: white; /*GhostWhite;*/ /*rgb(10,10,70)*/
-   color: blue; /*whitesmoke*/
+   color: brown; /*whitesmoke*/
    border: 1px solid Gainsboro;
    border-radius: 5px;
    padding: 10px;
