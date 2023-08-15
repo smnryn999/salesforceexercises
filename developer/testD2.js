@@ -172,3 +172,10 @@ reset.onclick = function () {
          }
       }
 }
+
+// CODE BLOCKS
+var datatypes = ["String", "Date", "Integer", "Boolean", "Decimal", "Datetime", "Double", "override", "virtual", "public","static","void","class", "LightningElement"];
+for(d of datatypes){
+   // var re = new RegExp(d,"ig");
+   content = content.replaceAll(d, "<span class='datatype'>"+d+"</span>");
+} 
