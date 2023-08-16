@@ -182,4 +182,5 @@ for(var i=0; i<codes.length; i++){
      // var re = new RegExp(d,"ig");
      content = content.replaceAll(d, "<span style='color:green'>"+d+"</span>");
     }
+  document.querySelectorAll("code")[i].innerHTML = content;
 }
