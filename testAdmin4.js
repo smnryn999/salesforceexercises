@@ -17,7 +17,7 @@ var wrongs = 0, corrects = 0;
 const test = ["What is the purpose of a Salesforce search layout?", "How are many-to-many relationships implemented in Salesforce?"]
 
 const options1 = [["To customize the layout of record detail pages.","To manage user permissions and access.","To define the layout of dashboard components.","To define the fields displayed in search results."],
-                 ["By using external objects to link records from different objects.","By creating a custom junction object to connect two objects.","By using triggers to directly link records between objects.",'By enabling the "Many-to-Many" option in the object settings.']];
+                 ["By using external objects to link records from different objects.","By creating a custom junction object to connect two objects.","By using triggers to directly link records between objects.","By enabling the 'Many-to-Many' option in the object settings."]];
 const answers = [D,B];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
