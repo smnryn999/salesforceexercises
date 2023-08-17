@@ -15,10 +15,10 @@ var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
 const test = ["Which of the following is used to set highlights panel?", "Which of the following is not a Dashboards component type?", "How many fields on the compact layout does the record highlights section in Lightning Experience use?",
-              "Which of the following field types do compact layouts support?"];
+              "We want to automate assigning owners to Leads using the Assignment Rule. Which of the following can we assign?", "Which of the following field types do compact layouts support?"];
 
-const options1 = [["Compact Layout","Page Layout","Search Layout","List View Layout"], ["Chart","Gauge","Metric","Tabular"], [3,5,7,10], ["Phone","Text Area","Multi-select Picklist","Rich Text Area"]];
-const answers = [A,D,C,A];
+const options1 = [["Compact Layout","Page Layout","Search Layout","List View Layout"], ["Chart","Gauge","Metric","Tabular"], [3,5,7,10], ["A user","A Queue","A public group","A and B"], ["Phone","Text Area","Multi-select Picklist","Rich Text Area"]];
+const answers = [A,D,C,D,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
