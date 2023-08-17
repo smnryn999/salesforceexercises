@@ -183,5 +183,5 @@ for(var i=0; i<codes.length; i++){
      content = content.replaceAll(d, "<span style='color:green'>"+d+"</span>");
     } */
   document.querySelectorAll("code")[i].innerHTML = content;
-  document.querySelectorAll("code")[i].style.color = "blue";
+  document.querySelectorAll("code")[i].style.color = "green";
 }
