@@ -15,7 +15,7 @@ var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
 const test = ["Which of the following is used to set highlights panel?", "Which of the following is not a dashboard component type?",
-              '"Opportunity Close Date must not be a date before today's date or a date within the next 1 month." <br> Which validation rule will ensure this situation?',
+              '"Opportunity Close Date must not be a date before today\'s date or a date within the next 1 month." <br> Which validation rule will ensure this situation?',
               "How many fields on the compact layout does the record highlights section in Lightning Experience use?",
               "We want to automate assigning owners to Leads using the Assignment Rule. Which of the following can we assign?", "Which of the following field types do compact layouts support?"];
 
