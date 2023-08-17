@@ -177,10 +177,11 @@ reset.onclick = function () {
 var codes = document.querySelectorAll("code");
 for(var i=0; i<codes.length; i++){
    var content = codes[i].innerHTML;
-   var datatypes = ["String", "Date", "Integer", "Boolean", "Decimal", "Datetime", "Double", "override", "virtual", "public","static","void","class", "LightningElement"];
+ /*  var datatypes = ["String", "Date", "Integer", "Boolean", "Decimal", "Datetime", "Double", "override", "virtual", "public","static","void","class", "LightningElement"];
    for(d of datatypes){
      // var re = new RegExp(d,"ig");
      content = content.replaceAll(d, "<span style='color:green'>"+d+"</span>");
-    }
+    } */
   document.querySelectorAll("code")[i].innerHTML = content;
+  document.querySelectorAll("code")[i].style.color = "blue";
 }
