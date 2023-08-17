@@ -15,7 +15,7 @@ var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
 const test = ["What is the purpose of a search layout?", "How are many-to-many relationships implemented in Salesforce?", "How many fields can be assigned to a compact layout?", "What is the primary purpose of a Salesforce Dashboard?",
-              "The Opportunity Amount field should not be more than the Annual Revenue value of the Account it is related with. <br> Which validation rule can ensure this situation?",
+              '"The Opportunity Amount field should not be more than the Annual Revenue value of the Account it is related with." <br> Which validation rule can ensure this situation?',
               "Compact layouts can be assigned to profiles or individual users. True or false?", "If a user's profile has full CRUD permissions for an object but cannot edit some fields of the records, what could be the reason?",
               "What defines a one-to-many relationship in Salesforce?", "Only one case assignment rule can be active at a time. True or false?", "Which dashboard component type should we use when we have a single value that we want to show within a range of custom values?"];
 
