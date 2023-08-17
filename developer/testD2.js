@@ -143,7 +143,7 @@ pass.onclick = function () {
      var decorators = ["@AuraEnabled", "@wire", "@api", "@track", "api", "wire"];
      for(d of datatypes){
      // var re = new RegExp(d,"ig");
-     content = content.replaceAll(d, "<span style='color:green'>"+d+"</span>");
+     content = content.replaceAll(d, "<span style='color:#3b7a57'>"+d+"</span>");
      } 
      for(d of decorators){
      content = content.replaceAll(d, "<span style='color:blue'>"+d+"</span>");
