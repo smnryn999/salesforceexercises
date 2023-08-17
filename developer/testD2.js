@@ -139,7 +139,7 @@ pass.onclick = function () {
   var codes = document.querySelectorAll("code");
   for(var i=0; i<codes.length; i++){
      var content = codes[i].innerHTML;
-     var datatypes = ["String", "Integer", "Boolean", "Decimal", "override", "virtual", "static","void","class", "LightningElement", "lwc"];
+     var datatypes = ["String", "Integer", "Boolean", "Decimal", "override", "virtual", "static","void","class", "LightningElement", "lwc", "Text"];
      var decorators = ["@AuraEnabled", "@wire", "@api", "@track", "api", "wire"];
      for(d of datatypes){
      // var re = new RegExp(d,"ig");
