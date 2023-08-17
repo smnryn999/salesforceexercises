@@ -140,9 +140,13 @@ pass.onclick = function () {
   for(var i=0; i<codes.length; i++){
      var content = codes[i].innerHTML;
      var datatypes = ["String", "Date", "Integer", "Boolean", "Decimal", "override", "virtual", "public","static","void","class", "LightningElement"];
+     var decorators = ["@AuraEnabled", "@wire", "@api", "@track"];
      for(d of datatypes){
      // var re = new RegExp(d,"ig");
      content = content.replaceAll(d, "<span style='color:green'>"+d+"</span>");
+     } 
+     for(d of decorators){
+     content = content.replaceAll(d, "<span style='color:blue'>"+d+"</span>");
      } 
    document.querySelectorAll("code")[i].innerHTML = content;
    }
