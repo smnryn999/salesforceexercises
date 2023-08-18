@@ -23,7 +23,7 @@ const test = ["Which of the following is used to set highlights panel?", "What i
 const options1 = [["Compact Layout","Page Layout","Search Layout","List View Layout"],
                   ["To automate lead assignment based on criteria.","To escalate cases to higher levels of support based on predefined criteria.","To manage user access and permissions within Salesforce.","To create custom fields for tracking case progress."],
                   ["Chart","Gauge","Metric","Tabular"], ["CloseDate > ADDMONTHS(TODAY(),1)","CloseDate < ADDMONTHS(TODAY(),1)","CloseDate > TODAY() + 30","CloseDate < ADDDAYS(TODAY(),30)"],
-                  [3,5,7,10], ["A user","A queue","A public group","A and B"], ["To automate lead conversion processes.","To define criteria for record ownership changes.","To extend sharing access to records based on criteria or owner.","To expand profile permission due to new requirements"],
+                  [3,5,7,10], ["A user","A queue","A public group","A and B"], ["To automate lead conversion processes.","To define criteria for record ownership changes.","To extend sharing access to records based on criteria or owner.","To expand profile permissions due to new requirements"],
                   ["Phone","Text Area","Multi-select Picklist","Rich Text Area"]];
 const answers = [A,B,D,B,C,D,C,A];
 
