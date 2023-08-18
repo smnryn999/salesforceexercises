@@ -11,6 +11,7 @@
     </header>
 
     <section>
+      <div class="example">
       <p>
         <span class="counter"></span> - Get the name and extension of
         "salesforce.com".
@@ -35,7 +36,9 @@
          System.debug(strArray[0]); <em> // salesforce </em>
          System.debug(strArray[1]); <em> // com </em>
       </pre>
+      </div>
 
+      <div class="example">
       <p>
         <span class="counter"></span> - Take the words "World" and "Everybody"
         in the phrase "Hello World Everybody".
@@ -48,7 +51,9 @@
          String str2 = str.substringBetween(' ');
          System.debug(str2); <em> // World</em>
       </pre>
+      </div>
 
+      <div class="example">
       <p>
         <span class="counter"></span> -
         "/services/apexrest/Cases/0068e00000G8GQVAA3" ifadesindeki id değerini
@@ -61,7 +66,9 @@
          str = str.substringAfterLast('/');
          System.debug(str); <em> // 0068e00000G8GQVAA3</em>
       </pre>
+      </div>
 
+      <div class="example">
       <p>
         <span class="counter"></span> - Bir record URL'deki id değerini alınız.
       </p>
@@ -82,7 +89,9 @@
          str = str.substringAfterLast('/');
          System.debug(str); <em> // 0038e00000GI468AAD </em>
       </pre>
+      </div>
 
+      <div class="example">
       <p>
         <span class="counter"></span> - External bir systemden "elma, armut,
         kiraz" formatında gelen bir değeri multiselect picklist formatına
@@ -94,7 +103,9 @@
          str = str.replaceAll(',', ';');
          System.debug(str); <em> // elma; armut; kiraz</em>
       </pre>
+      </div>
 
+      <div class="example">
       <p>
         <span class="counter"></span> - Create two dates and find the number of months between them.
       </p>
@@ -105,7 +116,9 @@
          Integer monthsBetween = firstDate.monthsBetween(secondDate);
          System.debug(monthsBetween); <em> // 49 </em>        
       </pre>
+      </div>
 
+      <div class="example">
       <p>
         <span class="counter"></span> - Convert a value in "15 Nov 2012" format
         from an external system to date format.
@@ -138,7 +151,9 @@
          Date date = Date.parse(tarih);
          System.debug(date); <em> // 15.11.2012 (Date)</em>
       </pre>
+      </div>
 
+      <div class="example">
       <p>
         <span class="counter"></span> - Convert a string word to a list and then
         restore it.
@@ -160,7 +175,9 @@
          }    
          System.debug(strAgain); <em> // Hello</em> 
       </pre>
+      </div>
 
+      <div class="example">
       <p>
         <span class="counter"></span> - Convert a string sentence to a list and
         then undo it again.
@@ -183,6 +200,7 @@
          text = text.trim() + '.';
          System.debug(text); <em> // (Bu, bir, cümledir)</em> 
       </pre>
+      </div>
     </section>
 
     <script src="examples.js"></script>
