@@ -11,6 +11,7 @@
    </header>
    
    <section>
+      <div class="example">
       <p><span class="counter"></span> - Create a three-element list and add some elements.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
@@ -22,8 +23,10 @@
          Colors.add(1, 'White');  <em> // Green, White, Blue, null, Red</em>
          System.debug(Colors);  <em> // (Green, White, Blue, null, Red)</em>
       </pre>
+      </div>
       
       <!-- EXAMPLE 2 -->
+      <div class="example">
       <p><span class="counter"></span> - Remove repeating elements from a list.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
@@ -31,8 +34,10 @@
          set<string> setColors = new Set<string>(listColors);  <em> // Blue, Green, Yellow</em>
          System.debug(setColors);  <em> // {Blue, Green, Yellow}</em>
       </pre>
+      </div>
       
       <!-- EXAMPLE 3 -->
+      <div class="example">
       <p><span class="counter"></span> - Remove different elements between two lists. (Take the common elements.)</p>
       <button class="showSolution">Show Solution</button>
       <pre>
@@ -43,8 +48,10 @@
          setColors.retainAll(listColors2);
          System.debug(setColors);  <em> // {Blue, Green}</em>
       </pre>
+      </div>
       
       <!-- EXAMPLE 4 -->
+      <div class="example">
       <p><span class="counter"></span> - Remove common elements between two lists. (Take the different elements.)</p>
       <button class="showSolution">Show Solution</button>
       <pre>
@@ -55,8 +62,10 @@
          setColors.removeAll(listColors2);
          System.debug(setColors);  <em> // {Blue, White}</em>
       </pre>
+      </div>
       
       <!-- EXAMPLE 5 -->
+      <div class="example">
       <p><span class="counter"></span> - Check if an element exists in a list.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
@@ -64,8 +73,10 @@
          Boolean containsBlue = colors.contains('Blue');
          System.debug(containsBlue);  <em> // true</em>
       </pre>
+      </div>
       
       <!-- EXAMPLE 6 -->
+      <div class="example">
       <p><span class="counter"></span> - Check if a list exists in another list.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
@@ -75,8 +86,10 @@
          Boolean containsAll = setColors.containsAll(colors2);
          System.debug(containsAll);  <em> // true</em>
       </pre>
+      </div>
 
       <!-- EXAMPLE 7 -->
+      <div class="example">
       <p><span class="counter"></span> - Create a Map and specify the sequence number for the list.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
@@ -101,8 +114,10 @@
          }
          System.debug(mapColors);  <em> // {1=White, 2=Blue, 3=Orange, 4=Black, 5=Yellow}</em>
       </pre>
+      </div>
       
       <!-- EXAMPLE 8 -->
+      <div class="example">
       <p><span class="counter"></span> - Create a Map consisting of countries and currencies, take the key and value parts and match them.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
@@ -121,6 +136,7 @@
             System.debug(c + ' => ' + mapCountry.get(c));
          }
       </pre>
+      </div>
       
    </section>
    
