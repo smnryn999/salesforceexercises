@@ -28,7 +28,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       var content = pres[i].innerHTML;
      // content = content.replaceAll("new", "<var>new</var>");
      // content = content.replaceAll("extends", "<var>extends</var>");
-      content = content.replaceAll("class", "<span class='key'>class</span>");
+     // content = content.replaceAll("class", "<span class='key'>class</span>");
       content = content.replaceAll("System.debug", "<span class='key'>System.debug</span>");
      
      // content = content.replaceAll("for", "<span class='loop'>for</span>");
@@ -40,7 +40,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       content = content.replaceAll(/List<string>/gi, "<span class='datatype'>List&#60;String&#62;</span>");
       content = content.replaceAll(/Set<string>/gi, "<span class='datatype'>Set&#60;String&#62;</span>");     
       
-      var datatypes = ["String", "Date", "Integer", "Boolean", "Decimal", "Datetime", "Double", "override", "virtual"]; 
+      var datatypes = ["String", " Date ", "Integer", "Boolean", "Decimal", "Datetime", "Double", "override", "virtual"]; 
       for(d of datatypes){
          // var re = new RegExp(d,"ig");
          content = content.replaceAll(d, "<span class='datatype'>"+d+"</span>");

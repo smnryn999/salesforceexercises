@@ -22,12 +22,12 @@ const test = ['Which of the following Visualforce code snippets correctly create
              "Which of the following cron expression will run a class implemented with the Schedulable interface at 10 am on the third of every month in 2025?", "Which of the following is NOT a valid data type in Salesforce Apex",
              "Which of the following is the correct syntax for creating a new Apex class?", "Which of the following is the correct way to create a new Map in Apex?",
              "<code>public class ContactController { <br><samp>@AuraEnabled(cachable=true)</samp> <br> <samp> public static List<Contact> getContacts(Id accId){</samp> <br> <samp><samp>return [SELECT Name  FROM Contact WHERE AccountId = :accId];</samp></samp> <br> <samp>}</samp><br>}</code> <br> The getContacts() method of the ContactController class above has a parameter and returns the related contacts. We need to pass the current record's Id to the parameter. Which of the following code provides this?",
-             "With which HTTP method can a new record be created in REST API?"];
+             "With which HTTP method can a new record be created in REST API?", "With which Git command can we send our files from local repository to remote repository?", "In Salesforce Apex, what is the purpose of the JSON.serialize() method?", "What is the maximum batch size for a single execution of a batch Apex job?"];
 
 const options1 = [['<code>&lt;apex:commandButton action="{!updateRecord}" value="Update"/&gt;</code>','<code>&lt;apex:commandButton method="updateRecord" value="Update"/&gt;</code>','<code>&lt;apex:commandButton onclick="{!updateRecord}" value="Update"/&gt;</code>','<code>&lt;apex:commandButton actionName="updateRecord" value="Update"/&gt;</code>'],
                  ["It represents the old values of records before they were updated.","It refers to the new values of records after they were updated.","It represents the values of records before they were deleted.","It's used to access the values of records in a related object."], ["Overloading","Polymorphism","Inheritance","Abstraction"],
                  ["Integer i = 10;","Int i = 10;","i = Integer(10);","Integer i; i = 10;"],
-                 ["<code>List&lt;String&gt; fruits = new List&lt;String&gt;(); <br> fruits.add('Apple'); <br> fruits.add('Banana'); <br> fruits.add('Cherry');</code>","<code>List&lt;Text&gt; fruits = new List&lt;Text&gt;(); <br> fruits.add('Apple'); <br> fruits.add('Banana'); <br> fruits.add('Cherry');</code>",'<code>List&lt;String&gt; fruits = new List&lt;String&gt;{ "Apple", "Banana", "Cherry" };</code>',"<code>List&lt;String&gt; fruits = new ListList&lt;String&gt;{'Apple', 'Banana', 'Cherry'};</code>"],
+                 ["<code>List&ltString&gt fruits = new List&ltString&gt(); <br> fruits.add('Apple'); <br> fruits.add('Banana'); <br> fruits.add('Cherry');</code>","<code>List&ltText&gt fruits = new List&ltText&gt(); <br> fruits.add('Apple'); <br> fruits.add('Banana'); <br> fruits.add('Cherry');</code>",'<code>List&ltString&gt fruits = new List&ltString&gt{ "Apple", "Banana", "Cherry" };</code>',"<code>List&ltString&gt fruits = new List&ltString&gt{'Apple', 'Banana', 'Cherry'};</code>"],
                  [4,5,48,72], ["Screen Flows","Asynchronous Apex","Visualforce","Aura Components"], ["We implement the batch class into Database.Stateful.","We schedule the batch class","We implement the batch class into Database.BatchableContext.","We do not need to take any action. This is already provided in a batch class."],
                  ["Queueable classes can be used to implement callouts to external services.","Queueable classes can be executed synchronously.","Queueable classes can only be enqueued from trigger context.","Queueable classes can't be scheduled to run at a specific time."], ["True","False"],
                  ["A server-side scripting language.","A client-side JavaScript framework.","A declarative tool for creating user interfaces.","A markup language for building custom UI components in Salesforce."], ["0 0 10 ? * 3 2025","0 0 10 ? 3 * 2025","0 0 10 3 * ? 2025","0 0 10 * * 3 2025"], ["Decimal","Id","Object","Percent"],
@@ -36,8 +36,8 @@ const options1 = [['<code>&lt;apex:commandButton action="{!updateRecord}" value=
                   '<code>import { LightningElement, wire } from "lwc"; <br> import listContact from "@salesforce/apex/ContactController.getContacts"; <br><br> export default class ApexWireMethod extends LightningElement {<br> <samp>const recordId;</samp> <br><br> <samp>@wire(listContact, { accId: "$recordId"}) contacts;</samp> <br> }</code>',
                   '<code>import { LightningElement } from "lwc"; <br> import listContact from "@salesforce/apex/ContactController.getContacts"; <br><br> export default class ApexWireMethod extends LightningElement {<br> <samp>@api recordId;</samp> <br><br> <samp>listContact({accId: "recordId"}) contacts;</samp> <br> }</code>',
                   '<code>import { LightningElement, api, wire } from "lwc"; <br> import listContact from "@salesforce/apex/ContactController.getContacts"; <br><br> export default class ApexWireMethod extends LightningElement {<br> <samp>@api recordId;</samp> <br><br> <samp>@wire(listContact, { accId: "$recordId"}) contacts;</samp> <br> }</code>'],
-                 ["GET","PUT","POST","PATCH"]];
-const answers = [A,B,C,A,D,C,B,A,A,A,D,C,D,B,A,D,C];
+                 ["GET","PUT","POST","PATCH"], ["git send","git push","git clone","git checkout"], ["To deserialize JSON data into Apex objects.","To create a JSON string representation of an Apex object.","To validate the structure of a JSON object.","To parse JSON arrays into Apex lists."], [200, 500, 1000, 2000]];
+const answers = [A,B,C,A,D,C,B,A,A,A,D,C,D,B,A,D,C,B,B,D];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
@@ -134,6 +134,26 @@ pass.onclick = function () {
       o.children[0].style.color = "black";
       }
    explanation.innerHTML = null;
+
+  // CODE BLOCKS
+  var codes = document.querySelectorAll("code");
+  for(var i=0; i<codes.length; i++){
+     var content = codes[i].innerHTML;
+     var datatypes = ["String", "Integer", "Boolean", "Decimal", "override", "virtual", "static","void","class", "LightningElement", "lwc", "Text"];
+     var decorators = ["@AuraEnabled", "@wire", "@api", "@track", "api", "wire"];
+     var punctuation = ["(",")","[","]","{","}",";"];
+     for(d of datatypes){
+       // var re = new RegExp(d,"ig");
+       content = content.replaceAll(d, "<span style='color:#3b7a57'>"+d+"</span>"); // Amazon Green
+     } 
+     for(d of decorators){
+       content = content.replaceAll(d, "<span style='color:#126180'>"+d+"</span>");
+     } 
+     for(p of punctuation){
+       content = content.replaceAll(p, "<span style='color:black'>"+p+"</span>");
+     } 
+     document.querySelectorAll("code")[i].innerHTML = content;
+   }
    
 }
 // RESET BUTTON
@@ -172,10 +192,3 @@ reset.onclick = function () {
          }
       }
 }
-
-// CODE BLOCKS
-var datatypes = ["String", "Date", "Integer", "Boolean", "Decimal", "Datetime", "Double", "override", "virtual", "public","static","void","class", "LightningElement"];
-for(d of datatypes){
-   // var re = new RegExp(d,"ig");
-   content = content.replaceAll(d, "<span style='color:green'>"+d+"</span>");
-} 
