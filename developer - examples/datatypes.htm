@@ -18,7 +18,13 @@
       <button class="showSolution">Show Solution</button>
       <pre>
          String str = <span class='string'>'salesforce.com'</span>; 
-         <em>// str = str.substring(str.IndexOf('.')+1);</em>
+         
+         String str1 = str.substring(0, str.indexOf('.'));
+         System.debug(str1); <em> // salesforce </em>
+         String str2 = str.substring(str.indexOf('.')+1);
+         System.debug(str2); <em> // com </em>
+
+         <em> // Another way </em>
          String str1 = str.substringAfter('.'); 
          System.debug(str1); <em> // com </em> 
          String str2 = str.substringBefore('.'); 
