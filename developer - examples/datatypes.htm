@@ -22,7 +22,12 @@
          String str1 = str.substringAfter('.'); 
          System.debug(str1); <em> // com </em> 
          String str2 = str.substringBefore('.'); 
-         System.debug(str2); <em> // salesforce </em>        
+         System.debug(str2); <em> // salesforce </em>
+         
+         <em> // Another way </em>
+         List<String> strArray = str.split('\\.');
+         System.debug(strArray[0]); <em> // salesforce </em>
+         System.debug(strArray[1]); <em> // com </em>
       </pre>
 
       <p>
