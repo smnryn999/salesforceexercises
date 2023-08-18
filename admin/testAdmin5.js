@@ -14,15 +14,16 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test = ["Which of the following is used to set highlights panel?", "Which of the following is not a dashboard component type?",
+const test = ["Which of the following is used to set highlights panel?", "What is the purpose of Salesforce Escalation Rules?", "Which of the following is not a dashboard component type?",
               '"Opportunity Close Date must not be a date before today\'s date or a date within the next 1 month." <br> Which validation rule will ensure this situation?',
               "How many fields on the compact layout does the record highlights section in Lightning Experience use?",
               "We want to automate assigning owners to Leads using the Assignment Rule. Which of the following can we assign?", "Which of the following field types do compact layouts support?"];
 
-const options1 = [["Compact Layout","Page Layout","Search Layout","List View Layout"], ["Chart","Gauge","Metric","Tabular"],
-                  ["CloseDate > ADDMONTHS(TODAY(),1)","CloseDate < ADDMONTHS(TODAY(),1)","CloseDate > TODAY() + 30","CloseDate < ADDDAYS(TODAY(),30)"],
+const options1 = [["Compact Layout","Page Layout","Search Layout","List View Layout"],
+                  ["To automate lead assignment based on criteria.","To escalate cases to higher levels of support based on predefined criteria.","To manage user access and permissions within Salesforce.","To create custom fields for tracking case progress."],
+                  ["Chart","Gauge","Metric","Tabular"], ["CloseDate > ADDMONTHS(TODAY(),1)","CloseDate < ADDMONTHS(TODAY(),1)","CloseDate > TODAY() + 30","CloseDate < ADDDAYS(TODAY(),30)"],
                   [3,5,7,10], ["A user","A queue","A public group","A and B"], ["Phone","Text Area","Multi-select Picklist","Rich Text Area"]];
-const answers = [A,D,B,C,D,A];
+const answers = [A,B,D,B,C,D,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
