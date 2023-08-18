@@ -18,7 +18,8 @@ const test = ["What is the purpose of a search layout?", "How are many-to-many r
               '"The Opportunity Amount field should not be more than the Annual Revenue value of the Account it is related with." <br> Which validation rule can ensure this situation?',
               "Compact layouts can be assigned to profiles or individual users. True or false?", "If a user's profile has full CRUD permissions for an object but cannot edit some fields of the records, what could be the reason?",
               "What defines a one-to-many relationship in Salesforce?", "Only one case assignment rule can be active at a time. True or false?", "Which dashboard component type should we use when we have a single value that we want to show within a range of custom values?",
-              "For which of the following objects, we do not need to create a process before creating a record type?", "We need to upload 20 thousand records of the custom Book__c object. Which tool to use for this process is the best practice?"];
+              "For which of the following objects, we do not need to create a process before creating a record type?", "We need to upload 20 thousand records of the custom Book__c object. Which tool to use for this process is the best practice?",
+              "Which feature in Salesforce allows you to group and categorize report data into customizable ranges?"];
 
 const options1 = [["To customize the layout of record detail pages.","To manage user permissions and access.","To define the layout of dashboard components.","To define the fields displayed in search results."],
                  ["By using external objects to link records from different objects.","By creating a custom junction object to connect two objects.","By using triggers to directly link records between objects.","By enabling the 'Many-to-Many' option in the object settings."],
@@ -26,8 +27,8 @@ const options1 = [["To customize the layout of record detail pages.","To manage 
                  ["Amount > Account.AnnualRevenue","Amount < Account.AnnualRevenue","Opportunity.Amount > AnnualRevenue","Opportunity.Amount < AnnualRevenue"], ["True","False"],
                  ["The fields may be read-only in the page layout.","Edit permission may not be granted in field-level security.","The profile license the user has may have been insufficient.","A and B"],
                  ["Creating a custom junction object to link two objects.","Using external objects to establish a connection between records.","Associating a lookup or master-detail relationship between two objects.","Enabling the 'One-to-Many' option in the object settings."],
-                 ["True","False"], ["Gauge","Metric","Table","Chart"], ["Case","Contract","Lead","Solution"], ["Data Loader","Dataloader.io","Data Import Wizard","Data From Spreadsheet"]];
-const answers = [D,B,D,C,A,B,D,C,A,A,B,C];
+                 ["True","False"], ["Gauge","Metric","Table","Chart"], ["Case","Contract","Lead","Solution"], ["Data Loader","Dataloader.io","Data Import Wizard","Data From Spreadsheet"], ["Buckets","Groups","Columns","Summary"]];
+const answers = [D,B,D,C,A,B,D,C,A,A,B,C,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
