@@ -192,4 +192,3 @@ reset.onclick = function () {
          }
       }
 }
-

@@ -60,9 +60,16 @@
          str = str.substring(str.lastIndexOf('/')-18, str.lastIndexOf('/'));
          System.debug(str); <em> // 0068e00000G8GQmAAN</em>
 
-         <em>// Another way</em>
+         <em> // Another way</em>
          <span class="datatype">String[]</span> strArray = str.split('/');
          System.debug(strArray[strArray.size()-2]);  <em>// 0068e00000G8GQmAAN</em>
+
+         <em> // Another example</em>
+         String str = <span class="string">'https://d8e000000k25feac-dev-ed.develop.lightning.force.com/lightning/r/Contact/0038e00000GI468AAD/view?source=alohaHeader';</span>
+         str = str.substringBeforeLast('/');
+         System.debug(str); <em> // https://d8e000000k25feac-dev-ed.develop.lightning.force.com/lightning/r/Contact/0038e00000GI468AAD </em>
+         str = str.substringAfterLast('/');
+         System.debug(str); <em> // 0038e00000GI468AAD </em>
       </pre>
 
       <p>
