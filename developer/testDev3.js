@@ -14,10 +14,12 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test = ["In Apex, what is the purpose of a constructor method in a class?"];
+const test = ["In Apex, what is the purpose of a constructor method in a class?",
+              'Which of the following Apex trigger code snippets demonstrates the correct syntax for a trigger on the Account object that sets the account\'s description to "New Account" for new records?'];
 
-const options1 = [["To define the layout of user interface elements.","To create an instance of an object from a class.","To establish a connection to external APIs.","To handle exceptions and errors in the code."]];
-const answers = [B];
+const options1 = [["To define the layout of user interface elements.","To create an instance of an object from a class.","To establish a connection to external APIs.","To handle exceptions and errors in the code."],
+                 ["","","",""]];
+const answers = [B,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
