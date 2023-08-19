@@ -125,6 +125,7 @@ pass.onclick = function () {
      var datatypes = ["String", " Date ", "Integer", "Boolean", "Decimal", "override", "virtual", "static","void","class", "LightningElement", "lwc", "Text", "trigger"];
      var decorators = ["@AuraEnabled", "@wire", "@api", "@track", "api", "wire", "Trigger.newMap", "Trigger.new", "Trigger.oldMap", "Trigger.old"];
      var punctuation = ["(", ")", "[", "]", "{", "}", ",", '"'];
+     var soql = ["SELECT", "FROM", "WHERE", "LIMIT", "IN", "AND", "HAVING"];
      for(d of datatypes){
        // var re = new RegExp(d,"ig");
        content = content.replaceAll(d, "<span style='color:#3b7a57'>"+d+"</span>"); // Amazon Green
@@ -135,6 +136,9 @@ pass.onclick = function () {
      for(p of punctuation){
        content = content.replaceAll(p, "<span style='color:black'>"+p+"</span>");
      } 
+     for(s of soql){
+       content = content.replaceAll(s, "<span style='color:orange>"+s+"</span>");
+     }
      document.querySelectorAll("code")[i].innerHTML = content;
    }
    
