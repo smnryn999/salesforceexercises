@@ -16,15 +16,16 @@ var wrongs = 0, corrects = 0;
 // QUESTIONS AND OPTIONS CONTENTS
 const test = ["In Apex, what is the purpose of a constructor method in a class?",
               'Which of the following Apex trigger code snippets demonstrates the correct syntax for a trigger on the Account object that sets the account\'s description to "New Account" for new records?',
-              "<code>Account acc = new Account(); <br> insert acc; </code> <br> What type of exception does the above code cause?"];
+              "<code>Account acc = new Account(); <br> insert acc; </code> <br> What type of exception does the above code cause?", "Which of the following Visualforce code snippets correctly displays a button that, when clicked, calls a method named myMethod of a class named MyController?"];
 
 const options1 = [["To define the layout of user interface elements.","To create an instance of an object from a class.","To establish a connection to external APIs.","To handle exceptions and errors in the code."],
                  ["<code>trigger AccountTrigger on Account (before insert) {<br><samp>for(Account acc : Trigger.new) {</samp> <br> <samp><samp> acc.Description = 'New Account';</samp></samp> <br> <samp>}</samp> <br>}</code>",
                   "<code>trigger AccountTrigger on Account (after insert) {<br><samp>for(Account acc : Trigger.new) {</samp> <br> <samp><samp> acc.Description = 'New Account';</samp></samp> <br> <samp>}</samp> <br>}</code>",
                   '<code>trigger AccountTrigger on Account (before insert) {<br><samp>for(Account acc : Trigger.newMap) {</samp> <br> <samp><samp> acc.Description = "New Account";</samp></samp> <br> <samp>}</samp> <br>}</code>',
                   "<code>trigger AccountTrigger (after insert) {<br><samp>for(Account acc : Trigger.new) {</samp> <br> <samp><samp> acc.Description = 'New Account';</samp></samp> <br> <samp>}</samp> <br>}</code>"],
-                 ["DmlException","NullPointerException","FinalException","NoAccessException"]];
-const answers = [B,A,A];
+                 ["DmlException","NullPointerException","FinalException","NoAccessException"],
+                 ['<code><apex:page> <br> <samp> <apex:form> <samp><br> <samp><samp> <apex:commandButton value="Click Me" action="{!doSomething}" /> </samp></samp> <br> <samp></apex:form></samp> <br> </apex:page></code>',"","",""]];
+const answers = [B,A,A,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
