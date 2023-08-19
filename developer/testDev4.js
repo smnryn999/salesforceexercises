@@ -137,7 +137,7 @@ pass.onclick = function () {
        content = content.replaceAll(p, "<span style='color:black'>"+p+"</span>");
      } 
      for(s of soql){
-       content = content.replaceAll(s, "<span style='color:orange>"+s+"</span>");
+       content = content.replaceAll(s, "<span style='color:orange'>"+s+"</span>");
      }
      document.querySelectorAll("code")[i].innerHTML = content;
    }
