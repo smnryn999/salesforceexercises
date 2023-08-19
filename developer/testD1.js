@@ -134,7 +134,7 @@ pass.onclick = function () {
      var content = codes[i].innerHTML;
      var datatypes = ["String", "Integer", "Boolean", "Decimal", "override", "virtual", "static","void","class", "LightningElement", "lwc", "Text", "trigger"];
      var decorators = ["@AuraEnabled", "@wire", "@api", "@track", "api", "wire"];
-     var punctuation = ["(",")","[","]","{","}",";"];
+     var punctuation = ["(",")","[","]","{","}",","];
      for(d of datatypes){
        // var re = new RegExp(d,"ig");
        content = content.replaceAll(d, "<span style='color:#3b7a57'>"+d+"</span>"); // Amazon Green

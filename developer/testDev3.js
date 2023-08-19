@@ -24,7 +24,7 @@ const options1 = [["To define the layout of user interface elements.","To create
                   '<code>trigger AccountTrigger on Account (before insert) {<br><samp>for(Account acc : Trigger.newMap) {</samp> <br> <samp><samp> acc.Description = "New Account";</samp></samp> <br> <samp>}</samp> <br>}</code>',
                   "<code>trigger AccountTrigger (after insert) {<br><samp>for(Account acc : Trigger.new) {</samp> <br> <samp><samp> acc.Description = 'New Account';</samp></samp> <br> <samp>}</samp> <br>}</code>"],
                  ["DmlException","NullPointerException","FinalException","NoAccessException"],
-                 ['<code>&#60 apex:page&#62 <br> <samp> &#60;apex:form&#62; <samp><br> <samp><samp> &#60;apex:commandButton value="Click Me" action="{!doSomething}"/&#62; </samp></samp> <br> <samp>&#60;/apex:form&#62;</samp> <br> &#60;/apex:page&#62;</code>',
+                 ['<code>&lt;apex:page&gt; <br> <samp> &#60;apex:form&#62; <samp><br> <samp><samp> &#60;apex:commandButton value="Click Me" action="{!doSomething}"/&#62; </samp></samp> <br> <samp>&#60;/apex:form&#62;</samp> <br> &#60;/apex:page&#62;</code>',
                   '<pre><code><apex:page></code></pre>',"",""]];
 const answers = [B,A,A,A];
 
@@ -128,9 +128,9 @@ pass.onclick = function () {
   var codes = document.querySelectorAll("code");
   for(var i=0; i<codes.length; i++){
      var content = codes[i].innerHTML;
-     var datatypes = ["String", "Integer", "Boolean", "Decimal", "override", "virtual", "static","void","class", "LightningElement", "lwc", "Text", "trigger"];
+     var datatypes = ["String", " Date ", "Integer", "Boolean", "Decimal", "override", "virtual", "static","void","class", "LightningElement", "lwc", "Text", "trigger"];
      var decorators = ["@AuraEnabled", "@wire", "@api", "@track", "api", "wire"];
-     var punctuation = ["(",")","[","]","{","}",";"];
+     var punctuation = ["(",")","[","]","{","}",","];
      for(d of datatypes){
        // var re = new RegExp(d,"ig");
        content = content.replaceAll(d, "<span style='color:#3b7a57'>"+d+"</span>"); // Amazon Green
