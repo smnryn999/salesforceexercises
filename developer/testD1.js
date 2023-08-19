@@ -127,7 +127,26 @@ pass.onclick = function () {
       o.children[0].style.color = "black";
       }
    explanation.innerHTML = null;
-   
+
+  // CODE BLOCKS
+  var codes = document.querySelectorAll("code");
+  for(var i=0; i<codes.length; i++){
+     var content = codes[i].innerHTML;
+     var datatypes = ["String", "Integer", "Boolean", "Decimal", "override", "virtual", "static","void","class", "LightningElement", "lwc", "Text", "trigger"];
+     var decorators = ["@AuraEnabled", "@wire", "@api", "@track", "api", "wire"];
+     var punctuation = ["(",")","[","]","{","}",";"];
+     for(d of datatypes){
+       // var re = new RegExp(d,"ig");
+       content = content.replaceAll(d, "<span style='color:#3b7a57'>"+d+"</span>"); // Amazon Green
+     } 
+     for(d of decorators){
+       content = content.replaceAll(d, "<span style='color:#126180'>"+d+"</span>");
+     } 
+     for(p of punctuation){
+       content = content.replaceAll(p, "<span style='color:black'>"+p+"</span>");
+     } 
+     document.querySelectorAll("code")[i].innerHTML = content;
+  }   
 }
 // RESET BUTTON
 reset.onclick = function () {
