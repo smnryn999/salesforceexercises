@@ -24,7 +24,8 @@ const options1 = [["To define the layout of user interface elements.","To create
                   '<code>trigger AccountTrigger on Account (before insert) {<br><samp>for(Account acc : Trigger.newMap) {</samp> <br> <samp><samp> acc.Description = "New Account";</samp></samp> <br> <samp>}</samp> <br>}</code>',
                   "<code>trigger AccountTrigger (after insert) {<br><samp>for(Account acc : Trigger.new) {</samp> <br> <samp><samp> acc.Description = 'New Account';</samp></samp> <br> <samp>}</samp> <br>}</code>"],
                  ["DmlException","NullPointerException","FinalException","NoAccessException"],
-                 ['<code>&#60;apex:page&#62; <br> <samp> &#60;apex:form&#62; <samp><br> <samp><samp> &#60;apex:commandButton value="Click Me" action="{!doSomething}"/&#62; </samp></samp> <br> <samp>&#60;/apex:form&#62;</samp> <br> &#60;/apex:page&#62;</code>',"","",""]];
+                 ['<code>&#60;apex:page&#62; <br> <samp> &#60;apex:form&#62; <samp><br> <samp><samp> &#60;apex:commandButton value="Click Me" action="{!doSomething}"/&#62; </samp></samp> <br> <samp>&#60;/apex:form&#62;</samp> <br> &#60;/apex:page&#62;</code>',
+                  '<code></code>',"",""]];
 const answers = [B,A,A,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
