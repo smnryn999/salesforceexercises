@@ -48,6 +48,7 @@ main {
 #question {
    font-weight: bold;
    font-size: 23px;
+   line-height: 25px;
 }
 #questionBlock code {
    font-size: 17px;
