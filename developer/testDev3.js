@@ -16,7 +16,8 @@ var wrongs = 0, corrects = 0;
 // QUESTIONS AND OPTIONS CONTENTS
 const test = ["In Apex, what is the purpose of a constructor method in a class?",
               'Which of the following Apex trigger code snippets demonstrates the correct syntax for a trigger on the Account object that sets the account\'s description to "New Account" for new records?',
-              "<code>Account acc = new Account(); <br> insert acc; </code> <br> What type of exception does the above code cause?", "Which of the following Visualforce code snippets correctly displays a button that, when clicked, calls a method named myMethod of a class named MyController?"];
+              "<code>Account acc = new Account(); <br> insert acc; </code> <br> What type of exception does the above code cause?", "Which of the following Visualforce code snippets correctly displays a button that, when clicked, calls a method named myMethod of a class named MyController?",
+              " In Apex, what is the primary purpose of a future method?"];
 
 const options1 = [["To define the layout of user interface elements.","To create an instance of an object from a class.","To establish a connection to external APIs.","To handle exceptions and errors in the code."],
                  ["<code>trigger AccountTrigger on Account (before insert) {<br><samp>for(Account acc : Trigger.new) {</samp> <br> <samp><samp> acc.Description = 'New Account';</samp></samp> <br> <samp>}</samp> <br>}</code>",
@@ -24,9 +25,12 @@ const options1 = [["To define the layout of user interface elements.","To create
                   '<code>trigger AccountTrigger on Account (before insert) {<br><samp>for(Account acc : Trigger.newMap) {</samp> <br> <samp><samp> acc.Description = "New Account";</samp></samp> <br> <samp>}</samp> <br>}</code>',
                   "<code>trigger AccountTrigger (after insert) {<br><samp>for(Account acc : Trigger.new) {</samp> <br> <samp><samp> acc.Description = 'New Account';</samp></samp> <br> <samp>}</samp> <br>}</code>"],
                  ["DmlException","NullPointerException","FinalException","NoAccessException"],
-                 ['<code>&lt;apex:page&gt; <br> <samp> &#60;apex:form&#62; <samp><br> <samp><samp> &#60;apex:commandButton value="Click Me" action="{!doSomething}"/&#62; </samp></samp> <br> <samp>&#60;/apex:form&#62;</samp> <br> &#60;/apex:page&#62;</code>',
-                  '<pre><code><apex:page></code></pre>',"",""]];
-const answers = [B,A,A,A];
+                 ['<code>&lt;apex:page controller="MyController"&gt; <br> <samp> &#60;apex:form&#62; <samp><br> <samp><samp> &#60;apex:commandButton value="Click" action="{!myMethod}"/&#62; </samp></samp> <br> <samp>&#60;/apex:form&#62;</samp> <br> &#60;/apex:page&#62;</code>',
+                  '<code>&lt;apex:page&gt; <br> <samp> &#60;apex:form&#62; <samp><br> <samp><samp> &#60;apex:commandButton value="Click" action="{!myMethod}"/&#62; </samp></samp> <br> <samp>&#60;/apex:form&#62;</samp> <br> &#60;/apex:page&#62;</code>',
+                  '<code>&lt;apex:page controller="MyController"&gt; <br> <samp> &#60;apex:form&#62; <samp><br> <samp><samp> &#60;apex:button value="Click" action="{!myMethod}"/&#62; </samp></samp> <br> <samp>&#60;/apex:form&#62;</samp> <br> &#60;/apex:page&#62;</code>',
+                  '<code>&lt;apex:page action="myMethod"&gt; <br> <samp> &#60;apex:form&#62; <samp><br> <samp><samp> &#60;apex:button value="Click"/&#62; </samp></samp> <br> <samp>&#60;/apex:form&#62;</samp> <br> &#60;/apex:page&#62;</code>'],
+                 ["To execute code synchronously and immediately.","To send email notifications to users.","To generate reports and dashboards.","To perform long-running or asynchronous tasks."]];
+const answers = [B,A,A,A,D];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
@@ -129,8 +133,8 @@ pass.onclick = function () {
   for(var i=0; i<codes.length; i++){
      var content = codes[i].innerHTML;
      var datatypes = ["String", " Date ", "Integer", "Boolean", "Decimal", "override", "virtual", "static","void","class", "LightningElement", "lwc", "Text", "trigger"];
-     var decorators = ["@AuraEnabled", "@wire", "@api", "@track", "api", "wire"];
-     var punctuation = ["(",")","[","]","{","}",","];
+     var decorators = ["@AuraEnabled", "@wire", "@api", "@track", "api", "wire", "Trigger.newMap", "Trigger.new", "Trigger.oldMap", "Trigger.old"];
+     var punctuation = ["(", ")", "[", "]", "{", "}", ",", '"'];
      for(d of datatypes){
        // var re = new RegExp(d,"ig");
        content = content.replaceAll(d, "<span style='color:#3b7a57'>"+d+"</span>"); // Amazon Green
