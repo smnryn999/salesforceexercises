@@ -17,7 +17,7 @@ var wrongs = 0, corrects = 0;
 const test = ["In Apex, what is the purpose of a constructor method in a class?",
               'Which of the following Apex trigger code snippets demonstrates the correct syntax for a trigger on the Account object that sets the account\'s description to "New Account" for new records?',
               "<code>Account acc = new Account(); <br> insert acc; </code> <br> What type of exception does the above code cause?", "Which of the following Visualforce code snippets correctly displays a button that, when clicked, calls a method named myMethod of a class named MyController?",
-              " In Apex, what is the primary purpose of a future method?", "Which statement accurately describes the purpose of a test class in Apex?"];
+              " In Apex, what is the primary purpose of a future method?", "Which statement accurately describes the purpose of a test class in Apex?", "What is the order of access modifiers from most permissive to least permissive?"];
 
 const options1 = [["To define the layout of user interface elements.","To create an instance of an object from a class.","To establish a connection to external APIs.","To handle exceptions and errors in the code."],
                  ["<code>trigger AccountTrigger on Account (before insert) {<br><samp>for(Account acc : Trigger.new) {</samp> <br> <samp><samp> acc.Description = 'New Account';</samp></samp> <br> <samp>}</samp> <br>}</code>",
@@ -30,8 +30,9 @@ const options1 = [["To define the layout of user interface elements.","To create
                   '<code>&lt;apex:page controller="MyController"&gt; <br> <samp> &#60;apex:form&#62; <samp><br> <samp><samp> &#60;apex:button value="Click" action="{!myMethod}"/&#62; </samp></samp> <br> <samp>&#60;/apex:form&#62;</samp> <br> &#60;/apex:page&#62;</code>',
                   '<code>&lt;apex:page action="myMethod"&gt; <br> <samp> &#60;apex:form&#62; <samp><br> <samp><samp> &#60;apex:button value="Click"/&#62; </samp></samp> <br> <samp>&#60;/apex:form&#62;</samp> <br> &#60;/apex:page&#62;</code>'],
                  ["To execute code synchronously and immediately.","To send email notifications to users.","To generate reports and dashboards.","To perform long-running or asynchronous tasks."],
-                 ["Test classes are used to create new Salesforce records.","Test classes are designed to deploy code changes to production.","Test classes verify that Apex code behaves as expected and adheres to best practices.","Test classes are used to schedule Apex jobs for automatic execution."]];
-const answers = [B,A,A,A,D,C];
+                 ["Test classes are used to create new Salesforce records.","Test classes are designed to deploy code changes to production.","Test classes verify that Apex code behaves as expected and adheres to best practices.","Test classes are used to schedule Apex jobs for automatic execution."],
+                 ["private - protected - public - global","global - public - private - protected","global - public - protected - private","public - global - protected - private"]];
+const answers = [B,A,A,A,D,C,C];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
