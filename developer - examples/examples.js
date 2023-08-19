@@ -28,7 +28,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       var content = pres[i].innerHTML;
      // content = content.replaceAll("new", "<var>new</var>");
      // content = content.replaceAll("extends", "<var>extends</var>");
-     // content = content.replaceAll("class", "<span class='key'>class</span>");
+      content = content.replaceAll(" class ", "<span class='key'> class </span>");
       content = content.replaceAll("System.debug", "<span class='key'>System.debug</span>");
      
      // content = content.replaceAll("for", "<span class='loop'>for</span>");
@@ -51,9 +51,9 @@ var showButtons = document.querySelectorAll(".showSolution");
          content = content.replaceAll(p, `<span class="punctuation">${p}</span>`);
       }
 
-     var keywords = ["new","extends","implements"];
+     var keywords = [" new "," extends "," implements "];
       for(p of keywords){
-         content = content.replaceAll(p, `<var>${p}</var>`);
+         content = content.replaceAll(p, `<var> ${p} </var>`);
       }
       
       document.querySelectorAll("pre")[i].innerHTML = content;
