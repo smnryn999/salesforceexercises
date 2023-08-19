@@ -24,7 +24,7 @@ const options1 = [["To define the layout of user interface elements.","To create
                   '<code>trigger AccountTrigger on Account (before insert) {<br><samp>for(Account acc : Trigger.newMap) {</samp> <br> <samp><samp> acc.Description = "New Account";</samp></samp> <br> <samp>}</samp> <br>}</code>',
                   "<code>trigger AccountTrigger (after insert) {<br><samp>for(Account acc : Trigger.new) {</samp> <br> <samp><samp> acc.Description = 'New Account';</samp></samp> <br> <samp>}</samp> <br>}</code>"],
                  ["DmlException","NullPointerException","FinalException","NoAccessException"],
-                 ['<code><apex:page> <br> <samp> <apex:form> <samp><br> <samp><samp> <apex:commandButton value="Click Me" action="{!doSomething}" /> </samp></samp> <br> <samp></apex:form></samp> <br> </apex:page></code>',"","",""]];
+                 ['<code>&ltapex:page&gt <br> <samp> &ltapex:form&gt <samp><br> <samp><samp> &ltapex:commandButton value="Click Me" action="{!doSomething}"/&gt </samp></samp> <br> <samp>&lt/apex:form&gt</samp> <br> &lt/apex:page&gt</code>',"","",""]];
 const answers = [B,A,A,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
