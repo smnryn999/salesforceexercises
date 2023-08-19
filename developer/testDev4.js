@@ -14,10 +14,11 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test = ["Which of the following is true for Apex?"];
+const test = ["Which of the following is true for Apex?", 'Which of the following query returns all Food__c records with values ​​of "Orange" and "Morello" in a multi-select picklist field named Fruits__c?'];
 
-const options1 = [["Apex is a strongly typed, object-oriented programming language.","Apex uses syntax that looks like Java.","Apex enables developers to add business logic to most system events.","All of above."]];
-const answers = [D];
+const options1 = [["Apex is a strongly typed, object-oriented programming language.","Apex uses syntax that looks like Java.","Apex enables developers to add business logic to most system events.","All of above."],
+                  ["SELECT Id FROM Food__c WHERE Fruits__c = 'Orange,Morello'","SELECT Id FROM Food__c WHERE Fruits__c IN 'Orange,Morello'","SELECT Id FROM Food__c WHERE Fruits__c = 'Orange;Morello'","SELECT Id FROM Food__c WHERE Fruits__c = 'Orange' AND Fruits__c = 'Morello'"]];
+const answers = [D,C];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
