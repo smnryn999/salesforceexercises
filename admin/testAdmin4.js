@@ -20,7 +20,7 @@ const test = ["What is the purpose of a search layout?", "How are many-to-many r
               "What defines a one-to-many relationship in Salesforce?", "Only one case assignment rule can be active at a time. True or false?", "Which dashboard component type should we use when we have a single value that we want to show within a range of custom values?",
               "For which of the following objects, we do not need to create a process before creating a record type?", "We need to upload 20 thousand records of the custom Book__c object. Which tool to use for this process is the best practice?",
               "Which feature in Salesforce allows you to group and categorize report data into customizable ranges without creating a formula or a custom field?", "What is the primary purpose of global actions in Salesforce?",
-              "Delegated Approver can reassign the record in an approval process. True or false?", "What is the equivalent of Trigger.old in Apex in Record-Triggered Flow?"];
+              "Delegated Approver can reassign the record in an approval process. True or false?", "Which of the following is the variable that shows the previous state of the record that triggered the flow in Record-Triggered Flow?"];
 
 const options1 = [["To customize the layout of record detail pages.","To manage user permissions and access.","To define the layout of dashboard components.","To define the fields displayed in search results."],
                  ["By using external objects to link records from different objects.","By creating a custom junction object to connect two objects.","By using triggers to directly link records between objects.","By enabling the 'Many-to-Many' option in the object settings."],
