@@ -18,15 +18,15 @@ const test = ["Which of the following is used to set highlights panel?", "What i
               '"Opportunity Close Date must not be a date before today\'s date or a date within the next 1 month." <br> Which validation rule will ensure this situation?',
               "How many fields on the compact layout does the record highlights section in Lightning Experience use?",
               "We want to automate assigning owners to Leads using the Assignment Rule. Which of the following can we assign?", "What is the main function of Sharing Rules?",
-              "What file format can be used for data loading using Data Import Wizard?",
-              "Which of the following field types do compact layouts support?"];
+              "What file format can be used for data loading using Data Import Wizard?", "Which of the following field types do compact layouts support?",
+              "What function is used for creating a link in a formula field?"];
 
 const options1 = [["Compact Layout","Page Layout","Search Layout","List View Layout"],
                   ["To automate lead assignment based on criteria.","To escalate cases to higher levels of support based on predefined criteria.","To manage user access and permissions within Salesforce.","To create custom fields for tracking case progress."],
                   ["Chart","Gauge","Metric","Tabular"], ["CloseDate > ADDMONTHS(TODAY(),1)","CloseDate < ADDMONTHS(TODAY(),1)","CloseDate > TODAY() + 30","CloseDate < ADDDAYS(TODAY(),30)"],
                   [3,5,7,10], ["A user","A queue","A public group","A and B"], ["To automate lead conversion processes.","To define criteria for record ownership changes.","To extend sharing access to records based on criteria or owner.","To expand profile permissions due to new requirements"],
-                  ["CSV","TXT","XML","DOCX"], ["Phone","Text Area","Multi-select Picklist","Rich Text Area"]];
-const answers = [A,B,D,B,C,D,C,A,A];
+                  ["CSV","TXT","XML","DOCX"], ["Phone","Text Area","Multi-select Picklist","Rich Text Area"], ["LINK()","HYPERLINK()","FIND()","SEARCH()"]];
+const answers = [A,B,D,B,C,D,C,A,A,B];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
