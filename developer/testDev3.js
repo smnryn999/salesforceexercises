@@ -34,7 +34,7 @@ const options1 = [["To define the layout of user interface elements.","To create
                  ["To execute code synchronously and immediately.","To send email notifications to users.","To generate reports and dashboards.","To perform long-running or asynchronous tasks."],
                  ["Test classes are used to create new Salesforce records.","Test classes are designed to deploy code changes to production.","Test classes verify that Apex code behaves as expected and adheres to best practices.","Test classes are used to schedule Apex jobs for automatic execution."],
                  ["private - protected - public - global","global - public - private - protected","global - public - protected - private","public - global - protected - private"],
-                 ["SELECT Id FROM Account WHERE Name = 'University'","SELECT Id FROM Account WHERE Name = '%University%'","SELECT Id FROM Account WHERE Name = '*University*'","SELECT Id FROM Accounts HAVING Name = 'University'"], ["Apex","Lightning Components","Visualforce","Assignment Rules"]];
+                 ["<code>[SELECT Id FROM Account WHERE Name = 'University'];</code>","<code>[SELECT Id FROM Account WHERE Name = '%University%'];</code>","<code>[SELECT Id FROM Account WHERE Name = '*University*'];</code>","<code>[SELECT Id FROM Accounts HAVING Name = 'University'];</code>"], ["Apex","Lightning Components","Visualforce","Assignment Rules"]];
 const answers = [B,A,A,A,D,C,C,B,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
