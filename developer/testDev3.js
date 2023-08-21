@@ -18,7 +18,8 @@ const test = ["In Apex, what is the purpose of a constructor method in a class?"
               'Which of the following Apex trigger code snippets demonstrates the correct syntax for a trigger on the Account object that sets the account\'s description to "New Account" for new records?',
               "<code>Account acc = new Account(); <br> insert acc; </code> <br> What type of exception does the above code cause?", "Which of the following Visualforce code snippets correctly displays a button that, when clicked, calls a method named myMethod of a class named MyController?",
               " In Apex, what is the primary purpose of a future method?", "Which statement accurately describes the purpose of a test class in Apex?", "What is the order of access modifiers from most permissive to least permissive?",
-              'Which of the following query returns all Accounts containing the word "University" in their name?'];
+              'Which of the following query returns all Accounts containing the word "University" in their name?',
+              "In the fictional company Pagina Blanca Sales Inc., they use Salesforce to manage their sales processes. This year, they organize separate campaigns for each region. The sales team wants to automatically assign campaigns to specific sales representatives based on the campaigns' geographical region. <br><br> Which Salesforce feature can they use to accomplish this?"];
 
 const options1 = [["To define the layout of user interface elements.","To create an instance of an object from a class.","To establish a connection to external APIs.","To handle exceptions and errors in the code."],
                  ["<code>trigger AccountTrigger on Account (before insert) {<br><samp>for(Account acc : Trigger.new) {</samp> <br> <samp><samp> acc.Description = 'New Account';</samp></samp> <br> <samp>}</samp> <br>}</code>",
@@ -33,8 +34,8 @@ const options1 = [["To define the layout of user interface elements.","To create
                  ["To execute code synchronously and immediately.","To send email notifications to users.","To generate reports and dashboards.","To perform long-running or asynchronous tasks."],
                  ["Test classes are used to create new Salesforce records.","Test classes are designed to deploy code changes to production.","Test classes verify that Apex code behaves as expected and adheres to best practices.","Test classes are used to schedule Apex jobs for automatic execution."],
                  ["private - protected - public - global","global - public - private - protected","global - public - protected - private","public - global - protected - private"],
-                 ["SELECT Id FROM Account WHERE Name = 'University'","SELECT Id FROM Account WHERE Name = '%University%'","SELECT Id FROM Account WHERE Name = '*University*'","SELECT Id FROM Accounts HAVING Name = 'University'"]];
-const answers = [B,A,A,A,D,C,C,B];
+                 ["SELECT Id FROM Account WHERE Name = 'University'","SELECT Id FROM Account WHERE Name = '%University%'","SELECT Id FROM Account WHERE Name = '*University*'","SELECT Id FROM Accounts HAVING Name = 'University'"], ["Apex","Lightning Components","Visualforce","Assignment Rules"]];
+const answers = [B,A,A,A,D,C,C,B,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
