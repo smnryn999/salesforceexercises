@@ -17,7 +17,7 @@ var wrongs = 0, corrects = 0;
 const test = ["In Apex, what is the purpose of a constructor method in a class?",
               'Which of the following Apex trigger code snippets demonstrates the correct syntax for a trigger on the Account object that sets the account\'s description to "New Account" for new records?',
               "<code>Account acc = new Account(); <br> insert acc; </code> <br> What type of exception does the above code cause?", "Which of the following Visualforce code snippets correctly displays a button that, when clicked, calls a method named myMethod of a class named MyController?",
-              " In Apex, what is the primary purpose of a future method?", "Which statement accurately describes the purpose of a test class in Apex?", "What is the order of access modifiers from most permissive to least permissive?",
+              "In Apex, what is the primary purpose of a future method?", "Which statement accurately describes the purpose of a test class in Apex?", "What is the order of access modifiers from most permissive to least permissive?",
               'Which of the following query returns all Accounts containing the word "University" in their name?',
               "In the fictional company Pagina Blanca Sales Inc., they use Salesforce to manage their sales processes. This year, they organize separate campaigns for each region. The sales team wants to automatically assign campaigns to specific sales representatives based on the campaigns' geographical region. <br><br> Which Salesforce feature can they use to accomplish this?"];
 
