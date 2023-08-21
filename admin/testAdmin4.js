@@ -30,7 +30,7 @@ const options1 = [["To customize the layout of record detail pages.","To manage 
                  ["Creating a custom junction object to link two objects.","Using external objects to establish a connection between records.","Associating a lookup or master-detail relationship between two objects.","Enabling the 'One-to-Many' option in the object settings."],
                  ["True","False"], ["Gauge","Metric","Table","Chart"], ["Case","Contract","Lead","Solution"], ["Data Loader","Dataloader.io","Data Import Wizard","Data From Spreadsheet"], ["Buckets","Groups","Columns","Summary"],
                  ["To create custom objects in Salesforce.","To define validation rules for record fields.","To perform quick actions from anywhere, such as creating records or sending emails.","To manage user access and permissions in Salesforce."], ["True","False"],
-                 ["$PriorRecord","$Prior__Record","$Record","$Record__Prior"], ["To automatically assign leads to sales representatives","To manually grant access to specific records to other users or groups","To schedule automatic email notifications to users","To automate sharing settings based on criteria"]];
+                 ["$PriorRecord","$Prior__Record","$Record","$Record__Prior"], ["To automatically assign leads to sales representatives","To manually grant access to specific records to other users or groups","To schedule automatic email notifications to users","To automate sharing settings based on criteria or owner"]];
 const answers = [D,B,D,C,A,B,D,C,A,A,B,C,A,C,B,D,B];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
