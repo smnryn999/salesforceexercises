@@ -20,7 +20,7 @@ const test = ["Which of the following is true for Apex?", 'Which of the followin
 
 const options1 = [["Apex is a strongly typed, object-oriented programming language.","Apex uses syntax that looks like Java.","Apex enables developers to add business logic to most system events.","All of above."],
                   ["<code>[SELECT Id FROM Food__c WHERE Fruits__c = 'Orange,Morello']</code>","<code>[SELECT Id FROM Food__c WHERE Fruits__c IN 'Orange,Morello']</code>","<code>[SELECT Id FROM Food__c WHERE Fruits__c = 'Orange;Morello']</code>","<code>[SELECT Id FROM Food__c WHERE Fruits__c = 'Orange' AND Fruits__c = 'Morello']</code>"],
-                  ["Classes, methods and instances","Automation triggers","Standard Controllers","Markup Templates"],
+                  ["Classes and objects","Automation triggers","Standard Controllers","Markup Templates"],
                   ["Displays users with all field values.","Displays users with all standard field values.","Displays users with all custom field values.","Gives a duplicate field error."]];
 const answers = [D,C,A,D];
 
