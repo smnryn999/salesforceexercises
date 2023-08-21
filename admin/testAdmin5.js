@@ -16,7 +16,7 @@ var wrongs = 0, corrects = 0;
 // QUESTIONS AND OPTIONS CONTENTS
 const test = ["Which of the following is used to set highlights panel?", "What is the purpose of Escalation Rules?", "Which of the following is not a dashboard component type?",
               '"Opportunity Close Date must not be a date before today\'s date or a date within the next 1 month." <br><br> Which validation rule will ensure this situation?',
-              "In a fictional company called TechPro Inc., the sales team uses Salesforce to manage their leads, accounts, and opportunities. One day, Sarah, a new sales representative, needs to quickly access a list of her top priority potential customers. <br><br> Which Salesforce tab should Sarah navigate to?",
+              "In a fictional company called SalesWaves Inc., the sales team uses Salesforce to manage their leads, accounts, and opportunities. One day, Sarah, a new sales representative, needs to quickly access a list of her top priority potential customers. <br><br> Which Salesforce tab should Sarah navigate to?",
               "How many fields on the compact layout does the record highlights section in Lightning Experience use?",
               "We want to automate assigning owners to Leads using the Assignment Rule. Which of the following can we assign?", "What is the main function of Sharing Rules?",
               "What file format can be used for data loading using Data Import Wizard?", "Which of the following field types do compact layouts support?",
