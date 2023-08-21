@@ -14,15 +14,17 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test = ["Which of the following is true for Apex?", 'Which of the following query returns all Food__c records with values ​​of "Orange" and "Morello" in a multi-select picklist field named Fruits__c?',
+const test = ["Which of the following is true for Apex?", "Which of the following is a fundamental principle of Object-Oriented Programming (OOP) in Apex?",
+              'Which of the following query returns all Food__c records with values ​​of "Orange" and "Morello" in a multi-select picklist field named Fruits__c?',
               "A space agency uses Salesforce to manage their spacecraft and missions. Each spacecraft has various parameters and functions. To model the behavior and attributes of these spacecraft, which concept should the space agency implement?",
               "<code>List&ltUser&gt users = [SELECT Id, FIELDS(ALL) FROM User LIMIT 200]; <br> System.debug(users); </code> <br> What is the output of the code snippet above?"];
 
 const options1 = [["Apex is a strongly typed, object-oriented programming language.","Apex uses syntax that looks like Java.","Apex enables developers to add business logic to most system events.","All of above."],
+                  ["SQL Query Optimization","Abstraction","HTML Coding","File Input/Output"],
                   ["<code>[SELECT Id FROM Food__c WHERE Fruits__c = 'Orange,Morello']</code>","<code>[SELECT Id FROM Food__c WHERE Fruits__c IN 'Orange,Morello']</code>","<code>[SELECT Id FROM Food__c WHERE Fruits__c = 'Orange;Morello']</code>","<code>[SELECT Id FROM Food__c WHERE Fruits__c = 'Orange' AND Fruits__c = 'Morello']</code>"],
                   ["Classes and objects","Automation triggers","Standard Controllers","Markup Templates"],
                   ["Displays users with all field values.","Displays users with all standard field values.","Displays users with all custom field values.","Gives a duplicate field error."]];
-const answers = [D,C,A,D];
+const answers = [D,B,C,A,D];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
