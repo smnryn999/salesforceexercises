@@ -18,14 +18,15 @@ const test = ["Which of the following is true for Apex?", "<code>String str = 'h
               "Which of the following is a fundamental principle of Object-Oriented Programming (OOP) in Apex?",
               'Which of the following query returns all Food__c records with values ​​of "Orange" and "Morello" in a multi-select picklist field named Fruits__c?',
               "A space agency uses Salesforce to manage their spacecraft and missions. Each spacecraft has various parameters and functions. To model the behavior and attributes of these spacecraft, which concept should the space agency implement?",
-              "<code>List&ltUser&gt users = [SELECT Id, FIELDS(ALL) FROM User LIMIT 200]; <br> System.debug(users); </code> <br> What is the output of the code snippet above?"];
+              "<code>List&ltUser&gt users = [SELECT Id, FIELDS(ALL) FROM User LIMIT 200]; <br> System.debug(users); </code> <br> What is the output of the code snippet above?", "What is the primary purpose of using Asynchronous Apex?"];
 
 const options1 = [["Apex is a strongly typed, object-oriented programming language.","Apex uses syntax that looks like Java.","Apex enables developers to add business logic to most system events.","All of above."],
                   ["hello world","Hello world","Hello World","HELLO WORLD"], ["SQL Query Optimization","Abstraction","HTML Coding","File Input/Output"],
                   ["<code>[SELECT Id FROM Food__c WHERE Fruits__c = 'Orange,Morello']</code>","<code>[SELECT Id FROM Food__c WHERE Fruits__c IN 'Orange,Morello']</code>","<code>[SELECT Id FROM Food__c WHERE Fruits__c = 'Orange;Morello']</code>","<code>[SELECT Id FROM Food__c WHERE Fruits__c = 'Orange' AND Fruits__c = 'Morello']</code>"],
                   ["Classes and objects","Automation triggers","Standard Controllers","Markup Templates"],
-                  ["Displays users with all field values.","Displays users with all standard field values.","Displays users with all custom field values.","Gives a duplicate field error."]];
-const answers = [D,B,B,C,A,D];
+                  ["Displays users with all field values.","Displays users with all standard field values.","Displays users with all custom field values.","Gives a duplicate field error."],
+                  ["To execute code at a specific date and time in the future.","To run code immediately upon user request.","To simplify database queries.","To create and implement custom user interfaces."]];
+const answers = [D,B,B,C,A,D,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
