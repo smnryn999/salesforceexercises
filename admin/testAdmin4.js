@@ -22,7 +22,7 @@ const test = ["What is the purpose of a search layout?", "How are many-to-many r
               "Which feature in Salesforce allows you to group and categorize report data into customizable ranges without creating a formula or a custom field?", "What is the primary purpose of global actions in Salesforce?",
               "Delegated Approver can reassign the record in an approval process. True or false?", "Which of the following is the variable that shows the previous state of the record that triggered the flow in Record-Triggered Flow?", "What is the purpose of manual sharing?",
               "In a company called CloudTech Solutions, there's a process for employee onboarding. To streamline this process, the HR department uses Salesforce Flow. <br><br> When a new employee joins, what can the HR team use Flow for?",
-              "Salesforce runs validation rules on records before they are imported. Records that fail validation aren’t imported. <br><br> True or false?"];
+              '"Salesforce runs validation rules on records before they are imported. Records that fail validation aren’t imported." <br><br> True or false?'];
 
 const options1 = [["To customize the layout of record detail pages.","To manage user permissions and access.","To define the layout of dashboard components.","To define the fields displayed in search results."],
                  ["By using external objects to link records from different objects.","By creating a custom junction object to connect two objects.","By using triggers to directly link records between objects.","By enabling the 'Many-to-Many' option in the object settings."],
