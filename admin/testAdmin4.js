@@ -22,7 +22,7 @@ const test = ["What is the purpose of a search layout?", "How are many-to-many r
               "Which feature in Salesforce allows you to group and categorize report data into customizable ranges without creating a formula or a custom field?", "What is the primary purpose of global actions in Salesforce?",
               "Delegated Approver can reassign the record in an approval process. True or false?", "Which of the following is the variable that shows the previous state of the record that triggered the flow in Record-Triggered Flow?", "What is the purpose of manual sharing?",
               "In a company called CloudTech Solutions, there's a process for employee onboarding. To streamline this process, the HR department uses Salesforce Flow. <br><br> When a new employee joins, what can the HR team use Flow for?",
-              '"Salesforce runs validation rules on records before they are imported. Records that fail validation aren’t imported." <br><br> True or false?'];
+              '"Salesforce runs validation rules on records before they are imported. Records that fail validation aren’t imported." <br><br> True or false?', "What is the primary trigger for a Schedule-Triggered Flow?"];
 
 const options1 = [["To customize the layout of record detail pages.","To manage user permissions and access.","To define the layout of dashboard components.","To define the fields displayed in search results."],
                  ["By using external objects to link records from different objects.","By creating a custom junction object to connect two objects.","By using triggers to directly link records between objects.","By enabling the 'Many-to-Many' option in the object settings."],
@@ -33,8 +33,8 @@ const options1 = [["To customize the layout of record detail pages.","To manage 
                  ["True","False"], ["Gauge","Metric","Table","Chart"], ["Case","Contract","Lead","Solution"], ["Data Loader","Dataloader.io","Data Import Wizard","Data From Spreadsheet"], ["Buckets","Groups","Columns","Summary"],
                  ["To create custom objects in Salesforce.","To define validation rules for record fields.","To perform quick actions from anywhere, such as creating records or sending emails.","To manage user access and permissions in Salesforce."], ["True","False"],
                  ["$PriorRecord","$Prior__Record","$Record","$Record__Prior"], ["To automatically assign leads to sales representatives","To manually grant access to specific records to other users or groups","To schedule automatic email notifications to users","To automate sharing settings based on criteria or owner"],
-                 ["Creating a new email account for the employee","Generating performance reports for existing employees","Ordering office supplies","Sending welcome messages to the employee's team"], ["True","False"]];
-const answers = [D,B,D,C,A,B,D,C,A,A,B,C,A,C,B,D,B,D,A];
+                 ["Creating a new email account for the employee","Generating performance reports for existing employees","Ordering office supplies","Sending welcome messages to the employee's team"], ["True","False"], ["User interaction with a record.","Changes to a record's fields.","A specific date and time.","Clicking a custom button."]];
+const answers = [D,B,D,C,A,B,D,C,A,A,B,C,A,C,B,D,B,D,A,C];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
