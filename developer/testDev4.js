@@ -129,7 +129,7 @@ pass.onclick = function () {
      var content = codes[i].innerHTML;
      var datatypes = ["String", " Date ", "Integer", "Boolean", "Decimal", "override", "virtual", "static","void","class", "LightningElement", "lwc", "Text", "trigger"];
      var decorators = ["@AuraEnabled", "@wire", "@api", "@track", " api", "wire", "Trigger.newMap", "Trigger.new", "Trigger.oldMap", "Trigger.old"];
-     var punctuation = ["(", ")", "[", "]", "{", "}", ",", '"', "'"];
+     var punctuation = ["(", ")", "[", "]", "{", "}", ",", '"'];
      var soql = ["SELECT", "FROM", "WHERE", "LIMIT", "IN", "AND", "HAVING", "System.debug"];
      for(d of datatypes){
        // var re = new RegExp(d,"ig");
