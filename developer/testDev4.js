@@ -28,7 +28,7 @@ const options1 = [["Apex is a strongly typed, object-oriented programming langua
                   ["Classes and objects","Automation triggers","Standard Controllers","Markup Templates"],
                   ["Displays users with all field values.","Displays users with all standard field values.","Displays users with all custom field values.","Gives a duplicate field error."],
                   ["To execute code at a specific date and time in the future.","To run code immediately upon user request.","To simplify database queries.","To create and implement custom user interfaces."],
-                  ["<code>public class MyScheduler implements Schedulable { <br> <samp>public void execute(SchedulableContext context) {</samp> <br> <samp><samp>// Your code here </samp></samp> <br> <samp>}</samp> <br>}</code>","","",""]];
+                  ["<code>public class MyScheduler implements Schedulable { <br> <samp>public void execute(SchedulableContext context) {</samp> <br> <samp><samp>// Your code here </samp></samp> <br> <samp>}</samp> <br>}</code>","<code>public class MyScheduler { <br> <samp>public void execute() {</samp> <br> <samp><samp>// Your code here </samp></samp> <br> <samp>}</samp> <br>}</code>","<code>public class MyScheduler implements Schedulable { <br> <samp>public void execute() {</samp> <br> <samp><samp>// Your code here </samp></samp> <br> <samp>}</samp> <br>}</code>","<code>public interface MyScheduler extends Schedulable { <br> <samp>public void execute(SchedulableContext context) {</samp> <br> <samp><samp>// Your code here </samp></samp> <br> <samp>}</samp> <br>}</code>"]];
 const answers = [D,B,B,C,C,A,D,A,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
