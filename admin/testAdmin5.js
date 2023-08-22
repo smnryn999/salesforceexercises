@@ -21,15 +21,16 @@ const test = ["Which of the following is used to set highlights panel?", "What i
               "We want to automate assigning owners to Leads using the Assignment Rule. Which of the following can we assign?", "What is the main function of Sharing Rules?",
               "What file format can be used for data loading using Data Import Wizard?", "Which of the following field types do compact layouts support?",
               "What function is used for creating a link in a formula field?", "What does Salesforce CPQ primarily help businesses with?",
-              "The Applicant__c object stores job applicants' data. The Job_Position__c object shows open job positions. An applicant can apply for more than one job position. And there is no restriction on the number of people applying for a job position. <br><br> In this case, what kind of relationship should be established between these two objects?"];
+              "The Applicant__c object stores job applicants' data. The Job_Position__c object shows open job positions. An applicant can apply for more than one job position. And there is no restriction on the number of people applying for a job position. <br><br> In this case, what kind of relationship should be established between these two objects?",
+              "What values should we use for checked and unchecked values to import data into a checkbox field from a CSV file?"];
 
 const options1 = [["Compact Layout","Page Layout","Search Layout","List View Layout"],
                   ["To automate lead assignment based on criteria.","To escalate cases to higher levels of support based on predefined criteria.","To manage user access and permissions within Salesforce.","To create custom fields for tracking case progress."],
                   ["Chart","Gauge","Metric","Tabular"], ["CloseDate > ADDMONTHS(TODAY(),1)","CloseDate < ADDMONTHS(TODAY(),1)","CloseDate > TODAY() + 30","CloseDate < ADDDAYS(TODAY(),30)"], ["Opportunities tab","Accounts tab","Reports tab","Leads tab"],
                   [3,5,7,10], ["A user","A queue","A public group","A and B"], ["To automate lead conversion processes.","To define criteria for record ownership changes.","To extend sharing access to records based on criteria or owner.","To expand profile permissions due to new requirements"],
                   ["CSV","TXT","XML","DOCX"], ["Phone","Text Area","Multi-select Picklist","Rich Text Area"], ["LINK()","HYPERLINK()","FIND()","OPEN()"], ["Customer Relationship Management","Inventory Management","Configure complex product offerings and pricing","Social Media Marketing and Advertising"],
-                  ["Lookup Relationship","Master-Detail Relationship","Many-to-Many Relationship","Hierarchical Relationship"]];
-const answers = [A,B,D,B,D,C,D,C,A,A,B,C,C];
+                  ["Lookup Relationship","Master-Detail Relationship","Many-to-Many Relationship","Hierarchical Relationship"], ["1 - 0","Yes - No","True - False","Checked - Unchecked"]];
+const answers = [A,B,D,B,D,C,D,C,A,A,B,C,C,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
