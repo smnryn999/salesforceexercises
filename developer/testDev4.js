@@ -16,7 +16,7 @@ var wrongs = 0, corrects = 0;
 // QUESTIONS AND OPTIONS CONTENTS
 const test = ["Which of the following is true for Apex?", "<code>String str = 'hello world'; <br> String str2 = str.capitalize(); <br> System.debug(str2);</code> <br> What is the output of the code snippet above?",
               "Which of the following is a fundamental principle of Object-Oriented Programming (OOP) in Apex?",
-              "<code>Contact con =  new Contact(LastName = 'New Contact'); <br> insert con; <br><br> List&lt;Contact&gt; listCon = new List&lt;Contact&gt;(); <br> for(integer i=0; i<20; i++){<br><samp>Contact con =  new Contact(LastName = 'New Contact' + i);</samp> <br><samp>listCon.add(con);</samp> <br>}</code> <br> We have already 100 contact records in the production org. How many Leads will there be in the database after the above code snippet runs?",
+              "<code>Contact con =  new Contact(LastName = 'New Contact'); <br><br> List&lt;Contact&gt; listCon = new List&lt;Contact&gt;(); <br> for(integer i=0; i<20; i++){<br><samp>Contact con =  new Contact(LastName = 'New Contact' + i);</samp> <br><samp>listCon.add(con);</samp> <br>}<br> insert listCon;</code> <br> We have already 100 contact records in the production org. How many Leads will there be in the database after the above code snippet runs?",
               'Which of the following query returns all Food__c records with values ​​of "Orange" and "Morello" in a multi-select picklist field named Fruits__c?',
               "A space agency uses Salesforce to manage their spacecraft and missions. Each spacecraft has various parameters and functions. To model the behavior and attributes of these spacecraft, which concept should the space agency implement?",
               "<code>List&ltUser&gt users = [SELECT Id, FIELDS(ALL) FROM User LIMIT 200]; <br> System.debug(users); </code> <br> What is the output of the code snippet above?", "What is the primary purpose of using Asynchronous Apex?"];
@@ -132,7 +132,7 @@ pass.onclick = function () {
      var datatypes = ["String", " Date ", "Integer", "Boolean", "Decimal", "override", "virtual", "static","void","class", "LightningElement", "lwc", "Text", "trigger"];
      var decorators = ["@AuraEnabled", "@wire", "@api", "@track", " api", "wire", "Trigger.newMap", "Trigger.new", "Trigger.oldMap", "Trigger.old"];
      var punctuation = ["(", ")", "[", "]", "{", "}", ",", '"'];
-     var soql = ["SELECT", "FROM", "WHERE", "LIMIT", "IN", "AND", "HAVING", "System.debug"];
+     var soql = ["SELECT", "FROM", "WHERE", "LIMIT", "IN", "AND", "HAVING", "System.debug", " new "];
      for(d of datatypes){
        // var re = new RegExp(d,"ig");
        content = content.replaceAll(d, "<span style='color:#3b7a57'>"+d+"</span>"); // Amazon Green
