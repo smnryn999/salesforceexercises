@@ -19,15 +19,17 @@ const test = ["Which of the following is true for Apex?", "<code>String str = 'h
               "<code>Contact con =  new Contact(LastName = 'New Contact'); <br><br> List&lt;Contact&gt; listCon = new List&lt;Contact&gt;(); <br> for(integer i=0; i<20; i++){<br><samp>Contact con =  new Contact(LastName = 'New Contact' + i);</samp> <br><samp>listCon.add(con);</samp> <br>}<br> insert listCon;</code> <br> We have already 100 contact records in the production org. How many Leads will there be in the database after the above code snippet runs?",
               'Which of the following query returns all Food__c records with values ​​of "Orange" and "Morello" in a multi-select picklist field named Fruits__c?',
               "A space agency uses Salesforce to manage their spacecraft and missions. Each spacecraft has various parameters and functions. To model the behavior and attributes of these spacecraft, which concept should the space agency implement?",
-              "<code>List&ltUser&gt users = [SELECT Id, FIELDS(ALL) FROM User LIMIT 200]; <br> System.debug(users); </code> <br> What is the output of the code snippet above?", "What is the primary purpose of using Asynchronous Apex?"];
+              "<code>List&ltUser&gt users = [SELECT Id, FIELDS(ALL) FROM User LIMIT 200]; <br> System.debug(users); </code> <br> What is the output of the code snippet above?", "What is the primary purpose of using Asynchronous Apex?",
+              "Which of the following Salesforce Apex code snippets represents a correctly implemented Schedulable class?"];
 
 const options1 = [["Apex is a strongly typed, object-oriented programming language.","Apex uses syntax that looks like Java.","Apex enables developers to add business logic to most system events.","All of above."],
                   ["hello world","Hello world","Hello World","HELLO WORLD"], ["SQL Query Optimization","Abstraction","HTML Coding","File Input/Output"], [100, 101, 120, 121,],
                   ["<code>[SELECT Id FROM Food__c WHERE Fruits__c = 'Orange,Morello']</code>","<code>[SELECT Id FROM Food__c WHERE Fruits__c IN 'Orange,Morello']</code>","<code>[SELECT Id FROM Food__c WHERE Fruits__c = 'Orange;Morello']</code>","<code>[SELECT Id FROM Food__c WHERE Fruits__c = 'Orange' AND Fruits__c = 'Morello']</code>"],
                   ["Classes and objects","Automation triggers","Standard Controllers","Markup Templates"],
                   ["Displays users with all field values.","Displays users with all standard field values.","Displays users with all custom field values.","Gives a duplicate field error."],
-                  ["To execute code at a specific date and time in the future.","To run code immediately upon user request.","To simplify database queries.","To create and implement custom user interfaces."]];
-const answers = [D,B,B,C,C,A,D,A];
+                  ["To execute code at a specific date and time in the future.","To run code immediately upon user request.","To simplify database queries.","To create and implement custom user interfaces."],
+                  ["<code>public class MyScheduler implements Schedulable { <br> <samp>public void execute(SchedulableContext context) {</samp> <br> <samp><samp>// Your code here </samp></samp> <br> <samp>}</samp> <br>}</code>","","",""]];
+const answers = [D,B,B,C,C,A,D,A,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
