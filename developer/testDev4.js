@@ -20,7 +20,7 @@ const test = ["Which of the following is true for Apex?", "<code>String str = 'h
               'Which of the following query returns all Food__c records with values ​​of "Orange" and "Morello" in a multi-select picklist field named Fruits__c?',
               "A space agency uses Salesforce to manage their spacecraft and missions. Each spacecraft has various parameters and functions. To model the behavior and attributes of these spacecraft, which concept should the space agency implement?",
               "<code>List&ltUser&gt users = [SELECT Id, FIELDS(ALL) FROM User LIMIT 200]; <br> System.debug(users); </code> <br> What is the output of the code snippet above?", "What is the primary purpose of using Asynchronous Apex?",
-              "Which of the following Salesforce Apex code snippets represents a correctly implemented Schedulable class?", "Which of the following is true for Visualforce?"];
+              "Which of the following Salesforce Apex code snippets represents a correctly implemented Schedulable class?", "Which of the following is true for Visualforce?", "Which Visualforce markup snippet correctly displays a hyperlink that redirects to a custom Visualforce page named MyPage?"];
 
 const options1 = [["Apex is a strongly typed, object-oriented programming language.","Apex uses syntax that looks like Java.","Apex enables developers to add business logic to most system events.","All of above."],
                   ["hello world","Hello world","Hello World","HELLO WORLD"], ["SQL Query Optimization","Abstraction","HTML Coding","File Input/Output"], [100, 101, 120, 121,],
@@ -29,8 +29,9 @@ const options1 = [["Apex is a strongly typed, object-oriented programming langua
                   ["Displays users with all field values.","Displays users with all standard field values.","Displays users with all custom field values.","Gives a duplicate field error."],
                   ["To execute code at a specific date and time in the future.","To run code immediately upon user request.","To simplify database queries.","To create and implement custom user interfaces."],
                   ["<code>public class MyScheduler implements Schedulable { <br> <samp>public void execute(SchedulableContext context) {</samp> <br> <samp><samp>// Your code here </samp></samp> <br> <samp>}</samp> <br>}</code>","<code>public class MyScheduler { <br> <samp>public void execute() {</samp> <br> <samp><samp>// Your code here </samp></samp> <br> <samp>}</samp> <br>}</code>","<code>public class MyScheduler implements Schedulable { <br> <samp>public void execute() {</samp> <br> <samp><samp>// Your code here </samp></samp> <br> <samp>}</samp> <br>}</code>","<code>public interface MyScheduler extends Schedulable { <br> <samp>public void execute(SchedulableContext context) {</samp> <br> <samp><samp>// Your code here </samp></samp> <br> <samp>}</samp> <br>}</code>"],
-                  ["Visualforce uses a tag-based markup language that’s similar to HTML.","Visualforce Pages can be referenced and invoked via a unique URL.","Visualforce pages can be created and modified using Salesforce APIs.","All of above."]];
-const answers = [D,B,B,C,C,A,D,A,A,D];
+                  ["Visualforce uses a tag-based markup language that’s similar to HTML.","Visualforce Pages can be referenced and invoked via a unique URL.","Visualforce pages can be created and modified using Salesforce APIs.","All of above."],
+                  ["","","",""]];
+const answers = [D,B,B,C,C,A,D,A,A,D,C];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
