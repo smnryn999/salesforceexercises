@@ -132,6 +132,7 @@
       <p><span class="counter"></span> - Overriding a method</p>
       <button class="showSolution">Show Solution</button>
       <pre>
+         <em> // Overriding is between two classes. It is about Polymorphism and Inheritance. </em>
          public virtual class Cake {
             public string name;
             public integer sugar=25;
@@ -159,7 +160,69 @@
          System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=null, Cake.sugar=25, sugarPie=25] </em>
       </pre>
       </div>
-      
+
+      <!-- EXAMPLE 5 -->
+      <div class="example">
+         <p><span class="counter"></span> - Overloading a method</p>
+         <button class="showSolution">Show Solution</button>
+         <pre>
+            <em> // Overloading is in the same class. It is about Polymorphism. </em>
+            public class Calculator {
+               
+               <em> // Method Signature = Method Name + Parameters </em>
+               public static integer addition(integer a, integer b){
+                  return a + b;
+               }
+
+               public static decimal addition(integer a, decimal b){
+                  return a + b;
+               }
+
+               public static decimal addition(decimal a, integer b){
+                  return a + b;
+               }
+
+               public static integer addition(integer a, integer b, integer c){
+                  return a + b + c;
+               }
+
+               public static integer substraction(integer a, integer b){
+                  return a - b;
+               }
+            }
+   
+            Integer sum = Calculator.addition(3, 5); 
+            System.debug(sum); <em> // 8 </em>
+
+            Decimal sum = Calculator.addition(3, 5.7);
+            System.debug(sum); <em> // 8.7 </em>
+
+            Decimal sum = Calculator.addition(3.5, 5);
+            System.debug(sum); <em> // 8.5 </em>
+
+            Integer sum = Calculator.addition(3, 5, 7);
+            System.debug(sum); <em> // 15 </em>
+
+            Integer difference = Calculator.substraction(3, 5);
+            System.debug(difference); <em> // -2 </em>  
+         </pre>
+         </div>
+
+      <!-- EXAMPLE 6 -->
+      <div class="example">
+         <p><span class="counter"></span> - Abstraction</p>
+         <button class="showSolution">Show Solution</button>
+         <pre>
+            public class CalculateArea {
+               
+               public static decimal addition();
+
+               public static decimal addition();
+
+            }
+         </pre>
+         </div>
+     
    </section>
    
    <script src="examples.js"></script>
