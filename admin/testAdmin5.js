@@ -16,13 +16,13 @@ var wrongs = 0, corrects = 0;
 // QUESTIONS AND OPTIONS CONTENTS
 const test = ["Which of the following is used to set highlights panel?", "What is the purpose of Escalation Rules?", "Which of the following is not a dashboard component type?",
               '"Opportunity Close Date must not be a date before today\'s date or a date within the next 1 month." <br><br> Which validation rule will ensure this situation?',
-              "In a fictional company called SalesWaves Inc., the sales team uses Salesforce to manage their leads, accounts, and opportunities. One day, Sarah, a new sales representative, needs to quickly access a list of her top priority potential customers. <br><br> Which Salesforce tab should Sarah navigate to?",
+              "In the company called SalesWaves Inc., the sales team uses Salesforce to manage their leads, accounts, and opportunities. One day, Sarah, a new sales representative, needs to quickly access a list of her top priority potential customers. <br><br> Which Salesforce tab should Sarah navigate to?",
               "How many fields on the compact layout does the record highlights section in Lightning Experience use?",
               "We want to automate assigning owners to Leads using the Assignment Rule. Which of the following can we assign?", "What is the main function of Sharing Rules?",
               "What file format can be used for data loading using Data Import Wizard?", "Which of the following field types do compact layouts support?",
               "What function is used for creating a link in a formula field?", "What does Salesforce CPQ primarily help businesses with?",
               "The Applicant__c object stores job applicants' data. The Job_Position__c object shows open job positions. An applicant can apply for more than one job position. And there is no restriction on the number of people applying for a job position. <br><br> In this case, what kind of relationship should be established between these two objects?",
-              "What values should we use for checked and unchecked values to import data into a checkbox field from a CSV file?", 'A user cannot edit the All Open Leads list view using the "Select Fields to Display" option. What authority should the System Administrator grant to achieve this status?'];
+              "What values should we use for checked and unchecked values to import data into a checkbox field from a CSV file?", 'In the company called SalesWaves Inc., sales representative Sarah cannot edit the All Open Leads list view using the "Select Fields to Display" option. What permission should the System Administrator grant to achieve this authority?'];
 
 const options1 = [["Compact Layout","Page Layout","Search Layout","List View Layout"],
                   ["To automate lead assignment based on criteria.","To escalate cases to higher levels of support based on predefined criteria.","To manage user access and permissions within Salesforce.","To create custom fields for tracking case progress."],
