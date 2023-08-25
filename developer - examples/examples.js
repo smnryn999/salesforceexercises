@@ -40,7 +40,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       content = content.replaceAll(/List<string>/gi, "<span class='datatype'>List&#60;String&#62;</span>");
       content = content.replaceAll(/Set<string>/gi, "<span class='datatype'>Set&#60;String&#62;</span>");     
       
-      var datatypes = ["String", " Date ", "Integer", "Boolean", "Decimal", "Datetime", "Double", "override", "virtual"]; 
+      var datatypes = ["String", " Date ", "Integer", "Boolean", "Decimal", "Datetime", "Double", "override", "virtual", "abstract"]; 
       for(d of datatypes){
          // var re = new RegExp(d,"ig");
          content = content.replaceAll(d, "<span class='datatype'>"+d+"</span>");

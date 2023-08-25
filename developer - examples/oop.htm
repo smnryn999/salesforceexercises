@@ -267,13 +267,58 @@
          <p><span class="counter"></span> - Abstraction</p>
          <button class="showSolution">Show Solution</button>
          <pre>
-            public class CalculateArea {
-               
-               public static decimal addition();
+            <em> // Shapes Class (Superclass) </em>
+            public abstract class Shapes {
 
-               public static decimal addition();
-
+               public abstract decimal calculateArea();
+               public abstract integer calculatePerimeter();
             }
+
+            <em> // Square Class (Subclass) </em>
+            public class Square extends Shapes {
+               integer x;
+               
+               public Square(integer a){ <em> // constructor method </em>
+                   this.x = a;
+               }
+               
+               public override decimal calculateArea(){
+                  return x*x;
+               }
+               
+               public override integer calculatePerimeter(){
+                   return x*4;
+               }
+            }
+
+            Square square = new Square(5);
+            System.debug(square.calculateArea()); <em> // 25 </em>
+            System.debug(square.calculatePerimeter()); <em> // 20 </em>
+
+            <em> // Triangle Class (Subclass) </em>
+            public class Triangle extends Shapes{
+
+               integer x, y, z;
+               
+               public Triangle(integer a, integer b, integer c){ <em> // constructor method </em>
+                   this.x = a;
+                   this.y = b;
+                   this.z = c;
+               }
+               
+               public override decimal calculateArea(){
+                   decimal s = (x+y+z)/2;
+                   return Math.sqrt(s*(s-x)*(s-y)*(s-z));
+               }
+               
+               public override integer calculatePerimeter(){
+                   return x+y+z;
+               }
+            }
+           
+            Triangle triangle = new Triangle(3,4,5);
+            System.debug(triangle.calculateArea()); <em> // 6.0 </em>
+            System.debug(triangle.calculatePerimeter()); <em> // 12 </em>
          </pre>
       </div>
 
