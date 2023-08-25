@@ -31,7 +31,8 @@
       <button class="showSolution">Show Solution</button>
       <pre>
          list<string> listColors = new List<string>{'Green', 'Blue', 'Yellow', 'Blue'};
-         set<string> setColors = new Set<string>(listColors);  <em> // Blue, Green, Yellow</em>
+         System.debug(colors); <em> // (Green, Blue, Yellow, Blue) </em>
+         set<string> setColors = new Set<string>(listColors); <em> // Blue, Green, Yellow</em>
          System.debug(setColors);  <em> // {Blue, Green, Yellow}</em>
       </pre>
       </div>
@@ -96,6 +97,7 @@
          List<String> colors = new List<String>{'White', 'Blue', 'Orange', 'Black'};
          Integer num = 1;
          <span class="datatype">Map&#60;integer, string&#62;</span> mapColors = new <span class="datatype">Map&#60;integer, string&#62;</span>(); // {5=>'Yellow'}
+         
          <span class='loop'>for</span>(String c:colors){
             mapColors.put(num, c);
          }
@@ -113,6 +115,7 @@
             num++;
          }
          System.debug(mapColors);  <em> // {1=White, 2=Blue, 3=Orange, 4=Black, 5=Yellow}</em>
+         System.debug(mapColors.get(3)); <em> // Orange </em>
       </pre>
       </div>
       
@@ -126,7 +129,7 @@
          mapCountry.put('India', 'Rupee');
          mapCountry.put('Europe', 'Euro');
          mapCountry.put('Japan', 'Yen');
-         System.debug(mapCountry);
+         System.debug(mapCountry); <em> // {Europe=Euro, India=Rupee, Japan=Yen, Türkiye=TL} </em>
          
          <span class='loop'>for</span>(String c:mapCountry.values()){
             System.debug(c);
