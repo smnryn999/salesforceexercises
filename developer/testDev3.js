@@ -21,7 +21,7 @@ const test = ["In Apex, what is the purpose of a constructor method in a class?"
               'Which of the following query returns all Accounts containing the word "University" in their name?',
               "In the fictional company Pagina Blanca Sales Inc., they use Salesforce to manage their sales processes. This year, they organize separate campaigns for each region. The sales team wants to automatically assign campaigns to specific sales representatives based on the campaigns' geographical region. <br><br> Which Salesforce feature can they use to accomplish this?",
               "Which cron expression represents a correctly implemented Schedulable class that runs every day at 2:00 PM?",
-              "<code>public class UpdateContactsBatch implements Database.Batchable<sObject> { <br> &nbsp; public Database.QueryLocator start(Database.BatchableContext bc) {<br> &nbsp; &nbsp; String query = 'SELECT Id, Status__c FROM Contact WHERE Status__c != \'Active\''; <br> &nbsp; &nbsp; return Database.getQueryLocator(query);<br> &nbsp; } <br> &nbsp; public void execute(Database.BatchableContext bc, List<Contact> scope) { <br> &nbsp; &nbsp; for (Contact con : scope) {<br> &nbsp; &nbsp; &nbsp; con.Status__c = 'Active';<br> &nbsp; &nbsp; }<br> &nbsp; &nbsp; update scope;<br> &nbsp; }<br> &nbsp; public void finish(Database.BatchableContext bc) {<br> &nbsp;}<br>}</code>"];
+              "<code>public class UpdateContactsBatch implements Database.Batchable<sObject> { <br> &nbsp; public Database.QueryLocator start(Database.BatchableContext bc) {<br> &nbsp; &nbsp; String query = 'SELECT Id, Status__c FROM Contact WHERE Status__c != \'Active\''; <br> &nbsp; &nbsp; return Database.getQueryLocator(query);<br> &nbsp; } <br> &nbsp; public void execute(Database.BatchableContext bc, List<Contact> scope) { <br> &nbsp; &nbsp; for (Contact con : scope) {<br> &nbsp; &nbsp; &nbsp; con.Status__c = 'Active';<br> &nbsp; &nbsp; }<br> &nbsp; &nbsp; update scope;<br> &nbsp; }<br> &nbsp; public void finish(Database.BatchableContext bc) {<br> &nbsp;}<br>}</code> <br><br> Which of the following is false about the code snippet above?"];
 
 const options1 = [["To define the layout of user interface elements.","To create an instance of an object from a class.","To establish a connection to external APIs.","To handle exceptions and errors in the code."],
                  ["<code>trigger AccountTrigger on Account (before insert) {<br><samp>for(Account acc : Trigger.new) {</samp> <br> <samp><samp> acc.Description = 'New Account';</samp></samp> <br> <samp>}</samp> <br>}</code>",
@@ -37,8 +37,8 @@ const options1 = [["To define the layout of user interface elements.","To create
                  ["Test classes are used to create new Salesforce records.","Test classes are designed to deploy code changes to production.","Test classes verify that Apex code behaves as expected and adheres to best practices.","Test classes are used to schedule Apex jobs for automatic execution."],
                  ["private - protected - public - global","global - public - private - protected","global - public - protected - private","public - global - protected - private"],
                  ["<code>[SELECT Id FROM Account WHERE Name = 'University'];</code>","<code>[SELECT Id FROM Account WHERE Name = '%University%'];</code>","<code>[SELECT Id FROM Account WHERE Name = '*University*'];</code>","<code>[SELECT Id FROM Accounts HAVING Name = 'University'];</code>"], ["Apex","Lightning Components","Visualforce","Assignment Rules"],
-                 ["* * ? 14 0 0","* * * 2pm 0 0","0 0 14 * * ?","0 0 2pm ? * *"]];
-const answers = [B,A,A,A,D,C,C,B,A,C];
+                 ["* * ? 14 0 0","* * * 2pm 0 0","0 0 14 * * ?","0 0 2pm ? * *"], ["","","",""]];
+const answers = [B,A,A,A,D,C,C,B,A,C,D];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
