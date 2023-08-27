@@ -37,7 +37,7 @@ const options1 = [["To define the layout of user interface elements.","To create
                  ["Test classes are used to create new Salesforce records.","Test classes are designed to deploy code changes to production.","Test classes verify that Apex code behaves as expected and adheres to best practices.","Test classes are used to schedule Apex jobs for automatic execution."],
                  ["private - protected - public - global","global - public - private - protected","global - public - protected - private","public - global - protected - private"],
                  ["<code>[SELECT Id FROM Account WHERE Name = 'University'];</code>","<code>[SELECT Id FROM Account WHERE Name = '%University%'];</code>","<code>[SELECT Id FROM Account WHERE Name = '*University*'];</code>","<code>[SELECT Id FROM Accounts HAVING Name = 'University'];</code>"], ["Apex","Lightning Components","Visualforce","Assignment Rules"],
-                 ["* * ? 14 0 0","* * * 2pm 0 0","0 0 14 * * ?","0 0 2pm ? * *"], ["It is a Batchable class.","It can retrieve Contact records up to 50 million.","It updates custom Status__c field.","If an error occurs for a record, all transactions are rolled back."]];
+                 ["* * ? 14 0 0","* * * 2pm 0 0","0 0 14 * * ?","0 0 2pm ? * *"], ["It is a Batchable class with start(), execute() and finish() methods.","It can retrieve Contact records up to 50 million.","It updates custom Status__c field.","If an error occurs for a record, all transactions are rolled back."]];
 const answers = [B,A,A,A,D,C,C,B,A,C,D];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
