@@ -14,10 +14,10 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test = ["batch class template, send notification, lightning-datatable?"];
+const test = ["batch class template, send notification, lightning-datatable?", ""];
 
-const options1 = [["","","",""]];
-const answers = [A];
+const options1 = [["","","",""], ["<code>public class SampleBatch implements Database.Batchable&lt;sObject&gt; { <br> &nbsp; public Database.QueryLocator start(Database.BatchableContext bc) {<br> &nbsp; &nbsp; // Start method logic <br> &nbsp; } <br> &nbsp; public void execute(Database.BatchableContext bc, List<sObject> scope) { <br> &nbsp; &nbsp; // Execute method logic <br> &nbsp; } <br> &nbsp; public void finish(Database.BatchableContext bc) { <br> &nbsp; &nbsp; // Finish method logic <br> &nbsp; }<br>}</code>","","",""]];
+const answers = [A,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
