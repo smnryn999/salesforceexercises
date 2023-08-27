@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+   <meta charset="UTF-8">
+   <title>SOQL - SOSL - DML</title>
+   <link rel="stylesheet" href="../test.css">
+</head>
+<body>
+   <header>
+      <h1>SOQL - SOSL - DML Examples</h1>
+   </header>
+   
+   <section>
+      
+      <!-- EXAMPLE 1 -->
+      <div class="example">
+      <p><span class="counter"></span> - Please create a new Book__c instance.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        Book__c book = new Book__c(Name='War and Peace');
+        book.Author__c = 'Tolstoy';
+        book.Price__c = 100;
+        insert book;        
+      </pre>
+      </div>
+
+      <!-- EXAMPLE 2 -->
+      <div class="example">
+        <p><span class="counter"></span> - Please write a query that searchs Tolstoy's book whose price is over 50.</p>
+        <button class="showSolution">Show Solution</button>
+        <pre>
+          Book__c book = [SELECT Name FROM Book__c WHERE Author__c = 'Tolstoy' AND Price__c > 50 LIMIT 1];
+          System.debug(book.Name); <em> // War and Peace</em>                 
+        </pre>
+      </div>
+
+      <!-- EXAMPLE 3 -->
+      <div class="example">
+        <p><span class="counter"></span> - Please create a contact record and relate it to an account record whose state is Texas.</p>
+        <button class="showSolution">Show Solution</button>
+        <pre>
+          <em> // Account acc = [SELECT Id, Name FROM Account WHERE BillingState='TX' LIMIT 1]; </em>
+          <em> // System.debug(acc); // Account:{Id=0018e00000J1wtFAAR, Name=Edge Communications}</em>
+
+          Contact con = new Contact(LastName='Test', AccountId=[SELECT Id, Name FROM Account WHERE BillingState='TX' LIMIT 1].Id);
+          insert con;
+          System.debug(con); <em> // Contact:{LastName=Test, AccountId=0018e00000J1wtFAAR, Id=0038e00000Guf9bAAB} </em>              
+        </pre>
+      </div>
+
+      <!-- EXAMPLE 4 -->
+      <div class="example">
+        <p><span class="counter"></span> - Write a method that returns the Accounts whose Name contains the value entered in the parameter.</p>
+        <button class="showSolution">Show Solution</button>
+        <pre>
+          <em> // We can use % and _ as wildcards. </em>
+          public class GetRecords {
+             public static List&lt;Account&gt; getAccount(String str){
+               return [SELECT Name, NumberOfEmployees FROM Account WHERE Name LIKE :('%'+str+'%')];
+             }
+          }        
+          
+          <em> // We call the method in a for loop with a parameter value. </em>
+          for(Account acc:GetRecords.getAccount('United')){
+             System.debug(acc.Name + ' => ' + acc.NumberOfEmployees);
+          }
+        
+        </pre>
+      </div>
+      
+   </section>
+   
+   <script src="examples.js"></script>
+   
+</body>
+</html>
