@@ -18,7 +18,7 @@ const test = ["batch class template, send notification, lightning-datatable?", "
 
 const options1 = [["","","",""],
                   ["<code>public class SampleBatch implements Database.Batchable&lt;sObject&gt; { <br> &nbsp; public Database.QueryLocator start(Database.BatchableContext bc) {<br> &nbsp; &nbsp; // Start method logic <br> &nbsp; } <br> &nbsp; public void execute(Database.BatchableContext bc, List&lt;Opportunity&gt; scope) { <br> &nbsp; &nbsp; // Execute method logic <br> &nbsp; } <br> &nbsp; public void finish(Database.BatchableContext bc) { <br> &nbsp; &nbsp; // Finish method logic <br> &nbsp; }<br>}</code>",
-                   "<code>public class SampleBatch implements Database.Batchable&lt;sObject&gt; { <br> &nbsp; public void execute(Database.BatchableContext bc, List&lt;Opportunity&gt; scope) { <br> &nbsp; &nbsp; // Execute method logic <br> &nbsp; } <br> &nbsp;<br>}</code>","",""]];
+                   "<code>public class SampleBatch implements Database.Batchable&lt;sObject&gt; { <br> &nbsp; public void execute(Database.BatchableContext bc, List&lt;Opportunity&gt; scope) { <br> &nbsp; &nbsp; // Execute method logic <br> &nbsp; }<br>}</code>","",""]];
 const answers = [A,A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
