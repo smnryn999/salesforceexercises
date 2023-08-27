@@ -143,7 +143,7 @@ pass.onclick = function () {
      var datatypes = ["String", " Date ", "Integer", "Boolean", "Decimal", "override", "virtual", "static","void","class", "LightningElement", "lwc", "Text", "trigger"];
      var decorators = ["@AuraEnabled", "@wire", "@api", "@track", "api", "wire", "Trigger.newMap", "Trigger.new", "Trigger.oldMap", "Trigger.old"];
      var punctuation = ["(", ")", "[", "]", "{", "}", ",", '"'];
-     var soql = ["SELECT", "FROM", "WHERE", "LIMIT", "IN", "AND", "HAVING"];
+     var soql = ["SELECT", "FROM", "WHERE", "LIMIT", "IN", "AND", "HAVING", "extends", "implements", "return"];
      for(s of soql){
        content = content.replaceAll(s, "<span style='color:indigo'>"+s+"</span>");
      }
