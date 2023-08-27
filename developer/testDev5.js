@@ -14,7 +14,7 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test = ["?"];
+const test = ["batch class template, send notification, lightning-datatable?"];
 
 const options1 = [["","","",""]];
 const answers = [A];
