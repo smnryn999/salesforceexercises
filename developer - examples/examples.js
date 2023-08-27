@@ -51,10 +51,14 @@ var showButtons = document.querySelectorAll(".showSolution");
          content = content.replaceAll(p, `<span class="punctuation">${p}</span>`);
       }
 
-     var keywords = [" new ", " extends ", " implements ", "return"];
+      var keywords = [" new ", " extends ", " implements ", "return"];
       for(p of keywords){
          content = content.replaceAll(p, `<var> ${p} </var>`);
       }
       
+      var soql = ["SELECT", "FROM", "WHERE", "LIMIT", "IN", "AND", "HAVING", "LIKE", "insert"];
+      for(s of soql){
+         content = content.replaceAll(s, "<span style='color:#EFFD5F'>"+s+"</span>");
+       }
       document.querySelectorAll("pre")[i].innerHTML = content;
    }
