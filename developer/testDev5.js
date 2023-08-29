@@ -14,12 +14,13 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test = ["batch class template, send notification, lightning-datatable?", "In a company called Página Blanca Sales Inc., Rose, Salesforce Developer, need to update 500 thousands opportunity records. Which code snippet should she use?"];
+const test = ["batch class template, send notification, lightning-datatable?", "In a company called Página Blanca Sales Inc., Rose, Salesforce Developer, need to update 500 thousands opportunity records. Which code snippet should she use?", "Which of the following is true?"];
 
 const options1 = [["","","",""],
                   ["<code>public class OpportunityBatch implements Database.Batchable&lt;sObject&gt; { <br> &nbsp; public Database.QueryLocator start(Database.BatchableContext bc) {<br> &nbsp; &nbsp; // Start method logic <br> &nbsp; } <br> &nbsp; public void execute(Database.BatchableContext bc, List&lt;Opportunity&gt; scope) { <br> &nbsp; &nbsp; // Execute method logic <br> &nbsp; } <br> &nbsp; public void finish(Database.BatchableContext bc) { <br> &nbsp; &nbsp; // Finish method logic <br> &nbsp; }<br>}</code>",
-                   "<code>public class OpportunityBatch implements Database.Batchable&lt;sObject&gt; { <br> &nbsp; public void execute(Database.BatchableContext bc, List&lt;Opportunity&gt; scope) { <br> &nbsp; &nbsp; // Execute method logic <br> &nbsp; }<br>}</code>","<code>public class OpportunityQueue implements Queueable { <br> &nbsp; public void execute(QueueableContext qc) { <br> &nbsp; &nbsp; // Execute method logic <br> &nbsp; } <br>}</code>","<code>public class OpportunityClass { <br> &nbsp; public static void updateOpportunities(List&lt;Opportunity&gt; listOpp) { <br> &nbsp; &nbsp; // Execute method logic <br> &nbsp; } <br>}</code>"]];
-const answers = [A,A];
+                   "<code>public class OpportunityBatch implements Database.Batchable&lt;sObject&gt; { <br> &nbsp; public void execute(Database.BatchableContext bc, List&lt;Opportunity&gt; scope) { <br> &nbsp; &nbsp; // Execute method logic <br> &nbsp; }<br>}</code>","<code>public class OpportunityQueue implements Queueable { <br> &nbsp; public void execute(QueueableContext qc) { <br> &nbsp; &nbsp; // Execute method logic <br> &nbsp; } <br>}</code>","<code>public class OpportunityClass { <br> &nbsp; public static void updateOpportunities(List&lt;Opportunity&gt; listOpp) { <br> &nbsp; &nbsp; // Execute method logic <br> &nbsp; } <br>}</code>"],
+                  ["Abstract classes have a constructor method and can have instances.","Abstract classes have a constructor method but cannot have instances.","Abstract classes have not a constructor method but can have instances.","Abstract classes have not a constructor method and cannot have instances."]];
+const answers = [A,A,B];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
