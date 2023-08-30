@@ -58,7 +58,7 @@ for(opt of options){
    opt.onclick =function () {
      // AGAIN SUBMIT
      if(A.style.backgroundColor == "green" || B.style.backgroundColor == "green" || C.style.backgroundColor == "green" || D.style.backgroundColor == "green"){
-       alert("You have already submitted");
+       alert("You have already marked the answer");
      }
      else{
        for(b of bullets){
