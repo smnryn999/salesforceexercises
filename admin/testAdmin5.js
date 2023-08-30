@@ -32,7 +32,7 @@ const options1 = [["Compact Layout","Page Layout","Search Layout","List View Lay
                   [3,5,7,10], ["A user","A queue","A public group","A and B"], ["To automate lead conversion processes.","To define criteria for record ownership changes.","To extend sharing access to records based on criteria or owner.","To expand profile permissions due to new requirements"],
                   ["CSV","TXT","XML","DOCX"], ["Phone","Text Area","Multi-select Picklist","Rich Text Area"], ["LINK()","HYPERLINK()","FIND()","OPEN()"], ["Customer Relationship Management","Inventory Management","Configure complex product offerings and pricing","Social Media Marketing and Advertising"],
                   ["Lookup Relationship","Master-Detail Relationship","Many-to-Many Relationship","Hierarchical Relationship"], ["1 - 0","Yes - No","True - False","Checked - Unchecked"], ["System Permissions - Create and Customize List Views","System Permissions - Manage Public List Views","App Permissions - View and Edit Converted Leads","App Permissions - Manage Leads"],
-                  ["Name","Email","Profile","Username"], ["before creation","after creation","before deletion","after deletion"], ["Assignment","Screen","Action","Subflow"]];
+                  ["Name","Email","Profile","Username"], ["before creation an opportunity","after creation an opportunity","before deletion an opportunity","after deletion an opportunity"], ["Assignment","Screen","Action","Subflow"]];
 const answers = [A,B,D,B,D,C,D,C,A,A,B,C,C,A,B,D,D,C];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
