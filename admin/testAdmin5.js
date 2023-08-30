@@ -23,7 +23,8 @@ const test = ["Which of the following is used to set highlights panel?", "What i
               "What function is used for creating a link in a formula field?", "What does Salesforce CPQ primarily help businesses with?",
               "The Applicant__c object stores job applicants' data. The Job_Position__c object shows open job positions. An applicant can apply for more than one job position. And there is no restriction on the number of people applying for a job position. <br><br> In this case, what kind of relationship should be established between these two objects?",
               "What values should we use for checked and unchecked values to import data into a checkbox field from a CSV file?", 'In the company called SalesWaves Inc., sales representative Sarah cannot edit the All Open Leads list view using the "Select Fields to Display" option. What permission should the System Administrator grant to achieve this authority?',
-              "Which of the following is the field that should be Unique when creating a User?", "In the company called CloudTech Solutions, some automation processes need to be done on Opportunity records, such as automatic field update when a new record is created, sending a notification after a field value has changed, preventing the deletion of records with certain criteria, sending an email to the user after the record is deleted. Laurel, System Administrator, is considering using Flow for these operations. <br><br> What action can't Laurel perform here with Flow?"];
+              "Which of the following is the field that should be Unique when creating a User?", "In the company called CloudTech Solutions, some automation processes need to be done on Opportunity records, such as automatic field update when a new record is created, sending a notification after a field value has changed, preventing the deletion of records with certain criteria, sending an email to the user after the record is deleted. Laurel, System Administrator, is considering using Flow for these operations. <br><br> What action can't Laurel perform here with Flow?",
+              "If we want to send an email with Flow, which element should we use?"];
 
 const options1 = [["Compact Layout","Page Layout","Search Layout","List View Layout"],
                   ["To automate lead assignment based on criteria.","To escalate cases to higher levels of support based on predefined criteria.","To manage user access and permissions within Salesforce.","To create custom fields for tracking case progress."],
@@ -31,8 +32,8 @@ const options1 = [["Compact Layout","Page Layout","Search Layout","List View Lay
                   [3,5,7,10], ["A user","A queue","A public group","A and B"], ["To automate lead conversion processes.","To define criteria for record ownership changes.","To extend sharing access to records based on criteria or owner.","To expand profile permissions due to new requirements"],
                   ["CSV","TXT","XML","DOCX"], ["Phone","Text Area","Multi-select Picklist","Rich Text Area"], ["LINK()","HYPERLINK()","FIND()","OPEN()"], ["Customer Relationship Management","Inventory Management","Configure complex product offerings and pricing","Social Media Marketing and Advertising"],
                   ["Lookup Relationship","Master-Detail Relationship","Many-to-Many Relationship","Hierarchical Relationship"], ["1 - 0","Yes - No","True - False","Checked - Unchecked"], ["System Permissions - Create and Customize List Views","System Permissions - Manage Public List Views","App Permissions - View and Edit Converted Leads","App Permissions - Manage Leads"],
-                  ["Name","Email","Profile","Username"], ["before creation","after creation","before deletion","after deletion"]];
-const answers = [A,B,D,B,D,C,D,C,A,A,B,C,C,A,B,D,D];
+                  ["Name","Email","Profile","Username"], ["before creation","after creation","before deletion","after deletion"], ["Assignment","Screen","Action","Subflow"]];
+const answers = [A,B,D,B,D,C,D,C,A,A,B,C,C,A,B,D,D,C];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
