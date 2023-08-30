@@ -69,6 +69,7 @@ for(opt of options){
        this.children[0].style.backgroundColor = "DodgerBlue";
        this.children[0].style.color = "white";
        this.style.backgroundColor = "#fafafa";
+     }
     }
 }
 
