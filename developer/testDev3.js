@@ -96,6 +96,10 @@ submit.onclick = function () {
       answers[n].style.color = "white";
       answers[n].style.backgroundColor = "green";      
    }
+  // AGAIN SUBMIT
+  if(A.style.backgroundColor == "green" || B.style.backgroundColor == "green" || C.style.backgroundColor == "green" || D.style.backgroundColor == "green"){
+    alert("You have already submitted");
+  }
 }
 
 // PASS BUTTON
