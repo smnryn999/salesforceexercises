@@ -36,14 +36,20 @@ for(opt of optionContents){
 // SELECTING OPTIONS
 for(opt of options){
    opt.onclick =function () {
-      for(b of bullets){
-         b.style.backgroundColor = "Azure";
-         b.style.color = "black";
-         b.parentElement.style.backgroundColor = "azure";
-      }
-      this.children[0].style.backgroundColor = "DodgerBlue";
-      this.children[0].style.color = "white";
-      this.style.backgroundColor = "#fafafa";
+      // AGAIN SUBMIT
+     if(A.style.backgroundColor == "green" || B.style.backgroundColor == "green" || C.style.backgroundColor == "green" || D.style.backgroundColor == "green"){
+       alert("You have already marked the answer");
+     }
+     else{
+       for(b of bullets){
+          b.style.backgroundColor = "Azure";
+          b.style.color = "black";
+          b.parentElement.style.backgroundColor = "azure";
+       }
+       this.children[0].style.backgroundColor = "DodgerBlue";
+       this.children[0].style.color = "white";
+       this.style.backgroundColor = "#fafafa";
+     }
    }
 }
 
