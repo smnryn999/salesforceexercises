@@ -46,7 +46,7 @@ const options1 = [["To define the layout of user interface elements.","To create
                  ["To define the component's visual layout and structure.","To handle client-side logic and user interactions.","To specify the component's styling and CSS rules.","To manage server-side data retrieval and manipulation."], [200,201,400,401],
                  ["<code>[SELECT Id FROM Opportunity WHERE CloseDate = Date.today().addWeeks(3)]</code>","<code>[SELECT Id FROM Opportunity WHERE CloseDate = NEXT_3_WEEKS]</code>","<code>[SELECT Id FROM Opportunity WHERE CloseDate = N_WEEKS_AGO:3]</code>","<code>[SELECT Id FROM Opportunity WHERE CloseDate = NEXT_N_WEEKS:3]</code>"],
                  ["git master","git branch master","git checkout master","git switch master"],
-                 ["It sends an HTTP POST request to an external API.","It stores the response in a variable.","It uses a JSON data.","It is a SOAP API."], ["Apex Classes","Lightning Web Components (LWC)","Visualforce Pages";"Classic Salesforce Pages"]];
+                 ["It sends an HTTP POST request to an external API.","It stores the response in a variable.","It uses a JSON data.","It is a SOAP API."], ["Apex Classes","Lightning Web Components (LWC)","Visualforce Pages","Classic Salesforce Pages"]];
 const answers = [B,A,A,A,D,C,C,B,A,C,D,A,B,B,D,C,D,B];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
