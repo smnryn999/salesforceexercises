@@ -14,7 +14,7 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test = ["send notification, this keyword, trigger code?", "In a company called Página Blanca Sales Inc., Rose, Salesforce Developer, need to update 500 thousands opportunity records. Which code snippet should she use?", "Which of the following is true?", "In a Lightning Web Component (LWC) parent-child relationship, what is the purpose of the @api decorator in the child component?",
+const test = ["send notification, this keyword, trigger code, with sharing?", "In a company called Página Blanca Sales Inc., Rose, Salesforce Developer, need to update 500 thousands opportunity records. Which code snippet should she use?", "Which of the following is true?", "In a Lightning Web Component (LWC) parent-child relationship, what is the purpose of the @api decorator in the child component?",
              "<code>@RestResource(urlMapping='/Account/*') <br> global with sharing class MyRestResource { <br> &nbsp; @HttpDelete <br> &nbsp; global static void doDelete() { <br> &nbsp; &nbsp; RestRequest req = RestContext.request; <br> &nbsp; &nbsp; RestResponse res = RestContext.response; <br> &nbsp; &nbsp; String accountId = req.requestURI.substring(req.requestURI.lastIndexOf('/')+1); <br> &nbsp; &nbsp; Account account = [SELECT Id FROM Account WHERE Id = :accountId]; <br> &nbsp; &nbsp; delete account; <br> &nbsp; }<br>}</code>"];
 
 const options1 = [["","","",""],
