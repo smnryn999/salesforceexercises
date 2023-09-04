@@ -74,7 +74,7 @@
         <pre>
           <em> // We use IN keyword because the parameter data type is List. </em>
           public class GetRecords {
-             public static List<Book__c> getBook(List<string> strList){
+             public static List&lt;Book__c&gt; getBook(List<string> strList){
                 return [SELECT Name, Author__c FROM Book__c WHERE Language__c IN :strList];
              }   
           }     
@@ -91,16 +91,36 @@
         <p><span class="counter"></span> - Find the AnnualRevenue average of the three Accounts with the largest AnnualRevenue values.</p>
         <button class="showSolution">Show Solution</button>
         <pre>
-          List<Account> listAcc = [SELECT Name, AnnualRevenue FROM Account ORDER BY AnnualRevenue DESC NULLS LAST LIMIT 3];
+          List&lt;Account&gt; listAcc = [SELECT Name, AnnualRevenue FROM Account ORDER BY AnnualRevenue DESC NULLS LAST LIMIT 3];
           
           Decimal sum = 0;
           for(Account acc:listAcc){
              sum += acc.AnnualRevenue;
           }
           System.debug(listAcc); <em> // (Account:{Name=United Oil & Gas Corp., AnnualRevenue=5600000000, Id=0018e00000JeYP7AAN}, Account:{Name=Pyramid Construction Inc., AnnualRevenue=950000000, Id=0018e00000JeYP4AAN}, Account:{Name=Express Logistics and Transport, AnnualRevenue=950000000, Id=0018e00000JeYP8AAN}) </em>
-          System.debug(sum /listAcc.size()); <em> // 2500000000</em>
+          System.debug(sum /listAcc.size()); <em> // 2500000000 </em>
         </pre>
       </div>
+      
+      <!-- EXAMPLE 7 -->
+      <div class="example">
+        <p><span class="counter"></span> - Update the opportunities that have expired but are still open.</p>
+        <button class="showSolution">Show Solution</button>
+        <pre>
+          List&lt;Opportunity&gt; liste = [SELECT Name FROM Opportunity WHERE CloseDate < TODAY AND StageName NOT IN ('Closed Won','Closed Lost')];
+        
+          List&lt;Opportunity&gt; emptyList = new List&lt;Opportunity&gt;();
+          for(opportunity opp:liste){
+            system.debug(opp.name);
+            opp.Description = 'Tarihi geçtiği için kapatılmıştır';
+            opp.StageName = 'Closed Lost';
+            emptyList.add(opp);
+          }
+          update emptyList;
+        </pre>
+      </div>
+      
+      
       
    </section>
    
