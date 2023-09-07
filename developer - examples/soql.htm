@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-   <meta charset="UTF-8">
-   <title>SOQL - SOSL - DML</title>
-   <link rel="stylesheet" href="../test.css">
+  <meta charset="UTF-8">
+  <title>SOQL - SOSL - DML</title>
+  <link rel="stylesheet" href="../test.css">
 </head>
+
 <body>
-   <header>
-      <h1>SOQL - SOSL - DML Examples</h1>
-   </header>
-   
-   <section>
-      
-      <!-- EXAMPLE 1 -->
-      <div class="example">
+  <header>
+    <h1>SOQL - SOSL - DML Examples</h1>
+  </header>
+
+  <section>
+
+    <!-- EXAMPLE 1 -->
+    <div class="example">
       <p><span class="counter"></span> - Please create a new Book__c instance.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
@@ -22,23 +24,24 @@
         book.Price__c = 100;
         insert book;        
       </pre>
-      </div>
+    </div>
 
-      <!-- EXAMPLE 2 -->
-      <div class="example">
-        <p><span class="counter"></span> - Please write a query that searchs Tolstoy's book whose price is over 50.</p>
-        <button class="showSolution">Show Solution</button>
-        <pre>
+    <!-- EXAMPLE 2 -->
+    <div class="example">
+      <p><span class="counter"></span> - Please write a query that searchs Tolstoy's book whose price is over 50.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
           Book__c book = [SELECT Name FROM Book__c WHERE Author__c = 'Tolstoy' AND Price__c > 50 LIMIT 1];
           System.debug(book.Name); <em> // War and Peace</em>                 
         </pre>
-      </div>
+    </div>
 
-      <!-- EXAMPLE 3 -->
-      <div class="example">
-        <p><span class="counter"></span> - Please create a contact record and relate it to an account record whose state is Texas.</p>
-        <button class="showSolution">Show Solution</button>
-        <pre>
+    <!-- EXAMPLE 3 -->
+    <div class="example">
+      <p><span class="counter"></span> - Please create a contact record and relate it to an account record whose state
+        is Texas.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
           <em> // Account acc = [SELECT Id, Name FROM Account WHERE BillingState='TX' LIMIT 1]; </em>
           <em> // System.debug(acc); // Account:{Id=0018e00000J1wtFAAR, Name=Edge Communications}</em>
 
@@ -46,13 +49,14 @@
           insert con;
           System.debug(con); <em> // Contact:{LastName=Test, AccountId=0018e00000J1wtFAAR, Id=0038e00000Guf9bAAB} </em>              
         </pre>
-      </div>
+    </div>
 
-      <!-- EXAMPLE 4 -->
-      <div class="example">
-        <p><span class="counter"></span> - Write a method that returns the Accounts whose Name contains the value entered in the parameter.</p>
-        <button class="showSolution">Show Solution</button>
-        <pre>
+    <!-- EXAMPLE 4 -->
+    <div class="example">
+      <p><span class="counter"></span> - Write a method that returns the Accounts whose Name contains the value entered
+        in the parameter.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
           <em> // We can use % and _ as wildcards. </em>
           public class GetRecords {
              public static List&lt;Account&gt; getAccount(String str){
@@ -65,13 +69,14 @@
              System.debug(acc.Name + ' => ' + acc.NumberOfEmployees);
           }
         </pre>
-      </div>
-      
-      <!-- EXAMPLE 5 -->
-      <div class="example">
-        <p><span class="counter"></span> - Write a method returns the books whose language containing the values ​​entered in the parameter.</p>
-        <button class="showSolution">Show Solution</button>
-        <pre>
+    </div>
+
+    <!-- EXAMPLE 5 -->
+    <div class="example">
+      <p><span class="counter"></span> - Write a method returns the books whose language containing the values ​​entered
+        in the parameter.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
           <em> // We use IN keyword because the parameter data type is List. </em>
           public class GetRecords {
              public static List&lt;Book__c&gt; getBook(List<string> strList){
@@ -84,13 +89,14 @@
              System.debug(book.Name + ' => ' + book.Author__c);
           }
         </pre>
-      </div>
-      
-      <!-- EXAMPLE 6 -->
-      <div class="example">
-        <p><span class="counter"></span> - Find the AnnualRevenue average of the three Accounts with the largest AnnualRevenue values.</p>
-        <button class="showSolution">Show Solution</button>
-        <pre>
+    </div>
+
+    <!-- EXAMPLE 6 -->
+    <div class="example">
+      <p><span class="counter"></span> - Find the AnnualRevenue average of the three Accounts with the largest
+        AnnualRevenue values.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
           List&lt;Account&gt; listAcc = [SELECT Name, AnnualRevenue FROM Account ORDER BY AnnualRevenue DESC NULLS LAST LIMIT 3];
           
           Decimal sum = 0;
@@ -100,13 +106,13 @@
           System.debug(listAcc); <em> // (Account:{Name=United Oil & Gas Corp., AnnualRevenue=5600000000, Id=0018e00000JeYP7AAN}, Account:{Name=Pyramid Construction Inc., AnnualRevenue=950000000, Id=0018e00000JeYP4AAN}, Account:{Name=Express Logistics and Transport, AnnualRevenue=950000000, Id=0018e00000JeYP8AAN}) </em>
           System.debug(sum /listAcc.size()); <em> // 2500000000 </em>
         </pre>
-      </div>
-      
-      <!-- EXAMPLE 7 -->
-      <div class="example">
-        <p><span class="counter"></span> - Update the opportunities that have expired but are still open.</p>
-        <button class="showSolution">Show Solution</button>
-        <pre>
+    </div>
+
+    <!-- EXAMPLE 7 -->
+    <div class="example">
+      <p><span class="counter"></span> - Update the opportunities that have expired but are still open.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
           List&lt;Opportunity&gt; liste = [SELECT Name FROM Opportunity WHERE CloseDate < TODAY AND StageName NOT IN ('Closed Won','Closed Lost')];
         
           List&lt;Opportunity&gt; emptyList = new List&lt;Opportunity&gt;();
@@ -118,13 +124,33 @@
           }
           update emptyList;
         </pre>
-      </div>
-      
-      
-      
-   </section>
-   
-   <script src="examples.js"></script>
-   
+    </div>
+
+    <!-- EXAMPLE 8 -->
+    <div class="example">
+      <p><span class="counter"></span> - Governer Limits </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+          <em> // The DML limit in a thread is 150. We can do up to 10k operations using List. </em>
+          List<Contact> liste = new List<Contact>();
+          for(integer i=0; i<10000; i++){
+            Contact con = new Contact(LastName='Contact '+i);
+            liste.add(con);
+          }
+          insert liste;
+
+          System.debug([SELECT Count() FROM Contact]);
+         <em> // The SOQL limit in a thread is 100. We can fetch up to 50,000 records with SOQL. </em>
+          delete [SELECT Id FROM Contact WHERE CreatedDate = :Date.today()];
+        </pre>
+    </div>
+
+
+
+  </section>
+
+  <script src="examples.js"></script>
+
 </body>
+
 </html>
