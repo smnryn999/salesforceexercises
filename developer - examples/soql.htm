@@ -145,7 +145,63 @@
         </pre>
     </div>
 
+    <!-- EXAMPLE 9 -->
+    <div class="example">
+      <p><span class="counter"></span> - Record Types in Apex </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // If we do not specify a record type when adding a record, it will save according to the default one. </em>
+        <em> // We can select a specific record type with the RecordTypeId field. </em>
+        <em> // The field that does not appear in the Page Layout is not ignored, we can give it a value from Apex side. </em>
+        <em> // Page Lauout settings only affect the interface, they are not universal. </em>
+        Opportunity opp = new Opportunity();
+        opp.Name = 'Test Opp';
+        opp.CloseDate = Date.today();
+        opp.StageName = 'New';
+        opp.Short_Term__c = 25;
+        insert opp;
+        
+        System.debug([SELECT Short_Term__c FROM Opportunity WHERE CreatedDate = TODAY].Short_Term__c); <em> // 25 </em>
+        
+        RecordType rType = [SELECT Id, Name FROM RecordType WHERE DeveloperName = 'Short_Term_Type'];
+        System.debug(rType.Name); <em> // Short Term Type </em>
+        
+        Opportunity opp = new Opportunity();
+        opp.Name = 'New Test Opp';
+        opp.CloseDate = Date.today();
+        opp.StageName = 'New';
+        opp.Short_Term__c = 45;
+        opp.RecordTypeId = rType.Id; <em> // '0128e000000XjORAA0' </em>
+        insert opp;
+      </pre>
+    </div>
 
+    <!-- EXAMPLE 10 -->
+    <div class="example">
+      <p><span class="counter"></span> - Get Amount totals by grouping the closed opportunities according to their Stage. </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+          <em> // Query to retrieve the total amount of closed opportunities by stage </em>
+          <span class='datatype'>List&lt;AggregateResult&gt;</span> results = [SELECT StageName, SUM(Amount) totalAmount FROM Opportunity WHERE IsClosed = true GROUP BY StageName];
+
+          <em> // Iterate over the results and access the aggregated values </em>
+          for (AggregateResult result : results) {
+            String stageName = (String)result.get('StageName');
+            Decimal totalAmount = (Decimal)result.get('totalAmount');
+            System.debug('Stage Name: ' + stageName + ', Total Amount: ' + totalAmount);
+          }
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 11 -->
+    <div class="example">
+      <p><span class="counter"></span> - Write the Name and Email information of the Owner of the book "Madonna in a Fur Coat" to the console. </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+          Book__c book = [SELECT Owner.Name, Owner.Email FROM Book__c WHERE Name = 'Madonna in a Fur Coat'];
+          System.debug('Owner Name: ' + book.Owner.Name + ', Owner Email: ' + book.Owner.Email); <em> // Owner Name: Rose Gonzales, Owner Email: rosegonzales@xmail.com </em>
+      </pre>
+    </div>
 
   </section>
 

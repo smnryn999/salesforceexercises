@@ -40,7 +40,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       content = content.replaceAll(/List<string>/gi, "<span class='datatype'>List&#60;String&#62;</span>");
       content = content.replaceAll(/Set<string>/gi, "<span class='datatype'>Set&#60;String&#62;</span>");     
       
-      var datatypes = ["String", " Date ", "Integer", "Boolean", "Decimal", "Datetime", "Double", "override", "virtual", "abstract",
+      var datatypes = ["String ", " Date ", "Integer", "Boolean", "Decimal ", "Datetime", "AggregateResult", "override", "virtual", "abstract",
                        "List&lt;Account&gt;", "List&lt;Book__c&gt;", "List&lt;Opportunity&gt;"]; 
       for(d of datatypes){
          // var re = new RegExp(d,"ig");
@@ -57,7 +57,7 @@ var showButtons = document.querySelectorAll(".showSolution");
          content = content.replaceAll(p, `<var> ${p} </var>`);
       }
       
-      var soql = ["SELECT", "FROM", "WHERE", "LIMIT", "IN", "NOT", "AND", "HAVING", "LIKE", "ORDER BY", "DESC", "NULLS LAST", "insert", "delete"];
+      var soql = ["SELECT", "FROM", "WHERE", "LIMIT", "IN", "NOT", "AND", "HAVING", "LIKE", "ORDER BY", "DESC", "NULLS LAST", "GROUP BY", "SUM", "insert", "delete"];
       for(s of soql){
          content = content.replaceAll(s, "<span style='color:#EFFD5F'>"+s+"</span>");
        }
