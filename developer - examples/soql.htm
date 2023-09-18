@@ -202,6 +202,88 @@
           System.debug('Owner Name: ' + book.Owner.Name + ', Owner Email: ' + book.Owner.Email); <em> // Owner Name: Rose Gonzales, Owner Email: rosegonzales@xmail.com </em>
       </pre>
     </div>
+    
+    <!-- EXAMPLE 12 -->
+    <div class="example">
+      <p><span class="counter"></span> - Write the Names of all Account and Contact records containing "United" to the console. Get accounts with more than 10 thousand employees. </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+		  <em> // We can use * and ? as wildcards. </em>
+          <em> // Perform SOSL search and retrieve records. </em>
+          List<List<SObject>> searchResults = [FIND 'United' IN ALL FIELDS RETURNING Account (Id, Name), Contact (Id, Name)];
+          System.debug(searchResults);
+          
+          List<Account> accounts = new List<Account>();
+          List<Contact> contacts = new List<Contact>();
+          
+          <em> // Loop through search results and populate separate lists for accounts and contacts </em>
+          for (List<SObject> searchResult : searchResults) {
+			  for (Object obj : searchResult) {
+				  if (obj instanceof Account) {
+					  accounts.add((Account)obj);
+				  }
+				  else if (obj instanceof Contact) {
+					  contacts.add((Contact)obj);
+				  }
+			  }
+		   }
+
+		  <em> // Process the retrieved records </em>
+		   for (Account acc : accounts) {
+			   System.debug('Account: ' + acc.Name);
+		   }
+		   
+		   for (Contact con : contacts) {
+			   System.debug('Contact: ' + con.Name);
+		   }
+      </pre>
+    </div>
+    
+    <!-- EXAMPLE 13 -->
+    <div class="example">
+      <p><span class="counter"></span> - Write the Titles of all files containing “Karenina” to the console. </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+          List<List<SObject>> searchResults = [FIND 'Karenina' IN ALL FIELDS RETURNING ContentDocument(Title)];
+          System.debug(searchResults); <em> // Books </em>
+      </pre>
+    </div>
+    
+    <!-- EXAMPLE 14 -->
+    <div class="example">
+      <p><span class="counter"></span> - Write Name, Email and Company information of the people whose LastName is "Green" to the console. </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+          String searchQuery = 'FIND {Green*} IN NAME FIELDS RETURNING Contact(Name, Email), Lead(Name, Company)';
+          List<List<SObject>> searchResults = [FIND :searchQuery];
+          
+          List<Contact> contactResults = new List<Contact>();
+          List<Lead> leadResults = new List<Lead>();
+          
+          <em> // Loop through the search results and separate them based on the object type </em>
+          for (List<SObject> results : searchResults) {
+			  for (SObject result : results) {
+				  if (result instanceof Contact) {
+					  contactResults.add((Contact)result);
+			      }
+			      else if (result instanceof Lead) {
+					  leadResults.add((Lead)result);
+				  }
+			  }
+		  }
+		  
+		  for (Contact con : contactResults) {
+			  System.debug('Contact Name: ' + con.Name);
+			  System.debug('Contact Email: ' + con.Email);
+			  <em> // Perform additional actions with contact data </em>
+		  }
+		  for (Lead lead : leadResults) {
+			  System.debug('Lead Name: ' + lead.Name);
+			  System.debug('Lead Company: ' + lead.Company);
+			  <em> // Perform additional actions with lead data </em>
+		  }
+      </pre>
+    </div>
 
   </section>
 

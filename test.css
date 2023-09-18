@@ -31,6 +31,10 @@ h2 {
 .test-list li {
    margin: 10px;
 }
+img{
+	vertical-align: middle;
+	margin: 5px;
+}
 
 
 /* MAIN */
