@@ -29,7 +29,12 @@ h2 {
    font-weight: bold;
 }
 .test-list li {margin: 10px;}
-.inner-list li {margin-left:0;}
+.inner-list li {
+   margin-left:0;
+   border: 1px solid lightgray;
+   border-radius: 5px;
+   list-style-type: disc;
+}
 a {text-decoration: none;}
 img{
    vertical-align: middle;
