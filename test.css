@@ -28,12 +28,9 @@ h2 {
    font-size: 20px;
    font-weight: bold;
 }
-.test-list li {
-   margin: 10px;
-}
-.inner-list li {
-   margin-left:0;
-}
+.test-list li {margin: 10px;}
+.inner-list li {margin-left:0;}
+a {text-decoration: none;}
 img{
    vertical-align: middle;
    margin: 5px;
