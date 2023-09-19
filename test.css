@@ -31,6 +31,9 @@ h2 {
 .test-list li {
    margin: 10px;
 }
+.inner-list li {
+   margin-left:0;
+}
 img{
    vertical-align: middle;
    margin: 5px;
