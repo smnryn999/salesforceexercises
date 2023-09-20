@@ -28,7 +28,7 @@ h2 {
    font-size: 20px;
    font-weight: bold;
 }
-.test-list li {margin: 10px;}
+.test-list li {margin: 10px; border: 1px solid lightgray;}
 .inner-list li {
    margin-left:0;
    border: 1px solid lightgray;
