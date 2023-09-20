@@ -28,11 +28,11 @@ h2 {
    font-size: 20px;
    font-weight: bold;
 }
-.test-list li {margin: 10px; border: 1px solid lightgray; padding: 10px;}
+.test-list > li {margin: 10px; border: 1px solid lightgray; border-radius: 5px; padding: 10px;}
 .inner-list li {
    margin-left:0;
    /*border: 1px solid lightgray;*/
-   border-radius: 5px;
+   /*border-radius: 5px;*/
    list-style-type: disc;
 }
 a {text-decoration: none;}
