@@ -16,13 +16,16 @@
 
     <!-- EXAMPLE 1 -->
     <div class="example">
-      <p><span class="counter"></span> - Please create a new Book__c instance.</p>
+      <p><span class="counter"></span> - Write a method for the trigger that updates the Rating field of a newly created Account to 'Hot' if the Industry field is 'Banking' or 'Healthcare'.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        Book__c book = new Book__c(Name='War and Peace');
-        book.Author__c = 'Tolstoy';
-        book.Price__c = 100;
-        insert book;        
+        public static void updateRatingField(List<Account> listAcc){ <em> // listAcc represents Trigger.new </em>
+           for(Account acc : listAcc){
+              If(acc.Industry == 'Banking' || acc.Industry == 'Healthcare'){
+                 acc.Rating = 'Hot';
+              }
+          }
+        }        
       </pre>
     </div>
 
