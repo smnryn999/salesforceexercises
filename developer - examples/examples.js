@@ -59,7 +59,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       }
       
       var soql = ["SELECT", "FROM", "WHERE", "LIMIT", "IN ", "NOT", "AND", "HAVING", "LIKE", "ORDER BY", "DESC", "NULLS LAST", "GROUP BY", "SUM",
-				  "FIND", "RETURNING", "ALL FIELDS", "insert ", "delete"];
+				  "FIND", "RETURNING", "ALL FIELDS", "insert ", "delete "];
       for(s of soql){
          content = content.replaceAll(s, "<span style='color:#EFFD5F'>"+s+"</span>");
        }
