@@ -29,6 +29,7 @@ var showButtons = document.querySelectorAll(".showSolution");
      // content = content.replaceAll("new", "<var>new</var>");
      // content = content.replaceAll("extends", "<var>extends</var>");
       content = content.replaceAll(" class ", "<span class='key'> class </span>");
+      content = content.replaceAll(" trigger ", "<span class='key'> trigger </span>");
       content = content.replaceAll("System.debug", "<span class='key'>System.debug</span>");
      
      // content = content.replaceAll("for", "<span class='loop'>for</span>");
@@ -41,13 +42,13 @@ var showButtons = document.querySelectorAll(".showSolution");
       content = content.replaceAll(/Set<string>/gi, "<span class='datatype'>Set&#60;String&#62;</span>");     
       
       var datatypes = ["String ", " Date ", "Integer", "Boolean", "Decimal ", "Datetime", "AggregateResult", "override", "virtual", "abstract",
-                       "List&lt;Account&gt;", "List&lt;Book__c&gt;", "List&lt;Opportunity&gt;"]; 
+                       "List&lt;Account&gt;", "List&lt;Book__c&gt;", "List&lt;Opportunity&gt;", "List&lt;Contact&gt;"]; 
       for(d of datatypes){
          // var re = new RegExp(d,"ig");
          content = content.replaceAll(d, "<span class='datatype'>"+d+"</span>");
       } 
       
-      var punctuation = ["(", ")", "{", "}", "[", "]", ","];
+      var punctuation = ["(", ")", "{", "}", "[", "]", ",", "+"];
       for(p of punctuation){
          content = content.replaceAll(p, `<span class="punctuation">${p}</span>`);
       }
@@ -58,9 +59,15 @@ var showButtons = document.querySelectorAll(".showSolution");
       }
       
       var soql = ["SELECT", "FROM", "WHERE", "LIMIT", "IN ", "NOT", "AND", "HAVING", "LIKE", "ORDER BY", "DESC", "NULLS LAST", "GROUP BY", "SUM",
-				  "FIND", "RETURNING", "ALL FIELDS", "insert", "delete"];
+				  "FIND", "RETURNING", "ALL FIELDS", "insert ", "delete"];
       for(s of soql){
          content = content.replaceAll(s, "<span style='color:#EFFD5F'>"+s+"</span>");
        }
+
+      var logic = ["&&", "||", "!"];
+      for(l of logic){
+         content = content.replaceAll(l, "<span style='color:red'>"+l+"</span>");
+       }
+
       document.querySelectorAll("pre")[i].innerHTML = content;
    }

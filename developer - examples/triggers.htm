@@ -16,27 +16,49 @@
 
     <!-- EXAMPLE 1 -->
     <div class="example">
-      <p><span class="counter"></span> - Write a method for the trigger that updates the Rating field of a newly created Account to 'Hot' if the Industry field is 'Banking' or 'Healthcare'.</p>
+      <p><span class="counter"></span> - Write a method for the trigger that updates the Rating field of a newly created
+        Account to 'Hot' if the Industry field is 'Banking' or 'Healthcare'.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        public static void updateRatingField(List<Account> listAcc){ <em> // listAcc represents Trigger.new </em>
-           for(Account acc : listAcc){
-              If(acc.Industry == 'Banking' || acc.Industry == 'Healthcare'){
-                 acc.Rating = 'Hot';
-              }
+        public class HandlerClass {
+          public static void updateRatingField(List&lt;Account&gt; listAcc){ <em> // listAcc represents Trigger.new </em>
+            for(Account acc : listAcc){
+               If(!Strinng.isBlank(acc.Industry) <span style='color:red'>&&</span> (acc.Industry == 'Banking' || acc.Industry == 'Healthcare')){
+                  acc.Rating = 'Hot';
+               }
+           }
+         }  
+        }
+
+        trigger AccountTrigger on Account (before insert) {
+          if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isInsert){
+            HandlerClass.updateRatingField(Trigger.new);
           }
-        }        
+        }      
       </pre>
     </div>
 
     <!-- EXAMPLE 2 -->
     <div class="example">
-      <p><span class="counter"></span> - Please write a query that searchs Tolstoy's book whose price is over 50.</p>
+      <p><span class="counter"></span> - When a contact record is updated, write a trigger that changes the Description
+        field to the profile name of the user who updated it.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          Book__c book = [SELECT Name FROM Book__c WHERE Author__c = 'Tolstoy' AND Price__c > 50 LIMIT 1];
-          System.debug(book.Name); <em> // War and Peace</em>                 
-        </pre>
+        public class HandlerClass {
+          public static void updateDescriptionField(List&lt;Contact&gt; conList){
+            Profile profile = [SELECT Name FROM Profile WHERE Id = :UserInfo.getProfileId()];
+            for(Contact con : conList){
+                con.Description = 'This record was last updated by ' + profile.Name;
+            }
+          }        
+        }
+
+        trigger AccountTrigger on Account (before update) {
+          if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isUpdate){
+            HandlerClass.updateDescriptionField(Trigger.new);
+          }
+        }                     
+      </pre>
     </div>
 
     <!-- EXAMPLE 3 -->
@@ -74,7 +96,7 @@
         </pre>
     </div>
 
-    
+
 
   </section>
 
