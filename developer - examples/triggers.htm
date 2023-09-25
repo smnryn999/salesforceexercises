@@ -87,10 +87,10 @@
 
     <!-- EXAMPLE 4 -->
     <div class="example">
-      <p><span class="counter"></span> - Send a notification to new owner when the owner of a lead changes.</p>
+      <p><span class="counter"></span> - Send an email and notification to new owner when the owner of an account changes.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          public static void sendEmailAndNotification(List<Account> listAccount, Map<Id, Account oldAccounts){
+          public static void sendEmailAndNotification(List<Account> listAccount, Map<Id, Account> oldAccounts){
              List<Account> accounts = [SELECT Owner.Email FROM Account WHERE Id=:oldAccounts.keySet()];
             
              Map<Id, String> mapAccountOwners = new Map<Id, String>();
