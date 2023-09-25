@@ -87,18 +87,19 @@
 
     <!-- EXAMPLE 4 -->
     <div class="example">
-      <p><span class="counter"></span> - Send an email and notification to new owner when the owner of an account changes.</p>
+      <p><span class="counter"></span> - Send an email and notification to the new owner when the owner of an account
+        changes.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          public static void sendEmailAndNotification(List<Account> listAccount, Map<Id, Account> oldAccounts){
+          public static void sendEmailAndNotification(List&lt;Account&gt; listAccount, Map&lt;Id, Account&gt; oldAccounts){
              List<Account> accounts = [SELECT Owner.Email FROM Account WHERE Id=:oldAccounts.keySet()];
             
-             Map<Id, String> mapAccountOwners = new Map<Id, String>();
+             Map&lt;Id, String&gt; mapAccountOwners = new Map&lt;Id, String&gt;();
              for(Account acc:accounts){
                  mapAccountOwners.put(acc.Id, acc.Owner.Email);
              }        
     
-             List<Messaging.Email> emails = new List<Messaging.Email>();
+             List&lt;Messaging.Email&gt; emails = new List&lt;Messaging.Email&gt;();
     
              for(Lead le:listLead){
                 if(le.OwnerId != oldLeads.get(le.Id).OwnerId){                
@@ -108,24 +109,23 @@
                   email.setToAddresses(new List<String>{mapLeadOwners.get(le.Id)});
                   emails.add(email);
                }    
-           }
-           Messaging.sendEmail(emails);  
+              }
+              Messaging.sendEmail(emails);  
 
-           <em> // First, We must create a custom notification type.  </em>
-           <em> // Get the Id for our custom notification type </em>
-           CustomNotificationType notificationType = [SELECT Id FROM CustomNotificationType
-                                           WHERE DeveloperName='Custom_Notification'];
+              <em> // First, We must create a custom notification type </em>
+              <em> // Get the Id for our custom notification type </em>
+              CustomNotificationType notificationType = [SELECT Id FROM CustomNotificationType WHERE DeveloperName='Custom_Notification'];
                     
-                    for(Lead le:listLead){
-                        if(le.OwnerId != oldLeads.get(le.Id).OwnerId){
-                           Messaging.CustomNotification notification= new Messaging.CustomNotification();
-                           notification.setNotificationTypeId(notificationType.Id);
-                           notification.setTitle('Lead Owner Changed');
-                           notification.setBody(le.FirstName + ' ' + le.LastName + ' has been assigned to you.');
-                           notification.setTargetId(le.Id);
-                           notification.send(new Set<String>{le.OwnerId});
-                        }    
-                    }
+              for(Lead le:listLead){
+                  if(le.OwnerId != oldLeads.get(le.Id).OwnerId){
+                      Messaging.CustomNotification notification= new Messaging.CustomNotification();
+                      notification.setNotificationTypeId(notificationType.Id);
+                      notification.setTitle('Lead Owner Changed');
+                      notification.setBody(le.FirstName + ' ' + le.LastName + ' has been assigned to you.');
+                      notification.setTargetId(le.Id);
+                      notification.send(new Set<String>{le.OwnerId});
+                  }    
+              }
           }
         </pre>
     </div>
