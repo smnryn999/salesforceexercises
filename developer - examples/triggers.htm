@@ -101,12 +101,12 @@
     
              List&lt;Messaging.Email&gt; emails = new List&lt;Messaging.Email&gt;();
     
-             for(Lead le:listLead){
-                if(le.OwnerId != oldLeads.get(le.Id).OwnerId){                
+             for(Account acc:listAccount){
+                if(acc.OwnerId != oldAccounts.get(acc.Id).OwnerId){                
                   Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
-                  email.setSubject('Lead Owner');
-                  email.setPlainTextBody(le.FirstName + ' ' + le.LastName + ' has been assigned to you.');
-                  email.setToAddresses(new List<String>{mapLeadOwners.get(le.Id)});
+                  email.setSubject('Account Owner');
+                  email.setPlainTextBody(acc.Name + ' has been assigned to you.');
+                  email.setToAddresses(new List<String>{mapAccountOwners.get(acc.Id)});
                   emails.add(email);
                }    
               }
@@ -116,17 +116,24 @@
               <em> // Get the Id for our custom notification type </em>
               CustomNotificationType notificationType = [SELECT Id FROM CustomNotificationType WHERE DeveloperName='Custom_Notification'];
                     
-              for(Lead le:listLead){
-                  if(le.OwnerId != oldLeads.get(le.Id).OwnerId){
+              for(Account acc:listAccount){
+                  if(acc.OwnerId != oldAccounts.get(acc.Id).OwnerId){
                       Messaging.CustomNotification notification= new Messaging.CustomNotification();
                       notification.setNotificationTypeId(notificationType.Id);
-                      notification.setTitle('Lead Owner Changed');
-                      notification.setBody(le.FirstName + ' ' + le.LastName + ' has been assigned to you.');
-                      notification.setTargetId(le.Id);
-                      notification.send(new Set<String>{le.OwnerId});
+                      notification.setTitle('Account Owner Changed');
+                      notification.setBody(acc.Name + ' has been assigned to you.');
+                      notification.setTargetId(acc.Id);
+                      notification.send(new Set<String>{acc.OwnerId});
                   }    
               }
           }
+
+          <em> // We are calling the method within the trigger </em>
+          trigger AccountTrigger on Account (after update) {
+             if(Trigger.isAfter <span style='color:red'>&&</span> Trigger.isUpdate){
+                HandlerClass.sendEmailAndNotification(Trigger.new, Trigger.oldMap);
+             }
+           }              
         </pre>
     </div>
 
