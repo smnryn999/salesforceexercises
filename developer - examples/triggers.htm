@@ -16,8 +16,7 @@
 
     <!-- EXAMPLE 1 -->
     <div class="example">
-      <p><span class="counter"></span> - Write a method for the trigger that updates the Rating field of a newly created
-        Account to 'Hot' if the Industry field is 'Banking' or 'Healthcare'.</p>
+      <p><span class="counter"></span> - Write a method for the trigger that updates the Rating field of a newly created Account to 'Hot' if the Industry field is 'Banking' or 'Healthcare'.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
         public class HandlerClass {
@@ -40,8 +39,7 @@
 
     <!-- EXAMPLE 2 -->
     <div class="example">
-      <p><span class="counter"></span> - When a contact record is updated, write a trigger that changes the Description
-        field to the profile name of the user who updated it.</p>
+      <p><span class="counter"></span> - When a contact record is updated, write a trigger that changes the Description field to the profile name of the user who updated it.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
         public class HandlerClass {
@@ -53,7 +51,7 @@
           }        
         }
 
-        trigger AccountTrigger on Account (before update) {
+        trigger ContactTrigger on Contact (before update) {
           if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isUpdate){
             HandlerClass.updateDescriptionField(Trigger.new);
           }
@@ -63,8 +61,7 @@
 
     <!-- EXAMPLE 3 -->
     <div class="example">
-      <p><span class="counter"></span> - Please write a trigger that throws an error when a user wants to delete a
-        contact record that is not related to any Account.</p>
+      <p><span class="counter"></span> - Please write a trigger that throws an error when a user wants to delete a contact record that is not related to any Account.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
         public class HandlerClass {
@@ -77,7 +74,7 @@
           }              
         }
 
-        trigger AccountTrigger on Account (before delete) {
+        trigger ContactTrigger on Contact (before delete) {
           if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isDelete){
             HandlerClass.contactDeleteError(Trigger.old);
           }
@@ -87,8 +84,7 @@
 
     <!-- EXAMPLE 4 -->
     <div class="example">
-      <p><span class="counter"></span> - Send an email and notification to the new owner when the owner of an account
-        changes.</p>
+      <p><span class="counter"></span> - Send an email and notification to the new owner when the owner of an account changes.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
           public static void sendEmailAndNotification(List&lt;Account&gt; listAccount, Map&lt;Id, Account&gt; oldAccounts){
@@ -139,7 +135,7 @@
 
     <!-- EXAMPLE 5 -->
     <div class="example">
-      <p><span class="counter"></span> - When a new account is created if there is another account with the same name, write a trigger that assigns the old one as the parent of the new one and adds country information next to the name of the new one. </p>
+      <p><span class="counter"></span> - When a new account is created if there is another account with the same name, write a trigger that assigns the old one as the parent of the new one and adds country information next to the name of the new one.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
        public class HandlerClass {
@@ -165,6 +161,44 @@
       </pre>
     </div>
 
+    <!-- EXAMPLE 6 -->
+    <div class="example">
+      <p><span class="counter"></span> - Create a field showing the Id value on the Book__c object and automatically give the required value in case of insert and update.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+       public class HandlerClass {
+          <em> // After Insert </em>
+          public static void setIdForInsert(List<Book__c> listBook){
+             List<Book__c> books = new List<Book__c>();
+             for(Book__c b:listBook){
+                Book__c book = new Book__c();
+                book.Id = b.Id;
+                book.Id__c = b.Id;
+                book.Name = b.Name;
+                book.Price__c = b.Price__c;
+                books.add(book);
+              }
+              update books;
+           }
+
+           <em> // Before Update </em>
+           public static void setIdForUpdate(List<Book__c> listBook){
+              for(Book__c b:listBook){
+                 b.Id__c = b.Id;
+              }
+           }
+        }
+
+        trigger BookTrigger on Account (before update, after insert) {
+           if(Trigger.isAfter <span style='color:red'>&&</span> Trigger.isInsert){
+              HandlerClass.setIdForInsert(Trigger.new);
+           }
+           if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isUpdate){
+              HandlerClass.setIdForUpdate(Trigger.new);
+           }
+        }      
+      </pre>
+    </div>
   </section>
 
   <script src="examples.js"></script>
