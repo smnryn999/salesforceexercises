@@ -16,10 +16,18 @@
 
     <!-- EXAMPLE 1 -->
     <div class="example">
-      <p><span class="counter"></span> - </p>
+      <p><span class="counter"></span> - How can we use try - catch? </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-       
+          Account acc = new Account();
+          insert acc; <em> // throws System.DMLException </em>
+
+          try{
+             insert acc;
+          }
+          catch(Exception e){
+             System.debug('There is an error.');
+          }
       </pre>
     </div>
 
