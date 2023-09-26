@@ -20,8 +20,20 @@
       <button class="showSolution">Show Solution</button>
       <pre>
           Account acc = new Account();
-          insert acc; <em> // throws System.DmlException </em>
+          insert acc; <em> // throws System.DmlException, because required field is missing. </em>
 
+          <em> // But if we use the DML in try block it does not give error and the inside of the catch block works.</em>
+          try{
+             insert acc;
+          }
+          catch(Exception e){
+             System.debug('There is an error.');
+          }
+
+          <em> // This time required field is not missing. </em>
+          Account acc = new Account(Name = 'New Account');
+
+          <em> // The inside of the try block works but the inside of the catch block does not.</em>
           try{
              insert acc;
           }
