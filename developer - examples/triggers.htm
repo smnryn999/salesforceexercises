@@ -137,6 +137,34 @@
         </pre>
     </div>
 
+    <!-- EXAMPLE 5 -->
+    <div class="example">
+      <p><span class="counter"></span> - Duplicate accounts </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+       public class HandlerClass {
+          public static void setParent(List<Account> newAccounts){
+             List<Account> currentAccounts = [SELECT Id, Name FROM Account];
+        
+             for(Account newAcc:newAccounts){
+                 for(Account oldAcc:currentAccounts){
+                     if(newAcc.Name == oldAcc.Name){
+                        newAcc.ParentId = oldAcc.id;
+                        newAcc.Name = newAcc.Name + ' ' + (newAcc.BillingCountry != null ? newAcc.BillingCountry : 'Child');
+                     }
+                 }
+             }
+           }
+        }
+
+        trigger AccountTrigger on Account (before insert) {
+          if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isInsert){
+            HandlerClass.setParent(Trigger.new);
+          }
+        }      
+      </pre>
+    </div>
+
   </section>
 
   <script src="examples.js"></script>
