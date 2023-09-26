@@ -20,13 +20,25 @@
       <button class="showSolution">Show Solution</button>
       <pre>
           Account acc = new Account();
-          insert acc; <em> // throws System.DMLException </em>
+          insert acc; <em> // throws System.DmlException </em>
 
           try{
              insert acc;
           }
           catch(Exception e){
              System.debug('There is an error.');
+          }
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 2 -->
+    <div class="example">
+      <p><span class="counter"></span> - Limit Exception </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+          for(integer i=1; i<201; i++){
+             Contact con = new Contact(LastName = 'Contact' + i);
+             insert con; <em> // throws System.LimitException </em>
           }
       </pre>
     </div>
