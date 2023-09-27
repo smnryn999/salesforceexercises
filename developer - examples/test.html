@@ -4,16 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    
 </head>
 <body>
-    <input type="number" onchange="getValue(event)">
-    <input type="number" onchange="getValue(event)">
-
-    <a href="mailto:osmansalesforcedemo@gmail.com">tıklayınız.</a>
+    <input type="text">
+    <button onclick="hesapla()">Hesapla</button>
+    
     <script>
-        function getValue(event){
-            alert(event.target.value);
-        }
+        
+        
+        const hesapla = () => {
+            let num = Number(document.querySelector("input").value);
+            let counter = 0;
+            console.log(num);
+
+            if(num > 1){
+                for(let i=2; i<num; i++){
+                    if(num % i == 0){
+                        counter++;
+                    }
+                }
+                counter > 0 ? alert("Bu sayı asal değildir.") : alert("Bu sayı asaldır.");
+            }
+            else {
+                alert("Lütfen geçerli sayı giriniz.");
+            }   
+        } 
     </script>
 </body>
 </html>
