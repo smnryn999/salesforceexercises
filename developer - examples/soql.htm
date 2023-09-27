@@ -141,7 +141,7 @@
 
           System.debug([SELECT Count() FROM Contact]);
          <em> // The SOQL limit in a thread is 100. We can fetch up to 50,000 records with SOQL. </em>
-          delete [SELECT Id FROM Contact WHERE CreatedDate = :Date.today()];
+          delete [SELECT Id FROM Contact WHERE CreatedDate = TODAY];
         </pre>
     </div>
 
