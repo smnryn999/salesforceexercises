@@ -65,11 +65,29 @@
           try{
              Boolean strContains = str.contains("xyz");
           }
-          catch(catch(Exception e){
+          catch(NullPointerException e){
              System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: Attempt to de-reference a null object </em>
           }
       </pre>
     </div>
+
+    <!-- EXAMPLE 4 -->
+    <div class="example">
+      <p><span class="counter"></span> - MathException </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+          Integer num1 = 5;
+          Integer num1 = 0;
+        
+          try{
+             System.debug(num1/num2);
+          }
+          catch(MathException e){
+             System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: Divide by 0 </em>
+          }
+      </pre>
+    </div>
+    
   </section>
 
   <script src="examples.js"></script>
