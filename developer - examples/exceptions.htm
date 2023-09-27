@@ -55,6 +55,21 @@
       </pre>
     </div>
 
+    <!-- EXAMPLE 3 -->
+    <div class="example">
+      <p><span class="counter"></span> - NullPointerException </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+          String str;
+        
+          try{
+             Boolean strContains = str.contains("xyz");
+          }
+          catch(catch(Exception e){
+             System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: Attempt to de-reference a null object </em>
+          }
+      </pre>
+    </div>
   </section>
 
   <script src="examples.js"></script>
