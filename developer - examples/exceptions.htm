@@ -109,13 +109,11 @@
       <p><span class="counter"></span> - QueryException </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          List<String> colors = new List<String>{'white'};
-        
           try{
-             colors[1] = 'green';
+             Account acc = [SELECT Id FROM Account WHERE Name = 'New']; <em> // if there is no account record whose name is "New" </em>
           }
           catch(QueryException e){
-             System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: List index out of bounds: 1</em>
+             System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: List has no rows for assignment to SObject</em>
           }
       </pre>
           </div>
