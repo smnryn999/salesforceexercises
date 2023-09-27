@@ -116,8 +116,24 @@
              System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: List has no rows for assignment to SObject</em>
           }
       </pre>
-          </div>
-    
+    </div>
+
+    <!-- EXAMPLE 7 -->
+    <div class="example">
+      <p><span class="counter"></span> - sObjectException </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+          List<Account> accounts = [SELECT Id FROM Account WHERE Name = 'New Acc'];
+          
+          try{
+              String str = accounts[0].Description;
+          }
+          catch(sObjectException e){
+             System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: SObject row was retrieved via SOQL without querying the requested field: Account.Description </em>
+          }
+      </pre>
+    </div>
+            
   </section>
 
   <script src="examples.js"></script>
