@@ -31,6 +31,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       content = content.replaceAll(" class ", "<span class='key'> class </span>");
       content = content.replaceAll(" trigger ", "<span class='key'> trigger </span>");
       content = content.replaceAll("System.debug", "<span class='key'>System.debug</span>");
+      content = content.replaceAll("System.assertEquals", "<span class='key'>System.assertEquals</span>");
      
      // content = content.replaceAll("for", "<span class='loop'>for</span>");
      // content = content.replaceAll("String", "<span class='datatype'>String</span>");
@@ -48,7 +49,7 @@ var showButtons = document.querySelectorAll(".showSolution");
          content = content.replaceAll(d, "<span class='datatype'>"+d+"</span>");
       } 
       
-      var punctuation = ["(", ")", "{", "}", "[", "]", ",", "+"];
+      var punctuation = ["(", ")", "{", "}", "[", "]", ",", "+", "-", "*"];
       for(p of punctuation){
          content = content.replaceAll(p, `<span class="punctuation">${p}</span>`);
       }
