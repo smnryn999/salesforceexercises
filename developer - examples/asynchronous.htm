@@ -40,6 +40,44 @@
       </pre>
     </div>
 
+    <!-- EXAMPLE 2 -->
+    <div class="example">
+      <p><span class="counter"></span> - Future Methods </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        public class EmailSender {
+
+          @future
+          public static void sendEmail(String toAddress, String subject, String body) {
+              <em> // Perform email sending logic here </em>
+              Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+              mail.setToAddresses(new String[]{toAddress});
+              mail.setSubject(subject);
+              mail.setPlainTextBody(body);
+              Messaging.sendEmail(new Messaging.SingleEmailMessage{mail});
+          }
+        }
+
+        trigger MyObjectTrigger on MyObject__c (after insert) {
+          for (MyObject__c obj : Trigger.new) {
+            String toAddress = 'recipient@example.com';
+            String subject = 'Hello from Salesforce Future Apex';
+            String body = 'This is an asynchronous email from Salesforce.';
+            
+            <em> // Call the future method to send the email asynchronously </em>
+            EmailSender.sendEmail(toAddress, subject, body);
+          }
+        }
+
+        <em>
+          // We define a trigger on the MyObject__c object that runs after insert.
+          // Inside the trigger, we loop through the records being inserted and call the sendEmail method from the EmailSender class.
+          // The email sending logic is executed asynchronously in a separate context, allowing the main transaction to continue without waiting for the email to be sent.
+          // This is just one example of how you can use @future methods in Salesforce to perform operations asynchronously and avoid blocking the main transaction.
+        </em>
+      </pre>
+    </div>
+
   </section>
 
   <script src="examples.js"></script>
