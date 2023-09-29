@@ -102,6 +102,32 @@
                 update recordsToUpdate;
              }
          }
+         <em>
+           // We've created a class called UpdateRecordsQueueable that implements the Queueable interface.
+           // The class takes a list of record IDs as a parameter through its constructor.
+           // Inside the execute method, we query and update records based on the provided IDs. This is where you can perform your specific logic.
+         </em>
+         // Now, you can enqueue this Queueable job from anywhere in your Salesforce code, such as a trigger or another Apex class.
+         trigger MyObjectTrigger on MyObject__c (after update) {
+            List<Id> recordIds = new List<Id>();
+            for (MyObject__c obj : Trigger.new) {
+               if (obj.SomeCriteria__c) {
+                  recordIds.add(obj.Id);
+               }
+            }
+    
+            if (!recordIds.isEmpty()) {
+               // Enqueue the Queueable job
+               System.enqueueJob(new UpdateRecordsQueueable(recordIds));
+            }
+          }
+          <em>
+            // We define a trigger on the MyObject__c object that runs after an update.
+            // Inside the trigger, we collect the IDs of records that meet certain criteria.
+            // If there are records to update, we enqueue the UpdateRecordsQueueable job with the list of record IDs.
+            // The execute method of the UpdateRecordsQueueable class will be executed asynchronously, allowing you to update records without blocking the main transaction.
+            // This is a powerful way to handle long-running or resource-intensive tasks in Salesforce while maintaining good performance and flexibility.
+          </em>
       </pre>
     </div>
 
