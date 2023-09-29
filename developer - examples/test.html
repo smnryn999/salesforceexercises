@@ -4,32 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <style>
+        input, button {
+            margin: 5px;
+        }
+    </style>
     
 </head>
 <body>
-    <input type="text">
+    <input type="number"> <br>
+    <input type="number"> <br>
     <button onclick="hesapla()">Hesapla</button>
+    <div id="result"></div>
     
     <script>
-        
-        
-        const hesapla = () => {
-            let num = Number(document.querySelector("input").value);
+            
+        function hesapla(){
+            let num1= parseInt(document.querySelectorAll("input")[0].value);
+            let num2= parseInt(document.querySelectorAll("input")[1].value);
             let counter = 0;
-            console.log(num);
+            let numbers = "";
+            console.log(num1, num2);
 
-            if(num > 1){
-                for(let i=2; i<num; i++){
-                    if(num % i == 0){
+            // Yer değiştirme
+            var temp;
+            if(num1>num2){
+                temp = num1;
+                num1 = num2;
+                num2 = temp;
+            }
+
+            if(!isNaN(num1) && !isNaN(num2)){
+                for(var i=num1; i<=num2; i++){
+                    if(i%7 == 0){
                         counter++;
+                        numbers += i + ", ";
                     }
                 }
-                counter > 0 ? alert("Bu sayı asal değildir.") : alert("Bu sayı asaldır.");
+                document.querySelector("#result").innerHTML = `Bölen sayısı: ${counter} <br>Bölen sayılar: ${numbers.substring(0, numbers.length-2)}`;
             }
             else {
-                alert("Lütfen geçerli sayı giriniz.");
-            }   
+                document.querySelector("#result").innerHTML = "Lütfen sayı giriniz.";
+            }
+            
         } 
     </script>
 </body>
