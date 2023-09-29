@@ -45,6 +45,7 @@
       <p><span class="counter"></span> - Future Methods </p>
       <button class="showSolution">Show Solution</button>
       <pre>
+        <em> // Future Apex (also known as @future methods) is used for performing long-running operations asynchronously, often used for tasks like sending emails, making external web service calls, or other operations that should not block the main transaction. </em>
         public class EmailSender {
 
           @future
@@ -57,7 +58,11 @@
               Messaging.sendEmail(new Messaging.SingleEmailMessage{mail});
           }
         }
-
+        <em>
+          // We have a sendEmail method annotated with @future. This indicates that the method will be executed asynchronously in a separate context.
+          // Inside the sendEmail method, we perform the logic to send an email using Salesforce's Messaging API.
+        </em>
+        // Now, you can call this sendEmail method from another context, such as a trigger, to send emails asynchronously.
         trigger MyObjectTrigger on MyObject__c (after insert) {
           for (MyObject__c obj : Trigger.new) {
             String toAddress = 'recipient@example.com';
@@ -83,6 +88,7 @@
       <p><span class="counter"></span> - Can I use Apex asynchronously? </p>
       <button class="showSolution">Show Solution</button>
       <pre>
+        <em> // Salesforce Queueable Apex allows you to perform asynchronous processing of tasks in a more flexible manner compared to @future methods. </em>
         public class UpdateRecordsQueueable implements Queueable {
              private List<Id> recordIds;
              public UpdateRecordsQueueable(List<Id> ids) {
