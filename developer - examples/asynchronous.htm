@@ -78,6 +78,33 @@
       </pre>
     </div>
 
+    <!-- EXAMPLE 3 -->
+    <div class="example">
+      <p><span class="counter"></span> - Can I use Apex asynchronously? </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        public class UpdateRecordsQueueable implements Queueable {
+             private List<Id> recordIds;
+             public UpdateRecordsQueueable(List<Id> ids) {
+                this.recordIds = ids;
+             }
+    
+             public void execute(QueueableContext context) {
+                // Perform the record updates here
+                List<MyObject__c> recordsToUpdate = [SELECT Id, Name FROM MyObject__c WHERE Id IN :recordIds];
+                  
+                for (MyObject__c record : recordsToUpdate) {
+                   // Perform updates, for example:
+                   record.Name = 'Updated Name';
+                }
+        
+                // Update the records
+                update recordsToUpdate;
+             }
+         }
+      </pre>
+    </div>
+
   </section>
 
   <script src="examples.js"></script>
