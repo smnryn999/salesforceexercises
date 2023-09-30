@@ -148,23 +148,23 @@
          <em> // A Batchable class to update a custom field on all Account records. </em>
          public class UpdateAccountBatch implements Database.Batchable<sObject> {
             public Database.QueryLocator start(Database.BatchableContext context) {
-               // Query all Account records that need to be updated
-               return Database.getQueryLocator('SELECT Id, CustomField__c FROM Account WHERE SomeCriteria__c = true');
+               <em> // Query all Account records that need to be updated </em>
+               return Database.getQueryLocator([SELECT Id, CustomField__c FROM Account WHERE SomeCriteria__c = true]);
             }
     
             public void execute(Database.BatchableContext context, List&lt;Account&gt; listAcc) {
-               // Process each batch of Account records
+               <em> // Process each batch of Account records </em>
                for (Account acc : listAcc) {
                   // Update the custom field value, e.g., increment it
                   acc.CustomField__c += 1;
                }
         
-               // Update the records in this batch
+               <em> // Update the records in this batch </em>
                update scope;
              }
     
              public void finish(Database.BatchableContext context) {
-                // Optionally, perform any post-processing tasks here
+                <em> // Optionally, perform any post-processing tasks here </em>
              }
           }
           <em>
