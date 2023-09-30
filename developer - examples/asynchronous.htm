@@ -146,7 +146,7 @@
            // Batch Apex is an excellent way to handle large-scale data processing in Salesforce while respecting platform limits and maintaining good performance.
          </em> 
          <em> // A Batchable class to update a custom field on all Account records. </em>
-         public class UpdateAccountBatch implements Database.Batchable<sObject> {
+         public class UpdateAccountBatch implements Database.Batchable&lt;sObject&gt {
             public Database.QueryLocator start(Database.BatchableContext context) {
                <em> // Query all Account records that need to be updated </em>
                return Database.getQueryLocator([SELECT Id, CustomField__c FROM Account WHERE SomeCriteria__c = true]);
@@ -160,7 +160,7 @@
                }
         
                <em> // Update the records in this batch </em>
-               update scope;
+               update listAcc;
              }
     
              public void finish(Database.BatchableContext context) {
@@ -175,7 +175,7 @@
           </em>
           <em> // To execute the batch job programmatically </em>
           UpdateAccountBatch myBatch = new UpdateAccountBatch();
-          Database.executeBatch(myBatch, 200); <em> // The second parameter is the batch size </em>
+          Database.executeBatch(myBatch, 200); <em> // The second parameter is the batch size. Its default  value is 200 and we can increase it to 2000.</em>
           <em>
             // We create an instance of the UpdateAccountBatch class.
             // We use Database.executeBatch to start the batch job. The second parameter, 200, is the batch size, indicating that each batch will process up to 200 records.
