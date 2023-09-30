@@ -152,9 +152,9 @@
                return Database.getQueryLocator('SELECT Id, CustomField__c FROM Account WHERE SomeCriteria__c = true');
             }
     
-            public void execute(Database.BatchableContext context, List<Account> scope) {
+            public void execute(Database.BatchableContext context, List<Account> listAcc) {
                // Process each batch of Account records
-               for (Account acc : scope) {
+               for (Account acc : listAcc) {
                   // Update the custom field value, e.g., increment it
                   acc.CustomField__c += 1;
                }
@@ -173,11 +173,9 @@
             // The execute method processes each batch of records. It updates the CustomField__c on each Account record and then performs an update operation.
             // The finish method is called after all batches have been processed, allowing for any necessary post-processing.
           </em>
-
-          // To execute the batch job programmatically
+          <em> // To execute the batch job programmatically </em>
           UpdateAccountBatch myBatch = new UpdateAccountBatch();
-          Database.executeBatch(myBatch, 200); // The second parameter is the batch size
-
+          Database.executeBatch(myBatch, 200); <em> // The second parameter is the batch size </em>
           <em>
             // We create an instance of the UpdateAccountBatch class.
             // We use Database.executeBatch to start the batch job. The second parameter, 200, is the batch size, indicating that each batch will process up to 200 records.
