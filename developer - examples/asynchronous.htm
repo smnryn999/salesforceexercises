@@ -136,7 +136,7 @@
       </pre>
     </div>
 
-    <!-- EXAMPLE 1 -->
+    <!-- EXAMPLE 4 -->
     <div class="example">
       <p><span class="counter"></span> - Batchable Apex </p>
       <button class="showSolution">Show Solution</button>
@@ -152,7 +152,7 @@
                return Database.getQueryLocator('SELECT Id, CustomField__c FROM Account WHERE SomeCriteria__c = true');
             }
     
-            public void execute(Database.BatchableContext context, List<Account> listAcc) {
+            public void execute(Database.BatchableContext context, List&lt;Account&gt; listAcc) {
                // Process each batch of Account records
                for (Account acc : listAcc) {
                   // Update the custom field value, e.g., increment it
@@ -168,7 +168,7 @@
              }
           }
           <em>
-            // We've created a class called UpdateAccountBatch that implements Database.Batchable<sObject>.
+            // We've created a class called UpdateAccountBatch that implements Database.Batchable&lt;sObject&gt;.
             // The start method returns a Database.QueryLocator that defines the set of records to be processed. In this case, it selects Account records meeting specific criteria.
             // The execute method processes each batch of records. It updates the CustomField__c on each Account record and then performs an update operation.
             // The finish method is called after all batches have been processed, allowing for any necessary post-processing.
