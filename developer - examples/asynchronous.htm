@@ -155,7 +155,7 @@
             public void execute(Database.BatchableContext context, List&lt;Account&gt; listAcc) {
                <em> // Process each batch of Account records </em>
                for (Account acc : listAcc) {
-                  // Update the custom field value, e.g., increment it
+                  <em> // Update the custom field value, e.g., increment it </em>
                   acc.CustomField__c += 1;
                }
         
