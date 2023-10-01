@@ -28,12 +28,12 @@
       <p><span class="counter"></span> - Please integrate Salesforce with an external weather API to retrieve weather data for a given location. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          // creating an Apex class to handle the integration
+          <em> // creating an Apex class to handle the integration </em>
           public with sharing class WeatherIntegration {
              public static String getWeather(String location) {
-                // Make an HTTP request to the external API here
-                // Parse the response and return weather information
-                // Example code below
+                <em> // Make an HTTP request to the external API here </em>
+                <em> // Parse the response and return weather information </em>
+                <em> // Example code below </em>
                 String apiUrl = 'https://api.example.com/weather?location=' + location;
                 HttpRequest req = new HttpRequest();
                 req.setEndpoint(apiUrl);
@@ -53,7 +53,7 @@
         
            String location = 'San Francisco';
            String weatherData = WeatherIntegration.getWeather(location);
-           // Handle the weather data or display it as needed
+           <em> // Handle the weather data or display it as needed </em>
            <em>
              Handle the API Response:
              You can parse the response from the external API (in JSON, XML, or other formats) within your Apex code and use it to update Salesforce records or perform other actions as required.
