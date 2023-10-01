@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Apex Exceptions</title>
+  <link rel="stylesheet" href="../test.css">
+</head>
+
+<body>
+  <header>
+    <h1>Apex Exceptions</h1>
+  </header>
+
+  <section>
+
+    <!-- EXAMPLE 1 -->
+    <div class="example">
+      <p><span class="counter"></span> - Can we integrate Salesforce with an external system? </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         • Certainly! Salesforce Apex can be integrated with external systems using various methods like REST, SOAP, or even calling external web services.
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 2 -->
+    <div class="example">
+      <p><span class="counter"></span> - Please integrate Salesforce with an external weather API to retrieve weather data for a given location. </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+          // creating an Apex class to handle the integration
+          public with sharing class WeatherIntegration {
+             public static String getWeather(String location) {
+                // Make an HTTP request to the external API here
+                // Parse the response and return weather information
+                // Example code below
+                String apiUrl = 'https://api.example.com/weather?location=' + location;
+                HttpRequest req = new HttpRequest();
+                req.setEndpoint(apiUrl);
+                req.setMethod('GET');
+                Http http = new Http();
+                HttpResponse res = http.send(req);
+                return res.getBody();
+              }
+           }
+           <em>
+             Call the External API from Apex:
+             In the getWeather method, you can use the Salesforce HttpRequest and HttpResponse classes to make a GET request to the external weather API. Replace 'https://api.example.com/weather' with the actual API endpoint.
+             
+             Invoke the Integration in a Trigger, Controller, or Flow:
+             You can invoke the WeatherIntegration.getWeather method from a trigger, custom controller, or even a Flow to retrieve weather data based on user interactions or record updates.
+           </em>
+        
+           String location = 'San Francisco';
+           String weatherData = WeatherIntegration.getWeather(location);
+           // Handle the weather data or display it as needed
+           <em>
+             Handle the API Response:
+             You can parse the response from the external API (in JSON, XML, or other formats) within your Apex code and use it to update Salesforce records or perform other actions as required.
+             This is a simplified example of integrating Salesforce Apex with an external REST API. In a real-world scenario, you would need to handle error handling, authentication, and other considerations based on the specific API you're integrating with. Additionally, you should consider Salesforce governor limits when making external API calls.
+           </em>
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 3 -->
+    <div class="example">
+      <p><span class="counter"></span> - NullPointerException </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+          
+      </pre>
+    </div>
+
+  </section>
+
+  <script src="examples.js"></script>
+
+</body>
+
+</html>
+
 
