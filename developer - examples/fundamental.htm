@@ -30,16 +30,18 @@
       <p><span class="counter"></span> - Please create a component that shows "Hello World" text on UI.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <em> // Apex test classes are used to test the functionality of your Apex code, ensuring that it works as expected. </em>
-        <em> //  a Calculator class with a method add that adds two numbers </em>
+        <em> <!-- helloWorld.html --> </em>
+        <template>
+          <p>Hello, World!</p>
+        </template>
+        <em> // helloWorld.js </em>
+        import { LightningElement } from 'lwc';
         
+        export default class HelloWorld extends LightningElement {}
         <em>
-            // @isTest annotation indicates that this class is a test class.
-            // The testAdd() method tests the add method of the Calculator class.
-            // Test data is defined with two integers, num1 and num2.
-            // The Calculator.add() method is called with the test data, and the result is stored in the result variable.
-            // System.assertEquals is used to assert that the result of the addition is equal to 8, and an optional message is provided.
-            // As a result, this test class works with a 100 percent rate.
+            // We can use it in other Lightning components or in the Lightning App Builder by adding it to a Lightning Page.
+            // To use it in a Lightning App Page, go to Setup, find the App Page you want to edit, and add your "HelloWorld" component to the page.
+            // When we view the Lightning App Page, we'll see our "Hello, World!" message displayed. This is a simple example, but we can build more complex components.
         </em>
       </pre>
     </div>
