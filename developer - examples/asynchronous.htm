@@ -190,7 +190,38 @@
       <p><span class="counter"></span> - Scheduled Apex </p>
       <button class="showSolution">Show Solution</button>
       <pre>
+        <em>
+          // a Schedulable Apex class allows you to schedule the execution of a specific Apex job at a predefined time or on a recurring basis.
+          // Schedulable Apex is useful for automating recurring tasks in Salesforce, such as data updates, cleanup, or integrations, at specific times or intervals.
+        </em>
+        <em> // a Schedulable class to update a custom field on Contact records. </em>
+        public class UpdateContactSchedulable implements Schedulable {
+    
+           public void execute(SchedulableContext context) {
+              // Implement the logic to update Contact records here
+              List<Contact> contactsToUpdate = [SELECT Id, CustomField__c FROM Contact WHERE SomeCriteria__c = true];
         
+              for (Contact con : contactsToUpdate) {
+                 // Update the custom field value, e.g., increment it
+                 con.CustomField__c += 1;
+              }
+        
+              // Update the records
+              update contactsToUpdate;
+           }
+        }
+        <em>
+          // We've created a class called UpdateContactSchedulable that implements the Schedulable interface.
+          // The execute method contains the logic that you want to run when the job is scheduled. In this case, it queries and updates Contact records that meet certain criteria.
+        </em>
+        <em> // To schedule the job programmatically </em>
+        String cronExpression = '0 0 0 * * ?'; <em> // Run daily at midnight (UTC) </em>
+        System.schedule('Update Contact Job', cronExpression, new UpdateContactSchedulable());
+        <em>
+          // We define a cronExpression string that specifies when the job should run. In this example, it's set to run daily at midnight (UTC).
+          // We use System.schedule to schedule the job. The first parameter is the name of the job, the second is the cron expression, and the third is an instance of the UpdateContactSchedulable class.
+          // After scheduling the job, it will execute at the specified time or on the specified schedule, and it will perform the logic inside the execute method, updating the custom field on Contact records.
+        </em>
       </pre>
     </div>
 
