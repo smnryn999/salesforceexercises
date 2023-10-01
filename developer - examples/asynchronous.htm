@@ -62,7 +62,7 @@
           // We have a sendEmail method annotated with @future. This indicates that the method will be executed asynchronously in a separate context.
           // Inside the sendEmail method, we perform the logic to send an email using Salesforce's Messaging API.
         </em>
-        // Now, you can call this sendEmail method from another context, such as a trigger, to send emails asynchronously.
+        <em> // Now, you can call this sendEmail method from another context, such as a trigger, to send emails asynchronously. </em>
         trigger MyObjectTrigger on MyObject__c (after insert) {
           for (MyObject__c obj : Trigger.new) {
             String toAddress = 'recipient@example.com';
@@ -87,7 +87,7 @@
       <p><span class="counter"></span> - Queueable Apex </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <em> // Salesforce Queueable Apex allows you to perform asynchronous processing of tasks in a more flexible manner compared to @future methods. </em>
+        <em> // Salesforce Queueable Apex allows you to perform asynchronous processing of tasks in a more flexible manner compared to @future methods </em>
         public class UpdateRecordsQueueable implements Queueable {
              private List<Id> recordIds;
              public UpdateRecordsQueueable(List<Id> ids) {
@@ -95,15 +95,15 @@
              }
     
              public void execute(QueueableContext context) {
-                // Perform the record updates here
+                <em> // Perform the record updates here </em>
                 List<MyObject__c> recordsToUpdate = [SELECT Id, Name FROM MyObject__c WHERE Id IN :recordIds];
                   
                 for (MyObject__c record : recordsToUpdate) {
-                   // Perform updates, for example:
+                   <em> // Perform updates, for example: </em>
                    record.Name = 'Updated Name';
                 }
         
-                // Update the records
+                <em> // Update the records </em>
                 update recordsToUpdate;
              }
          }
@@ -145,7 +145,7 @@
            // Batch Apex allows you to process large sets of data in smaller, manageable chunks.
            // Batch Apex is an excellent way to handle large-scale data processing in Salesforce while respecting platform limits and maintaining good performance.
          </em> 
-         <em> // A Batchable class to update a custom field on all Account records. </em>
+         <em> // A Batchable class to update a custom field on all Account records </em>
          public class UpdateAccountBatch implements Database.Batchable&lt;sObject&gt {
             public Database.QueryLocator start(Database.BatchableContext context) {
                <em> // Query all Account records that need to be updated </em>
