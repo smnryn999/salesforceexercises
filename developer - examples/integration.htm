@@ -67,7 +67,40 @@
       <p><span class="counter"></span> - NullPointerException </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          
+          // Define the endpoint URL
+String endpointUrl = 'https://api.example.com/resource';
+
+// Create a JSON request body
+String requestBody = '{"key1": "value1", "key2": "value2"}';
+
+// Create an HTTP request
+HttpRequest request = new HttpRequest();
+request.setEndpoint(endpointUrl);
+request.setMethod('POST');
+request.setHeader('Content-Type', 'application/json');
+request.setBody(requestBody);
+
+// Create an HTTP object to send the request
+Http http = new Http();
+HttpResponse response = http.send(request);
+
+// Check the response
+if (response.getStatusCode() == 200) {
+    // Successful POST request
+    String responseBody = response.getBody();
+    System.debug('Response Body: ' + responseBody);
+} else {
+    // Error handling for non-200 status codes
+    System.debug('Error Status Code: ' + response.getStatusCode());
+    System.debug('Error Response: ' + response.getBody());
+}
+        <em>
+          You define the endpoint URL to which you want to make the POST request.
+          Create a JSON request body as a string.
+          Set up an HttpRequest object, specifying the method as POST and setting the endpoint URL and headers.
+          Use the Http class to send the request.
+          Check the response status code. If it's 200 (OK), you can access the response body for further processing. Otherwise, you can handle error cases appropriately.
+        </em>
       </pre>
     </div>
 
