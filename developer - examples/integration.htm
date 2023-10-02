@@ -19,13 +19,18 @@
       <p><span class="counter"></span> - Can we integrate Salesforce with an external system? </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         • Certainly! Salesforce Apex can be integrated with external systems using various methods like REST, SOAP, or even calling external web services.
+         • Certainly, Salesforce Apex can be integrated with external systems using various methods like REST, SOAP, or even calling external web services.
+         • An Apex callout enables you to tightly integrate your Apex code with an external service. The callout makes a call to an external web service or sends an HTTP request from Apex code, and then receives the response.
+         • Web service callouts to SOAP web services use XML, and typically require a WSDL document for code generation.
+         • HTTP callouts to services typically use REST with JSON.
+         • While WSDL-based callouts apply to SOAP Web services, HTTP callouts can be used with any HTTP service, either SOAP or REST.
       </pre>
     </div>
 
     <!-- EXAMPLE 2 -->
     <div class="example">
-      <p><span class="counter"></span> - Please integrate Salesforce with an external weather API to retrieve weather data for a given location. </p>
+      <p><span class="counter"></span> - Please integrate Salesforce with an external weather API to retrieve weather
+        data for a given location. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
           <em> // creating an Apex class to handle the integration </em>
@@ -64,36 +69,41 @@
 
     <!-- EXAMPLE 3 -->
     <div class="example">
-      <p><span class="counter"></span> - NullPointerException </p>
+      <p><span class="counter"></span> - POST Method </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          // Define the endpoint URL
-String endpointUrl = 'https://api.example.com/resource';
-
-// Create a JSON request body
-String requestBody = '{"key1": "value1", "key2": "value2"}';
-
-// Create an HTTP request
-HttpRequest request = new HttpRequest();
-request.setEndpoint(endpointUrl);
-request.setMethod('POST');
-request.setHeader('Content-Type', 'application/json');
-request.setBody(requestBody);
-
-// Create an HTTP object to send the request
-Http http = new Http();
-HttpResponse response = http.send(request);
-
-// Check the response
-if (response.getStatusCode() == 200) {
-    // Successful POST request
-    String responseBody = response.getBody();
-    System.debug('Response Body: ' + responseBody);
-} else {
-    // Error handling for non-200 status codes
-    System.debug('Error Status Code: ' + response.getStatusCode());
-    System.debug('Error Response: ' + response.getBody());
-}
+        public class IntegrationClass {
+          public static void postMethod(){
+            <em> // Define the endpoint URL </em>
+            String endpointUrl = 'https://api.example.com/resource';
+          
+            <em> // Create a JSON request body </em>
+            String requestBody = '{"key1": "value1", "key2": "value2"}';
+          
+            <em> // Create an HTTP request </em>
+            HttpRequest request = new HttpRequest();
+            request.setEndpoint(endpointUrl);
+            request.setMethod('POST');
+            request.setHeader('Content-Type', 'application/json');
+            request.setBody(requestBody);
+          
+            <em> // Create an HTTP object to send the request </em>
+            Http http = new Http();
+            HttpResponse response = http.send(request);
+          
+            <em> // Check the response </em>
+            if (response.getStatusCode() == 200) {
+              <em> // Successful POST request </em>
+              String responseBody = response.getBody();
+              System.debug('Response Body: ' + responseBody);
+            }
+            else {
+              <em> // Error handling for non-200 status codes </em>
+              System.debug('Error Status Code: ' + response.getStatusCode());
+              System.debug('Error Response: ' + response.getBody());
+            }
+          }
+        }  
         <em>
           You define the endpoint URL to which you want to make the POST request.
           Create a JSON request body as a string.
@@ -111,5 +121,3 @@ if (response.getStatusCode() == 200) {
 </body>
 
 </html>
-
-

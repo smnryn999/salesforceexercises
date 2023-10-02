@@ -5,49 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        input, button {
-            margin: 5px;
-        }
+
     </style>
     
 </head>
 <body>
-    <input type="number"> <br>
-    <input type="number"> <br>
-    <button onclick="hesapla()">Hesapla</button>
-    <div id="result"></div>
+
+    <button onclick="addition()">Sayı girmeye başlayınız</button>
     
     <script>
             
-        function hesapla(){
-            let num1= parseInt(document.querySelectorAll("input")[0].value);
-            let num2= parseInt(document.querySelectorAll("input")[1].value);
-            let counter = 0;
-            let numbers = "";
-            console.log(num1, num2);
+        function addition(){
+            let sum = 0;
 
-            // Yer değiştirme
-            var temp;
-            if(num1>num2){
-                temp = num1;
-                num1 = num2;
-                num2 = temp;
-            }
-
-            if(!isNaN(num1) && !isNaN(num2)){
-                for(var i=num1; i<=num2; i++){
-                    if(i%7 == 0){
-                        counter++;
-                        numbers += i + ", ";
-                    }
-                }
-                document.querySelector("#result").innerHTML = `Bölen sayısı: ${counter} <br>Bölen sayılar: ${numbers.substring(0, numbers.length-2)}`;
-            }
-            else {
-                document.querySelector("#result").innerHTML = "Lütfen sayı giriniz.";
-            }
+            do {
+                var num = Number(prompt("Sayı Giriniz."));
+                console.log(num);
+                sum += num;
+            }while(num != 0);
             
-        } 
+            document.write(sum);
+        }
+
+        
+        let num1 = 10.5;
+        console.log(num1);
+        console.log(parseInt(num1));
+
+        let num2 = "5.8";
+        num2 = parseInt(num2);
+        console.log(num2 + 3);
     </script>
 </body>
 </html>
