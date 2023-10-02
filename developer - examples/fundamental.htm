@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>LWC Fundamentals</title>
+  <link rel="stylesheet" href="../test.css">
+</head>
+
+<body>
+  <header>
+    <h1>LWC Fundamentals</h1>
+  </header>
+
+  <section>
+
+    <!-- EXAMPLE 1 -->
+    <div class="example">
+      <p><span class="counter"></span> - What is LWC? </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        • Lightning Web Components (LWC) are custom HTML elements built using HTML and modern JavaScript.
+        • Lightning Web Components (LWC) uses core Web Components standards and provides only what’s necessary to perform well in browsers supported by Salesforce. Because it’s built on code that runs natively in browsers, Lightning Web Components is lightweight and delivers exceptional performance. Most of the code you write is standard JavaScript and HTML.
+        • Lightning Web Components (LWC) are a fundamental building block in Salesforce's Lightning Platform for building user interface (UI).
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 2 -->
+    <div class="example">
+      <p><span class="counter"></span> - Please create a component that shows "Hello World" text on UI.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // We can create a component by right clicking on LWC folder or we can use the code below </em>
+        sfdx force:lightning:component:create --type lwc -n helloWorld
+        <em> // This will create a folder named "helloWorld" with necessary files. </em>
+        
+        <em> <!-- helloWorld.html --> </em>
+        &lt;template&gt;
+          &lt;p&gt;Hello, World!&lt;/p&gt;
+        &lt;/template&gt;
+        
+        <em> // helloWorld.js </em>
+        import { LightningElement } from 'lwc';
+        
+        export default class HelloWorld extends LightningElement {}
+        <em>
+            // We can use it in other Lightning components or in the Lightning App Builder by adding it to a Lightning Page.
+            // To use it in a Lightning App Page, go to Setup, find the App Page you want to edit, and add your "helloWorld" component to the page.
+            // When we view the Lightning App Page, we'll see our "Hello, World!" message displayed. This is a simple example, but we can build more complex components.
+        </em>
+      </pre>
+    </div>
+
+  </section>
+
+  <script src="examples.js"></script>
+
+</body>
+
+</html>

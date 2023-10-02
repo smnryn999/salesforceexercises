@@ -45,6 +45,7 @@
       <p><span class="counter"></span> - Future Methods </p>
       <button class="showSolution">Show Solution</button>
       <pre>
+        <em> // Future Apex (also known as @future methods) is used for performing long-running operations asynchronously, often used for tasks like sending emails, making external web service calls, or other operations that should not block the main transaction. </em>
         public class EmailSender {
 
           @future
@@ -57,7 +58,11 @@
               Messaging.sendEmail(new Messaging.SingleEmailMessage{mail});
           }
         }
-
+        <em>
+          // We have a sendEmail method annotated with @future. This indicates that the method will be executed asynchronously in a separate context.
+          // Inside the sendEmail method, we perform the logic to send an email using Salesforce's Messaging API.
+        </em>
+        <em> // Now, you can call this sendEmail method from another context, such as a trigger, to send emails asynchronously. </em>
         trigger MyObjectTrigger on MyObject__c (after insert) {
           for (MyObject__c obj : Trigger.new) {
             String toAddress = 'recipient@example.com';
@@ -68,12 +73,154 @@
             EmailSender.sendEmail(toAddress, subject, body);
           }
         }
-
         <em>
           // We define a trigger on the MyObject__c object that runs after insert.
           // Inside the trigger, we loop through the records being inserted and call the sendEmail method from the EmailSender class.
           // The email sending logic is executed asynchronously in a separate context, allowing the main transaction to continue without waiting for the email to be sent.
           // This is just one example of how you can use @future methods in Salesforce to perform operations asynchronously and avoid blocking the main transaction.
+        </em>
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 3 -->
+    <div class="example">
+      <p><span class="counter"></span> - Queueable Apex </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // Salesforce Queueable Apex allows you to perform asynchronous processing of tasks in a more flexible manner compared to @future methods </em>
+        public class UpdateRecordsQueueable implements Queueable {
+             private List<Id> recordIds;
+             public UpdateRecordsQueueable(List<Id> ids) {
+                this.recordIds = ids;
+             }
+    
+             public void execute(QueueableContext context) {
+                <em> // Perform the record updates here </em>
+                List<MyObject__c> recordsToUpdate = [SELECT Id, Name FROM MyObject__c WHERE Id IN :recordIds];
+                  
+                for (MyObject__c record : recordsToUpdate) {
+                   <em> // Perform updates, for example: </em>
+                   record.Name = 'Updated Name';
+                }
+        
+                <em> // Update the records </em>
+                update recordsToUpdate;
+             }
+         }
+         <em>
+           // We've created a class called UpdateRecordsQueueable that implements the Queueable interface.
+           // The class takes a list of record IDs as a parameter through its constructor.
+           // Inside the execute method, we query and update records based on the provided IDs. This is where you can perform your specific logic.
+         </em>
+         // Now, you can enqueue this Queueable job from anywhere in your Salesforce code, such as a trigger or another Apex class.
+         trigger MyObjectTrigger on MyObject__c (after update) {
+            List<Id> recordIds = new List<Id>();
+            for (MyObject__c obj : Trigger.new) {
+               if (obj.SomeCriteria__c) {
+                  recordIds.add(obj.Id);
+               }
+            }
+    
+            if (!recordIds.isEmpty()) {
+               // Enqueue the Queueable job
+               System.enqueueJob(new UpdateRecordsQueueable(recordIds));
+            }
+          }
+          <em>
+            // We define a trigger on the MyObject__c object that runs after an update.
+            // Inside the trigger, we collect the IDs of records that meet certain criteria.
+            // If there are records to update, we enqueue the UpdateRecordsQueueable job with the list of record IDs.
+            // The execute method of the UpdateRecordsQueueable class will be executed asynchronously, allowing you to update records without blocking the main transaction.
+            // This is a powerful way to handle long-running or resource-intensive tasks in Salesforce while maintaining good performance and flexibility.
+          </em>
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 4 -->
+    <div class="example">
+      <p><span class="counter"></span> - Batchable Apex </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         <em>
+           // Batch Apex allows you to process large sets of data in smaller, manageable chunks.
+           // Batch Apex is an excellent way to handle large-scale data processing in Salesforce while respecting platform limits and maintaining good performance.
+         </em> 
+         <em> // A Batchable class to update a custom field on all Account records </em>
+         public class UpdateAccountBatch implements Database.Batchable&lt;sObject&gt {
+            public Database.QueryLocator start(Database.BatchableContext context) {
+               <em> // Query all Account records that need to be updated </em>
+               return Database.getQueryLocator([SELECT Id, CustomField__c FROM Account WHERE SomeCriteria__c = true]);
+            }
+    
+            public void execute(Database.BatchableContext context, List&lt;Account&gt; listAcc) {
+               <em> // Process each batch of Account records </em>
+               for (Account acc : listAcc) {
+                  <em> // Update the custom field value, e.g., increment it </em>
+                  acc.CustomField__c += 1;
+               }
+        
+               <em> // Update the records in this batch </em>
+               update listAcc;
+             }
+    
+             public void finish(Database.BatchableContext context) {
+                <em> // Optionally, perform any post-processing tasks here </em>
+             }
+          }
+          <em>
+            // We've created a class called UpdateAccountBatch that implements Database.Batchable&lt;sObject&gt;.
+            // The start method returns a Database.QueryLocator that defines the set of records to be processed. In this case, it selects Account records meeting specific criteria.
+            // The execute method processes each batch of records. It updates the CustomField__c on each Account record and then performs an update operation.
+            // The finish method is called after all batches have been processed, allowing for any necessary post-processing.
+          </em>
+          <em> // To execute the batch job programmatically </em>
+          UpdateAccountBatch myBatch = new UpdateAccountBatch();
+          Database.executeBatch(myBatch, 200); <em> // The second parameter is the batch size. Its default  value is 200 and we can increase it to 2000.</em>
+          <em>
+            // We create an instance of the UpdateAccountBatch class.
+            // We use Database.executeBatch to start the batch job. The second parameter, 200, is the batch size, indicating that each batch will process up to 200 records.
+            // This initiates the batch job, and Salesforce will automatically break down the processing into manageable chunks, updating the custom field on all relevant Account records.
+          </em>
+
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 5 -->
+    <div class="example">
+      <p><span class="counter"></span> - Scheduled Apex </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em>
+          // A Schedulable Apex class allows you to schedule the execution of a specific Apex job at a predefined time or on a recurring basis.
+          // Schedulable Apex is useful for automating recurring tasks in Salesforce, such as data updates, cleanup, or integrations, at specific times or intervals.
+        </em>
+        <em> // A Schedulable class to update a custom field on Contact records. </em>
+        public class UpdateContactSchedulable implements Schedulable {
+    
+           public void execute(SchedulableContext context) {
+              <em> // Implement the logic to update Contact records here </em>
+              List<Contact> contactsToUpdate = [SELECT Id, CustomField__c FROM Contact WHERE SomeCriteria__c = true];
+        
+              for (Contact con : contactsToUpdate) {
+                 <em> // Update the custom field value, e.g., increment it </em>
+                 con.CustomField__c += 1;
+              }
+        
+              <em> // Update the records </em>
+              update contactsToUpdate;
+           }
+        }
+        <em>
+          // We've created a class called UpdateContactSchedulable that implements the Schedulable interface.
+          // The execute method contains the logic that you want to run when the job is scheduled. In this case, it queries and updates Contact records that meet certain criteria.
+        </em>
+        <em> // To schedule the job programmatically </em>
+        String cronExpression = '0 0 0 * * ?'; <em> // Run daily at midnight (UTC) </em>
+        System.schedule('Update Contact Job', cronExpression, new UpdateContactSchedulable());
+        <em>
+          // We define a cronExpression string that specifies when the job should run. In this example, it's set to run daily at midnight (UTC).
+          // We use System.schedule to schedule the job. The first parameter is the name of the job, the second is the cron expression, and the third is an instance of the UpdateContactSchedulable class.
+          // After scheduling the job, it will execute at the specified time or on the specified schedule, and it will perform the logic inside the execute method, updating the custom field on Contact records.
         </em>
       </pre>
     </div>
