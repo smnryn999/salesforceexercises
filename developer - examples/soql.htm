@@ -247,7 +247,7 @@
       <p><span class="counter"></span> - Write the Titles of all files containing “Karenina” to the console. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          List<List<SObject>> searchResults = [FIND 'Karenina' IN ALL FIELDS RETURNING ContentDocument(Title)];
+          List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND 'Karenina' IN ALL FIELDS RETURNING ContentDocument(Title)];
           System.debug(searchResults); <em> // Books </em>
       </pre>
     </div>
