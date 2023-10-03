@@ -213,7 +213,7 @@
       <pre>
           <em> // We can use * and ? as wildcards. </em>
           <em> // Perform SOSL search and retrieve records. </em>
-          List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND 'United' IN ALL FIELDS RETURNING Account (Id, Name), Contact (Id, Name)];
+          List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND 'United' IN ALL FIELDS RETURNING Account (Name WHERE NumberOfEmployees > 10000), Contact (Name)];
           System.debug(searchResults);
           
           List&lt;Account&gt; accounts = new List&lt;Account&gt();
