@@ -44,7 +44,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       
       var datatypes = ["String ", " Date ", "Integer", "Boolean", "Decimal ", "Datetime", "AggregateResult", "override", "virtual", "abstract",
                        "List&lt;Account&gt;", "List&lt;Book__c&gt;", "List&lt;Opportunity&gt;", "List&lt;Contact&gt;", "Map&lt;Id, Account&gt;",
-		       "List&lt;List&lt;SObject&gt;&gt;", "sObject"]; 
+		       "List&lt;List&lt;SObject&gt;&gt;", "Object "]; 
       for(d of datatypes){
          // var re = new RegExp(d,"ig");
          content = content.replaceAll(d, "<span class='datatype'>"+d+"</span>");
@@ -61,7 +61,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       }
       
       var soql = ["SELECT", "FROM", "WHERE", "LIMIT", "IN ", "NOT", "AND", "HAVING", "LIKE", "ORDER BY", "DESC", "NULLS LAST", "GROUP BY", "SUM",
-				  "FIND", "RETURNING", "ALL FIELDS", "insert ", "delete "];
+		  "FIND", "RETURNING", "ALL FIELDS", "insert ", "delete "];
       for(s of soql){
          content = content.replaceAll(s, "<span style='color:#EFFD5F'>"+s+"</span>");
        }
