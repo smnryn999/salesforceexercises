@@ -211,16 +211,16 @@
         console. Get accounts with more than 10 thousand employees. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-		  <em> // We can use * and ? as wildcards. </em>
+          <em> // We can use * and ? as wildcards. </em>
           <em> // Perform SOSL search and retrieve records. </em>
-          List<List<SObject>> searchResults = [FIND 'United' IN ALL FIELDS RETURNING Account (Id, Name), Contact (Id, Name)];
+          List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND 'United' IN ALL FIELDS RETURNING Account (Id, Name), Contact (Id, Name)];
           System.debug(searchResults);
           
-          List<Account> accounts = new List<Account>();
-          List<Contact> contacts = new List<Contact>();
+          List&lt;Account&gt; accounts = new List&lt;Account&gt();
+          List&lt;Contact&gt; contacts = new List&lt;Contact&gt();
           
           <em> // Loop through search results and populate separate lists for accounts and contacts </em>
-          for (List<SObject> searchResult : searchResults) {
+          for (List&lt;SObject&gt; searchResult : searchResults) {
 	          for (Object obj : searchResult) {
 		          if (obj instanceof Account) {
 			            accounts.add((Account)obj);
@@ -233,11 +233,11 @@
 
 	        <em> // Process the retrieved records </em>
 	        for (Account acc : accounts) {
-		          System.debug('Account: ' + acc.Name);
+		    System.debug('Account: ' + acc.Name);
 	        }
 		   
 	        for (Contact con : contacts) {
-		          System.debug('Contact: ' + con.Name);
+		    System.debug('Contact: ' + con.Name);
 	        }
       </pre>
     </div>
