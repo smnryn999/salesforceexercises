@@ -44,7 +44,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       
       var datatypes = ["String ", " Date ", "Integer", "Boolean", "Decimal ", "Datetime", "AggregateResult", "override", "virtual", "abstract",
                        "List&lt;Account&gt;", "List&lt;Book__c&gt;", "List&lt;Opportunity&gt;", "List&lt;Contact&gt;", "Map&lt;Id, Account&gt;"
-		       "List&lt;List&lt;SObject&gt;&gt;", "sObject"]; 
+		       "List&lt;List&lt;SObject&gt;&gt;"]; 
       for(d of datatypes){
          // var re = new RegExp(d,"ig");
          content = content.replaceAll(d, "<span class='datatype'>"+d+"</span>");
