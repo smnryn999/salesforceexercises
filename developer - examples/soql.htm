@@ -222,70 +222,66 @@
         <em> // Loop through search results and populate separate lists for accounts and contacts </em>
         for(List&lt;SObject&gt; searchResult : searchResults) {
 	        for(Object obj : searchResult) {
-		        if(obj instanceof Account) {
-			          accounts.add((Account)obj);
-		        }
-		        else if(obj instanceof Contact) {
-			          contacts.add((Contact)obj);
-		        }
-		      }
-	      }
+                    if(obj instanceof Account) {
+                        accounts.add((Account)obj);
+                    }       
+                    else if(obj instanceof Contact) {
+                        contacts.add((Contact)obj);
+                    }
+                }
+        }
 
-	      <em> // Process the retrieved records </em>
-	      for(Account acc : accounts) {
-		        System.debug('Account: ' + acc.Name);
-	      }
+        <em> // Process the retrieved records </em>
+        for(Account acc : accounts) {
+            System.debug('Account: ' + acc.Name);
+        }
 		   
-	      for(Contact con : contacts) {
-		        System.debug('Contact: ' + con.Name);
-	      }
+        for(Contact con : contacts) {
+            System.debug('Contact: ' + con.Name);
+        }
       </pre>
     </div>
 
     <!-- EXAMPLE 13 -->
     <div class="example">
-      <p><span class="counter"></span> - Write the Titles of all files containing “Karenina” to the console. </p>
+      <p><span class="counter"></span> - Write the Titles of all files containing “Anna Karenina” to the console. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND 'Karenina' IN ALL FIELDS RETURNING ContentDocument(Title)];
-          System.debug(searchResults); <em> // Books </em>
+        List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND 'Anna Karenina' IN ALL FIELDS RETURNING ContentDocument(Title)];
+        System.debug(searchResults); <em> // ((ContentDocument:{Title=Books, Id=0698e00000CezhFAAR})) </em>
+
+        for(List<sObject> file:files){
+          for(SObject f:file){
+              ContentDocument doc = (ContentDocument)f;
+              System.debug(doc.Title); <em> // Books </em>
+          }
+        }
       </pre>
     </div>
 
     <!-- EXAMPLE 14 -->
     <div class="example">
-      <p><span class="counter"></span> - Write Name, Email and Company information of the people whose Name contains "Green" to the console. </p>
+      <p><span class="counter"></span> - Write Name, Email and Company information of the people (Contact, Lead) whose
+        Name contains "Green" to the console. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
         <em> // NAME FIELDS contains FirstName, LastName, Company Name </em>
-        String searchQuery = '*Green*';
+        String searchQuery = 'Gr?en*'; <em> // Graen, Green, Grien </em>
         List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND :searchQuery IN NAME FIELDS RETURNING Contact(Name, Email), Lead(Name, Company)];
           
-        List&lt;Contact&gt; contactResults = new List&lt;Contact&gt;();
-        List&lt;Lead&gt; leadResults = new List&lt;Lead&gt;();
-          
         <em> // Loop through the search results and separate them based on the object type </em>
-        for(List&lt;SObject&gt; results : searchResults) {
-          for(SObject result : results) {
-            if(result instanceof Contact) {
-              contactResults.add((Contact)result);
-            }
-            else if(result instanceof Lead) {
-              leadResults.add((Lead)result);
-            }
+        for(List&lt;SObject&gt; result:results){
+          for(sObject obj:result){
+              if(obj instanceof Contact){
+                  Contact con = (Contact)obj;
+                  System.debug('Contact Name: ' + con.Name + ', Contact Email: ' + con.Email);
+              }
+              else {
+                  Lead lead = (Lead)obj;
+                  System.debug('Lead Name: ' + lead.Name + ', Lead Company: ' + lead.Company);
+              }
           }
-        }
-    
-        for(Contact con : contactResults) {
-            System.debug('Contact Name: ' + con.Name);
-            System.debug('Contact Email: ' + con.Email);
-            <em> // Perform additional actions with contact data </em>
-        }
-        for(Lead lead : leadResults) {
-            System.debug('Lead Name: ' + lead.Name);
-            System.debug('Lead Company: ' + lead.Company);
-            <em> // Perform additional actions with lead data </em>
-        }
+      }
       </pre>
     </div>
 
