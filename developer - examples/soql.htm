@@ -259,13 +259,13 @@
       <button class="showSolution">Show Solution</button>
       <pre>
           String searchQuery = 'FIND {Green*} IN NAME FIELDS RETURNING Contact(Name, Email), Lead(Name, Company)';
-          List<List<SObject>> searchResults = [FIND :searchQuery];
+          List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND :searchQuery];
           
-          List<Contact> contactResults = new List<Contact>();
-          List<Lead> leadResults = new List<Lead>();
+          List&lt;Contact&gt; contactResults = new List&lt;Contact&gt;();
+          List&lt;Lead&gt; leadResults = new List&lt;Lead&gt;();
           
           <em> // Loop through the search results and separate them based on the object type </em>
-          for (List<SObject> results : searchResults) {
+          for (List&lt;SObject&gt; results : searchResults) {
 		        for (SObject result : results) {
 		          if (result instanceof Contact) {
 			          contactResults.add((Contact)result);
