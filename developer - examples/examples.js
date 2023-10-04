@@ -43,8 +43,8 @@ var showButtons = document.querySelectorAll(".showSolution");
       content = content.replaceAll(/Set<string>/gi, "<span class='datatype'>Set&#60;String&#62;</span>");     
       
       var datatypes = ["String ", " Date ", "Integer", "Boolean", "Decimal ", "Datetime", "AggregateResult", "override", "virtual", "abstract",
-                       "List&lt;Account&gt;", "List&lt;Book__c&gt;", "List&lt;Opportunity&gt;", "List&lt;Contact&gt;", "Map&lt;Id, Account&gt;",
-		       "List&lt;List&lt;SObject&gt;&gt;", "Object "]; 
+                       "List&lt;Account&gt;", "List&lt;Book__c&gt;", "List&lt;Opportunity&gt;", "List&lt;Contact&gt;", "List&lt;Lead&gt;", "Map&lt;Id, Account&gt;",
+		                 "List&lt;List&lt;SObject&gt;&gt;", "List&lt;SObject&gt;", "SObject", "Object "]; 
       for(d of datatypes){
          // var re = new RegExp(d,"ig");
          content = content.replaceAll(d, "<span class='datatype'>"+d+"</span>");
@@ -55,7 +55,7 @@ var showButtons = document.querySelectorAll(".showSolution");
          content = content.replaceAll(p, `<span class="punctuation">${p}</span>`);
       }
 
-      var keywords = [" new ", " extends ", " implements ", "return"];
+      var keywords = [" new ", " extends ", " implements ", "return", "instanceof"];
       for(p of keywords){
          content = content.replaceAll(p, `<var> ${p} </var>`);
       }
@@ -69,6 +69,11 @@ var showButtons = document.querySelectorAll(".showSolution");
       var logic = ["&&", "||", "!"];
       for(l of logic){
          content = content.replaceAll(l, "<span style='color:red'>"+l+"</span>");
+       }
+
+       var loops = ["for", "while", "switch"];
+       for(p of loops){
+          content = content.replaceAll(p, `<span class="loop">${p}</span>`);
        }
 
       document.querySelectorAll("pre")[i].innerHTML = content;

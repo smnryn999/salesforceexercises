@@ -211,34 +211,34 @@
         console. Get accounts with more than 10 thousand employees. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          <em> // We can use * and ? as wildcards. </em>
-          <em> // Perform SOSL search and retrieve records. </em>
-          List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND 'United' IN ALL FIELDS RETURNING Account (Name WHERE NumberOfEmployees > 10000), Contact (Name)];
-          System.debug(searchResults);
+        <em> // We can use * and ? as wildcards. </em>
+        <em> // Perform SOSL search and retrieve records. </em>
+        List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND 'United' IN ALL FIELDS RETURNING Account (Name WHERE NumberOfEmployees > 10000), Contact (Name)];
+        System.debug(searchResults);
           
-          List&lt;Account&gt; accounts = new List&lt;Account&gt();
-          List&lt;Contact&gt; contacts = new List&lt;Contact&gt();
+        List&lt;Account&gt; accounts = new List&lt;Account&gt();
+        List&lt;Contact&gt; contacts = new List&lt;Contact&gt();
           
-          <em> // Loop through search results and populate separate lists for accounts and contacts </em>
-          for (List&lt;SObject&gt; searchResult : searchResults) {
-	          for (Object obj : searchResult) {
-		          if (obj instanceof Account) {
-			            accounts.add((Account)obj);
-		          }
-		          else if (obj instanceof Contact) {
-			            contacts.add((Contact)obj);
-		          }
+        <em> // Loop through search results and populate separate lists for accounts and contacts </em>
+        for(List&lt;SObject&gt; searchResult : searchResults) {
+	        for(Object obj : searchResult) {
+		        if(obj instanceof Account) {
+			          accounts.add((Account)obj);
 		        }
-	        }
+		        else if(obj instanceof Contact) {
+			          contacts.add((Contact)obj);
+		        }
+		      }
+	      }
 
-	        <em> // Process the retrieved records </em>
-	        for (Account acc : accounts) {
-		    System.debug('Account: ' + acc.Name);
-	        }
+	      <em> // Process the retrieved records </em>
+	      for(Account acc : accounts) {
+		        System.debug('Account: ' + acc.Name);
+	      }
 		   
-	        for (Contact con : contacts) {
-		    System.debug('Contact: ' + con.Name);
-	        }
+	      for(Contact con : contacts) {
+		        System.debug('Contact: ' + con.Name);
+	      }
       </pre>
     </div>
 
@@ -254,38 +254,38 @@
 
     <!-- EXAMPLE 14 -->
     <div class="example">
-      <p><span class="counter"></span> - Write Name, Email and Company information of the people whose LastName is
-        "Green" to the console. </p>
+      <p><span class="counter"></span> - Write Name, Email and Company information of the people whose Name contains "Green" to the console. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          String searchQuery = 'FIND {Green*} IN NAME FIELDS RETURNING Contact(Name, Email), Lead(Name, Company)';
-          List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND :searchQuery];
+        <em> // NAME FIELDS contains FirstName, LastName, Company Name </em>
+        String searchQuery = '*Green*';
+        List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND :searchQuery IN NAME FIELDS RETURNING Contact(Name, Email), Lead(Name, Company)];
           
-          List&lt;Contact&gt; contactResults = new List&lt;Contact&gt;();
-          List&lt;Lead&gt; leadResults = new List&lt;Lead&gt;();
+        List&lt;Contact&gt; contactResults = new List&lt;Contact&gt;();
+        List&lt;Lead&gt; leadResults = new List&lt;Lead&gt;();
           
-          <em> // Loop through the search results and separate them based on the object type </em>
-          for (List&lt;SObject&gt; results : searchResults) {
-		        for (SObject result : results) {
-		          if (result instanceof Contact) {
-			          contactResults.add((Contact)result);
-		          }
-		          else if (result instanceof Lead) {
-			          leadResults.add((Lead)result);
-		          }
-		        }
-	        }
-		  
-           for(Contact con : contactResults) {
-	            System.debug('Contact Name: ' + con.Name);
-		          System.debug('Contact Email: ' + con.Email);
-		          <em> // Perform additional actions with contact data </em>
-	          }
-	          for (Lead lead : leadResults) {
-		          System.debug('Lead Name: ' + lead.Name);
-		          System.debug('Lead Company: ' + lead.Company);
-		          <em> // Perform additional actions with lead data </em>
-	          }
+        <em> // Loop through the search results and separate them based on the object type </em>
+        for(List&lt;SObject&gt; results : searchResults) {
+          for(SObject result : results) {
+            if(result instanceof Contact) {
+              contactResults.add((Contact)result);
+            }
+            else if(result instanceof Lead) {
+              leadResults.add((Lead)result);
+            }
+          }
+        }
+    
+        for(Contact con : contactResults) {
+            System.debug('Contact Name: ' + con.Name);
+            System.debug('Contact Email: ' + con.Email);
+            <em> // Perform additional actions with contact data </em>
+        }
+        for(Lead lead : leadResults) {
+            System.debug('Lead Name: ' + lead.Name);
+            System.debug('Lead Company: ' + lead.Company);
+            <em> // Perform additional actions with lead data </em>
+        }
       </pre>
     </div>
 
