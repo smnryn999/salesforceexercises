@@ -125,15 +125,15 @@
            @HttpPatch
            global static String updateLead(String leadId, String firstName, String lastName) {
               try {
-                 // Retrieve the Lead record to update
+                 <em> // Retrieve the Lead record to update </em>
                  Lead leadToUpdate = [SELECT Id FROM Lead WHERE Id = :leadId LIMIT 1];
             
                  if (leadToUpdate != null) {
-                    // Update the Lead fields
+                    <em> // Update the Lead fields </em>
                     leadToUpdate.FirstName = firstName;
                     leadToUpdate.LastName = lastName;
                 
-                    // Update the Lead record
+                    <em> // Update the Lead record </em>
                     update leadToUpdate;
                 
                    return 'Lead updated successfully.';
