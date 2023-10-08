@@ -71,7 +71,7 @@ var showButtons = document.querySelectorAll(".showSolution");
          content = content.replaceAll(l, "<span style='color:red'>"+l+"</span>");
        }
 
-       var loops = ["for", "while", "switch"];
+       var loops = ["for", "while", "switch", "do"];
        for(p of loops){
           content = content.replaceAll(p, `<span class="loop">${p}</span>`);
        }
