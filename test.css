@@ -143,15 +143,15 @@ pre {
    margin: 20px;
    display: none;
 }
-pre div {
+pre div, pre div span {
    background:black;
+   color: whitesmoke;
    margin: 0 45px;
    padding: 0;
    border: 1px solid lightyellow;
    border-radius: 5px;
 }
-pre div code, pre div code span {
-   color: whitesmoke;
+pre div code {
    margin: 0;
    padding: 0;
    font-size: 15px;
