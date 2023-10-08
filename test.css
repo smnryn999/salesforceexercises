@@ -143,9 +143,8 @@ pre {
    margin: 20px;
    display: none;
 }
-pre div, pre div span {
+pre div {
    background:black;
-   color: whitesmoke;
    margin: 0 45px;
    padding: 0;
    border: 1px solid lightyellow;
