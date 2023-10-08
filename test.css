@@ -150,7 +150,8 @@ pre div {
    border: 1px solid lightyellow;
    border-radius: 5px;
 }
-pre div code {
+pre div code, pre div code span {
+   color: whitesmoke;
    margin: 0;
    padding: 0;
    font-size: 15px;
