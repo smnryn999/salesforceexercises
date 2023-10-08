@@ -66,12 +66,12 @@ var showButtons = document.querySelectorAll(".showSolution");
          content = content.replaceAll(s, "<span style='color:#EFFD5F'>"+s+"</span>");
        }
 
-      var logic = ["&&", "||", "!"];
+      var logic = ["&&", "||", " !"];
       for(l of logic){
          content = content.replaceAll(l, "<span style='color:red'>"+l+"</span>");
        }
 
-       var loops = ["for", "while", "switch", "do"];
+       var loops = [" for", "while", "switch", "do"];
        for(p of loops){
           content = content.replaceAll(p, `<span class="loop">${p}</span>`);
        }
