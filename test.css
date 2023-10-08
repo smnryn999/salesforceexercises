@@ -50,7 +50,7 @@ img{
 }
 
 
-/* MAIN */
+/* MAIN - TESTS*/
 main {
    background: azure;
    padding: 0 15px;
@@ -126,7 +126,7 @@ button {
 }
 
 
-/* DATATYPES.HTM */
+/* DATATYPES.HTM - EXAMPLES */
 section {margin: 20px;}
 .example {border: 1px solid gray; border-radius:5px; padding: 10px; margin-top: 15px; background: #fafafa}
 section p {font-size: 19px; padding: 5px; text-indent: 5px;}
@@ -143,6 +143,18 @@ pre {
    margin: 20px;
    display: none;
 }
+pre div {
+   background:black;
+   margin: 0 45px;
+   padding: 0;
+   border-radius: 5px;
+}
+pre div code {
+   margin: 0;
+   padding: 0;
+   font-size: 15px;
+}
+
 var {color: rgb(204, 204, 255);}
 em, em span, em var {color: darkcyan !important;}
 .datatype, .datatype span {color: LightSalmon;} /* text-transform: capitalize; */

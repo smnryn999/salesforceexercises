@@ -19,9 +19,11 @@
       <p><span class="counter"></span> - What is LWC? </p>
       <button class="showSolution">Show Solution</button>
       <pre>
+        <span class="string">
         • Lightning Web Components (LWC) are custom HTML elements built using HTML and modern JavaScript.
         • Lightning Web Components (LWC) uses core Web Components standards and provides only what’s necessary to perform well in browsers supported by Salesforce. Because it’s built on code that runs natively in browsers, Lightning Web Components is lightweight and delivers exceptional performance. Most of the code you write is standard JavaScript and HTML.
         • Lightning Web Components (LWC) are a fundamental building block in Salesforce's Lightning Platform for building user interface (UI).
+        </span>
       </pre>
     </div>
 
@@ -31,18 +33,21 @@
       <button class="showSolution">Show Solution</button>
       <pre>
         <em> // We can create a component by right clicking on LWC folder or we can use the code below </em>
-        sfdx force:lightning:component:create --type lwc -n helloWorld
+        <div><code>      sfdx force:lightning:component:create --type lwc -n helloWorld</code></div>
         <em> // This will create a folder named "helloWorld" with necessary files. </em>
         
         <em> <!-- helloWorld.html --> </em>
+        <div><code>
         &lt;template&gt;
           &lt;p&gt;Hello, World!&lt;/p&gt;
         &lt;/template&gt;
-        
+        </code></div>  
         <em> // helloWorld.js </em>
+        <div><code>
         import { LightningElement } from 'lwc';
         
         export default class HelloWorld extends LightningElement {}
+        </code></div>
         <em>
             // We can use it in other Lightning components or in the Lightning App Builder by adding it to a Lightning Page.
             // To use it in a Lightning App Page, go to Setup, find the App Page you want to edit, and add your "helloWorld" component to the page.

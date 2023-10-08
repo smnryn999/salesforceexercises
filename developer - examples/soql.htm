@@ -250,7 +250,7 @@
         List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND 'Anna Karenina' IN ALL FIELDS RETURNING ContentDocument(Title)];
         System.debug(searchResults); <em> // ((ContentDocument:{Title=Books, Id=0698e00000CezhFAAR})) </em>
 
-        for(List&lt;SObject&gt; file:files){
+        for(List&lt;sObject&gt; file:files){
           for(SObject f:file){
               ContentDocument doc = (ContentDocument)f;
               System.debug(doc.Title); <em> // Books </em>
