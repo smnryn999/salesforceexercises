@@ -92,37 +92,6 @@
 
     <!-- EXAMPLE 4 -->
     <div class="example">
-      <p><span class="counter"></span> - Please create a component that shows "Hello World" text on UI.</p>
-      <button class="showSolution">Show Solution</button>
-      <pre>
-        <em> // We can create a component by right clicking on LWC folder or we can use the code below </em>
-        <div><code>
-        sfdx force:lightning:component:create --type lwc -n helloWorld
-        </code></div>
-        <em> // This will create a folder named "helloWorld" with necessary files. </em>
-        
-        <em> &lt;!-- helloWorld.html --> </em>
-        <div><code>
-        &lt;template&gt;
-          &lt;p&gt;Hello, World!&lt;/p&gt;
-        &lt;/template&gt;
-        </code></div>  
-        <em> // helloWorld.js </em>
-        <div><code>
-        import { LightningElement } from 'lwc';
-        
-        export default class HelloWorld extends LightningElement {}
-        </code></div>
-        <em>
-            // We can use it in other Lightning components or in the Lightning App Builder by adding it to a Lightning Page.
-            // To use it in a Lightning App Page, go to Setup, find the App Page you want to edit, and add your "helloWorld" component to the page.
-            // When we view the Lightning App Page, we'll see our "Hello, World!" message displayed. This is a simple example, but we can build more complex components.
-        </em>
-      </pre>
-    </div>
-
-    <!-- EXAMPLE 5 -->
-    <div class="example">
       <p><span class="counter"></span> - Please create a component that uses the lightning-card component to display information.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
@@ -161,6 +130,57 @@
       </pre>
     </div>
 
+    <!-- EXAMPLE 5 -->
+    <div class="example">
+      <p><span class="counter"></span> - Please create a component that creates a basic form for collecting user information:</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // We uses lightning-input tags to create a form. </em>
+        
+        <em> &lt;!-- helloWorld.html --> </em>
+        <div><code>
+        <!-- inputExample.html -->
+<template>
+    <lightning-card title="User Information">
+        <div class="slds-p-horizontal_small">
+            <lightning-input label="First Name" value={firstName} onchange={handleFirstNameChange}></lightning-input>
+            <lightning-input label="Last Name" value={lastName} onchange={handleLastNameChange}></lightning-input>
+            <lightning-input label="Email" type="email" value={email} onchange={handleEmailChange}></lightning-input>
+        </div>
+    </lightning-card>
+</template>
+        </code></div>  
+        <em> // helloWorld.js </em>
+        <div><code>
+        // inputExample.js
+import { LightningElement, track } from 'lwc';
+
+export default class InputExample extends LightningElement {
+    @track firstName = '';
+    @track lastName = '';
+    @track email = '';
+
+    handleFirstNameChange(event) {
+        this.firstName = event.target.value;
+    }
+
+    handleLastNameChange(event) {
+        this.lastName = event.target.value;
+    }
+
+    handleEmailChange(event) {
+        this.email = event.target.value;
+    }
+}
+        </code></div>
+        <em>
+          // In this example, we have an LWC named "InputExample" that uses lightning-input tags to create a form for collecting user information.
+          // Each lightning-input component has a label attribute for setting the input label and an onchange event handler to update the corresponding property when the user enters data.
+          // The @track decorator is used to make the properties reactive, so changes in the input fields are reflected in the component's state.
+          // We can include this LWC in our Salesforce Lightning App to create a simple user information form.
+        </em>
+      </pre>
+    </div>
   </section>
 
   <script src="examples.js"></script>
