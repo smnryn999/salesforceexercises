@@ -126,7 +126,7 @@
       <p><span class="counter"></span> - Please create a component that uses the lightning-card component to display information.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <em> // a simple example of an LWC that displays a "Hello, World!" message: </em>
+        <em> // a simple example of an LWC that displays Employee Information within a card: </em>
         
         <em> &lt;!-- cardExample.html --> </em>
         <div><code>
@@ -147,9 +147,9 @@
           import { LightningElement, api } from 'lwc';
           
           export default class CardExample extends LightningElement {
-              @api employeeName = 'Rose Blossom';
-              @api employeeTitle = 'Salesforce Developer';
-              @api employeeEmail = 'roseblossom@example.com';
+              @api employeeName = "Rose Blossom";
+              @api employeeTitle = "Salesforce Developer";
+              @api employeeEmail = "roseblossom@example.com";
           }          
         </code></div>
         <em>
