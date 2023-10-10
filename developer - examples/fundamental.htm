@@ -85,7 +85,78 @@
             // In this example, we have an LWC named "HelloWorld."
             // The HTML file defines the template, and the JavaScript file uses the LightningElement base class to create the component.
             // The greeting property is used to display the message in the template.
-            // We can then include this LWC in your Salesforce Lightning App to display the "Hello, World!" message.
+            // We can then include this LWC in our Salesforce Lightning App to display the "Hello, World!" message.
+        </em>
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 4 -->
+    <div class="example">
+      <p><span class="counter"></span> - Please create a component that shows "Hello World" text on UI.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // We can create a component by right clicking on LWC folder or we can use the code below </em>
+        <div><code>
+        sfdx force:lightning:component:create --type lwc -n helloWorld
+        </code></div>
+        <em> // This will create a folder named "helloWorld" with necessary files. </em>
+        
+        <em> &lt;!-- helloWorld.html --> </em>
+        <div><code>
+        &lt;template&gt;
+          &lt;p&gt;Hello, World!&lt;/p&gt;
+        &lt;/template&gt;
+        </code></div>  
+        <em> // helloWorld.js </em>
+        <div><code>
+        import { LightningElement } from 'lwc';
+        
+        export default class HelloWorld extends LightningElement {}
+        </code></div>
+        <em>
+            // We can use it in other Lightning components or in the Lightning App Builder by adding it to a Lightning Page.
+            // To use it in a Lightning App Page, go to Setup, find the App Page you want to edit, and add your "helloWorld" component to the page.
+            // When we view the Lightning App Page, we'll see our "Hello, World!" message displayed. This is a simple example, but we can build more complex components.
+        </em>
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 5 -->
+    <div class="example">
+      <p><span class="counter"></span> - Please create a component that uses the lightning-card component to display information.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // a simple example of an LWC that displays a "Hello, World!" message: </em>
+        
+        <em> &lt;!-- cardExample.html --> </em>
+        <div><code>
+        &lt;!-- cardExample.html -->
+        &lt;template>
+          &lt;lightning-card title="Employee Information" icon-name="standard:contact">
+              &lt;div class="slds-p-horizontal_small">
+                  &lt;p>Name: {employeeName}&lt;/p>
+                  &lt;p>Title: {employeeTitle}&lt;/p>
+                  &lt;p>Email: {employeeEmail}&lt;/p>
+              &lt;/div>
+          &lt;/lightning-card>
+        &lt;/template>
+        </code></div>  
+        <em> // cardExample.js </em>
+        <div><code>
+          // cardExample.js
+          import { LightningElement, api } from 'lwc';
+          
+          export default class CardExample extends LightningElement {
+              @api employeeName = 'Rose Blossom';
+              @api employeeTitle = 'Salesforce Developer';
+              @api employeeEmail = 'roseblossom@example.com';
+          }          
+        </code></div>
+        <em>
+            // In this example, we have an LWC named "CardExample" that uses the lightning-card component to create a card with employee information.
+            // The title attribute of lightning-card sets the card's title, and the icon-name attribute sets the card's icon.
+            // Inside the card, we have a simple template that displays the employee's name, title, and email using {} syntax, which binds the values to the component's properties.
+            // We can include this LWC in our Salesforce Lightning App to display the employee information within a card component.
         </em>
       </pre>
     </div>
