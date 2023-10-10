@@ -22,7 +22,7 @@
         public class HandlerClass {
           public static void updateRatingField(List&lt;Account&gt; listAcc){ <em> // listAcc represents Trigger.new </em>
             for(Account acc : listAcc){
-               If(!Strinng.isBlank(acc.Industry) <span style='color:red'>&&</span> (acc.Industry == 'Banking' || acc.Industry == 'Healthcare')){
+               If( !String.isBlank(acc.Industry) <span style='color:red'>&&</span> (acc.Industry == 'Banking' || acc.Industry == 'Healthcare')){
                   acc.Rating = 'Hot';
                }
            }
