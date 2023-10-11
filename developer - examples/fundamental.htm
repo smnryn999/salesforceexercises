@@ -122,10 +122,10 @@
           }          
         </code></div>
         <em>
-            // In this example, we have an LWC named "CardExample" that uses the lightning-card component to create a card with employee information.
-            // The title attribute of lightning-card sets the card's title, and the icon-name attribute sets the card's icon.
-            // Inside the card, we have a simple template that displays the employee's name, title, and email using {} syntax, which binds the values to the component's properties.
-            // We can include this LWC in our Salesforce Lightning App to display the employee information within a card component.
+          // In this example, we have an LWC named "CardExample" that uses the lightning-card component to create a card with employee information.
+          // The title attribute of lightning-card sets the card's title, and the icon-name attribute sets the card's icon.
+          // Inside the card, we have a simple template that displays the employee's name, title, and email using {} syntax, which binds the values to the component's properties.
+          // We can include this LWC in our Salesforce Lightning App to display the employee information within a card component.
         </em>
       </pre>
     </div>
@@ -137,41 +137,41 @@
       <pre>
         <em> // We uses lightning-input tags to create a form. </em>
         
-        <em> &lt;!-- helloWorld.html --> </em>
+        <em> &lt;!-- inputExample.html --> </em>
         <div><code>
         &lt;!-- inputExample.html -->
-&lt;template>
-    &lt;lightning-card title="User Information">
-        &lt;div class="slds-p-horizontal_small">
-            &lt;lightning-input label="First Name" value={firstName} onchange={handleFirstNameChange}>&lt;/lightning-input>
-            &lt;lightning-input label="Last Name" value={lastName} onchange={handleLastNameChange}>&lt;/lightning-input>
-            &lt;lightning-input label="Email" type="email" value={email} onchange={handleEmailChange}>&lt;/lightning-input>
-        &lt;/div>
-    &lt;/lightning-card>
-&lt;/template>
+        &lt;template>
+            &lt;lightning-card title="User Information">
+                &lt;div class="slds-p-horizontal_small">
+                    &lt;lightning-input label="First Name" value={firstName} onchange={handleFirstNameChange}>&lt;/lightning-input>
+                    &lt;lightning-input label="Last Name" value={lastName} onchange={handleLastNameChange}>&lt;/lightning-input>
+                    &lt;lightning-input label="Email" type="email" value={email} onchange={handleEmailChange}>&lt;/lightning-input>
+                &lt;/div>
+            &lt;/lightning-card>
+        &lt;/template>
         </code></div>  
-        <em> // helloWorld.js </em>
+        <em> // inputExample.js </em>
         <div><code>
         // inputExample.js
-import { LightningElement } from 'lwc';
+        import { LightningElement } from 'lwc';
 
-export default class InputExample extends LightningElement {
-    firstName = '';
-    lastName = '';
-    email = '';
+        export default class InputExample extends LightningElement {
+            firstName = '';
+            lastName = '';
+            email = '';
 
-    handleFirstNameChange(event) {
-        this.firstName = event.target.value;
-    }
+            handleFirstNameChange(event) {
+                this.firstName = event.target.value;
+            }
 
-    handleLastNameChange(event) {
-        this.lastName = event.target.value;
-    }
+            handleLastNameChange(event) {
+                this.lastName = event.target.value;
+            }
 
-    handleEmailChange(event) {
-        this.email = event.target.value;
-    }
-}
+            handleEmailChange(event) {
+                this.email = event.target.value;
+            }
+        }
         </code></div>
         <em>
           // In this example, we have an LWC named "InputExample" that uses lightning-input tags to create a form for collecting user information.
