@@ -40,7 +40,16 @@ var showButtons = document.querySelectorAll(".showSolution");
       content = content.replaceAll(/[0-9]/g, function (x) {return `<span class='number'>${x}</span>`;});
       
       content = content.replaceAll(/List<string>/gi, "<span class='datatype'>List&#60;String&#62;</span>");
-      content = content.replaceAll(/Set<string>/gi, "<span class='datatype'>Set&#60;String&#62;</span>");     
+      content = content.replaceAll(/Set<string>/gi, "<span class='datatype'>Set&#60;String&#62;</span>");
+      
+      var tags = ["template", "lightning-card", "lightning-input"];
+       for(t of tags){
+          content = content.replaceAll(t, `<span style='color:lightgreen'>${t}</span>`);
+       }
+      var attributes = ["title", "icon-name", "label", "value", "onchange"];
+       for(a of attributes){
+          content = content.replaceAll(a, `<span style='color:lightcoral'>${a}</span>`);
+       }
       
       var datatypes = ["String ", " Date ", "Integer", "Boolean", "Decimal ", "Datetime", "AggregateResult", "override", "virtual", "abstract",
                        "List&lt;Account&gt;", "List&lt;Book__c&gt;", "List&lt;Opportunity&gt;", "List&lt;Contact&gt;", "List&lt;Lead&gt;", "Map&lt;Id, Account&gt;",
@@ -71,7 +80,7 @@ var showButtons = document.querySelectorAll(".showSolution");
          content = content.replaceAll(l, "<span style='color:red'>"+l+"</span>");
        }
 
-       var loops = [" for", "while", "switch", "do"];
+       var loops = [" for", "while", "switch", "&lt;/", "&lt;", "&gt;"];
        for(p of loops){
           content = content.replaceAll(p, `<span class="loop">${p}</span>`);
        }
