@@ -32,24 +32,48 @@
       <p><span class="counter"></span> - Please create an example sending data from a parent component to a child component.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <em> // We can create a component by right clicking on LWC folder or we can use the code below </em>
+        <em> // In Lightning Web Components (LWC), ww can pass data from a parent component to a child component by using component attributes. </em>
         
-        <em> &lt;!-- helloWorld.html --> </em>
+        <em> &lt;!-- parentComponent.html --> </em>
         <div><code>
-        &lt;template&gt;
-          &lt;p&gt;Hello, World!&lt;/p&gt;
-        &lt;/template&gt;
+        <!-- parentComponent.html -->
+<template>
+    <lightning-card title="Parent Component">
+        <c-child-component message={parentMessage}></c-child-component>
+    </lightning-card>
+</template>
         </code></div>  
         <em> // helloWorld.js </em>
         <div><code>
-        import { LightningElement } from 'lwc';
-        
-        export default class HelloWorld extends LightningElement {}
+        // parentComponent.js
+import { LightningElement } from 'lwc';
+
+export default class ParentComponent extends LightningElement {
+    parentMessage = 'Hello from Parent!';
+
+    // You can set the initial value of parentMessage here or dynamically update it.
+}
+        </code></div>
+        <div><code>
+        <!-- childComponent.html -->
+<template>
+    <lightning-card title="Child Component">
+        <p>{message}</p>
+    </lightning-card>
+</template>
+        </code></div>
+        <code><div>
+        // childComponent.js
+import { LightningElement, api } from 'lwc';
+
+export default class ChildComponent extends LightningElement {
+    @api message;
+}
         </code></div>
         <em>
-            // We can use it in other Lightning components or in the Lightning App Builder by adding it to a Lightning Page.
-            // To use it in a Lightning App Page, go to Setup, find the App Page you want to edit, and add your "helloWorld" component to the page.
-            // When we view the Lightning App Page, we'll see our "Hello, World!" message displayed. This is a simple example, but we can build more complex components.
+          // The parent component (parentComponent) defines a property called parentMessage and sets its initial value to 'Hello from Parent!'. This property is passed to the child component using the message attribute.
+          // The child component (childComponent) uses the @api decorator to define an attribute called message. This attribute receives the value from the parent component and displays it in the child component's template.
+          // When you include the parent component in your Lightning App, it will render the child component with the message sent from the parent component. This demonstrates how data can be sent from a parent to a child component in LWC using component attributes.
         </em>
       </pre>
     </div>
