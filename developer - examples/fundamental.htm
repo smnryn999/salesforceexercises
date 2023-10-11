@@ -113,12 +113,12 @@
         <em> // cardExample.js </em>
         <div><code>
           // cardExample.js
-          import { LightningElement, api } from 'lwc';
+          import { LightningElement } from 'lwc';
           
           export default class CardExample extends LightningElement {
-              @api employeeName = "Rose Blossom";
-              @api employeeTitle = "Salesforce Developer";
-              @api employeeEmail = "roseblossom@example.com";
+              employeeName = "Rose Blossom";
+              employeeTitle = "Salesforce Developer";
+              employeeEmail = "roseblossom@example.com";
           }          
         </code></div>
         <em>
@@ -139,26 +139,26 @@
         
         <em> &lt;!-- helloWorld.html --> </em>
         <div><code>
-        <!-- inputExample.html -->
-<template>
-    <lightning-card title="User Information">
-        <div class="slds-p-horizontal_small">
-            <lightning-input label="First Name" value={firstName} onchange={handleFirstNameChange}></lightning-input>
-            <lightning-input label="Last Name" value={lastName} onchange={handleLastNameChange}></lightning-input>
-            <lightning-input label="Email" type="email" value={email} onchange={handleEmailChange}></lightning-input>
-        </div>
-    </lightning-card>
-</template>
+        &lt;!-- inputExample.html -->
+&lt;template>
+    &lt;lightning-card title="User Information">
+        &lt;div class="slds-p-horizontal_small">
+            &lt;lightning-input label="First Name" value={firstName} onchange={handleFirstNameChange}>&lt;/lightning-input>
+            &lt;lightning-input label="Last Name" value={lastName} onchange={handleLastNameChange}>&lt;/lightning-input>
+            &lt;lightning-input label="Email" type="email" value={email} onchange={handleEmailChange}>&lt;/lightning-input>
+        &lt;/div>
+    &lt;/lightning-card>
+&lt;/template>
         </code></div>  
         <em> // helloWorld.js </em>
         <div><code>
         // inputExample.js
-import { LightningElement, track } from 'lwc';
+import { LightningElement } from 'lwc';
 
 export default class InputExample extends LightningElement {
-    @track firstName = '';
-    @track lastName = '';
-    @track email = '';
+    firstName = '';
+    lastName = '';
+    email = '';
 
     handleFirstNameChange(event) {
         this.firstName = event.target.value;
