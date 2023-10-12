@@ -32,11 +32,11 @@
       <p><span class="counter"></span> - Please create an example sending data from a parent component to a child component.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <em> // In Lightning Web Components (LWC), ww can pass data from a parent component to a child component by using component attributes. </em>
+        <em> // In Lightning Web Components (LWC), we can pass data from a parent component to a child component by using component attributes. </em>
         
         <em> &lt;!-- parentComponent.html --> </em>
         <div><code>
-        <em> &lt;!-- parentComponent.html --> </em>
+        <em>&lt;!-- parentComponent.html --> </em>
         &lt;template>
             &lt;lightning-card title="Parent Component">
                 &lt;c-child-component message={parentMessage}>&lt;/c-child-component>
@@ -45,18 +45,18 @@
         </code></div>  
         <em> // parentComponent.js </em>
         <div><code>
-        <em> // parentComponent.js </em>
+        <em>// parentComponent.js </em>
         import { LightningElement } from 'lwc';
 
         export default class ParentComponent extends LightningElement {
             parentMessage = 'Hello from Parent!';
 
-            <em> // You can set the initial value of parentMessage here or dynamically update it. </em>
+            <em>// You can set the initial value of parentMessage here or dynamically update it. </em>
         }
         </code></div>
         <em> &lt;!-- childComponent.html --> </em>
         <div><code>
-        <em> &lt;!-- childComponent.html --> </em>
+        <em>&lt;!-- childComponent.html --> </em>
         &lt;template>
             &lt;lightning-card title="Child Component">
                 &lt;p>{message}&lt;/p>
@@ -65,7 +65,7 @@
         </code></div>
         <em> // childComponent.js </em>
         <code><div>
-        <em> // childComponent.js </em>
+        <em>// childComponent.js </em>
         import { LightningElement, api } from 'lwc';
 
         export default class ChildComponent extends LightningElement {
@@ -76,6 +76,67 @@
           // The parent component (parentComponent) defines a property called parentMessage and sets its initial value to 'Hello from Parent!'. This property is passed to the child component using the message attribute.
           // The child component (childComponent) uses the @api decorator to define an attribute called message. This attribute receives the value from the parent component and displays it in the child component's template.
           // When you include the parent component in your Lightning App, it will render the child component with the message sent from the parent component. This demonstrates how data can be sent from a parent to a child component in LWC using component attributes.
+        </em>
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 3 -->
+    <div class="example">
+      <p><span class="counter"></span> - Please create an example sending data from a child component to a parent component.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // In Lightning Web Components (LWC), we can send data from a child component to a parent component using custom events. </em>
+        
+        <em> &lt;!-- parentComponent.html --> </em>
+        <div><code>
+        <em>&lt;!-- parentComponent.html --> </em>
+        &lt;template>
+            &lt;lightning-card title="Parent Component">
+                &lt;c-child-component onchildmessage={handleChildMessage}>&lt;/c-child-component>
+                &lt;p>Message from Child: {childMessage}&lt;/p>
+            &lt;/lightning-card>
+        &lt;/template>
+        </code></div>  
+        <em> // parentComponent.js </em>
+        <div><code>
+        <em>// parentComponent.js </em>
+        import { LightningElement } from 'lwc';
+          
+        export default class ParentComponent extends LightningElement {
+            childMessage = '';
+
+            handleChildMessage(event) {
+                this.childMessage = event.detail;
+            }
+        }
+        </code></div>
+        <em> &lt;!-- childComponent.html --> </em>
+        <div><code>
+        <em>&lt;!-- childComponent.html --> </em>
+        &lt;<template>
+            &lt;lightning-card title="Child Component">
+                &lt;lightning-button label="Send Message to Parent" onclick={sendMessageToParent}>&lt;/lightning-button>
+            &lt;/lightning-card>
+        &lt;/template>
+        </code></div>
+        <em> // childComponent.js </em>
+        <code><div>
+        <em>// childComponent.js </em>
+        import { LightningElement, createEvent } from 'lwc';
+
+        export default class ChildComponent extends LightningElement {
+            sendMessageToParent() {
+                const childMessageEvent = createEvent('childmessage');
+                childMessageEvent.detail = 'Hello from Child Component!';
+                this.dispatchEvent(childMessageEvent);
+            }
+        }
+        </code></div>
+        <em>
+          // The child component (childComponent) uses the createEvent function to create a custom event named 'childmessage'. It sets the event's detail property to the message that it wants to send to the parent component.
+          // When the "Send Message to Parent" button is clicked, the child component dispatches the custom event using this.dispatchEvent(childMessageEvent).
+          // The parent component (parentComponent) listens for the 'childmessage' event using the onchildmessage attribute on the child component tag. When the event is fired, it calls the handleChildMessage method to update the childMessage property with the message sent from the child component.
+          // This demonstrates how data can be sent from a child to a parent component in LWC using custom events..
         </em>
       </pre>
     </div>
