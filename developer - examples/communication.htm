@@ -36,16 +36,16 @@
         
         <em> &lt;!-- parentComponent.html --> </em>
         <div><code>
-        &lt;!-- parentComponent.html -->
+        <em> &lt;!-- parentComponent.html --> </em>
         &lt;template>
             &lt;lightning-card title="Parent Component">
                 &lt;c-child-component message={parentMessage}>&lt;/c-child-component>
             &lt;/lightning-card>
         &lt;/template>
         </code></div>  
-        <em> // helloWorld.js </em>
+        <em> // parentComponent.js </em>
         <div><code>
-        // parentComponent.js
+        <em> // parentComponent.js </em>
         import { LightningElement } from 'lwc';
 
         export default class ParentComponent extends LightningElement {
@@ -54,16 +54,18 @@
             <em> // You can set the initial value of parentMessage here or dynamically update it. </em>
         }
         </code></div>
+        <em> &lt;!-- childComponent.html --> </em>
         <div><code>
-        &lt;!-- childComponent.html -->
+        <em> &lt;!-- childComponent.html --> </em>
         &lt;template>
             &lt;lightning-card title="Child Component">
                 &lt;p>{message}&lt;/p>
             &lt;/lightning-card>
         &lt;/template>
         </code></div>
+        <em> // childComponent.js </em>
         <code><div>
-        // childComponent.js
+        <em> // childComponent.js </em>
         import { LightningElement, api } from 'lwc';
 
         export default class ChildComponent extends LightningElement {
