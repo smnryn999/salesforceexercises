@@ -36,39 +36,39 @@
         
         <em> &lt;!-- parentComponent.html --> </em>
         <div><code>
-        <!-- parentComponent.html -->
-<template>
-    <lightning-card title="Parent Component">
-        <c-child-component message={parentMessage}></c-child-component>
-    </lightning-card>
-</template>
+        &lt;!-- parentComponent.html -->
+        &lt;template>
+            &lt;lightning-card title="Parent Component">
+                &lt;c-child-component message={parentMessage}>&lt;/c-child-component>
+            &lt;/lightning-card>
+        &lt;/template>
         </code></div>  
         <em> // helloWorld.js </em>
         <div><code>
         // parentComponent.js
-import { LightningElement } from 'lwc';
+        import { LightningElement } from 'lwc';
 
-export default class ParentComponent extends LightningElement {
-    parentMessage = 'Hello from Parent!';
+        export default class ParentComponent extends LightningElement {
+            parentMessage = 'Hello from Parent!';
 
-    // You can set the initial value of parentMessage here or dynamically update it.
-}
+            <em> // You can set the initial value of parentMessage here or dynamically update it. </em>
+        }
         </code></div>
         <div><code>
-        <!-- childComponent.html -->
-<template>
-    <lightning-card title="Child Component">
-        <p>{message}</p>
-    </lightning-card>
-</template>
+        &lt;!-- childComponent.html -->
+        &lt;template>
+            &lt;lightning-card title="Child Component">
+                &lt;p>{message}&lt;/p>
+            &lt;/lightning-card>
+        &lt;/template>
         </code></div>
         <code><div>
         // childComponent.js
-import { LightningElement, api } from 'lwc';
+        import { LightningElement, api } from 'lwc';
 
-export default class ChildComponent extends LightningElement {
-    @api message;
-}
+        export default class ChildComponent extends LightningElement {
+            @api message;
+        }
         </code></div>
         <em>
           // The parent component (parentComponent) defines a property called parentMessage and sets its initial value to 'Hello from Parent!'. This property is passed to the child component using the message attribute.
