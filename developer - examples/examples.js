@@ -42,7 +42,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       content = content.replaceAll(/List<string>/gi, "<span class='datatype'>List&#60;String&#62;</span>");
       content = content.replaceAll(/Set<string>/gi, "<span class='datatype'>Set&#60;String&#62;</span>");
       
-      var tags = ["template", "lightning-card", "lightning-input"];
+      var tags = ["template", "lightning-card", "lightning-input", "lightning-button"];
        for(t of tags){
           content = content.replaceAll(t, `<span style='color:lightgreen'>${t}</span>`);
        }
