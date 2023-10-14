@@ -177,6 +177,44 @@
         </em>
       </pre>
     </div>
+
+    <!-- EXAMPLE 5 -->
+    <div class="example">
+      <p><span class="counter"></span> - Please explain how to connect sibling components in LWC with an example.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // The Lightning Message Service (LMS) is a powerful way to enable communication between Lightning web components (LWC) in a Salesforce application. </em>
+        <em> Here's a simple example of using LMS to send and receive messages between two LWC: </em>
+        
+        <em> &lt;!-- parentComponent.html --> </em>
+        <div><code>
+        <em>&lt;!-- parentComponent.html --> </em>
+        &lt;template>
+            &lt;lightning-card title="Parent Component">
+                &lt;c-child-component>
+                    &lt;p>This is content placed in the parent component.&lt;/p>
+                &lt;/c-child-component>
+            &lt;/lightning-card>
+        &lt;/template>
+        </code></div>
+        <em> &lt;!-- childComponent.html --> </em>
+        <div><code>
+        <em>&lt;!-- childComponent.html --> </em>
+        &lt;template>
+            &lt;lightning-card title="Child Component">
+                &lt;slot>&lt;/slot>
+            &lt;/lightning-card>
+        &lt;/template>
+        </code></div>
+        <em>
+          // The parent component (parentComponent) includes the child component (c-child-component) and places a &lt;p> element with content inside it.
+          // The child component (childComponent) uses a &lt;slot> element to specify where the content from the parent component will be inserted.
+          // In this case, the content placed within the &lt;c-child-component> tags will be inserted where the &lt;slot> is defined.
+          // When we include the parent component in our Lightning App, it will render the child component with the content from the parent component placed within it.
+          // This demonstrates how slots can be used to pass and render content from a parent to a child component, making our components more versatile and reusable.
+        </em>
+      </pre>
+    </div>
     
   </section>
 
