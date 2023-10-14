@@ -186,7 +186,7 @@
         <em> // The Lightning Message Service (LMS) is a powerful way to enable communication between Lightning web components (LWC) in a Salesforce application. </em>
         <em> // Here's a simple example of using LMS to send and receive messages between two LWC: </em>
         
-        <em> Sender Component: </em>
+        <em> // Sender Component: </em>
         <div><code>
         <em>&lt;!-- senderComponent.html --> </em>
         &lt;template>
@@ -213,12 +213,54 @@
             }
         }
         </code></div>
+
+        <em> // Receiver Component: </em>
+        <div><code>
+        <em>&lt;!-- receiverComponent.html --> </em>
+        &lt;template>
+            &lt;lightning-card title="Receiver Component">
+                &lt;p>Received Message: {receivedMessage}&lt;/p>
+            &lt;/lightning-card>
+        &lt;/template>
+        </code></div>
+        <div><code>
+        <em> // receiverComponent.js --> </em>
+        import { LightningElement, wire } from 'lwc';
+        import { subscribe, MessageContext } from 'lightning/messageService';
+        import SAMPLE_MESSAGE from '@salesforce/messageChannel/SampleMessageChannel__c';
+          
+        export default class ReceiverComponent extends LightningElement {
+            @wire(MessageContext)
+            messageContext;
+
+            receivedMessage = '';
+            subscription = null;
+
+            connectedCallback() {
+                this.subscribeToMessageChannel();
+            }
+
+            subscribeToMessageChannel() {
+                this.subscription = subscribe(this.messageContext, SAMPLE_MESSAGE, (message) => {
+                    this.handleMessage(message);
+                });
+            }
+
+            handleMessage(message) {
+                this.receivedMessage = message.key;
+            }
+
+            disconnectedCallback() {
+                unsubscribe(this.subscription);
+            }
+        }
+        </code></div>
+        
         <em>
-          // The parent component (parentComponent) includes the child component (c-child-component) and places a &lt;p> element with content inside it.
-          // The child component (childComponent) uses a &lt;slot> element to specify where the content from the parent component will be inserted.
-          // In this case, the content placed within the &lt;c-child-component> tags will be inserted where the &lt;slot> is defined.
-          // When we include the parent component in our Lightning App, it will render the child component with the content from the parent component placed within it.
-          // This demonstrates how slots can be used to pass and render content from a parent to a child component, making our components more versatile and reusable.
+          // The sender component (senderComponent) contains a button that, when clicked, sends a message using the Lightning Message Service. It imports the publish function and the message channel from which messages are sent.
+          // The receiver component (receiverComponent) displays the received message. It imports the subscribe and unsubscribe functions and the message channel from which messages are received. It also sets up a subscription when connected to the DOM and unsubscribes when disconnected.
+          // When we include both sender and receiver components in your Salesforce Lightning App, clicking the "Send Message" button in the sender component will send a message that the receiver component displays.
+          // This demonstrates how LMS enables communication between different LWC in our Salesforce application.
         </em>
       </pre>
     </div>
