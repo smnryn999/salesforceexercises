@@ -184,27 +184,34 @@
       <button class="showSolution">Show Solution</button>
       <pre>
         <em> // The Lightning Message Service (LMS) is a powerful way to enable communication between Lightning web components (LWC) in a Salesforce application. </em>
-        <em> Here's a simple example of using LMS to send and receive messages between two LWC: </em>
+        <em> // Here's a simple example of using LMS to send and receive messages between two LWC: </em>
         
-        <em> &lt;!-- parentComponent.html --> </em>
+        <em> Sender Component: </em>
         <div><code>
-        <em>&lt;!-- parentComponent.html --> </em>
+        <em>&lt;!-- senderComponent.html --> </em>
         &lt;template>
-            &lt;lightning-card title="Parent Component">
-                &lt;c-child-component>
-                    &lt;p>This is content placed in the parent component.&lt;/p>
-                &lt;/c-child-component>
+            &lt;lightning-card title="Sender Component">
+                &lt;lightning-button label="Send Message" onclick={sendMessage}>&lt;/lightning-button>
             &lt;/lightning-card>
         &lt;/template>
         </code></div>
-        <em> &lt;!-- childComponent.html --> </em>
         <div><code>
-        <em>&lt;!-- childComponent.html --> </em>
-        &lt;template>
-            &lt;lightning-card title="Child Component">
-                &lt;slot>&lt;/slot>
-            &lt;/lightning-card>
-        &lt;/template>
+        <em> // senderComponent.js --> </em>
+        import { LightningElement } from 'lwc';
+        import { publish, MessageContext } from 'lightning/messageService';
+        import SAMPLE_MESSAGE from '@salesforce/messageChannel/SampleMessageChannel__c';
+
+        export default class SenderComponent extends LightningElement {
+            @wire(MessageContext)
+            messageContext;
+            
+            sendMessage() {
+                const message = {
+                key: 'value',
+                };
+                publish(this.messageContext, SAMPLE_MESSAGE, message);
+            }
+        }
         </code></div>
         <em>
           // The parent component (parentComponent) includes the child component (c-child-component) and places a &lt;p> element with content inside it.
