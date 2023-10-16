@@ -159,7 +159,7 @@ pre div code {
 var {color: rgb(204, 204, 255);}
 em, em span, em var {color: darkcyan !important;}
 .datatype, .datatype span {color: LightSalmon;} /* text-transform: capitalize; */
-.string, .string span {color: pink;}
+.string, .string span {color: pink !important;}
 .loop {color: #DE3163;}
 .key {color: #9FE2BF;}
 .number {color: #FFBF00;}
