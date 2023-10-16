@@ -53,12 +53,13 @@
         <em>// recordForm.js </em>
         import { LightningElement, api } from 'lwc';
         import NAME_FIELD from '@salesforce/schema/Account.Name';
+        import INDUSTRY from '@salesforce/schema/Account.Industry';
 
         export default class RecordFormExample extends LightningElement {
-            // Expose a field to make it available in the template
-            fields = [NAME_FIELD];
+            <em>// Expose a field to make it available in the template </em>
+            fields = [NAME_FIELD, INDUSTRY];
 
-            // Flexipage provides recordId and objectApiName
+            <em>// Flexipage provides recordId and objectApiName </em>
             @api recordId;
             @api objectApiName;
         }
