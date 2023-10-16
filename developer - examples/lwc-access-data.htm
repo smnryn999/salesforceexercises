@@ -37,9 +37,9 @@
       <pre>
         <em> // In Lightning Web Components (LWC), we can send data from a child component to a parent component using custom events. </em>
         
-        <em> &lt;!-- parentComponent.html --> </em>
+        <em> &lt;!-- recordForm.html --> </em>
         <div><code>
-        <em>&lt;!-- parentComponent.html --> </em>
+        <em>&lt;!-- recordForm.html --> </em>
         &lt;lightning-record-form
             object-api-name={objectApiName}
             record-id={recordId}
@@ -48,11 +48,11 @@
         >
         &lt;/lightning-record-form>
         </code></div>  
-        <em> // parentComponent.js </em>
+        <em> // recordForm.js </em>
         <div><code>
-        <em>// parentComponent.js </em>
+        <em>// recordForm.js </em>
         import { LightningElement, api } from 'lwc';
-        import NAME_FIELD from '@salesforce/schema/Contact.Name';
+        import NAME_FIELD from '@salesforce/schema/Account.Name';
 
         export default class RecordFormExample extends LightningElement {
             // Expose a field to make it available in the template
@@ -63,18 +63,8 @@
             @api objectApiName;
         }
         </code></div>
-        <em> &lt;!-- childComponent.html --> </em>
-        <div><code>
-        <em>&lt;!-- childComponent.html --> </em>
-        
-        </code></div>
-        <em> // childComponent.js </em>
-        <div><code>
-        <em>// childComponent.js </em>
-        
-        </code></div>
         <em>
-          //
+          // In this example, the form uses the object API name and record ID of the record page it's placed in.
         </em>
       </pre>
     </div>
