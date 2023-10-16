@@ -51,7 +51,17 @@
         <em> // parentComponent.js </em>
         <div><code>
         <em>// parentComponent.js </em>
-        
+        import { LightningElement, api } from 'lwc';
+        import NAME_FIELD from '@salesforce/schema/Contact.Name';
+
+        export default class RecordFormExample extends LightningElement {
+            // Expose a field to make it available in the template
+            fields = [NAME_FIELD];
+
+            // Flexipage provides recordId and objectApiName
+            @api recordId;
+            @api objectApiName;
+        }
         </code></div>
         <em> &lt;!-- childComponent.html --> </em>
         <div><code>
