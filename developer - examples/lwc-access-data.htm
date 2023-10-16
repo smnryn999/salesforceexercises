@@ -72,13 +72,52 @@
 
     <!-- EXAMPLE 3 -->
     <div class="example">
-      <p><span class="counter"></span> - Please explain what is slot in LWC with an example.</p>
+      <p><span class="counter"></span> - Please explain how to use the deleteRecord method.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <em> // In Lightning Web Components (LWC), we can use slots to create flexible and reusable components. Slots allow us to pass content and components from a parent component to a child component. </em>
+        <em> // In Lightning Web Components (LWC), The deleteRecord method is used to delete a record. </em>
+
+        <em> // we create a button that, when clicked, triggers the record deletion: </em>
+        <div><code>
+        <em>&lt;!-- deleteRecordExample.html --></em>
+        &lt;template>
+            &lt;lightning-card title="Delete Record Example">
+                &lt;div class="slds-m-around_medium">
+                    &lt;p>Delete the Record:&lt;/p>
+                    &lt;lightning-button label="Delete" variant="destructive" onclick={deleteLead}>&lt;/lightning-button>
+                &lt;/div>
+            &lt;/lightning-card>
+        &lt;/template>
+        </code></div>
+        <em> // we import the deleteRecord method and use it to delete a specific record. </em>
+        <div><code>
+        // deleteRecordExample.js
+        import { LightningElement } from 'lwc';
+        import { deleteRecord } from 'lightning/uiRecordApi';
+          
+        export default class DeleteRecordExample extends LightningElement {
+            // Specify the record Id that you want to delete
+            recordId = '0012x00000abcdeFAA';
+
+            deleteLead() {
+                deleteRecord(this.recordId)
+                    .then(() => {
+                        // Record deleted successfully
+                        console.log('Record deleted successfully');
+                    })
+                    .catch(error => {
+                        // Handle the error
+                        console.error('Error deleting record:', error);
+                    });
+            }
+        }
+        </code></div>
         
         <em>
-          // 
+          // The deleteRecordExample component includes a button that, when clicked, calls the deleteRecord method.
+          // The deleteRecord method is imported from the lightning/uiRecordApi. It takes the record Id as a parameter and returns a promise.
+          // When the promise is resolved, it indicates that the record has been deleted successfully. You can place any further actions or UI updates within the then block.
+          // If there's an error, you can handle it in the catch block. This can include showing an error message or performing other actions as needed.
         </em>
       </pre>
     </div>
