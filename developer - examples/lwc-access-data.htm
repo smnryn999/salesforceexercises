@@ -129,9 +129,9 @@
         <em> // In Lightning Web Components (LWC), wire adapters are used to retrieve data from Salesforce objects and fields. </em>
 
         <em> // An example of using a wire adapter to fetch records from a custom object: </em>
+        <em> // In HTML, we can use for:each loop to render the list that @wire returns: </em>
         <div><code>
-        <em>&lt;!-- deleteRecordExample.html --></em>
-        &lt;!-- wireExample.html -->
+        <em>&lt;!-- wireExample.html --></em>
         &lt;template>
             &lt;lightning-card title="Wire Adapter Example">
                 &lt;div class="slds-m-around_medium">
@@ -144,6 +144,7 @@
         &lt;/template>
         </code></div>
         <em> // we import the deleteRecord method and use it to delete a specific record. </em>
+        <em> // we can use the @wire decorator to fetch records from a custom object: </em>
         <div><code>
         <em>// wireExample.js</em>
         import { LightningElement } from 'lwc';
@@ -165,10 +166,9 @@
         }
         </code></div>    
         <em>
-          // The deleteRecordExample component includes a button that, when clicked, calls the deleteRecord method.
-          // The deleteRecord method is imported from the lightning/uiRecordApi. It takes the record Id as a parameter and returns a promise.
-          // When the promise is resolved, it indicates that the record has been deleted successfully. We can place any further actions or UI updates within the then block.
-          // If there's an error, we can handle it in the catch block. This can include showing an error message or performing other actions as needed.
+          // The wireExample component uses the @wire decorator to call an Apex method named getCustomObjectRecords. This method should be implemented in an Apex class (CustomObjectController) to query records from your custom object (e.g., My_Custom_Object__c).
+          // When the Apex method returns data, it's assigned to the customObjectRecords property, and the component will automatically re-render to display the records.
+          // If there's an error, it's caught and logged to the console.
         </em>
       </pre>
     </div>
