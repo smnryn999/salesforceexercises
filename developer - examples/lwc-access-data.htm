@@ -143,11 +143,9 @@
             &lt;/lightning-card>
         &lt;/template>
         </code></div>
-        <em> // we import the deleteRecord method and use it to delete a specific record. </em>
+        <em> // we import the wire adapter from "lwc" to be able to use it. </em>
         <em> // we can use the @wire decorator to fetch records from a custom object: </em>
         <div><code>
-        <em>// wireExample.js</em>
-        import { LightningElement } from 'lwc';
         <em>// wireExample.js</em>
         import { LightningElement, wire } from 'lwc';
         import getCustomObjectRecords from '@salesforce/apex/CustomObjectController.getCustomObjectRecords';
