@@ -131,35 +131,36 @@
         <em> // An example of using a wire adapter to fetch records from a custom object: </em>
         <div><code>
         <em>&lt;!-- deleteRecordExample.html --></em>
+        &lt;!-- wireExample.html -->
         &lt;template>
-            &lt;lightning-card title="Delete Record Example">
+            &lt;lightning-card title="Wire Adapter Example">
                 &lt;div class="slds-m-around_medium">
-                    &lt;p>Delete the Record:&lt;/p>
-                    &lt;lightning-button label="Delete" variant="destructive" onclick={deleteLead}>&lt;/lightning-button>
+                    &lt;p>Records from My_Custom_Object__c:&lt;/p>
+                    &lt;template for:each={customObjectRecords} for:item="record">
+                        &lt;p key={record.Id}>{record.Name}&lt;/p>
+                    &lt;/template>
                 &lt;/div>
             &lt;/lightning-card>
         &lt;/template>
         </code></div>
         <em> // we import the deleteRecord method and use it to delete a specific record. </em>
         <div><code>
-        <em>// deleteRecordExample.js</em>
+        <em>// wireExample.js</em>
         import { LightningElement } from 'lwc';
-        import { deleteRecord } from 'lightning/uiRecordApi';
+        <em>// wireExample.js</em>
+        import { LightningElement, wire } from 'lwc';
+        import getCustomObjectRecords from '@salesforce/apex/CustomObjectController.getCustomObjectRecords';
           
-        export default class DeleteRecordExample extends LightningElement {
-            <em>// Specify the record Id that you want to delete</em>
-            recordId = '0012x00000abcdeFAA';
+        export default class WireExample extends LightningElement {
+            customObjectRecords;
 
-            deleteLead() {
-                deleteRecord(this.recordId)
-                    .then(() => {
-                        <em>// Record deleted successfully</em>
-                        console.log('Record deleted successfully');
-                    })
-                    .catch(error => {
-                        <em>// Handle the error</em>
-                        console.error('Error deleting record:', error);
-                    });
+            @wire(getCustomObjectRecords)
+            wiredCustomObjectRecords({ error, data }) {
+                if (data) {
+                    this.customObjectRecords = data;
+                } else if (error) {
+                    console.error('Error fetching custom object records:', error);
+                }
             }
         }
         </code></div>    
