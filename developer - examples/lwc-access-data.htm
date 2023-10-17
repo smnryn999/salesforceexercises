@@ -91,12 +91,12 @@
         </code></div>
         <em> // we import the deleteRecord method and use it to delete a specific record. </em>
         <div><code>
-        // deleteRecordExample.js
+        <em>// deleteRecordExample.js</em>
         import { LightningElement } from 'lwc';
         import { deleteRecord } from 'lightning/uiRecordApi';
           
         export default class DeleteRecordExample extends LightningElement {
-            // Specify the record Id that you want to delete
+            <em>// Specify the record Id that you want to delete</em>
             recordId = '0012x00000abcdeFAA';
 
             deleteLead() {
@@ -111,13 +111,12 @@
                     });
             }
         }
-        </code></div>
-        
+        </code></div>    
         <em>
           // The deleteRecordExample component includes a button that, when clicked, calls the deleteRecord method.
           // The deleteRecord method is imported from the lightning/uiRecordApi. It takes the record Id as a parameter and returns a promise.
-          // When the promise is resolved, it indicates that the record has been deleted successfully. You can place any further actions or UI updates within the then block.
-          // If there's an error, you can handle it in the catch block. This can include showing an error message or performing other actions as needed.
+          // When the promise is resolved, it indicates that the record has been deleted successfully. We can place any further actions or UI updates within the then block.
+          // If there's an error, we can handle it in the catch block. This can include showing an error message or performing other actions as needed.
         </em>
       </pre>
     </div>
