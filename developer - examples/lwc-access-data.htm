@@ -102,11 +102,11 @@
             deleteLead() {
                 deleteRecord(this.recordId)
                     .then(() => {
-                        // Record deleted successfully
+                        <em>// Record deleted successfully</em>
                         console.log('Record deleted successfully');
                     })
                     .catch(error => {
-                        // Handle the error
+                        <em>// Handle the error</em>
                         console.error('Error deleting record:', error);
                     });
             }
