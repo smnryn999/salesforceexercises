@@ -128,7 +128,7 @@
       <pre>
         <em> // In Lightning Web Components (LWC), wire adapters are used to retrieve data from Salesforce objects and fields. </em>
 
-        <em> // An example of using a wire adapter to fetch records from a custom object: </em>
+        <em> // An example of using a wire adapter to fetch records from a custom object. </em>
         <em> // In HTML, we can use for:each loop to render the list that @wire returns: </em>
         <div><code>
         <em>&lt;!-- wireExample.html --></em>
@@ -167,6 +167,7 @@
           // The wireExample component uses the @wire decorator to call an Apex method named getCustomObjectRecords. This method should be implemented in an Apex class (CustomObjectController) to query records from your custom object (e.g., My_Custom_Object__c).
           // When the Apex method returns data, it's assigned to the customObjectRecords property, and the component will automatically re-render to display the records.
           // If there's an error, it's caught and logged to the console.
+          // Our LWC component will use the @wire decorator to automatically fetch records from a custom object and display them. This demonstrates the power and simplicity of wire adapters for data retrieval in LWC.
         </em>
       </pre>
     </div>
