@@ -127,8 +127,15 @@
       <button class="showSolution">Show Solution</button>
       <pre>
         <em> // In Lightning Web Components (LWC), wire adapters are used to retrieve data from Salesforce objects and fields. </em>
-
+        
         <em> // An example of using a wire adapter to fetch records from a custom Book__c object. </em>
+        <em>getBookRecords class</em>
+        <div><code>
+        <em>getBookRecords.cls</em>
+        public class getBookRecords {
+            return [SELECT Name, Author__c FROM Book__c];
+        }
+        </code></div>
         <em> // In HTML, we can use for:each loop to render the list that @wire returns: </em>
         <div><code>
         <em>&lt;!-- wireExample.html --></em>
