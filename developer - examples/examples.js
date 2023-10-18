@@ -65,7 +65,7 @@ var showButtons = document.querySelectorAll(".showSolution");
          content = content.replaceAll(p, `<span class="punctuation">${p}</span>`);
       }
 
-      var keywords = [" new ", " extends ", " implements ", "return", "instanceof"];
+      var keywords = [" new ", " extends ", " implements ", "return ", "instanceof"];
       for(p of keywords){
          content = content.replaceAll(p, `<var> ${p} </var>`);
       }
