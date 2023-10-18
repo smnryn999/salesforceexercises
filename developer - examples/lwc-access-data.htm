@@ -129,11 +129,14 @@
         <em> // In Lightning Web Components (LWC), wire adapters are used to retrieve data from Salesforce objects and fields. </em>
         
         <em> // An example of using a wire adapter to fetch records from a custom Book__c object. </em>
-        <em>getBookRecords class</em>
+        <em> // BookController class</em>
         <div><code>
-        <em>getBookRecords.cls</em>
-        public class getBookRecords {
-            return [SELECT Name, Author__c FROM Book__c];
+        <em>// BookController.cls</em>
+        public class BookController {
+            @AuraEnabled(cacheable=true)
+            public static void getBookRecords(){
+                return [SELECT Name, Author__c FROM Book__c];
+            }
         }
         </code></div>
         <em> // In HTML, we can use for:each loop to render the list that @wire returns: </em>
@@ -142,9 +145,9 @@
         &lt;template>
             &lt;lightning-card title="Wire Adapter Example">
                 &lt;div class="slds-m-around_medium">
-                    &lt;p>Records from My_Custom_Object__c:&lt;/p>
+                    &lt;p>Records from Book__c:&lt;/p>
                     &lt;template for:each={bookRecords} for:item="book">
-                        &lt;p key={book.Id}>{book.Name}&lt;/p>
+                        &lt;p key={book.Id}>{book.Name}, {book.Author__c}&lt;/p>
                     &lt;/template>
                 &lt;/div>
             &lt;/lightning-card>
@@ -162,8 +165,8 @@
         }
         </code></div>    
         <em>
-          // The wireExample component uses the @wire decorator to call an Apex method named getCustomObjectRecords. This method should be implemented in an Apex class (CustomObjectController) to query records from your custom object (e.g., My_Custom_Object__c).
-          // When the Apex method returns data, it's assigned to the customObjectRecords property, and the component will automatically re-render to display the records.
+          // The wireExample component uses the @wire decorator to call an Apex method named getBookRecords. This method should be implemented in an Apex class (BookController) to query records from your custom object (e.g., Book__c).
+          // When the Apex method returns data, it's assigned to the bookRecords property, and the component will automatically re-render to display the records.
           // If there's an error, it's caught and logged to the console.
           // Our LWC component will use the @wire decorator to automatically fetch records from a custom object and display them. This demonstrates the power and simplicity of wire adapters for data retrieval in LWC.
         </em>
