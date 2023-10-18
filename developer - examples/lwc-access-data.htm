@@ -139,7 +139,7 @@
             }
         }
         </code></div>
-        <em> // In HTML, we can use for:each loop to render the list that @wire brings: </em>
+        <em> // In HTML, we can use for:each loop to render the list that @wire returns: </em>
         <div><code>
         <em>&lt;!-- wireExample.html --></em>
         &lt;template>
@@ -165,9 +165,11 @@
         }
         </code></div>    
         <em>
-          // The wireExample component uses the @wire decorator to call an Apex method named getBookRecords. This method should be implemented in an Apex class (BookController) to query records from our custom Book__c object.
+          // The wireExample component uses the @wire decorator to call an Apex method named getBookRecords.
+          // This method should be implemented in an Apex class (BookController) to query records from our custom Book__c object.
           // When the Apex method returns data, it's assigned to the bookRecords property, and the component will automatically re-render to display the records.
-          // Our LWC component will use the @wire decorator to automatically fetch records from a custom object and display them. This demonstrates the power and simplicity of wire adapters for data retrieval in LWC.
+          // Our LWC component will use the @wire decorator to automatically fetch records from a custom object and display them.
+          // This example demonstrates the power and simplicity of wire adapters for data retrieval in LWC.
         </em>
       </pre>
     </div>
