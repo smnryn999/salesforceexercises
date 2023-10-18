@@ -67,7 +67,7 @@ var showButtons = document.querySelectorAll(".showSolution");
 
       var keywords = [" new ", " extends ", " implements ", "return ", "instanceof"];
       for(p of keywords){
-         content = content.replaceAll(p, `<var> ${p} </var>`);
+         content = content.replaceAll(p, `<var>${p}</var>`);
       }
       
       var soql = ["SELECT", "FROM", "WHERE", "LIMIT", "IN ", "NOT", "AND", "HAVING", "LIKE", "ORDER BY", "DESC", "NULLS LAST", "GROUP BY", "SUM",
