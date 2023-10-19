@@ -217,11 +217,11 @@
             bookRecords;
           
             @wire(getBookRecords)
-            wiredCustomObjectRecords({ error, data }) {
+            wiredCustomObjectRecords({ data, error }) {
                 if (data) {
                     this.bookRecords = data;
                 } else if (error) {
-                    console.error('Error fetching custom object records:', error);
+                    console.error('Error fetching Book__c object records: ' + error);
                 }
             }
         }
