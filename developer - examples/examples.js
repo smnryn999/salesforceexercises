@@ -28,10 +28,10 @@ var showButtons = document.querySelectorAll(".showSolution");
       var content = pres[i].innerHTML;
      // content = content.replaceAll("new", "<var>new</var>");
      // content = content.replaceAll("extends", "<var>extends</var>");
-      content = content.replaceAll(" class ", "<span class='key'> class </span>");
+     /* content = content.replaceAll(" class ", "<span class='key'> class </span>");
       content = content.replaceAll(" trigger ", "<span class='key'> trigger </span>");
       content = content.replaceAll("System.debug", "<span class='key'>System.debug</span>");
-      content = content.replaceAll("System.assertEquals", "<span class='key'>System.assertEquals</span>");
+      content = content.replaceAll("System.assertEquals", "<span class='key'>System.assertEquals</span>"); */
      
      // content = content.replaceAll("for", "<span class='loop'>for</span>");
      // content = content.replaceAll("String", "<span class='datatype'>String</span>");
@@ -42,8 +42,14 @@ var showButtons = document.querySelectorAll(".showSolution");
       content = content.replaceAll(/List<string>/gi, "<span class='datatype'>List&#60;String&#62;</span>");
       content = content.replaceAll(/Set<string>/gi, "<span class='datatype'>Set&#60;String&#62;</span>");
 
+      // key
+      var tags = [" class ", " trigger ", "System.debug", "System.assertEquals", "if", "else if", "else", "console.log"];
+       for(t of tags){
+          content = content.replaceAll(t, `<span style='color:lightgreen'>${t}</span>`);
+       }
+      
       // Tags and Attributes
-      var tags = ["template", "lightning-card", "lightning-input", "lightning-button", "lightning-record-form"];
+      var tags = ["template", "lightning-card", "lightning-input", "lightning-button", "lightning-record-form", "if", "else if", "else"];
        for(t of tags){
           content = content.replaceAll(t, `<span style='color:lightgreen'>${t}</span>`);
        }
@@ -83,7 +89,7 @@ var showButtons = document.querySelectorAll(".showSolution");
          content = content.replaceAll(l, "<span style='color:red'>"+l+"</span>");
        }
 
-       var loops = [" for", "while", "switch", "&lt;/", "&lt;", "&gt;", "if", "else if", "else"];
+       var loops = [" for", "while", "switch", "&lt;/", "&lt;", "&gt;"];
        for(p of loops){
           content = content.replaceAll(p, `<span class="loop">${p}</span>`);
        }
