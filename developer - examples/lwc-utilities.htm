@@ -35,10 +35,16 @@ for:each, if:true, ShowToastEvent, NavigationMixin
             &lt;/lightning-card>
         &lt;/template>
         </code></div>
-        <em> // This will create a folder named "helloWorld" with necessary files. </em>
+        <em> // We are giving showMessage value in JS file. </em>
+        <div><code>
+        
+        </code></div>
         
         <em>
-           
+          // In this example, the component contains a card with two templates. The first template, with if:true, will render its content only if the showMessage property is true.
+          // The second template, with if:false, will render its content only if the showMessage property is false.
+          // We would typically control the showMessage property based on our application logic or user input. When showMessage is set to true, the first message will be displayed; otherwise, the second message will be hidden.
+          // This allows us to conditionally render parts of our LWC component based on the state of our data or user interactions.
         </em>
       </pre>
     </div>
