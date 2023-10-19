@@ -49,7 +49,7 @@ var showButtons = document.querySelectorAll(".showSolution");
        }
       
       // Tags and Attributes
-      var tags = ["template", "lightning-card", "lightning-input", "lightning-button", "lightning-record-form", "if", "else if", "else"];
+      var tags = ["template", "lightning-card", "lightning-input", "lightning-button", "lightning-record-form"];
        for(t of tags){
           content = content.replaceAll(t, `<span style='color:lightgreen'>${t}</span>`);
        }
