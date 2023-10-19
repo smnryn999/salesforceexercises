@@ -43,9 +43,9 @@ var showButtons = document.querySelectorAll(".showSolution");
       content = content.replaceAll(/Set<string>/gi, "<span class='datatype'>Set&#60;String&#62;</span>");
 
       // key
-      var tags = [" class ", " trigger ", "System.debug", "System.assertEquals", "if", "else if", "else", "console.log"];
-       for(t of tags){
-          content = content.replaceAll(t, `<span class='key'>${t}</span>`);
+      var keys = [" class ", " trigger ", "System.debug", "System.assertEquals", "if", "else if", "else", "console.log"];
+       for(k of keys){
+          content = content.replaceAll(k, `<span class='key'>${k}</span>`);
        }
       
       // Tags and Attributes
