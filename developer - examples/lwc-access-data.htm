@@ -217,7 +217,7 @@
             bookRecords;
           
             @wire(getBookRecords)
-            wiredCustomObjectRecords({ data, error }) {
+            wiredBookRecords({ data, error }) {
                 if (data) {
                     this.bookRecords = data;
                 } else if (error) {
