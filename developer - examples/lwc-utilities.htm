@@ -1,1 +1,51 @@
 for:each, if:true, ShowToastEvent, NavigationMixin
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>LWC Utilities</title>
+  <link rel="stylesheet" href="../test.css">
+</head>
+
+<body>
+  <header>
+    <h1>LWC Utilities</h1>
+  </header>
+
+  <section>
+
+    <!-- EXAMPLE 1 -->
+    <div class="example">
+      <p><span class="counter"></span> - How can we handle conditional rendering in HTML file? </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // In Salesforce Lightning Web Components (LWC), "if:true" and "if:false" directives are used to conditionally render elements based on the evaluation of an expression. </em>
+        
+        <em> // Let's say you have an LWC component that displays a message only if a certain condition is met. You can use the if:true directive to achieve this. </em>
+        <div><code>
+        &lt;template>
+            &lt;lightning-card title="Conditional Rendering Example">
+                &lt;template if:true={showMessage}>
+                    &lt;div class="message">This message is displayed because showMessage is true.&lt;/div>
+                &lt;/template>
+                &lt;template if:false={showMessage}>
+                    &lt;div class="message">This message is hidden because showMessage is false.&lt;/div>
+                &lt;/template>
+            &lt;/lightning-card>
+        &lt;/template>
+        </code></div>
+        <em> // This will create a folder named "helloWorld" with necessary files. </em>
+        
+        <em>
+           
+        </em>
+      </pre>
+    </div>
+    
+  </section>
+
+  <script src="examples.js"></script>
+
+</body>
+</html>
