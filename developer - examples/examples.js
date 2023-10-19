@@ -45,7 +45,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       // key
       var tags = [" class ", " trigger ", "System.debug", "System.assertEquals", "if", "else if", "else", "console.log"];
        for(t of tags){
-          content = content.replaceAll(t, `<span style='color:lightgreen'>${t}</span>`);
+          content = content.replaceAll(t, `<span class='key'>${t}</span>`);
        }
       
       // Tags and Attributes
