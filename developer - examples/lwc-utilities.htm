@@ -22,8 +22,9 @@ for:each, if:true, ShowToastEvent, NavigationMixin
       <pre>
         <em> // In Salesforce Lightning Web Components (LWC), "if:true" and "if:false" directives are used to conditionally render elements based on the evaluation of an expression. </em>
         
-        <em> // Let's say you have an LWC component that displays a message only if a certain condition is met. You can use the if:true directive to achieve this. </em>
+        <em> // Let's say we have an LWC component that displays a message only if a certain condition is met. We can use the if:true or if:false directive to achieve this. </em>
         <div><code>
+        <!-- conditionsExample.html -->
         &lt;template>
             &lt;lightning-card title="Conditional Rendering Example">
                 &lt;template if:true={showMessage}>
@@ -37,7 +38,12 @@ for:each, if:true, ShowToastEvent, NavigationMixin
         </code></div>
         <em> // We are giving showMessage value in JS file. </em>
         <div><code>
-        
+        // conditionsExample.js 
+        import { LightningElement, api } from 'lwc';
+
+        export default class ConditionsExample extends LightningElement {
+            showMessage = true;
+        }
         </code></div>
         
         <em>
