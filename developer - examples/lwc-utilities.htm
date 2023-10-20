@@ -54,6 +54,38 @@ for:each, ShowToastEvent, NavigationMixin
         </em>
       </pre>
     </div>
+
+    <!-- EXAMPLE 2 -->
+    <div class="example">
+      <p><span class="counter"></span> - How can we handle logics rendering in HTML file? </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // In Salesforce Lightning Web Components (LWC), "if:true" and "if:false" directives are used to conditionally render elements based on the evaluation of an expression. </em>
+        
+        <em> // Let's say we have an LWC component that displays a message only if a certain condition is met. We can use the if:true or if:false directive to achieve this. </em>
+        <div><code>
+        <em>&lt;!-- conditionsExample.html --></em>
+        &lt;template>
+            &lt;template lwc:if={property1}> Statement1 </template>
+            &lt;template lwc:elseif={property2}> Statement2 </template>
+            &lt;template lwc:else> Statement3 </template>
+        &lt;/template>
+        </code></div>        
+        <em>
+          // Only one of the three statements renders:
+          // Statement1 renders if property1 is true.
+          // Statement2 renders if property1 is false and property2 is true.
+          // Statement3 renders if property1 and property2 are false.
+          // Although the example uses all three directives, lwc:elseif and lwc:else are optional.
+        </em>
+        <em> // We can use only lwc:if </em>
+        <div><code>
+        &lt;template>
+            &lt;template lwc:if={property1}> Statement </template>
+        &lt;/template>
+        </code></div>
+      </pre>
+  </div>
     
   </section>
 
