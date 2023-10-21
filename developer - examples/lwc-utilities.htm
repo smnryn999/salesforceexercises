@@ -87,6 +87,39 @@ for:each, iterator:it, ShowToastEvent, NavigationMixin
         <em> // Statement renders if property is true.</em>
       </pre>
   </div>
+
+  <!-- EXAMPLE 3 -->
+    <div class="example">
+      <p><span class="counter"></span> - Please  create a component that contains a checkbox and a text. When the checkbox is checked, the text area is displayed.</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // In Salesforce Lightning Web Components (LWC), "lwc:if", "lwc:ifelse" and "lwc:else" directives are used to conditionally render elements based on the evaluation of an expression. </em>
+        
+        <em> // Let's say we have an LWC component that displays multiple messages only if some certain conditions are met. We can use the "lwc:if", "lwc:ifelse" and "lwc:else" directives to achieve this. </em>
+        <div><code>
+        <em>&lt;!-- conditionsExample.html --></em>
+        &lt;template>
+            &lt;template lwc:if={property1}> Statement1 &lt;/template>
+            &lt;template lwc:elseif={property2}> Statement2 &lt;/template>
+            &lt;template lwc:else> Statement3 &lt;/template>
+        &lt;/template>
+        </code></div>        
+        <em>
+          // Only one of the three statements renders:
+          // Statement1 renders if property1 is true.
+          // Statement2 renders if property1 is false and property2 is true.
+          // Statement3 renders if property1 and property2 are false.
+          // Although the example uses all three directives, lwc:elseif and lwc:else are optional.
+        </em>
+        <em> // We can use only lwc:if </em>
+        <div><code>
+        &lt;template>
+            &lt;template lwc:if={property}> Statement &lt;/template>
+        &lt;/template>
+        </code></div>
+        <em> // Statement renders if property is true.</em>
+      </pre>
+    </div>
     
   </section>
 
