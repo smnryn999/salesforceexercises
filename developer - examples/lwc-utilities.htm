@@ -93,38 +93,40 @@ for:each, iterator:it, ShowToastEvent, NavigationMixin
       <p><span class="counter"></span> - Please  create a component that contains a checkbox and a text. When the checkbox is checked, the text area is displayed.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <em> // In Salesforce Lightning Web Components (LWC), "lwc:if", "lwc:ifelse" and "lwc:else" directives are used to conditionally render elements based on the evaluation of an expression. </em>
-        
-        <em> // Let's say we have an LWC component that displays multiple messages only if some certain conditions are met. We can use the "lwc:if", "lwc:ifelse" and "lwc:else" directives to achieve this. </em>
+        <em>  </em>
         <div><code>
-        <em>&lt;!-- conditionsExample.html --></em>
+        <em>&lt;!-- showDetails.html --></em>
         &lt;template>
-            &ltlightning-card title="Contract" icon-name="standard:contract">    
-                &ltlightning-input type="checkbox" label="Show Details" onchange={handleChange}>&lt/lightning-input>
+            &lt;lightning-card title="Contract" icon-name="standard:contract">    
+                &lt;lightning-input type="checkbox" label="Show Details" onchange={handleChange}>&lt;/lightning-input>
 
-                &lttemplate lwc:if={display}>
-                    &lth1>
-                        Contract details: &ltbr>
+                &lt;template lwc:if={display}>
+                    &lt;h1>
+                        Contract details: &lt;br>
                         Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.
-                    &lt/h1>
-                &lt/template>
-            &lt/lightning-card>
-        &lt/template>
-        </code></div>        
-        <em>
-          // Only one of the three statements renders:
-          // Statement1 renders if property1 is true.
-          // Statement2 renders if property1 is false and property2 is true.
-          // Statement3 renders if property1 and property2 are false.
-          // Although the example uses all three directives, lwc:elseif and lwc:else are optional.
-        </em>
-        <em> // We can use only lwc:if </em>
-        <div><code>
-        &lt;template>
-            &lt;template lwc:if={property}> Statement &lt;/template>
+                    &lt;/h1>
+                &lt;/template>
+            &lt;/lightning-card>
         &lt;/template>
+        </code></div>        
+        <em> // showDetails.js </em>
+        <div><code>
+        import { LightningElement } from 'lwc';
+          
+        export default class ShowDetails extends LightningElement {
+   
+            display = false; //A- oncelikli deger kabul edilmedi olsun.
+
+            handleChange(event){
+                this.display = event.target.checked; //checkbox'larda value yerine checked kullanilir.
+            }
+        }
         </code></div>
-        <em> // Statement renders if property is true.</em>
+        <em>
+          // We created a lightning-input whose type is checkbox and an onchange event that runs handleChange function when changes checkbox value.
+          // handleChange function assigns true or false value to display variable dynamically.
+          // Contact details appears if "display" is true.
+        </em>
       </pre>
     </div>
     
