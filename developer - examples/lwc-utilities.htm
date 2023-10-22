@@ -1,4 +1,4 @@
-for:each, iterator:it, ShowToastEvent, NavigationMixin
+iterator:it, ShowToastEvent, NavigationMixin
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -166,9 +166,10 @@ for:each, iterator:it, ShowToastEvent, NavigationMixin
         }
         </code></div>     
         <em>
-          // In this example, we have a component that displays a list of countries. The countries is an array of countries, and we use the for:each directive to iterate over each country in the list. For each country, we render an &lt;li> element containing the country's name.
-          // The key attribute is used to uniquely identify each rendered element to help with efficient updates when the list of contacts changes.
-          // We would typically populate the contacts array with data retrieved from an Apex controller or another data source. This allows us to dynamically render a list of items based on our data.
+          // In this example, we have a component that displays a list of countries. The countries is an array, and we use the for:each directive to iterate over each country in the list.
+          // For each country, we render an &lt;li> element containing the country's name and currency.
+          // The key attribute is used to uniquely identify each rendered element to help with efficient updates when the list of countries changes.
+          // We would typically populate the countries array with data retrieved from an Apex controller or another data source. This allows us to dynamically render a list of items based on our data.
         </em>
       </pre>
     </div>
