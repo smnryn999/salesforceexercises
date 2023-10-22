@@ -39,7 +39,7 @@ for:each, iterator:it, ShowToastEvent, NavigationMixin
         <em> // We are giving showMessage value in JS file. </em>
         <div><code>
         <em>// conditionsExample.js</em>
-        import { LightningElement, api } from 'lwc';
+        import { LightningElement } from 'lwc';
 
         export default class ConditionsExample extends LightningElement {
             showMessage = true;
@@ -127,6 +127,42 @@ for:each, iterator:it, ShowToastEvent, NavigationMixin
           // We created a lightning-input whose type is checkbox and an onchange event that runs handleChange function when checkbox value changes.
           // handleChange function assigns true or false value to display variable dynamically.
           // Contact details appears when "display" is true.
+        </em>
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 4 -->
+    <div class="example">
+      <p><span class="counter"></span> - How can we handle conditional rendering in HTML file? </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // In Salesforce Lightning Web Components (LWC), </em>
+        
+        
+        <div><code>
+        <em>&lt;!-- conditionsExample.html --></em>
+        &lt;template>
+            &lt;lightning-card title="Contact List">
+                &lt;ul>
+                    &lt;template for:each={contacts} for:item="contact">
+                        &lt;li key={contact.Id}>{contact.Name}</li>
+                    &lt;/template>
+                &lt;/ul>
+            &lt;/lightning-card>
+        &lt;/template>
+        </code></div>
+        
+        <div><code>
+        <em>// conditionsExample.js</em>
+        import { LightningElement } from 'lwc';
+
+        export default class ConditionsExample extends LightningElement {
+            
+        }
+        </code></div>
+        
+        <em>
+          // 
         </em>
       </pre>
     </div>
