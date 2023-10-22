@@ -99,10 +99,17 @@ for:each, iterator:it, ShowToastEvent, NavigationMixin
         <div><code>
         <em>&lt;!-- conditionsExample.html --></em>
         &lt;template>
-            &lt;template lwc:if={property1}> Statement1 &lt;/template>
-            &lt;template lwc:elseif={property2}> Statement2 &lt;/template>
-            &lt;template lwc:else> Statement3 &lt;/template>
-        &lt;/template>
+            &ltlightning-card title="Contract" icon-name="standard:contract">    
+                &ltlightning-input type="checkbox" label="Show Details" onchange={handleChange}>&lt/lightning-input>
+
+                &lttemplate lwc:if={display}>
+                    &lth1>
+                        Contract details: &ltbr>
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.
+                    &lt/h1>
+                &lt/template>
+            &lt/lightning-card>
+        &lt/template>
         </code></div>        
         <em>
           // Only one of the three statements renders:
