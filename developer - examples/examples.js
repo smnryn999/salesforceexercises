@@ -54,7 +54,7 @@ var showButtons = document.querySelectorAll(".showSolution");
           content = content.replaceAll(t, `<span style='color:lightgreen'>${t}</span>`);
        }
       var attributes = ["title", "icon-name", "label", "value=", "onchange", "onclick", "@api", "@wire", "object-api-name", "record-id", "fields=", "columns=",
-		       "for:each", "for:item", "if:true", "if:false"];
+		       "for:each", "for:item", "if:true", "if:false", "lwc:if", "iterator:it"];
        for(a of attributes){
           content = content.replaceAll(a, `<span style='color:lightcoral'>${a}</span>`);
        }
