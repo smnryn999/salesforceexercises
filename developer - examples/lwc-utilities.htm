@@ -217,7 +217,7 @@ iterator:it, ShowToastEvent, NavigationMixin
         <div><code>
         <em>&lt;!-- countryList.html --></em>
         &lt;template>
-            &lt;lightning-card title="Country List">
+            &lt;lightning-card title="First and Last Country">
                 &lt;ul>
                     &lt;template iterator:it={countries}>
                         &lt;li key={it.value.id} if:true={it.first}>{it.value.name}, {it.value.currency}&lt;/li>
@@ -227,6 +227,12 @@ iterator:it, ShowToastEvent, NavigationMixin
             &lt;/lightning-card>
         &lt;/template>
         </code></div>
+        <em>
+          // it.first returns true when the first element comes and it.last returns true when the last element comes.
+          // So, the output will be like this: 
+          Spain, Euro
+          Singapur, Dolar
+        </em>
       </pre>
     </div>
   </section>
