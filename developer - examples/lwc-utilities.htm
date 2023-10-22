@@ -212,6 +212,21 @@ iterator:it, ShowToastEvent, NavigationMixin
           // The key attribute is used to uniquely identify each rendered element to help with efficient updates when the list of countries changes.
           // We retrieved the data that is countries array from JS file. This allows us to dynamically render a list of items based on our data.
         </em>
+
+        <em> // Also we can get only first and last element in iterator:it loop.</em>
+        <div><code>
+        <em>&lt;!-- countryList.html --></em>
+        &lt;template>
+            &lt;lightning-card title="Country List">
+                &lt;ul>
+                    &lt;template iterator:it={countries}>
+                        &lt;li key={it.value.id} if:true={it.first}>{it.value.name}, {it.value.currency}&lt;/li>
+                        &lt;li key={it.value.id} if:true={it.last}>{it.value.name}, {it.value.currency}&lt;/li>
+                    &lt;/template>
+                &lt;/ul>
+            &lt;/lightning-card>
+        &lt;/template>
+        </code></div>
       </pre>
     </div>
   </section>
