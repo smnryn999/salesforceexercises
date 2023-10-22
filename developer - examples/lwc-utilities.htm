@@ -133,19 +133,19 @@ for:each, iterator:it, ShowToastEvent, NavigationMixin
 
     <!-- EXAMPLE 4 -->
     <div class="example">
-      <p><span class="counter"></span> - How can we handle conditional rendering in HTML file? </p>
+      <p><span class="counter"></span> - Please create an array and iterate it as an unordered list in HTML file. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <em> // In Salesforce Lightning Web Components (LWC), </em>
+        <em> // In Salesforce Lightning Web Components (LWC), the for:each directive is used for iterating over a list of items and rendering elements for each item in the list. </em>
         
-        
+        <em> // Let's say we have a list of contacts, and we want to display each contact's name in an LWC component. We can use the for:each directive to achieve this. </em>
         <div><code>
-        <em>&lt;!-- conditionsExample.html --></em>
+        <em>&lt;!-- countryList.html --></em>
         &lt;template>
-            &lt;lightning-card title="Contact List">
+            &lt;lightning-card title="Country List">
                 &lt;ul>
-                    &lt;template for:each={contacts} for:item="contact">
-                        &lt;li key={contact.Id}>{contact.Name}</li>
+                    &lt;template for:each={countries} for:item="country">
+                        &lt;li key={country.Id}>{country.Name}&lt;/li>
                     &lt;/template>
                 &lt;/ul>
             &lt;/lightning-card>
@@ -153,16 +153,17 @@ for:each, iterator:it, ShowToastEvent, NavigationMixin
         </code></div>
         
         <div><code>
-        <em>// conditionsExample.js</em>
+        <em>// countryList.js</em>
         import { LightningElement } from 'lwc';
 
-        export default class ConditionsExample extends LightningElement {
-            
+        export default class CountryList extends LightningElement {
+            countries = [{name:"Spain", currency:"Euro"},{},{},{}];
         }
-        </code></div>
-        
+        </code></div>     
         <em>
-          // 
+          // In this example, we have a component that displays a list of contacts. The contacts is an array of contact records, and we use the for:each directive to iterate over each contact in the list. For each contact, we render an <li> element containing the contact's name.
+          // The key attribute is used to uniquely identify each rendered element to help with efficient updates when the list of contacts changes.
+          // We would typically populate the contacts array with data retrieved from an Apex controller or another data source. This allows us to dynamically render a list of items based on our data.
         </em>
       </pre>
     </div>
