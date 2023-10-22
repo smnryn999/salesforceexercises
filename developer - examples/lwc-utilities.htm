@@ -235,6 +235,25 @@ ShowToastEvent, NavigationMixin
         </em>
       </pre>
     </div>
+
+    <!-- EXAMPLE 5 -->
+    <div class="example">
+      <p><span class="counter"></span> - Bir save işlemi gerçekleştikten sonra ekranda kısa süreli bir başarı mesajı gösteriniz. </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+         <div><code>
+          <template>
+              <lightning-card>
+                  <lightning-record-form 
+                      object-api-name={objectApiName}
+                      fields={fields} 
+                      onsuccess={handleSuccess}>
+                  </lightning-record-form>
+              </lightning-card>
+         </template>
+         </code></div>
+      </pre>
+    </div>
   </section>
 
   <script src="examples.js"></script>
