@@ -103,19 +103,20 @@ for:each, iterator:it, ShowToastEvent, NavigationMixin
                 &lt;template lwc:if={display}>
                     &lt;h1>
                         Contract details: &lt;br>
-                        Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmodtempor
+                        incididunt ut labore et dolore magna aliqua.
                     &lt;/h1>
                 &lt;/template>
             &lt;/lightning-card>
         &lt;/template>
         </code></div>        
-        <em> // showDetails.js </em>
         <div><code>
+        <em>// showDetails.js </em>
         import { LightningElement } from 'lwc';
           
         export default class ShowDetails extends LightningElement {
    
-            display = false; //A- oncelikli deger kabul edilmedi olsun.
+            display = false; <em>// Contract details doesn't appear as default </em>
 
             handleChange(event){
                 this.display = event.target.checked; //checkbox'larda value yerine checked kullanilir.
