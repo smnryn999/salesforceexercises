@@ -152,8 +152,7 @@ iterator:it, ShowToastEvent, NavigationMixin
                 &lt;/ul>
             &lt;/lightning-card>
         &lt;/template>
-        </code></div>
-        
+        </code></div>       
         <div><code>
         <em>// countryList.js</em>
         import { LightningElement } from 'lwc';
@@ -173,7 +172,48 @@ iterator:it, ShowToastEvent, NavigationMixin
         </em>
       </pre>
     </div>
-    
+
+    <!-- EXAMPLE 4 -->
+    <div class="example">
+      <p><span class="counter"></span> - Please create an array and iterate it as an unordered list in HTML file via iterator:it. </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // In Lightning Web Components (LWC), the iterator:it directive is used for iterating over a list of items and rendering elements for each item in the list. </em>
+        
+        <em> // Let's say we have a list of countries, and we want to display each country's name and currency in an LWC component. We can use the iterator:it directive to achieve this. </em>
+        <div><code>
+        <em>&lt;!-- countryList.html --></em>
+        &lt;template>
+            &lt;lightning-card title="Country List">
+                &lt;ul>
+                    &lt;template iterator:it={countries}>
+                        &lt;li key={it.value.id}>
+                            {it.value.name}, {it.value.currency}
+                        &lt;/li>
+                    &lt;/template>
+                &lt;/ul>
+            &lt;/lightning-card>
+        &lt;/template>
+        </code></div>       
+        <div><code>
+        <em>// countryList.js</em>
+        import { LightningElement } from 'lwc';
+
+        export default class CountryList extends LightningElement {
+            countries = [{id:1, name:"Spain", currency:"Euro"},
+                         {id:2, name:"Japan", currency:"Yen"},
+                         {id:3, name:"Australia", currency:"Dolar"},
+                         {id:4, name:"Singapur", currency:"Dolar"}];
+        }
+        </code></div>     
+        <em>
+          // In this example, we have a component that displays a list of countries. The countries is an array, and we use the iterator:it directive to iterate over each country in the list.
+          // For each country, we render an &lt;li> element containing the country's name and currency.
+          // The key attribute is used to uniquely identify each rendered element to help with efficient updates when the list of countries changes.
+          // We retrieved the data that is countries array from JS file. This allows us to dynamically render a list of items based on our data.
+        </em>
+      </pre>
+    </div>
   </section>
 
   <script src="examples.js"></script>
