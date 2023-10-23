@@ -294,15 +294,13 @@ NavigationMixin
          </code></div>
          <div><code>
         <em>// getAccounts.js </em>
-        import { LightningElement, wire, api } from 'lwc';
-        import getChildAccounts from '@salesforce/apex/GetAccountContact.getChildAccounts';
+        import { LightningElement, wire} from 'lwc';
+        import getAccounts from '@salesforce/apex/AccountController.getAccounts';
         import { NavigationMixin } from 'lightning/navigation';
  
         export default class ChildAccount extends NavigationMixin(LightningElement) {
  
-            @api recordId;
- 
-            @wire(getChildAccounts, {parentAccId: '$recordId'}) childAccounts;
+            @wire(getAccounts) accounts;
  
             navigateToViewAccountPage(event) {
                 var recId = event.target.name; <em>// We are getting Id value dynamically </em>
