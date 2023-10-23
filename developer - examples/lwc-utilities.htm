@@ -242,19 +242,19 @@ NavigationMixin
       <button class="showSolution">Show Solution</button>
       <pre>
         <em> // We can use the toastEvent to show toast messages to the user. Toast messages are pop-up notifications that provide information, warning, or success messages. </em>
-         <div><code>
-          <em>&lt;!-- accountCreator.html --></em>
-          &lt;template>
-              &lt;lightning-card>
-                  &lt;lightning-record-form 
-                      object-api-name={objectApiName}
-                      fields={fields} 
-                      onsuccess={handleSuccess}>
-                  &lt;/lightning-record-form>
-              &lt;/lightning-card>
-         &lt;/template>
-         </code></div>
-         <div><code>
+        <div><code>
+        <em>&lt;!-- accountCreator.html --></em>
+        &lt;template>
+            &lt;lightning-card>
+                &lt;lightning-record-form 
+                    object-api-name={objectApiName}
+                    fields={fields} 
+                    onsuccess={handleSuccess}>
+                &lt;/lightning-record-form>
+            &lt;/lightning-card>
+        &lt;/template>
+        </code></div>
+        <div><code>
         <em>// accountCreator.js</em>
         import { LightningElement } from 'lwc';
         import { ShowToastEvent } from 'lightning/platformShowToastEvent'; <em>// First, we should import ShowToastEvent </em>
@@ -288,11 +288,21 @@ NavigationMixin
       <button class="showSolution">Show Solution</button>
       <pre>
         <em> // The NavigationMixin is a module in Lightning Web Components (LWC) that allows us to navigate to different pages and record views within Salesforce. </em>
-         <div><code>
-          <em>&lt;!-- getAccounts.html --></em>
-          
-         </code></div>
-         <div><code>
+        <div><code>
+        <em>&lt;!-- getAccounts.html --></em>
+        &lt;template>
+            &lt;lightning-card title="Account List" icon-name="standard:account">
+                &lt;ul>
+                    &lt;template for:each={accounts} for:item="acc">
+                        &lt;li key={acc.id}>
+                            <a name={acc.id}>{acc.Name}</a>, {acc.Industry}
+                        &lt;/li>
+                    &lt;/template>
+                &lt;/ul>
+            &lt;/lightning-card>
+        &lt;/template>
+        </code></div>
+        <div><code>
         <em>// getAccounts.js </em>
         import { LightningElement, wire} from 'lwc';
         import getAccounts from '@salesforce/apex/AccountController.getAccounts';
