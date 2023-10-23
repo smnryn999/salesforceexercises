@@ -304,8 +304,8 @@ NavigationMixin
             &lt;lightning-card title="Account List" icon-name="standard:account">
                 &lt;ul>
                     &lt;template for:each={accounts} for:item="acc">
-                        &lt;li key={acc.id}>
-                            &lt;a name={acc.id} onclick={navigateToAccountPage}>{acc.Name}&lt;/a>, {acc.Industry}
+                        &lt;li key={acc.Id}>
+                            &lt;a name={acc.Id} onclick={navigateToAccountPage}>{acc.Name}&lt;/a>, {acc.Industry}
                         &lt;/li>
                     &lt;/template>
                 &lt;/ul>
