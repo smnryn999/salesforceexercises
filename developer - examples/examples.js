@@ -39,8 +39,8 @@ var showButtons = document.querySelectorAll(".showSolution");
       
       content = content.replaceAll(/[0-9]/g, function (x) {return `<span class='number'>${x}</span>`;});
       
-      content = content.replaceAll(/List<string>/gi, "<span class='datatype'>List&#60;String&#62;</span>");
-      content = content.replaceAll(/Set<string>/gi, "<span class='datatype'>Set&#60;String&#62;</span>");
+     // content = content.replaceAll(/List<string>/gi, "<span class='datatype'>List&#60;String&#62;</span>");
+     // content = content.replaceAll(/Set<string>/gi, "<span class='datatype'>Set&#60;String&#62;</span>");
 
       // key
       var keys = [" class ", " trigger ", "System.debug", "System.assertEquals", "if ", "else if ", "else ", "console.log"];
