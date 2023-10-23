@@ -89,10 +89,22 @@ var showButtons = document.querySelectorAll(".showSolution");
          content = content.replaceAll(l, "<span style='color:red'>"+l+"</span>");
        }
 
-       var loops = [" for", "while", "switch", "&lt;/", "&lt;", "&gt;", "console.error"];
+       var loops = [" for", "while", "switch", "console.error"];
        for(p of loops){
           content = content.replaceAll(p, `<span class="loop">${p}</span>`);
        }
 
       document.querySelectorAll("pre")[i].innerHTML = content;
    }
+
+var codes = document.querySelectorAll("pre code");
+for(var i=0; i<codes.length; i++){
+    var content = codes[i].innerHTML;
+
+    var loops = ["&lt;/", "&lt;", "&gt;"];
+    for(p of loops){
+        content = content.replaceAll(p, `<span class="loop">${p}</span>`);
+    }
+
+    document.querySelectorAll("pre")[i].innerHTML = content;
+}
