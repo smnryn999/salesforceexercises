@@ -336,10 +336,11 @@ NavigationMixin
         }
         </code></div>
         <em>
-          // In this example, we have an LWC component that uses the NavigationMixin. The navigateToAccountPage method defines a page reference for navigating to a specific record page.
+          // We have an LWC component that uses the NavigationMixin. The navigateToAccountPage method defines a way for navigating to a specific record page.
           // We need to provide the recordId and objectApiName for the record we want to navigate to.
-          // By using this[NavigationMixin.Navigate](pageReference), we initiate the navigation to the specified record page. This can be useful for scenarios where we want to programmatically navigate to a record's detail page in our Lightning component.
-          // Make sure to replace the recordId and objectApiName in the example with actual values from our Salesforce org.
+          // objectApiName is optional and we are getting Id value dynamically by using name attribute.
+          // By using this[NavigationMixin.Navigate](...), we initiate the navigation to the specified record page.
+          // This can be useful for scenarios where we want to programmatically navigate to a record's detail page in our Lightning component.
           // Additionally, NavigationMixin offers various other navigation methods for different types of navigation, such as to a URL, to a specific page, and more.
         </em>
       </pre>
