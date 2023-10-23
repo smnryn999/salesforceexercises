@@ -295,7 +295,7 @@ NavigationMixin
                 &lt;ul>
                     &lt;template for:each={accounts} for:item="acc">
                         &lt;li key={acc.id}>
-                            &lt;a name={acc.id}>{acc.Name}&lt;/a>, {acc.Industry}
+                            &lt;a name={acc.id} onclick={navigateToAccountPage}>{acc.Name}&lt;/a>, {acc.Industry}
                         &lt;/li>
                     &lt;/template>
                 &lt;/ul>
@@ -312,7 +312,7 @@ NavigationMixin
  
             @wire(getAccounts) accounts;
  
-            navigateToViewAccountPage(event) {
+            navigateToAccountPage(event) {
                 var recId = event.target.name; <em>// We are getting Id value dynamically </em>
                 this[NavigationMixin.Navigate]({
                     type: 'standard__recordPage',
