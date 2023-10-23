@@ -293,7 +293,7 @@ NavigationMixin
         <em>// AccountController.cls </em>
         public class AccountController {
             @AuraEnabled(cacheable=true)
-            public static void getAccounts(){
+            public static List&lt;Account> getAccounts(){
                 return [SELECT Name, Industry FROM Account];
             }
         } 
@@ -336,7 +336,11 @@ NavigationMixin
         }
         </code></div>
         <em>
-          // 
+          // In this example, we have an LWC component that uses the NavigationMixin. The navigateToAccountPage method defines a page reference for navigating to a specific record page.
+          // We need to provide the recordId and objectApiName for the record we want to navigate to.
+          // By using this[NavigationMixin.Navigate](pageReference), we initiate the navigation to the specified record page. This can be useful for scenarios where we want to programmatically navigate to a record's detail page in our Lightning component.
+          // Make sure to replace the recordId and objectApiName in the example with actual values from our Salesforce org.
+          // Additionally, NavigationMixin offers various other navigation methods for different types of navigation, such as to a URL, to a specific page, and more.
         </em>
       </pre>
     </div>
