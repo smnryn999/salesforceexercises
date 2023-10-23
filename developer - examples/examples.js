@@ -106,5 +106,5 @@ for(var i=0; i<codes.length; i++){
         content = content.replaceAll(p, `<span class="loop">${p}</span>`);
     }
 
-    document.querySelectorAll("pre")[i].innerHTML = content;
+    document.querySelectorAll("pre code")[i].innerHTML = content;
 }
