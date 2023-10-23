@@ -261,11 +261,13 @@ NavigationMixin
 
         export default class AccountCreator extends LightningElement {
             handleSuccess(event) {
+                <em>// Create a toast event </em>
                 const toastEvent = new ShowToastEvent({
                     title: "Account created",
                     message: "Record ID: " + event.detail.id,
                     variant: "success"
                 });
+                <em>// Dispatch the event </em>
                 this.dispatchEvent(toastEvent);
             }
         }
