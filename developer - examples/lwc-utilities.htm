@@ -288,15 +288,35 @@ NavigationMixin
       <button class="showSolution">Show Solution</button>
       <pre>
         <em> // The NavigationMixin is a module in Lightning Web Components (LWC) that allows us to navigate to different pages and record views within Salesforce. </em>
-
-        <em> // An example of how to use NavigationMixin to navigate to a record page: </em>
          <div><code>
           <em>&lt;!-- accountCreator.html --></em>
           
          </code></div>
          <div><code>
         <em>// accountCreator.js</em>
-        
+        // childAccounts.js
+        import { LightningElement, wire, api } from 'lwc';
+        import getChildAccounts from '@salesforce/apex/GetAccountContact.getChildAccounts';
+        import { NavigationMixin } from 'lightning/navigation';
+ 
+        export default class ChildAccount extends NavigationMixin(LightningElement) {
+ 
+            @api recordId;
+ 
+            @wire(getChildAccounts, {parentAccId: '$recordId'}) childAccounts;
+ 
+            navigateToViewAccountPage(event) {
+                var recId = event.target.name
+                this[NavigationMixin.Navigate]({
+                    type: 'standard__recordPage',
+                    attributes: {
+                        recordId: recId,
+                        objectApiName: 'Account', <em>// objectApiName is optional </em>
+                        actionName: 'view' <em>// If we write "home" it takes us to listview </em>
+                    }
+                });
+            }
+        }
         </code></div>
         <em>
           // 
