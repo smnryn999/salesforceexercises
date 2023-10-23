@@ -243,7 +243,7 @@ ShowToastEvent, NavigationMixin
       <pre>
         <em> // We can use the toastEvent to show toast messages to the user. Toast messages are pop-up notifications that provide information, warning, or success messages. </em>
          <div><code>
-          <template>
+          &lt;template>
               &lt;lightning-card>
                   &lt;lightning-record-form 
                       object-api-name={objectApiName}
@@ -268,6 +268,13 @@ ShowToastEvent, NavigationMixin
             }
         }
         </code></div>
+        <em>
+          // In this example, we have an LWC component with a handleSuccess method. When we call this method, it creates a ShowToastEvent with a title, message, and variant.
+          // The variant can be 'success', 'warning', 'error', or 'info', depending on the type of message we want to display.
+          // To show the toast message, we would typically call the handleSuccess method in response to user actions or certain events in our component's logic.
+          // In this case, the handleSuccess method are called by onsuccess event that represents saving an account successfully.
+          // We can also customize the ShowToastEvent with additional properties and options. This is a common way to provide feedback and notifications to users in LWC.
+        </em>
       </pre>
     </div>
   </section>
