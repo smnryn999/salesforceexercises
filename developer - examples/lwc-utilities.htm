@@ -288,6 +288,16 @@ NavigationMixin
       <button class="showSolution">Show Solution</button>
       <pre>
         <em> // The NavigationMixin is a module in Lightning Web Components (LWC) that allows us to navigate to different pages and record views within Salesforce. </em>
+
+        <div><code>
+        <em>// getAccounts.cls </em>
+        public class AccountController {
+            @AuraEnabled(cacheable=true)
+            public static void getAccounts(){
+                return [SELECT Name, Industry FROM Account];
+            }
+        } 
+        </code></div>
         <div><code>
         <em>&lt;!-- getAccounts.html --></em>
         &lt;template>
