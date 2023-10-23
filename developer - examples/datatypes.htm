@@ -102,14 +102,19 @@
 
       <div class="example">
       <p>
-        <span class="counter"></span> - Create two dates and find the number of months between them.
+        <span class="counter"></span> - Create two dates and find the number of months, days and years between them.
       </p>
       <button class="showSolution">Show Solution</button>
       <pre>
          Date firstDate = Date.newInstance(2002, 5, 2);
          Date secondDate = Date.newInstance(2006, 6, 10);
          Integer monthsBetween = firstDate.monthsBetween(secondDate);
-         System.debug(monthsBetween); <em> // 49 </em>        
+         System.debug(monthsBetween); <em> // 49 </em>
+
+         Integer daysBetween = firstDate.daysBetween(secondDate);
+         System.debug(daysBetween); // 1500
+ 
+         System.debug(Math.abs(firstDate.year() - secondDate.year())); // 4
       </pre>
       </div>
 
