@@ -174,7 +174,7 @@
       </pre>
     </div>
 
-    <!-- EXAMPLE 4 -->
+    <!-- EXAMPLE 5 -->
     <div class="example">
       <p><span class="counter"></span> - Please bring and display the records of custom Book_c object on the UI via wire method. And if there is an error, write it to the console via a function.</p>
       <button class="showSolution">Show Solution</button>
@@ -233,6 +233,70 @@
           // If there's an error, it's caught and logged to the console.
           // Our LWC component will use the @wire decorator to automatically fetch records from a custom object and display them.
           // This example demonstrates the power and simplicity of wire adapters for data retrieval in LWC.
+        </em>
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 6 -->
+    <div class="example">
+      <p><span class="counter"></span> - How to get data from the database when clicked a button in LWC? (Call Apex Imperatively)</p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // The NavigationMixin is a module in Lightning Web Components (LWC) that allows us to navigate to different pages and record views within Salesforce. </em>
+
+        <div><code>
+        <em>// AccountController.cls </em>
+        public class AccountController {
+            @AuraEnabled(cacheable=true)
+            public static List&lt;Account> getAccounts(){
+                return [SELECT Name, Industry FROM Account WHERE BillingCountry = "Brasil"];
+            }
+        } 
+        </code></div>
+        <div><code>
+        <em>&lt;!-- getAccounts.html --></em>
+        &lt;template>
+            &lt;lightning-card title="Account List" icon-name="standard:account">
+                &lt;ul>
+                    &lt;template for:each={accounts} for:item="acc">
+                        &lt;li key={acc.Id}>
+                            &lt;a name={acc.Id} onclick={navigateToAccountPage}>{acc.Name}&lt;/a>, {acc.Industry}
+                        &lt;/li>
+                    &lt;/template>
+                &lt;/ul>
+            &lt;/lightning-card>
+        &lt;/template>
+        </code></div>
+        <div><code>
+        <em>// getAccounts.js </em>
+        import { LightningElement, wire} from 'lwc';
+        import getAccounts from '@salesforce/apex/AccountController.getAccounts';
+        import { NavigationMixin } from 'lightning/navigation';
+ 
+        export default class ChildAccount extends NavigationMixin(LightningElement) {
+ 
+            @wire(getAccounts) accounts;
+ 
+            navigateToAccountPage(event) {
+                var recId = event.target.name; <em>// We are getting Id value dynamically </em>
+                this[NavigationMixin.Navigate]({
+                    type: 'standard__recordPage',
+                    attributes: {
+                        recordId: recId,
+                        objectApiName: 'Account', <em>// objectApiName is optional </em>
+                        actionName: 'view' <em>// If we write "home" it takes us to listview </em>
+                    }
+                });
+            }
+        }
+        </code></div>
+        <em>
+          // We have an LWC component that uses the NavigationMixin. The navigateToAccountPage method defines a way for navigating to a specific record page.
+          // We need to provide the recordId and objectApiName for the record we want to navigate to.
+          // objectApiName is optional and we are getting Id value dynamically by using name attribute.
+          // By using this[NavigationMixin.Navigate](...), we initiate the navigation to the specified record page.
+          // This can be useful for scenarios where we want to programmatically navigate to a record's detail page in our Lightning component.
+          // Additionally, NavigationMixin offers various other navigation methods for different types of navigation, such as to a URL, to a specific page, and more.
         </em>
       </pre>
     </div>
