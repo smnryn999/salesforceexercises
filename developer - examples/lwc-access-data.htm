@@ -244,7 +244,7 @@
       <pre>
         <em> // In Lightning Web Components (LWC), we can call Apex methods imperatively to interact with the server and retrieve or manipulate data. </em>
 
-        <em> // Assuming we have an Apex class with a method that we want to call </em>
+        <em> // Assuming we have an Apex class with a method that we want to call: </em>
         <div><code>
         <em>// AccountController.cls </em>
         public with sharing class MyController {
@@ -258,16 +258,18 @@
         <em>&lt;!-- myComponent.html --></em>
         &lt;template>
             &lt;lightning-card title="Account List" icon-name="standard:account">
+                <lightning-button label="Load Accounts" onclick={loadAccounts}></lightning-button>
                 &lt;ul>
                     &lt;template for:each={accounts} for:item="acc">
                         &lt;li key={acc.Id}>
-                            &lt;a name={acc.Id} onclick={navigateToAccountPage}>{acc.Name}&lt;/a>, {acc.Industry}
+                            {acc.Name}, {acc.Industry}
                         &lt;/li>
                     &lt;/template>
                 &lt;/ul>
             &lt;/lightning-card>
         &lt;/template>
         </code></div>
+        <em> // We can call getAccounts method imperatively from an LWC component: </em>
         <div><code>
         <em>// myComponent.js </em>
         import { LightningElement, wire } from 'lwc';
@@ -275,10 +277,6 @@
 
         export default class MyComponent extends LightningElement {
             accounts;
-
-            connectedCallback() {
-                this.loadAccounts();
-            }
 
             loadAccounts() {
                 getAccounts()
