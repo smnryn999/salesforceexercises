@@ -323,7 +323,7 @@
         }
         </code></div>
         <div><code>
-        <em>&lt;!-- myComponent.html --></em>
+        <em>// contactList.html </em>
         &lt;<template>
             <lightning-card title="Contacts">
                 <lightning-datatable key-field="Id" data={contacts.data} columns={columnas}>
@@ -334,9 +334,16 @@
             </lightning-card>
         </template>
         </code></div>
+        <div><code>
+        <em>/* contactList.css */</em>
+        p {
+            margin-top: 20px;
+            color: red;
+        }
+        </code></div>
         <em> // We can call getAccounts method imperatively from an LWC component: </em>
         <div><code>
-        <em>// myComponent.js </em>
+        <em>// contactList.js </em>
         import { LightningElement, wire } from 'lwc';
         import {reduceErrors} from 'c/ldsUtils';
         import first from "@salesforce/schema/Contact.FirstName";
