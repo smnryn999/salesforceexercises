@@ -324,18 +324,15 @@
         </code></div>
         <div><code>
         <em>&lt;!-- myComponent.html --></em>
-        &lt;template>
-            &lt;lightning-card title="Account List" icon-name="standard:account">
-                <lightning-button label="Load Accounts" onclick={loadAccounts}>&lt;/lightning-button>
-                &lt;ul>
-                    &lt;template for:each={accounts} for:item="acc">
-                        &lt;li key={acc.Id}>
-                            {acc.Name}, {acc.Industry}
-                        &lt;/li>
-                    &lt;/template>
-                &lt;/ul>
-            &lt;/lightning-card>
-        &lt;/template>
+        &lt;<template>
+            <lightning-card title="Contacts">
+                <lightning-datatable key-field="Id" data={contacts.data} columns={columnas}>
+                </lightning-datatable>
+                <template if:true={errores}>
+                    <p>Some errors are thrown: {errores}</p>
+                <template>
+            </lightning-card>
+        </template>
         </code></div>
         <em> // We can call getAccounts method imperatively from an LWC component: </em>
         <div><code>
