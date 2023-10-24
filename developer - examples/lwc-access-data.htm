@@ -290,12 +290,11 @@
         }
         </code></div>
         <em>
-          // We have an LWC component that uses the NavigationMixin. The navigateToAccountPage method defines a way for navigating to a specific record page.
-          // We need to provide the recordId and objectApiName for the record we want to navigate to.
-          // objectApiName is optional and we are getting Id value dynamically by using name attribute.
-          // By using this[NavigationMixin.Navigate](...), we initiate the navigation to the specified record page.
-          // This can be useful for scenarios where we want to programmatically navigate to a record's detail page in our Lightning component.
-          // Additionally, NavigationMixin offers various other navigation methods for different types of navigation, such as to a URL, to a specific page, and more.
+          // We import the getAccounts method from our Apex class using the @salesforce/apex module.
+          // In the loadAccounts function, we call getAccounts() imperatively, which sends a request to the server to execute the getAccounts method.
+          // We handle the response in the .then block, where we set the accounts property with the retrieved data.
+          // If there's an error, we handle it in the .catch block and log the error message.
+          // This way, we can use imperative Apex calls in LWC to interact with server-side logic, retrieve data, and perform various operations.
         </em>
       </pre>
     </div>
