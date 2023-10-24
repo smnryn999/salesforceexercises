@@ -338,19 +338,23 @@
         <div><code>
         <em>// myComponent.js </em>
         import { LightningElement, wire } from 'lwc';
-        import getAccounts from '@salesforce/apex/MyController.getAccounts';
+        import {reduceErrors} from 'c/ldsUtils';
+        import first from "@salesforce/schema/Contact.FirstName";
+        import last from "@salesforce/schema/Contact.LastName";
+        import email from "@salesforce/schema/Contact.Email";
+        import getContacts from "@salesforce/apex/ContactController.getContacts";
 
-        export default class MyComponent extends LightningElement {
-            accounts;
+        export default class ContactList extends LightningElement {
+            columnas = [{label:"First Name", fieldName:first.fieldApiName, type:"text"},
+                        {label:"Last Name", fieldName:last.fieldApiName, type:"text"},
+                        {label:"Email Address", fieldName:email.fieldApiName, type:"text"}];
 
-            loadAccounts() {
-                getAccounts()
-                    .then(result => {
-                        this.accounts = result;
-                    })
-                    .catch(error => {
-                        console.error('Error fetching accounts: ' + error);
-                    });
+            @wire(getContacts) contacts;
+    
+            get errores(){
+                if(this.contacts.error){
+                    return reduceErrors(this.contacts.error);
+                }
             }
         }
         </code></div>
