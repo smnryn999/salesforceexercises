@@ -242,19 +242,20 @@
       <p><span class="counter"></span> - How to get data from the database when clicked a button in LWC? (Call Apex Imperatively)</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <em> // The NavigationMixin is a module in Lightning Web Components (LWC) that allows us to navigate to different pages and record views within Salesforce. </em>
+        <em> // In Lightning Web Components (LWC), we can call Apex methods imperatively to interact with the server and retrieve or manipulate data. </em>
 
+        <em> // Assuming we have an Apex class with a method that we want to call </em>
         <div><code>
         <em>// AccountController.cls </em>
-        public class AccountController {
+        public with sharing class MyController {
             @AuraEnabled(cacheable=true)
             public static List&lt;Account> getAccounts(){
-                return [SELECT Name, Industry FROM Account WHERE BillingCountry = "Brasil"];
+                return [SELECT Name, Industry FROM Account LIMIT 10];
             }
         } 
         </code></div>
         <div><code>
-        <em>&lt;!-- getAccounts.html --></em>
+        <em>&lt;!-- myComponent.html --></em>
         &lt;template>
             &lt;lightning-card title="Account List" icon-name="standard:account">
                 &lt;ul>
@@ -268,25 +269,25 @@
         &lt;/template>
         </code></div>
         <div><code>
-        <em>// getAccounts.js </em>
-        import { LightningElement, wire} from 'lwc';
-        import getAccounts from '@salesforce/apex/AccountController.getAccounts';
-        import { NavigationMixin } from 'lightning/navigation';
- 
-        export default class ChildAccount extends NavigationMixin(LightningElement) {
- 
-            @wire(getAccounts) accounts;
- 
-            navigateToAccountPage(event) {
-                var recId = event.target.name; <em>// We are getting Id value dynamically </em>
-                this[NavigationMixin.Navigate]({
-                    type: 'standard__recordPage',
-                    attributes: {
-                        recordId: recId,
-                        objectApiName: 'Account', <em>// objectApiName is optional </em>
-                        actionName: 'view' <em>// If we write "home" it takes us to listview </em>
-                    }
-                });
+        <em>// myComponent.js </em>
+        import { LightningElement, wire } from 'lwc';
+        import getAccounts from '@salesforce/apex/MyController.getAccounts';
+
+        export default class MyComponent extends LightningElement {
+            accounts;
+
+            connectedCallback() {
+                this.loadAccounts();
+            }
+
+            loadAccounts() {
+                getAccounts()
+                    .then(result => {
+                        this.accounts = result;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching accounts: ' + error);
+                    });
             }
         }
         </code></div>
