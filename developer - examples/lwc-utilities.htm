@@ -293,7 +293,7 @@
         public class AccountController {
             @AuraEnabled(cacheable=true)
             public static List&lt;Account> getAccounts(){
-                return [SELECT Name, Industry FROM Account];
+                return [SELECT Name, Industry FROM Account WHERE BillingCountry = 'Japan'];
             }
         } 
         </code></div>
