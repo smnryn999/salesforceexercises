@@ -323,16 +323,16 @@
         }
         </code></div>
         <div><code>
-        <em>// contactList.html </em>
+        <em>&lt;!-- contactList.html --></em>
         &lt;template>
-            <lightning-card title="Contacts">
-                <lightning-datatable key-field="Id" data={contacts.data} columns={columnas}>
-                </lightning-datatable>
-                <template if:true={errores}>
-                    <p>Some errors are thrown: {errores}</p>
-                <template>
-            </lightning-card>
-        </template>
+            &lt;lightning-card title="Contacts">
+                &lt;lightning-datatable key-field="Id" data={contacts.data} columns={columnas}>
+                &lt;/lightning-datatable>
+                &lt;template if:true={errores}>
+                    &lt;p>Some errors are thrown: {errores}&lt;/p>
+                &lt;template>
+            &lt;/lightning-card>
+        &lt;/template>
         </code></div>
         <div><code>
         <em>/* contactList.css */</em>
@@ -341,7 +341,7 @@
             color: red;
         }
         </code></div>
-        <em> // We can call getAccounts method imperatively from an LWC component: </em>
+        <em> // We can call getContacts method via @wire adapter in an LWC component: </em>
         <div><code>
         <em>// contactList.js </em>
         import { LightningElement, wire } from 'lwc';
