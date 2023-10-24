@@ -258,7 +258,7 @@
         <em>&lt;!-- myComponent.html --></em>
         &lt;template>
             &lt;lightning-card title="Account List" icon-name="standard:account">
-                <lightning-button label="Load Accounts" onclick={loadAccounts}></lightning-button>
+                <lightning-button label="Load Accounts" onclick={loadAccounts}>&lt;/lightning-button>
                 &lt;ul>
                     &lt;template for:each={accounts} for:item="acc">
                         &lt;li key={acc.Id}>
