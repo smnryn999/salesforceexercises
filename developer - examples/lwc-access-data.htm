@@ -298,6 +298,74 @@
         </em>
       </pre>
     </div>
+
+    <!-- EXAMPLE 7 -->
+    <div class="example">
+      <p><span class="counter"></span> - Create a Lightning web component that uses @wire in an Apex controller to retrieve contact records. Display the contact records in a lightning-datatable. And if it throws an error, show the error message. </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // In Lightning Web Components (LWC), lightning-datatable. </em>
+
+        <em> // Assuming we have an Apex class with a method that we want to call: </em>
+        <div><code>
+        <em>// ContactController.cls </em>
+        public class ContactController {
+            @AuraEnabled(cacheable = true)
+            public static List<Contact> getContacts(){
+                try{
+                    List<Contact> conList = [SELECT FirstName, LastName, Email FROM Contact WITH SECURITY_ENFORCED ORDER BY Name DESC LIMIT 10];
+                    return conList;
+                }
+                catch(Exception e){
+                    throw new AuraHandledException('Forced error!');
+                }
+            }
+        }
+        </code></div>
+        <div><code>
+        <em>&lt;!-- myComponent.html --></em>
+        &lt;template>
+            &lt;lightning-card title="Account List" icon-name="standard:account">
+                <lightning-button label="Load Accounts" onclick={loadAccounts}>&lt;/lightning-button>
+                &lt;ul>
+                    &lt;template for:each={accounts} for:item="acc">
+                        &lt;li key={acc.Id}>
+                            {acc.Name}, {acc.Industry}
+                        &lt;/li>
+                    &lt;/template>
+                &lt;/ul>
+            &lt;/lightning-card>
+        &lt;/template>
+        </code></div>
+        <em> // We can call getAccounts method imperatively from an LWC component: </em>
+        <div><code>
+        <em>// myComponent.js </em>
+        import { LightningElement, wire } from 'lwc';
+        import getAccounts from '@salesforce/apex/MyController.getAccounts';
+
+        export default class MyComponent extends LightningElement {
+            accounts;
+
+            loadAccounts() {
+                getAccounts()
+                    .then(result => {
+                        this.accounts = result;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching accounts: ' + error);
+                    });
+            }
+        }
+        </code></div>
+        <em>
+          // We import the getAccounts method from our Apex class using the @salesforce/apex module.
+          // In the loadAccounts function, we call getAccounts() imperatively, which sends a request to the server to execute the getAccounts method.
+          // We handle the response in the .then block, where we set the accounts property with the retrieved data.
+          // If there's an error, we handle it in the .catch block and log the error message.
+          // This way, we can use imperative Apex calls in LWC to interact with server-side logic, retrieve data, and perform various operations.
+        </em>
+      </pre>
+    </div>
     
   </section>
 
