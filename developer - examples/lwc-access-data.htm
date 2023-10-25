@@ -313,7 +313,8 @@
             @AuraEnabled(cacheable = true)
             public static List&lt;Contact> getContacts(){
                 try{
-                    List&lt;Contact> conList = [SELECT FirstName, LastName, Email FROM Contact WITH SECURITY_ENFORCED ORDER BY Name DESC LIMIT 10];
+                    List&lt;Contact> conList = [SELECT FirstName, LastName, Email FROM Contact WITH SECURITY_ENFORCED
+                                                ORDER BY Name DESC LIMIT 10];
                     return conList;
                 }
                 catch(Exception e){
@@ -367,7 +368,7 @@
         </code></div>
         <em>
           // We have ContactController class that have getContacts method that returns 10 contact records and catches errors.
-          // We used wire adapter for calling getContacts method and lightning-datatable in HTML file for listing contacts that coming from JS file.
+          // We utilized wire adapter for calling getContacts method and used lightning-datatable in HTML file for listing contacts that coming from JS file.
           // We used AuraHandledException() method in the Apex class and reduceErrors() function in JS file. Then we showed the error in HTML file.
         </em>
       </pre>
