@@ -49,12 +49,12 @@ var showButtons = document.querySelectorAll(".showSolution");
        }
       
       // Tags and Attributes
-      var tags = ["template", "lightning-card", "lightning-input", "lightning-button", "lightning-record-form"];
+      var tags = ["template", "lightning-card", "lightning-input", "lightning-button", "lightning-record-form", "lightning-datatable"];
        for(t of tags){
           content = content.replaceAll(t, `<span style='color:lightgreen'>${t}</span>`);
        }
       var attributes = ["title", "icon-name", "label", "value=", "onchange", "onclick", "onsuccess", "@api", "@wire", "object-api-name", "record-id", "fields=", "columns=",
-		       "for:each", "for:item", "if:true", "if:false", "lwc:if", "iterator:it", "key=", "type", "message", "variant", "name=", "@AuraEnabled"];
+		       "for:each", "for:item", "if:true", "if:false", "lwc:if", "iterator:it", "key=", "type", "message", "variant", "name=", "@AuraEnabled", "key-field", "data="];
        for(a of attributes){
           content = content.replaceAll(a, `<span style='color:lightcoral'>${a}</span>`);
        }
