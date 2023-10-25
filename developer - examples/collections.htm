@@ -124,18 +124,18 @@
       <p><span class="counter"></span> - Create a Map consisting of countries and currencies, take the key and value parts and match them.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         <span class="datatype">Map<string, string&#62;</span> mapCountry = new <span class="datatype">Map&#60;string, string&#62;</span>();
+         Map&lt;string, string>; mapCountry = new <span class="datatype">Map&#60;string, string&#62;</span>();
          mapCountry.put('Türkiye', 'TL');
          mapCountry.put('India', 'Rupee');
          mapCountry.put('Europe', 'Euro');
          mapCountry.put('Japan', 'Yen');
          System.debug(mapCountry); <em> // {Europe=Euro, India=Rupee, Japan=Yen, Türkiye=TL} </em>
          
-         <span class='loop'>for</span>(String c:mapCountry.values()){
+         for(String c:mapCountry.values()){
             System.debug(c);
          }
          
-         for (String c:mapCountry.keySet()){
+         for(String c:mapCountry.keySet()){
             System.debug(c + ' => ' + mapCountry.get(c));
          }
          <em>/*
