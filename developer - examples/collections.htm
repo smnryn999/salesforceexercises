@@ -96,20 +96,20 @@
       <pre>
          List&lt;String> colors = new List&lt;String>{'White', 'Blue', 'Orange', 'Black'};
          Integer num = 1;
-         <span class="datatype">Map&lt;integer, string></span> mapColors = new <span class="datatype">Map&lt;integer, string&gt;</span>(); // {5=>'Yellow'}
+         <span style="color:LightSalmon">Map&lt;integer, string></span> mapColors = new <span style="color:LightSalmon">Map&lt;integer, string&gt;</span>(); // {5=>'Yellow'}
          
          <span class='loop'>for</span>(String c:colors){
             mapColors.put(num, c);
          }
          System.debug(mapColors);  <em> // {1=Black}</em>
          
-         <span style="color:LightSalmon">Map&lt;string, integer></span> colorsMap = new <span class="datatype">Map&#60;string, integer&#62;</span>();
+         <span style="color:LightSalmon">Map&lt;string, integer></span> colorsMap = new <span style="color:LightSalmon">Map&lt;string, integer></span>();
          <span class='loop'>for</span>(String c:colors){
             colorsMap.put(c, num); 
          }
          System.debug(colorsMap);  <em> // {Black=1, Blue=1, Orange=1, White=1}</em>
          
-         <span class="datatype">Map&#60;integer, string&#62;</span> mapColors = new <span class="datatype">Map&#60;integer, string&#62;</span>{5=>'Yellow'};
+         <span style="color:LightSalmon">Map&#60;integer, string&#62;</span> mapColors = new <span style="color:LightSalmon">Map&#60;integer, string&#62;</span>{5=>'Yellow'};
          <span class='loop'>for</span>(String c:colors){
             mapColors.put(num, c);
             num++;
@@ -124,7 +124,7 @@
       <p><span class="counter"></span> - Create a Map consisting of countries and currencies, take the key and value parts and match them.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         Map&lt;String, string> mapCountry = new <span class="datatype">Map&#60;string, string&#62;</span>();
+         <span style="color:LightSalmon">Map&lt;String, string></span> mapCountry = new <span style="color:LightSalmon">Map&#60;string, string&#62;</span>();
          mapCountry.put('Türkiye', 'TL');
          mapCountry.put('India', 'Rupee');
          mapCountry.put('Europe', 'Euro');
