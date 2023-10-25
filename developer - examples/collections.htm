@@ -30,9 +30,9 @@
       <p><span class="counter"></span> - Remove repeating elements from a list.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         list<string> listColors = new List<string>{'Green', 'Blue', 'Yellow', 'Blue'};
+         List&lt;String> listColors = new List&lt;String>{'Green', 'Blue', 'Yellow', 'Blue'};
          System.debug(colors); <em> // (Green, Blue, Yellow, Blue) </em>
-         set<string> setColors = new Set<string>(listColors); <em> // Blue, Green, Yellow</em>
+         Set&lt;String> setColors = new Set&lt;String>(listColors); <em> // Blue, Green, Yellow</em>
          System.debug(setColors);  <em> // {Blue, Green, Yellow}</em>
       </pre>
       </div>
@@ -42,10 +42,10 @@
       <p><span class="counter"></span> - Remove different elements between two lists. (Take the common elements.)</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         List<String> listColors = new List<String></span>{'Green', 'Blue', 'Yellow'};
-         List<string> listColors2 = new List<string>{'Green', 'Blue', 'White', 'Red'};
+         List&lt;String> listColors = new List&lt;String>{'Green', 'Blue', 'Yellow'};
+         List&lt;String> listColors2 = new List&lt;String>{'Green', 'Blue', 'White', 'Red'};
          
-         Set<string> setColors = new Set<string>(listColors);
+         Set&lt;String> setColors = new Set&lt;String>(listColors);
          setColors.retainAll(listColors2);
          System.debug(setColors);  <em> // {Blue, Green}</em>
       </pre>
@@ -56,10 +56,10 @@
       <p><span class="counter"></span> - Remove common elements between two lists. (Take the different elements.)</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         List<string> listColors = new List<string>{'Black', 'White', 'Gray', 'Blue'};
-         List<String> listColors2 = new List<string>{'Black','Gray'};
+         List&lt;String> listColors = new List&lt;String>{'Black', 'White', 'Gray', 'Blue'};
+         List&lt;String> listColors2 = new List&lt;String>{'Black','Gray'};
          
-         Set<String> setColors = new Set<string>(listColors);
+         Set&lt;String> setColors = new Set&lt;String>(listColors);
          setColors.removeAll(listColors2);
          System.debug(setColors);  <em> // {Blue, White}</em>
       </pre>
@@ -70,7 +70,7 @@
       <p><span class="counter"></span> - Check if an element exists in a list.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         List<String> colors = new List<string>{'Black', 'White', 'Gray', 'Blue'};
+         List&lt;String> colors = new List&lt;String>{'Black', 'White', 'Gray', 'Blue'};
          Boolean containsBlue = colors.contains('Blue');
          System.debug(containsBlue);  <em> // true</em>
       </pre>
@@ -81,9 +81,9 @@
       <p><span class="counter"></span> - Check if a list exists in another list.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         List<String> colors = new List<String>{'White', 'Blue', 'Orange', 'Black'};
-         List<String> colors2 = new List<String>{'White', 'Orange'};
-         Set<String> setColors = new Set<String>(colors);
+         List&lt;String> colors = new List&lt;String>{'White', 'Blue', 'Orange', 'Black'};
+         List&lt;String> colors2 = new List&lt;String>{'White', 'Orange'};
+         Set&lt;String> setColors = new Set&lt;String>(colors);
          Boolean containsAll = setColors.containsAll(colors2);
          System.debug(containsAll);  <em> // true</em>
       </pre>
@@ -94,7 +94,7 @@
       <p><span class="counter"></span> - Create a Map and specify the sequence number for the list.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         List<String> colors = new List<String>{'White', 'Blue', 'Orange', 'Black'};
+         List&lt;String> colors = new List&lt;String>{'White', 'Blue', 'Orange', 'Black'};
          Integer num = 1;
          <span class="datatype">Map&#60;integer, string&#62;</span> mapColors = new <span class="datatype">Map&#60;integer, string&#62;</span>(); // {5=>'Yellow'}
          
