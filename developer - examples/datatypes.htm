@@ -184,13 +184,13 @@
       </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         String text = <span class="string">'Bu bir cümledir.'</span>;
+         String text = <span class="string">'This is a sentence.'</span>;
          List<String> textList = text.remove('.').split(' ');
-         System.debug(textList); <em> // (Bu, bir, cümledir)</em>
+         System.debug(textList); <em> // (This, is, a, sentence)</em>
          
          String strAgain = textList.toString();
          strAgain = strAgain.substringBetween('(',')').remove(',') + '.';
-         System.debug(strAgain); <em> // Bu bir cümledir.</em>
+         System.debug(strAgain); <em> // This is a sentence. </em>
          
          <em> // Another way</em>
          String text = '';
@@ -198,7 +198,7 @@
             text += w + ' ';
          }
          text = text.trim() + '.';
-         System.debug(text); <em> // (Bu, bir, cümledir)</em> 
+         System.debug(text); <em> // This is a sentence. </em> 
       </pre>
       </div>
     </section>
