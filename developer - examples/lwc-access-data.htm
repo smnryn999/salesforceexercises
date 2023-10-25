@@ -314,7 +314,7 @@
             public static List&lt;Contact> getContacts(){
                 try{
                     List&lt;Contact> conList = [SELECT FirstName, LastName, Email FROM Contact WITH SECURITY_ENFORCED
-                                                ORDER BY Name DESC LIMIT 10];
+                                            ORDER BY Name DESC LIMIT 10];
                     return conList;
                 }
                 catch(Exception e){
