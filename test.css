@@ -152,7 +152,7 @@ pre div {
 }
 pre div code {
    margin: 0;
-   padding: 0;
+   padding: -1em;
    font-size: 15px;
 }
 
