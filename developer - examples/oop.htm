@@ -28,14 +28,14 @@
              public integer sugar;
              public boolean cream;
             
-             <em> // A constructor method without parameter </em>
+             <em>// A constructor method without parameter </em>
              public Cake(){
                  string name;
                  integer sugar;
                  boolean cream;
              }
             
-             <em> // A constructor method with parameters </em>
+             <em>// A constructor method with parameters </em>
              public Cake(string name, integer sugar, boolean cream){
                  this.name = name;
                  this.sugar = sugar;
@@ -60,25 +60,27 @@
 
       <!-- EXAMPLE 2 -->
       <div class="example">
-         <p><span class="counter"></span> - Encapsulation</p>
-         <button class="showSolution">Show Solution</button>
-         <pre>
-      public class Cake {
-         public string name;
-         public integer sugar;
-         private boolean cream = true; <em> // {get; private set;} readonly </em>
+       <p><span class="counter"></span> - Encapsulation</p>
+       <button class="showSolution">Show Solution</button>
+       <pre>
+       <em> // We are creating a class called Cake </em>
+       <div><code>
+       public class Cake {
+           public string name;
+           public integer sugar;
+           private boolean cream = true; <em> // {get; private set;} readonly </em>
          
-         <em> // getter method </em>
-         public boolean getCream(){
-            return this.cream;
-         }
+           <em>// getter method </em>
+           public boolean getCream(){
+               return this.cream;
+           }
          
-         <em> // setter method </em>
-         public void setCream(Boolean cream){
-            this.cream = cream;
-         }
+           <em>// setter method </em>
+           public void setCream(Boolean cream){
+               this.cream = cream;
+           }
       }
-      
+      </code></div>
       <em> // And we are creating some instances and using getCream() and setCream() methods </em>
       Cake lemon = new Cake();
       lemon.name = 'Lemon Cake';
