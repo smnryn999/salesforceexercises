@@ -146,7 +146,7 @@
              public integer sugar=25;
              public boolean cream;
             
-             public virtual void cakeMethod(){ <em> // We make the method to be overridden virtual </em>
+             public virtual void cakeMethod(){ <em> // We make the method virtual to be able to be overridden </em>
                  System.debug('This is Cake Class');
              }
          }
@@ -172,11 +172,11 @@
 
       <!-- EXAMPLE 5 -->
       <div class="example">
-         <p><span class="counter"></span> - Overloading a method</p>
-         <button class="showSolution">Show Solution</button>
-         <pre>
-            <em> // Overloading is in the same class. It is about Polymorphism. </em>
-            public class Calculator {
+        <p><span class="counter"></span> - Overloading a method</p>
+        <button class="showSolution">Show Solution</button>
+        <pre>
+         <em> // Overloading is in the same class. It is about Polymorphism. </em>
+         public class Calculator {
                
                <em> // Method Signature = Method Name + Parameters </em>
                public static integer addition(integer a, integer b){
