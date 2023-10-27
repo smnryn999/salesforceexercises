@@ -136,31 +136,33 @@
 
       <!-- EXAMPLE 4 -->
       <div class="example">
-         <p><span class="counter"></span> - Overriding a method</p>
-         <button class="showSolution">Show Solution</button>
-         <pre>
+        <p><span class="counter"></span> - Overriding a method</p>
+        <button class="showSolution">Show Solution</button>
+        <pre>
          <em> // Overriding is between two classes. It is about Polymorphism and Inheritance. </em>
+         <div><code>
          public virtual class Cake {
-            public string name;
-            public integer sugar=25;
-            public boolean cream;
+             public string name;
+             public integer sugar=25;
+             public boolean cream;
             
-            public virtual void cakeMethod(){ <em> // We make the method to be overridden virtual </em>
-               System.debug('This is Cake Class');
-            }
+             public virtual void cakeMethod(){ <em> // We make the method to be overridden virtual </em>
+                 System.debug('This is Cake Class');
+             }
          }
-
+         </code></div>
+         <div><code>
          public class Pie extends Cake {
-            public integer sugarPie = sugar;
-            public void pieMethod(){
-                cakeMethod();
-            }
+             public integer sugarPie = sugar;
+             public void pieMethod(){
+                 cakeMethod();
+             }
             
-            public override void cakeMethod(){ <em> // We override cakeMethod() </em>
-                System.debug('This is Pie Class');
-            }      
+             public override void cakeMethod(){ <em> // We override cakeMethod() </em>
+                 System.debug('This is Pie Class');
+             }      
          }
-
+         </code></div>
          Pie cinnamon = new Pie();
          cinnamon.pieMethod(); <em> // This is Pie Class </em>
          cinnamon.cakeMethod(); <em> // This is Pie Class </em>
