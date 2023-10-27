@@ -95,40 +95,42 @@
        </pre>
      </div>
 
-      <!-- EXAMPLE 3 -->
-      <div class="example">
-         <p><span class="counter"></span> - Inheritance</p>
-         <button class="showSolution">Show Solution</button>
-         <pre>
-      <em> // Cake Class (Superclass)</em>
+     <!-- EXAMPLE 3 -->
+     <div class="example">
+       <p><span class="counter"></span> - Inheritance</p>
+       <button class="showSolution">Show Solution</button>
+       <pre>
+        <em> // Cake Class (Superclass)</em>
+        <div><code>
         public virtual class Cake {
-           public string name;
-           public integer sugar=25;
-           public boolean cream;
+            public string name;
+            public integer sugar=25;
+            public boolean cream;
          
-           public void cakeMethod(){
-           System.debug('This is Cake Class');
-           }
+            public void cakeMethod(){
+                System.debug('This is Cake Class');
+            }
          }
+         </code></div>
+         <em> // Pie Class (Subclass)</em>
+         <div><code>
+         public class Pie extends Cake {
+             public integer sugarPie = sugar;
+             public void pieMethod(){
+                 cakeMethod();
+             }
+          }
+         </code></div>
+          Pie cinnamon = new Pie();
+          cinnamon.name = 'Cinnamon Pie'; <em> // Pie class inherits name property from Cake class </em>
+          System.debug(cinnamon.sugarPie); <em> // 25 </em>
+          cinnamon.pieMethod(); <em> // This is Cake Class </em>
+          cinnamon.cakeMethod(); <em> // This is Cake Class </em>
+          System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=Cinnamon Pie, Cake.sugar=25, sugarPie=25] </em>
 
-      <em> // Pie Class (Subclass)</em>
-        public class Pie extends Cake {
-           public integer sugarPie = sugar;
-           public void pieMethod(){
-              cakeMethod();
-           }
-         }
-
-        Pie cinnamon = new Pie();
-        cinnamon.name = 'Cinnamon Pie'; <em> // Pie class inherits name property from Cake class </em>
-        System.debug(cinnamon.sugarPie); <em> // 25 </em>
-        cinnamon.pieMethod(); <em> // This is Cake Class </em>
-        cinnamon.cakeMethod(); <em> // This is Cake Class </em>
-        System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=Cinnamon Pie, Cake.sugar=25, sugarPie=25] </em>
-
-        cinnamon.sugarPie = 35;
-        System.debug(cinnamon.sugarPie); <em> // 35 </em>
-        System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=Cinnamon Pie, Cake.sugar=25, sugarPie=35] </em>
+          cinnamon.sugarPie = 35;
+          System.debug(cinnamon.sugarPie); <em> // 35 </em>
+          System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=Cinnamon Pie, Cake.sugar=25, sugarPie=35] </em>
       </pre>
       </div>
 
