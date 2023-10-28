@@ -145,18 +145,15 @@ pre {
 }
 pre div {
    background:black;
-   margin: 0 45px;
+   margin: 0 25px;
    padding: 0;
    border: 1px solid lightyellow;
    border-radius: 5px;
-   position: absolute 
 }
 pre div code {
    margin: 0;
    padding: -1em;
    font-size: 15px;
-   position: relative;
-   left: 0px 
 }
 
 var {color: rgb(204, 204, 255);}
