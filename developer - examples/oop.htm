@@ -42,7 +42,7 @@
              }
          }
          </code></div>
-         <em> // And we are creating three instances </em>
+          <em> // And we are creating three instances </em>
             Cake orange = new Cake();
             System.debug(orange); <em> // Cake:[cream=null, name=null, sugar=null] </em>
 
@@ -80,18 +80,18 @@
             }
         }
         </code></div>
-        <em> // And we are creating some instances and using getCream() and setCream() methods </em>
-        Cake lemon = new Cake();
-        lemon.name = 'Lemon Cake';
-        lemon.sugar = 15;
-        System.debug(lemon); <em> // Cake:[cream=true, name=Lemon Cake, sugar=15] </em>
+         <em> // And we are creating some instances and using getCream() and setCream() methods </em>
+           Cake lemon = new Cake();
+           lemon.name = 'Lemon Cake';
+           lemon.sugar = 15;
+           System.debug(lemon); <em> // Cake:[cream=true, name=Lemon Cake, sugar=15] </em>
 
-        System.debug(lemon.getCream()); <em> // true </em>
-        lemon.setCream(false);
-        System.debug(lemon.getCream()); <em> // false </em>
+           System.debug(lemon.getCream()); <em> // true </em>
+           lemon.setCream(false);
+           System.debug(lemon.getCream()); <em> // false </em>
       
-        Cake apple = new Cake('Apple Cake', 18, false);
-        System.debug(apple); <em> // Cake:[cream=false, name=Apple Cake, sugar=18]</em>
+           Cake apple = new Cake('Apple Cake', 18, false);
+           System.debug(apple); <em> // Cake:[cream=false, name=Apple Cake, sugar=18]</em>
        </pre>
      </div>
 
