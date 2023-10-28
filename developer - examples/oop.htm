@@ -163,11 +163,11 @@
              }      
          }
          </code></div>
-         Pie cinnamon = new Pie();
-         cinnamon.pieMethod(); <em> // This is Pie Class </em>
-         cinnamon.cakeMethod(); <em> // This is Pie Class </em>
-         System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=null, Cake.sugar=25, sugarPie=25] </em>
-      </pre>
+            Pie cinnamon = new Pie();
+            cinnamon.pieMethod(); <em> // This is Pie Class </em>
+            cinnamon.cakeMethod(); <em> // This is Pie Class </em>
+            System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=null, Cake.sugar=25, sugarPie=25] </em>
+        </pre>
       </div>
 
       <!-- EXAMPLE 5 -->
@@ -201,20 +201,20 @@
              }
          }
          </code></div>
-          Integer sum = Calculator.addition(3, 5); 
-          System.debug(sum); <em> // 8 </em>
+            Integer sum = Calculator.addition(3, 5); 
+            System.debug(sum); <em> // 8 </em>
 
-          Decimal sum = Calculator.addition(3, 5.7);
-          System.debug(sum); <em> // 8.7 </em>
+            Decimal sum = Calculator.addition(3, 5.7);
+            System.debug(sum); <em> // 8.7 </em>
 
-          Decimal sum = Calculator.addition(3.5, 5);
-          System.debug(sum); <em> // 8.5 </em>
+            Decimal sum = Calculator.addition(3.5, 5);
+            System.debug(sum); <em> // 8.5 </em>
 
-          Integer sum = Calculator.addition(3, 5, 7);
-          System.debug(sum); <em> // 15 </em>
+            Integer sum = Calculator.addition(3, 5, 7);
+            System.debug(sum); <em> // 15 </em>
 
-          Integer difference = Calculator.substraction(3, 5);
-          System.debug(difference); <em> // -2 </em>  
+            Integer difference = Calculator.substraction(3, 5);
+            System.debug(difference); <em> // -2 </em>  
         </pre>
       </div>
 
@@ -235,17 +235,17 @@
              public integer sugarPie = sugar;
          }
          </code></div>
-          Cake lemon = new Cake();
-          System.debug(lemon.sugar); <em> // 25 </em>
+            Cake lemon = new Cake();
+            System.debug(lemon.sugar); <em> // 25 </em>
             
-          lemon.sugar = 30;
-          System.debug(lemon.sugar); <em> // 30 </em>
+            lemon.sugar = 30;
+            System.debug(lemon.sugar); <em> // 30 </em>
 
-          Pie cinnamon = new Pie();
-          System.debug(cinnamon.sugarPie); <em> // 25 (Still)</em>
+            Pie cinnamon = new Pie();
+            System.debug(cinnamon.sugarPie); <em> // 25 (Still)</em>
 
-          cinnamon.sugarPie = 30;
-          System.debug(cinnamon.sugarPie); <em> // 30 </em>
+            cinnamon.sugarPie = 30;
+            System.debug(cinnamon.sugarPie); <em> // 30 </em>
 
          <em> // static example </em>
          <div><code>
@@ -259,15 +259,15 @@
              public integer sugarPie = sugar;
          }
          </code></div>
-          System.debug(Cake.sugar); <em> // 25 </em>
-          Cake.sugar = 30;
-          System.debug(Cake.sugar); <em> // 30 </em>
+            System.debug(Cake.sugar); <em> // 25 </em>
+            Cake.sugar = 30;
+            System.debug(Cake.sugar); <em> // 30 </em>
 
-          Pie cinnamon = new Pie();
-          System.debug(cinnamon.sugarPie); <em> // 30 (Changed) </em>
+            Pie cinnamon = new Pie();
+            System.debug(cinnamon.sugarPie); <em> // 30 (Changed) </em>
 
-          cinnamon.sugarPie = 35;
-          System.debug(cinnamon.sugarPie); <em> // 35 </em>
+            cinnamon.sugarPie = 35;
+            System.debug(cinnamon.sugarPie); <em> // 35 </em>
         </pre>
       </div>
 
