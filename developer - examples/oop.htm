@@ -121,16 +121,16 @@
              }
           }
          </code></div>
-          Pie cinnamon = new Pie();
-          cinnamon.name = 'Cinnamon Pie'; <em> // Pie class inherits name property from Cake class </em>
-          System.debug(cinnamon.sugarPie); <em> // 25 </em>
-          cinnamon.pieMethod(); <em> // This is Cake Class </em>
-          cinnamon.cakeMethod(); <em> // This is Cake Class </em>
-          System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=Cinnamon Pie, Cake.sugar=25, sugarPie=25] </em>
+            Pie cinnamon = new Pie();
+            cinnamon.name = 'Cinnamon Pie'; <em> // Pie class inherits name property from Cake class </em>
+            System.debug(cinnamon.sugarPie); <em> // 25 </em>
+            cinnamon.pieMethod(); <em> // This is Cake Class </em>
+            cinnamon.cakeMethod(); <em> // This is Cake Class </em>
+            System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=Cinnamon Pie, Cake.sugar=25, sugarPie=25] </em>
 
-          cinnamon.sugarPie = 35;
-          System.debug(cinnamon.sugarPie); <em> // 35 </em>
-          System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=Cinnamon Pie, Cake.sugar=25, sugarPie=35] </em>
+            cinnamon.sugarPie = 35;
+            System.debug(cinnamon.sugarPie); <em> // 35 </em>
+            System.debug(cinnamon); <em> // Pie:[Cake.cream=null, Cake.name=Cinnamon Pie, Cake.sugar=25, sugarPie=35] </em>
         </pre>
       </div>
 
