@@ -176,45 +176,46 @@
         <button class="showSolution">Show Solution</button>
         <pre>
          <em> // Overloading is in the same class. It is about Polymorphism. </em>
+         <div><code>
          public class Calculator {
-               
-               <em> // Method Signature = Method Name + Parameters </em>
-               public static integer addition(integer a, integer b){
-                  return a + b;
-               }
+         
+             <em>// Method Signature = Method Name + Parameters </em>
+             public static integer addition(integer a, integer b){
+                 return a + b;
+             }
 
-               public static decimal addition(integer a, decimal b){
-                  return a + b;
-               }
+             public static decimal addition(integer a, decimal b){
+                 return a + b;
+             }
 
-               public static decimal addition(decimal a, integer b){
-                  return a + b;
-               }
+             public static decimal addition(decimal a, integer b){
+                 return a + b;
+             }
 
-               public static integer addition(integer a, integer b, integer c){
-                  return a + b + c;
-               }
+             public static integer addition(integer a, integer b, integer c){
+                 return a + b + c;
+             }
 
-               public static integer substraction(integer a, integer b){
-                  return a - b;
-               }
-            }
-   
-            Integer sum = Calculator.addition(3, 5); 
-            System.debug(sum); <em> // 8 </em>
+             public static integer substraction(integer a, integer b){
+                 return a - b;
+             }
+         }
+         </code></div>
+          Integer sum = Calculator.addition(3, 5); 
+          System.debug(sum); <em> // 8 </em>
 
-            Decimal sum = Calculator.addition(3, 5.7);
-            System.debug(sum); <em> // 8.7 </em>
+          Decimal sum = Calculator.addition(3, 5.7);
+          System.debug(sum); <em> // 8.7 </em>
 
-            Decimal sum = Calculator.addition(3.5, 5);
-            System.debug(sum); <em> // 8.5 </em>
+          Decimal sum = Calculator.addition(3.5, 5);
+          System.debug(sum); <em> // 8.5 </em>
 
-            Integer sum = Calculator.addition(3, 5, 7);
-            System.debug(sum); <em> // 15 </em>
+          Integer sum = Calculator.addition(3, 5, 7);
+          System.debug(sum); <em> // 15 </em>
 
-            Integer difference = Calculator.substraction(3, 5);
-            System.debug(difference); <em> // -2 </em>  
-         </pre>
+          Integer difference = Calculator.substraction(3, 5);
+          System.debug(difference); <em> // -2 </em>  
+        </pre>
       </div>
 
       <!-- EXAMPLE 6 -->
