@@ -220,54 +220,55 @@
 
       <!-- EXAMPLE 6 -->
       <div class="example">
-         <p><span class="counter"></span> - Please explain static and non-static keywords with an example.</p>
-         <button class="showSolution">Show Solution</button>
-         <pre>
-            <em> // non-static example </em>
-            public virtual class Cake { <em> // Cake Class (Superclass) </em>
-               public string name;
-               public integer sugar = 25; <em> // sugar is non-static property </em>
-               public boolean cream;   
-            }
+        <p><span class="counter"></span> - Please explain static and non-static keywords with an example.</p>
+        <button class="showSolution">Show Solution</button>
+        <pre>
+         <em> // non-static example </em>
+         <div><code>
+         public virtual class Cake { <em> // Cake Class (Superclass) </em>
+             public string name;
+             public integer sugar = 25; <em> // sugar is non-static property </em>
+             public boolean cream;   
+         }
 
-            public class Pie extends Cake { <em> // Pie Class (Subclass) </em>
-               public integer sugarPie = sugar;
-            }
-
-            Cake lemon = new Cake();
-            System.debug(lemon.sugar); <em> // 25 </em>
+         public class Pie extends Cake { <em> // Pie Class (Subclass) </em>
+             public integer sugarPie = sugar;
+         }
+         </code></div>
+          Cake lemon = new Cake();
+          System.debug(lemon.sugar); <em> // 25 </em>
             
-            lemon.sugar = 30;
-            System.debug(lemon.sugar); <em> // 30 </em>
+          lemon.sugar = 30;
+          System.debug(lemon.sugar); <em> // 30 </em>
 
-            Pie cinnamon = new Pie();
-            System.debug(cinnamon.sugarPie); <em> // 25 (Still)</em>
+          Pie cinnamon = new Pie();
+          System.debug(cinnamon.sugarPie); <em> // 25 (Still)</em>
 
-            cinnamon.sugarPie = 30;
-            System.debug(cinnamon.sugarPie); <em> // 30 </em>
+          cinnamon.sugarPie = 30;
+          System.debug(cinnamon.sugarPie); <em> // 30 </em>
 
+         <em> // static example </em>
+         <div><code>
+         public virtual class Cake { <em> // Cake Class (Superclass) </em>
+             public string name;
+             public static integer sugar = 25; <em> // Now sugar is static property </em>
+             public boolean cream;   
+         }
 
-            <em> // static example </em>
-            public virtual class Cake { <em> // Cake Class (Superclass) </em>
-               public string name;
-               public static integer sugar = 25; <em> // Now sugar is static property </em>
-               public boolean cream;   
-            }
+         public class Pie extends Cake { <em> // Pie Class (Subclass) </em>
+             public integer sugarPie = sugar;
+         }
+         </code></div>
+          System.debug(Cake.sugar); <em> // 25 </em>
+          Cake.sugar = 30;
+          System.debug(Cake.sugar); <em> // 30 </em>
 
-            public class Pie extends Cake { <em> // Pie Class (Subclass) </em>
-               public integer sugarPie = sugar;
-            }
+          Pie cinnamon = new Pie();
+          System.debug(cinnamon.sugarPie); <em> // 30 (Changed) </em>
 
-            System.debug(Cake.sugar); <em> // 25 </em>
-            Cake.sugar = 30;
-            System.debug(Cake.sugar); <em> // 30 </em>
-
-            Pie cinnamon = new Pie();
-            System.debug(cinnamon.sugarPie); <em> // 30 (Changed) </em>
-
-            cinnamon.sugarPie = 35;
-            System.debug(cinnamon.sugarPie); <em> // 35 </em>
-         </pre>
+          cinnamon.sugarPie = 35;
+          System.debug(cinnamon.sugarPie); <em> // 35 </em>
+        </pre>
       </div>
 
       <!-- EXAMPLE 7 -->
