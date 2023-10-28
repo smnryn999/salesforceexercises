@@ -149,11 +149,14 @@ pre div {
    padding: 0;
    border: 1px solid lightyellow;
    border-radius: 5px;
+   position: absolute 
 }
 pre div code {
    margin: 0;
    padding: -1em;
    font-size: 15px;
+   position: relative;
+   left: 10px 
 }
 
 var {color: rgb(204, 204, 255);}
