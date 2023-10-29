@@ -148,13 +148,13 @@ pre div {
    background:black;
    margin: 0 45px;
    padding: 0;
+   padding-left: -25px;
    border: 1px solid lightyellow;
    border-radius: 5px;
 }
 pre div code {
    margin: 0;
    padding: 0;
-   padding-left: -25px;
    font-size: 15px;
    overflow: scroll;
 }
