@@ -80,11 +80,11 @@
       <pre>
        <em> // We use IN keyword because the parameter data type is List. </em>
        <div><code>
-       public class GetRecords {
-           public static List&lt;Book__c&gt; getBook(List<string> strList){
-               return [SELECT Name, Author__c FROM Book__c WHERE Language__c IN :strList];
-           }   
-       }     
+     public class GetRecords {
+         public static List&lt;Book__c&gt; getBook(List<string> strList){
+             return [SELECT Name, Author__c FROM Book__c WHERE Language__c IN :strList];
+         }   
+     }     
        </code></div>     
         <em> // We call the method in a for loop with a parameter value that is a list. </em>
           for(Book__c book:GetRecords.getBook(new List<String>{'English', 'Turkish', 'Russian'})){
