@@ -145,14 +145,14 @@ pre {
 }
 pre div {
    background:black;
-   margin: 0 25px;
+   margin: 0 35px;
    padding: 0;
    border: 1px solid lightyellow;
    border-radius: 5px;
 }
 pre div code {
    margin: 0;
-   padding: -1em;
+   padding: 0;
    font-size: 15px;
 }
 
