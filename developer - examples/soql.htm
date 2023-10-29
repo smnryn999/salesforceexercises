@@ -31,9 +31,9 @@
       <p><span class="counter"></span> - Please write a query that searchs Tolstoy's book whose price is over 50.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          Book__c book = [SELECT Name FROM Book__c WHERE Author__c = 'Tolstoy' AND Price__c > 50 LIMIT 1];
-          System.debug(book.Name); <em> // War and Peace</em>                 
-        </pre>
+        Book__c book = [SELECT Name FROM Book__c WHERE Author__c = 'Tolstoy' AND Price__c > 50 LIMIT 1];
+        System.debug(book.Name); <em> // War and Peace</em>                 
+      </pre>
     </div>
 
     <!-- EXAMPLE 3 -->
@@ -42,13 +42,13 @@
         is Texas.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          <em> // Account acc = [SELECT Id, Name FROM Account WHERE BillingState='TX' LIMIT 1]; </em>
-          <em> // System.debug(acc); // Account:{Id=0018e00000J1wtFAAR, Name=Edge Communications}</em>
+        <em> // Account acc = [SELECT Id, Name FROM Account WHERE BillingState='TX' LIMIT 1]; </em>
+        <em> // System.debug(acc); // Account:{Id=0018e00000J1wtFAAR, Name=Edge Communications}</em>
 
-          Contact con = new Contact(LastName='Test', AccountId=[SELECT Id, Name FROM Account WHERE BillingState='TX' LIMIT 1].Id);
-          insert con;
-          System.debug(con); <em> // Contact:{LastName=Test, AccountId=0018e00000J1wtFAAR, Id=0038e00000Guf9bAAB} </em>              
-        </pre>
+        Contact con = new Contact(LastName='Test', AccountId=[SELECT Id, Name FROM Account WHERE BillingState='TX' LIMIT 1].Id);
+        insert con;
+        System.debug(con); <em> // Contact:{LastName=Test, AccountId=0018e00000J1wtFAAR, Id=0038e00000Guf9bAAB} </em>              
+      </pre>
     </div>
 
     <!-- EXAMPLE 4 -->
@@ -99,14 +99,14 @@
         AnnualRevenue values.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          List&lt;Account&gt; listAcc = [SELECT Name, AnnualRevenue FROM Account ORDER BY AnnualRevenue DESC NULLS LAST LIMIT 3];
+        List&lt;Account&gt; listAcc = [SELECT Name, AnnualRevenue FROM Account ORDER BY AnnualRevenue DESC NULLS LAST LIMIT 3];
           
-          Decimal sum = 0;
-          for(Account acc:listAcc){
-              sum += acc.AnnualRevenue;
-          }
-          System.debug(listAcc); <em> // (Account:{Name=United Oil & Gas Corp., AnnualRevenue=5600000000, Id=0018e00000JeYP7AAN}, Account:{Name=Pyramid Construction Inc., AnnualRevenue=950000000, Id=0018e00000JeYP4AAN}, Account:{Name=Express Logistics and Transport, AnnualRevenue=950000000, Id=0018e00000JeYP8AAN}) </em>
-          System.debug(sum /listAcc.size()); <em> // 2500000000 </em>
+        Decimal sum = 0;
+        for(Account acc:listAcc){
+            sum += acc.AnnualRevenue;
+        }
+        System.debug(listAcc); <em> // (Account:{Name=United Oil & Gas Corp., AnnualRevenue=5600000000, Id=0018e00000JeYP7AAN}, Account:{Name=Pyramid Construction Inc., AnnualRevenue=950000000, Id=0018e00000JeYP4AAN}, Account:{Name=Express Logistics and Transport, AnnualRevenue=950000000, Id=0018e00000JeYP8AAN}) </em>
+        System.debug(sum /listAcc.size()); <em> // 2500000000 </em>
       </pre>
     </div>
 
@@ -115,16 +115,16 @@
       <p><span class="counter"></span> - Update the opportunities that have expired but are still open.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          List&lt;Opportunity&gt; liste = [SELECT Name FROM Opportunity WHERE CloseDate < TODAY AND StageName NOT IN ('Closed Won','Closed Lost')];
+        List&lt;Opportunity&gt; liste = [SELECT Name FROM Opportunity WHERE CloseDate < TODAY AND StageName NOT IN ('Closed Won','Closed Lost')];
         
-          List&lt;Opportunity&gt; emptyList = new List&lt;Opportunity&gt;();
-          for(opportunity opp:liste){
-              System.debug(opp.name);
-              opp.Description = 'Tarihi geçtiği için kapatılmıştır';
-              opp.StageName = 'Closed Lost';
-              emptyList.add(opp);
-          }
-          update emptyList;
+        List&lt;Opportunity&gt; emptyList = new List&lt;Opportunity&gt;();
+        for(opportunity opp:liste){
+            System.debug(opp.name);
+            opp.Description = 'Tarihi geçtiği için kapatılmıştır';
+            opp.StageName = 'Closed Lost';
+            emptyList.add(opp);
+        }
+        update emptyList;
       </pre>
     </div>
 
@@ -133,17 +133,17 @@
       <p><span class="counter"></span> - Governor Limits </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          <em> // The DML limit in a thread is 150. We can do up to 10k operations using List. </em>
-          List<Contact> liste = new List<Contact>();
-          for(integer i=0; i<10000; i++){
-              Contact con = new Contact(LastName='Contact '+i);
-              liste.add(con);
-          }
-          insert liste;
+        <em> // The DML limit in a thread is 150. We can do up to 10k operations using List. </em>
+        List<Contact> liste = new List<Contact>();
+        for(integer i=0; i<10000; i++){
+            Contact con = new Contact(LastName='Contact '+i);
+            liste.add(con);
+        }
+        insert liste;
 
-          System.debug([SELECT Count() FROM Contact]);
-          <em> // The SOQL limit in a thread is 100. We can fetch up to 50,000 records with SOQL. </em>
-          delete [SELECT Id FROM Contact WHERE CreatedDate = TODAY];
+        System.debug([SELECT Count() FROM Contact]);
+        <em> // The SOQL limit in a thread is 100. We can fetch up to 50,000 records with SOQL. </em>
+        delete [SELECT Id FROM Contact WHERE CreatedDate = TODAY];
       </pre>
     </div>
 
@@ -180,19 +180,18 @@
 
     <!-- EXAMPLE 10 -->
     <div class="example">
-      <p><span class="counter"></span> - Get Amount totals by grouping the closed opportunities according to their
-        Stage. </p>
+      <p><span class="counter"></span> - Get Amount totals by grouping the closed opportunities according to their Stage. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          <em> // Query to retrieve the total amount of closed opportunities by stage </em>
-          <span class='datatype'>List&lt;AggregateResult&gt;</span> results = [SELECT StageName, SUM(Amount) totalAmount FROM Opportunity WHERE IsClosed = true GROUP BY StageName];
+        <em> // Query to retrieve the total amount of closed opportunities by stage </em>
+        <span class='datatype'>List&lt;AggregateResult&gt;</span> results = [SELECT StageName, SUM(Amount) totalAmount FROM Opportunity WHERE IsClosed = true GROUP BY StageName];
 
-          <em> // Iterate over the results and access the aggregated values </em>
-          for (AggregateResult result : results) {
+        <em> // Iterate over the results and access the aggregated values </em>
+        for(AggregateResult result : results) {
             String stageName = (String)result.get('StageName');
             Decimal totalAmount = (Decimal)result.get('totalAmount');
             System.debug('Stage Name: ' + stageName + ', Total Amount: ' + totalAmount);
-          }
+        }
       </pre>
     </div>
 
@@ -202,8 +201,8 @@
         Coat" to the console. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          Book__c book = [SELECT Owner.Name, Owner.Email FROM Book__c WHERE Name = 'Madonna in a Fur Coat'];
-          System.debug('Owner Name: ' + book.Owner.Name + ', Owner Email: ' + book.Owner.Email); <em> // Owner Name: Rose Gonzales, Owner Email: rosegonzales@xmail.com </em>
+        Book__c book = [SELECT Owner.Name, Owner.Email FROM Book__c WHERE Name = 'Madonna in a Fur Coat'];
+        System.debug('Owner Name: ' + book.Owner.Name + ', Owner Email: ' + book.Owner.Email); <em> // Owner Name: Rose Gonzales, Owner Email: rosegonzales@xmail.com </em>
       </pre>
     </div>
 
@@ -253,10 +252,10 @@
         System.debug(searchResults); <em> // ((ContentDocument:{Title=Books, Id=0698e00000CezhFAAR})) </em>
 
         for(List&lt;sObject&gt; file:files){
-          for(SObject f:file){
-              ContentDocument doc = (ContentDocument)f;
-              System.debug(doc.Title); <em> // Books </em>
-          }
+            for(SObject f:file){
+                ContentDocument doc = (ContentDocument)f;
+                System.debug(doc.Title); <em> // Books </em>
+            }
         }
       </pre>
     </div>
@@ -273,17 +272,17 @@
           
         <em> // Loop through the search results and separate them based on the object type </em>
         for(List&lt;SObject&gt; result:results){
-          for(SObject obj:result){
-              if(obj instanceof Contact){
-                  Contact con = (Contact)obj;
-                  System.debug('Contact Name: ' + con.Name + ', Contact Email: ' + con.Email);
-              }
-              else {
-                  Lead lead = (Lead)obj;
-                  System.debug('Lead Name: ' + lead.Name + ', Lead Company: ' + lead.Company);
-              }
-          }
-      }
+            for(SObject obj:result){
+                if(obj instanceof Contact){
+                    Contact con = (Contact)obj;
+                    System.debug('Contact Name: ' + con.Name + ', Contact Email: ' + con.Email);
+                }
+                else {
+                    Lead lead = (Lead)obj;
+                    System.debug('Lead Name: ' + lead.Name + ', Lead Company: ' + lead.Company);
+                }
+            }
+        }
       </pre>
     </div>
 
