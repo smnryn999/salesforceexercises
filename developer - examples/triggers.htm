@@ -16,7 +16,7 @@
 
     <!-- EXAMPLE 1 -->
     <div class="example">
-      <p><span class="counter"></span> - Write a method for the trigger that updates the Rating field of a newly created Account to 'Hot' if the Industry field is 'Banking' or 'Healthcare'.</p>
+      <p><span class="counter"></span> - Write a trigger that updates the Rating field of a newly created Account to 'Hot' if the Industry field is 'Banking' or 'Healthcare'.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
         <div><code>
@@ -70,22 +70,25 @@
       <p><span class="counter"></span> - Please write a trigger that throws an error when a user wants to delete a contact record that is not related to any Account.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        public class HandlerClass {
+        <div><code>
+      public class HandlerClass {
           public static void contactDeleteError(List&lt;Contact&gt; conList){ <em> // conList represents Trigger.old</em> 
-            for(Contact con : conList){
-                If(String.isBlank(con.AccountId)){
-                    con.addError('You have no permission to perform this action.');
-                }
-            }
+              for(Contact con : conList){
+                  if(String.isBlank(con.AccountId)){
+                      con.addError('You have no permission to perform this action.');
+                  }
+              }
           }              
-        }
-
-        trigger ContactTrigger on Contact (before delete) {
+      }
+        </code></div>
+        <div><code>
+      trigger ContactTrigger on Contact (before delete) {
           if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isDelete){
-            HandlerClass.contactDeleteError(Trigger.old);
+              HandlerClass.contactDeleteError(Trigger.old);
           }
-        }              
-        </pre>
+      }     
+        </code></div>
+      </pre>
     </div>
 
     <!-- EXAMPLE 4 -->
@@ -93,29 +96,30 @@
       <p><span class="counter"></span> - Send an email and notification to the new owner when the owner of an account changes.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          public static void sendEmailAndNotification(List&lt;Account&gt; listAccount, Map&lt;Id, Account&gt; oldAccounts){
-             List&lt;Account> accounts = [SELECT Owner.Email FROM Account WHERE Id=:oldAccounts.keySet()];
+        <div><code>
+      public static void sendEmailAndNotification(List&lt;Account&gt; listAccount, Map&lt;Id, Account&gt; oldAccounts){
+          List&lt;Account> accounts = [SELECT Owner.Email FROM Account WHERE Id=:oldAccounts.keySet()];
             
-             Map&lt;Id, String&gt; mapAccountOwners = new Map&lt;Id, String&gt;();
-             for(Account acc:accounts){
-                 mapAccountOwners.put(acc.Id, acc.Owner.Email);
-             }        
+          Map&lt;Id, String&gt; mapAccountOwners = new Map&lt;Id, String&gt;();
+              for(Account acc:accounts){
+                  mapAccountOwners.put(acc.Id, acc.Owner.Email);
+              }        
     
-             List&lt;Messaging.Email&gt; emails = new List&lt;Messaging.Email&gt;();
+              List&lt;Messaging.Email&gt; emails = new List&lt;Messaging.Email&gt;();
     
-             for(Account acc:listAccount){
-                if(acc.OwnerId != oldAccounts.get(acc.Id).OwnerId){                
-                  Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
-                  email.setSubject('Account Owner');
-                  email.setPlainTextBody(acc.Name + ' has been assigned to you.');
-                  email.setToAddresses(new List<String>{mapAccountOwners.get(acc.Id)});
-                  emails.add(email);
-               }    
+              for(Account acc:listAccount){
+                  if(acc.OwnerId != oldAccounts.get(acc.Id).OwnerId){                
+                      Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
+                      email.setSubject('Account Owner');
+                      email.setPlainTextBody(acc.Name + ' has been assigned to you.');
+                      email.setToAddresses(new List<String>{mapAccountOwners.get(acc.Id)});
+                      emails.add(email);
+                  }    
               }
               Messaging.sendEmail(emails);  
 
-              <em> // First, We must create a custom notification type </em>
-              <em> // Get the Id for our custom notification type </em>
+              <em>// First, We must create a custom notification type </em>
+              <em>// Get the Id for our custom notification type </em>
               CustomNotificationType notificationType = [SELECT Id FROM CustomNotificationType WHERE DeveloperName='Custom_Notification'];
                     
               for(Account acc:listAccount){
@@ -129,7 +133,7 @@
                   }    
               }
           }
-
+          </code></div>
           <em> // We are calling the method within the trigger </em>
           trigger AccountTrigger on Account (after update) {
              if(Trigger.isAfter <span style='color:red'>&&</span> Trigger.isUpdate){
