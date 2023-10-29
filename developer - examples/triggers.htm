@@ -20,22 +20,22 @@
       <button class="showSolution">Show Solution</button>
       <pre>
         <div><code>
-        public class HandlerClass {
-            public static void updateRatingField(List&lt;Account&gt; listAcc){ <em> // listAcc represents Trigger.new </em>
-                for(Account acc : listAcc){
-                    If( !String.isBlank(acc.Industry) <span style='color:red'>&&</span> (acc.Industry == 'Banking' || acc.Industry == 'Healthcare')){
-                        acc.Rating = 'Hot';
-                    }
-                }
-            }  
-        }
+      public class HandlerClass {
+          public static void updateRatingField(List&lt;Account&gt; listAcc){ <em> // listAcc represents Trigger.new </em>
+              for(Account acc : listAcc){
+                  if( !String.isBlank(acc.Industry) <span style='color:red'>&&</span> (acc.Industry == 'Banking' || acc.Industry == 'Healthcare')){
+                      acc.Rating = 'Hot';
+                  }
+              }
+          }  
+      }
         </code></div>
         <div><code>
-        trigger AccountTrigger on Account (before insert) {
-            if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isInsert){
-                HandlerClass.updateRatingField(Trigger.new);
-            }
-        }    
+      trigger AccountTrigger on Account (before insert) {
+          if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isInsert){
+              HandlerClass.updateRatingField(Trigger.new);
+          }
+      }    
         </code></div>
       </pre>
     </div>
@@ -45,20 +45,23 @@
       <p><span class="counter"></span> - When a contact record is updated, write a trigger that changes the Description field to the profile name of the user who updated it.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        public class HandlerClass {
+        <div><code>
+      public class HandlerClass {
           public static void updateDescriptionField(List&lt;Contact&gt; conList){
-            Profile profile = [SELECT Name FROM Profile WHERE Id = :UserInfo.getProfileId()];
-            for(Contact con : conList){
-                con.Description = 'This record was last updated by ' + profile.Name;
-            }
+              Profile profile = [SELECT Name FROM Profile WHERE Id = :UserInfo.getProfileId()];
+              for(Contact con : conList){
+                  con.Description = 'This record was last updated by ' + profile.Name;
+              }
           }        
-        }
-
-        trigger ContactTrigger on Contact (before update) {
+      }
+        </code></div>
+        <div><code>
+      trigger ContactTrigger on Contact (before update) {
           if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isUpdate){
-            HandlerClass.updateDescriptionField(Trigger.new);
+              HandlerClass.updateDescriptionField(Trigger.new);
           }
-        }                     
+      }      
+        </code></div>
       </pre>
     </div>
 
