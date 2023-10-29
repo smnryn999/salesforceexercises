@@ -154,6 +154,7 @@ pre div {
 pre div code {
    margin: 0;
    padding: 0;
+   padding-left: -25px;
    font-size: 15px;
    overflow: scroll;
 }
