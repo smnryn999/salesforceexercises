@@ -97,10 +97,11 @@
       <button class="showSolution">Show Solution</button>
       <pre>
         <div><code>
-      public static void sendEmailAndNotification(List&lt;Account&gt; listAccount, Map&lt;Id, Account&gt; oldAccounts){
-          List&lt;Account> accounts = [SELECT Owner.Email FROM Account WHERE Id=:oldAccounts.keySet()];
+      public class HandlerClass {
+          public static void sendEmailAndNotification(List&lt;Account&gt; listAccount, Map&lt;Id, Account&gt; oldAccounts){
+              List&lt;Account> accounts = [SELECT Owner.Email FROM Account WHERE Id=:oldAccounts.keySet()];
             
-          Map&lt;Id, String&gt; mapAccountOwners = new Map&lt;Id, String&gt;();
+              Map&lt;Id, String&gt; mapAccountOwners = new Map&lt;Id, String&gt;();
               for(Account acc:accounts){
                   mapAccountOwners.put(acc.Id, acc.Owner.Email);
               }        
@@ -133,13 +134,16 @@
                   }    
               }
           }
-          </code></div>
-          <em> // We are calling the method within the trigger </em>
-          trigger AccountTrigger on Account (after update) {
-             if(Trigger.isAfter <span style='color:red'>&&</span> Trigger.isUpdate){
-                HandlerClass.sendEmailAndNotification(Trigger.new, Trigger.oldMap);
-             }
-           }              
+      }
+        </code></div>
+        <em> // We are calling the method within the trigger </em>
+        <div><code>
+      trigger AccountTrigger on Account (after update) {
+          if(Trigger.isAfter <span style='color:red'>&&</span> Trigger.isUpdate){
+              HandlerClass.sendEmailAndNotification(Trigger.new, Trigger.oldMap);
+          }
+      }      
+        </code></div>
         </pre>
     </div>
 
