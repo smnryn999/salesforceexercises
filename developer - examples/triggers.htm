@@ -19,21 +19,24 @@
       <p><span class="counter"></span> - Write a method for the trigger that updates the Rating field of a newly created Account to 'Hot' if the Industry field is 'Banking' or 'Healthcare'.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
+        <div><code>
         public class HandlerClass {
-          public static void updateRatingField(List&lt;Account&gt; listAcc){ <em> // listAcc represents Trigger.new </em>
-            for(Account acc : listAcc){
-               If( !String.isBlank(acc.Industry) <span style='color:red'>&&</span> (acc.Industry == 'Banking' || acc.Industry == 'Healthcare')){
-                  acc.Rating = 'Hot';
-               }
-           }
-         }  
+            public static void updateRatingField(List&lt;Account&gt; listAcc){ <em> // listAcc represents Trigger.new </em>
+                for(Account acc : listAcc){
+                    If( !String.isBlank(acc.Industry) <span style='color:red'>&&</span> (acc.Industry == 'Banking' || acc.Industry == 'Healthcare')){
+                        acc.Rating = 'Hot';
+                    }
+                }
+            }  
         }
-
+        </code></div>
+        <div><code>
         trigger AccountTrigger on Account (before insert) {
-          if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isInsert){
-            HandlerClass.updateRatingField(Trigger.new);
-          }
-        }      
+            if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isInsert){
+                HandlerClass.updateRatingField(Trigger.new);
+            }
+        }    
+        </code></div>
       </pre>
     </div>
 
