@@ -21,29 +21,32 @@
       <pre>
         <em> // Apex test classes are used to test the functionality of your Apex code, ensuring that it works as expected. </em>
         <em> //  a Calculator class with a method add that adds two numbers </em>
-        public class Calculator {
-            public static Integer add(Integer num1, Integer num2) {
-                return num1 + num2;
-            }
-        }
-
+        <div><code>
+      public class Calculator {
+          public static Integer add(Integer num1, Integer num2) {
+              return num1 + num2;
+          }
+      }
+        </code></div>
         <em> // Now we are testing Calculator class</em>
-        @isTest
-        public class CalculatorTest {
-            <em> // Test method to test the 'add' method of the Calculator class </em>
-            @isTest
-            static void testAdd() {
-                <em> // Define test data </em>
-                Integer num1 = 5;
-                Integer num2 = 3;
+        <div><code>
+      @isTest
+      public class CalculatorTest {
+          <em>// Test method to test the 'add' method of the Calculator class </em>
+          @isTest
+          static void testAdd() {
+              <em>// Define test data </em>
+              Integer num1 = 5;
+              Integer num2 = 3;
                 
-                <em> // Call the method you want to test </em>
-                Integer result = Calculator.add(num1, num2);
+              <em>// Call the method you want to test </em>
+              Integer result = Calculator.add(num1, num2);
                 
-                <em> // Verify the result </em>
-                System.assertEquals(8, result, 'Addition result should be 8');
-            }
-        }
+              <em>// Verify the result </em>
+              System.assertEquals(8, result, 'Addition result should be 8');
+          }
+      }
+        </code></div>
         <em>
             // @isTest annotation indicates that this class is a test class.
             // The testAdd() method tests the add method of the Calculator class.
