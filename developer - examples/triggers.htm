@@ -144,7 +144,7 @@
           }
       }      
         </code></div>
-        </pre>
+      </pre>
     </div>
 
     <!-- EXAMPLE 5 -->
@@ -174,48 +174,51 @@
               HandlerClass.setParent(Trigger.new);
           }
       }      
-      </div></code>
-    </pre>
-  </div>
+        </div></code>
+      </pre>
+    </div>
 
     <!-- EXAMPLE 6 -->
     <div class="example">
       <p><span class="counter"></span> - Create a field showing the Id value on the Book__c object and automatically give the required value in case of insert and update.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
+        <div><code>
        public class HandlerClass {
-          <em> // After Insert </em>
-          public static void setIdForInsert(List<Book__c> listBook){
-             List<Book__c> books = new List<Book__c>();
-             for(Book__c b:listBook){
-                Book__c book = new Book__c();
-                book.Id = b.Id;
-                book.Id__c = b.Id;
-                book.Name = b.Name;
-                book.Price__c = b.Price__c;
-                books.add(book);
-              }
-              update books;
-           }
+           <em>// After Insert </em>
+           public static void setIdForInsert(List<Book__c> listBook){
+               List<Book__c> books = new List<Book__c>();
+               for(Book__c b:listBook){
+                   Book__c book = new Book__c();
+                   book.Id = b.Id;
+                   book.Id__c = b.Id;
+                   book.Name = b.Name;
+                   book.Price__c = b.Price__c;
+                   books.add(book);
+               }
+               update books;
+            }
 
-           <em> // Before Update </em>
-           public static void setIdForUpdate(List<Book__c> listBook){
-              for(Book__c b:listBook){
-                 b.Id__c = b.Id;
-              }
-           }
+            <em>// Before Update </em>
+            public static void setIdForUpdate(List<Book__c> listBook){
+                for(Book__c b:listBook){
+                    b.Id__c = b.Id;
+                }
+            }
         }
-
+          </div></code>
+          <div><code>
         trigger BookTrigger on Account (before update, after insert) {
-           if(Trigger.isAfter <span style='color:red'>&&</span> Trigger.isInsert){
-              HandlerClass.setIdForInsert(Trigger.new);
-           }
-           if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isUpdate){
-              HandlerClass.setIdForUpdate(Trigger.new);
-           }
+            if(Trigger.isAfter <span style='color:red'>&&</span> Trigger.isInsert){
+                HandlerClass.setIdForInsert(Trigger.new);
+            }
+            if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isUpdate){
+                HandlerClass.setIdForUpdate(Trigger.new);
+            }
         }      
-      </pre>
-    </div>
+          </div></code>
+        </pre>
+      </div>
   </section>
 
   <script src="examples.js"></script>
