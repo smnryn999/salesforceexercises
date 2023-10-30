@@ -130,7 +130,7 @@
          String month = strDate.substringBetween(' '); <em> // Nov </em>
          String year = strDate.substringAfterLast(' '); <em> // 2012 </em>
          
-         <em>// Elimizde olması gereken format '15.11.2012'dir.</em>         
+         <em>// The format we should have is '15.11.2012'.</em>         
          <span class="loop">switch on month</span> {
             <var>when</var> 'Jan' {month = '01';}
             <var>when</var> 'Feb' {month = '02';}
@@ -154,23 +154,22 @@
 
       <div class="example">
       <p>
-        <span class="counter"></span> - Convert a string word to a list and then
-        restore it.
+        <span class="counter"></span> - Convert a string word to a list and then restore it.
       </p>
       <button class="showSolution">Show Solution</button>
       <pre>
          String str = <span class="string">'Hello'</span>;
-         List&lt;String> liste = str.split('');
-         System.debug(liste); <em> // (H,e,l,l,o)</em>
+         List&lt;String> strList = str.split('');
+         System.debug(strList); <em> // (H, e, l, l, o) </em>
 
-         <span class="datatype">string</span> strAgain = liste.toString();
+         String strAgain = strList.toString();
          strAgain = strAgain.substringBetween('(',')').remove(',').deleteWhiteSpace();
          System.debug(strAgain); <em> // Hello</em>
          
          <em> // Another way</em>
          String text = '';
-         <span class="loop">for</span>(<span class="datatype">string</span> w:liste){
-            text += w;
+         for(String letter:strList){
+            text += letter;
          }    
          System.debug(text); <em> // Hello</em> 
       </pre>
@@ -178,26 +177,25 @@
 
       <div class="example">
       <p>
-        <span class="counter"></span> - Convert a string sentence to a list and
-        then undo it again.
+        <span class="counter"></span> - Convert a string sentence to a list and then undo it again.
       </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         String text = <span class="string">'This is a sentence.'</span>;
-         List&lt;String> textList = text.remove('.').split(' ');
-         System.debug(textList); <em> // (This, is, a, sentence)</em>
+         String str = <span class="string">'This is a sentence.'</span>;
+         List&lt;String> strList = str.remove('.').split(' ');
+         System.debug(strList); <em> // (This, is, a, sentence)</em>
          
-         String strAgain = textList.toString();
+         String strAgain = strList.toString();
          strAgain = strAgain.substringBetween('(',')').remove(',') + '.';
          System.debug(strAgain); <em> // This is a sentence. </em>
          
          <em> // Another way</em>
-         String text = '';
-         for(String w:textList){
-            text += w + ' ';
+         String sentence = '';
+         for(String word:strList){
+            sentence += word + ' ';
          }
-         text = text.trim() + '.';
-         System.debug(text); <em> // This is a sentence. </em> 
+         sentence = sentence.trim() + '.';
+         System.debug(sentence); <em> // This is a sentence. </em> 
       </pre>
       </div>
     </section>
