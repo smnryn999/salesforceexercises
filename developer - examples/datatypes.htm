@@ -120,16 +120,15 @@
 
       <div class="example">
       <p>
-        <span class="counter"></span> - Convert a value in "15 Nov 2012" format
-        from an external system to date format.
+        <span class="counter"></span> - Convert a value in "15 Nov 2012" format from an external system to date format.
       </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         <span class="datatype">String</span> tarih = <span class="string">'15 Nov 2012'</span>;
+         String strDate = <span class="string">'15 Nov 2012'</span>;
                   
-         String day = tarih.substring(0, 2); <em> // 15</em>
-         String tarih.substringBetween(' '); <em> // Nov</em>
-         String tarih.substringAfterLast(' '); <em> // 2012</em>
+         String day = strDate.substringBefore(' '); <em> // 15 </em>
+         String month = strDate.substringBetween(' '); <em> // Nov </em>
+         String year = strDate.substringAfterLast(' '); <em> // 2012 </em>
          
          <em>// Elimizde olması gereken format '15.11.2012'dir.</em>         
          <span class="loop">switch on month</span> {
@@ -147,9 +146,9 @@
             <var>when</var> 'Dec' {month = '12';}
          }
          
-         tarih = day + '.' + month + '.' + year; <em> // '15.11.2012' (String)</em>
-         Date date = Date.parse(tarih);
-         System.debug(date); <em> // 15.11.2012 (Date)</em>
+         strDate = day + '.' + month + '.' + year; <em> // '15.11.2012' (String)</em>
+         Date newDate = Date.parse(strDate);
+         System.debug(newDate); <em> // 15.11.2012 (Date)</em>
       </pre>
       </div>
 
