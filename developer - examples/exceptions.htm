@@ -24,10 +24,10 @@
 
           <em> // But if we use the DML in try block it does not give error and the inside of the catch block works.</em>
           try{
-             insert acc;
+              insert acc;
           }
           catch(Exception e){
-             System.debug('There is an error.');
+              System.debug('There is an error.');
           }
 
           <em> // This time required field is not missing. </em>
@@ -35,10 +35,10 @@
 
           <em> // The inside of the try block works but the inside of the catch block does not.</em>
           try{
-             insert acc;
+              insert acc;
           }
           catch(Exception e){
-             System.debug('There is an error.');
+              System.debug('There is an error.');
           }
       </pre>
     </div>
@@ -49,8 +49,8 @@
       <button class="showSolution">Show Solution</button>
       <pre>
           for(integer i=1; i<201; i++){
-             Contact con = new Contact(LastName = 'Contact' + i);
-             insert con; <em> // throws System.LimitException </em>
+              Contact con = new Contact(LastName = 'Contact' + i);
+              insert con; <em> // throws System.LimitException </em>
           }
       </pre>
     </div>
@@ -63,10 +63,10 @@
           String str;
         
           try{
-             Boolean strContains = str.contains("xyz");
+              Boolean strContains = str.contains("xyz");
           }
           catch(NullPointerException e){
-             System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: Attempt to de-reference a null object </em>
+              System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: Attempt to de-reference a null object </em>
           }
       </pre>
     </div>
@@ -80,10 +80,10 @@
           Integer num2 = 0;
         
           try{
-             System.debug(num1/num2);
+              System.debug(num1/num2);
           }
           catch(MathException e){
-             System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: Divide by 0 </em>
+              System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: Divide by 0 </em>
           }
       </pre>
     </div>
@@ -96,10 +96,10 @@
           List<String> colors = new List<String>{'white'};
         
           try{
-             colors[1] = 'green';
+              colors[1] = 'green';
           }
           catch(ListException e){
-             System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: List index out of bounds: 1</em>
+              System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: List index out of bounds: 1</em>
           }
       </pre>
     </div>
@@ -110,10 +110,10 @@
       <button class="showSolution">Show Solution</button>
       <pre>
           try{
-             Account acc = [SELECT Id FROM Account WHERE Name = 'New']; <em> // if there is no account record whose name is "New" </em>
+              Account acc = [SELECT Id FROM Account WHERE Name = 'New']; <em> // if there is no account record whose name is "New" </em>
           }
           catch(QueryException e){
-             System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: List has no rows for assignment to SObject</em>
+              System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: List has no rows for assignment to SObject</em>
           }
       </pre>
     </div>
@@ -129,7 +129,7 @@
               String str = accounts[0].Description;
           }
           catch(sObjectException e){
-             System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: SObject row was retrieved via SOQL without querying the requested field: Account.Description </em>
+              System.debug('There is an error: ' + e.getMessage()); <em> // There is an error: SObject row was retrieved via SOQL without querying the requested field: Account.Description </em>
           }
       </pre>
     </div>
