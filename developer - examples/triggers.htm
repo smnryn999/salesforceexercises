@@ -152,28 +152,31 @@
       <p><span class="counter"></span> - When a new account is created if there is another account with the same name, write a trigger that assigns the old one as the parent of the new one and adds country information next to the name of the new one.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-       public class HandlerClass {
+        <div><code>
+      public class HandlerClass {
           public static void setParent(List<Account> newAccounts){
-             List<Account> currentAccounts = [SELECT Id, Name FROM Account];
+              List<Account> currentAccounts = [SELECT Id, Name FROM Account];
         
-             for(Account newAcc:newAccounts){
-                 for(Account oldAcc:currentAccounts){
-                     if(newAcc.Name == oldAcc.Name){
-                        newAcc.ParentId = oldAcc.id;
-                        newAcc.Name = newAcc.Name + ' ' + (newAcc.BillingCountry != null ? newAcc.BillingCountry : 'Child');
-                     }
-                 }
-             }
-           }
-        }
-
-        trigger AccountTrigger on Account (before insert) {
-          if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isInsert){
-            HandlerClass.setParent(Trigger.new);
+              for(Account newAcc:newAccounts){
+                  for(Account oldAcc:currentAccounts){
+                      if(newAcc.Name == oldAcc.Name){
+                          newAcc.ParentId = oldAcc.id;
+                          newAcc.Name = newAcc.Name + ' ' + (newAcc.BillingCountry != null ? newAcc.BillingCountry : 'Child');
+                      }
+                  }
+              }
           }
-        }      
-      </pre>
-    </div>
+      }
+        </div></code>
+        <div><code>
+      trigger AccountTrigger on Account (before insert) {
+          if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isInsert){
+              HandlerClass.setParent(Trigger.new);
+          }
+      }      
+      </div></code>
+    </pre>
+  </div>
 
     <!-- EXAMPLE 6 -->
     <div class="example">
