@@ -48,33 +48,36 @@
       <button class="showSolution">Show Solution</button>
       <pre>
         <em> // Future Apex (also known as @future methods) is used for performing long-running operations asynchronously, often used for tasks like sending emails, making external web service calls, or other operations that should not block the main transaction. </em>
-        public class EmailSender {
-
+        <div><code>
+      public class EmailSender {
           @future
           public static void sendEmail(String toAddress, String subject, String body) {
-              <em> // Perform email sending logic here </em>
+              <em>// Perform email sending logic here </em>
               Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
               mail.setToAddresses(new String[]{toAddress});
               mail.setSubject(subject);
               mail.setPlainTextBody(body);
               Messaging.sendEmail(new Messaging.SingleEmailMessage{mail});
           }
-        }
+      }
+        </code></div>
         <em>
           // We have a sendEmail method annotated with @future. This indicates that the method will be executed asynchronously in a separate context.
           // Inside the sendEmail method, we perform the logic to send an email using Salesforce's Messaging API.
         </em>
         <em> // Now, you can call this sendEmail method from another context, such as a trigger, to send emails asynchronously. </em>
-        trigger MyObjectTrigger on MyObject__c (after insert) {
+        <div><code>
+      trigger MyObjectTrigger on MyObject__c (after insert) {
           for (MyObject__c obj : Trigger.new) {
-            String toAddress = 'recipient@example.com';
-            String subject = 'Hello from Salesforce Future Apex';
-            String body = 'This is an asynchronous email from Salesforce.';
+              String toAddress = 'recipient@example.com';
+              String subject = 'Hello from Salesforce Future Apex';
+              String body = 'This is an asynchronous email from Salesforce.';
             
-            <em> // Call the future method to send the email asynchronously </em>
-            EmailSender.sendEmail(toAddress, subject, body);
+              <em>// Call the future method to send the email asynchronously </em>
+              EmailSender.sendEmail(toAddress, subject, body);
           }
-        }
+      }
+        </code></div>
         <em>
           // We define a trigger on the MyObject__c object that runs after insert.
           // Inside the trigger, we loop through the records being inserted and call the sendEmail method from the EmailSender class.
