@@ -89,22 +89,22 @@
 
     <!-- EXAMPLE 3 -->
     <div class="example">
-      <p><span class="counter"></span> - Queueable Apex </p>
+      <p><span class="counter"></span> - Please update the author field of the book records if they are null via a Queueable class. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
         <em> // Salesforce Queueable Apex allows you to perform asynchronous processing of tasks in a more flexible manner compared to @future methods. </em>
         <div><code>
       public class UpdateRecordsQueueable implements Queueable {
-          private List<Id> recordIds;
-          public UpdateRecordsQueueable(List<Id> ids) {
-              this.recordIds = ids;
+          private List&lt;Id> bookIds;
+          public UpdateRecordsQueueable(List&lt;Id> ids) {
+              this.bookIds = ids;
           }
     
           public void execute(QueueableContext context) {
               <em>// Perform the record updates here </em>
-              List<Book__c> booksToUpdate = [SELECT Id, Name FROM Book__c WHERE Id IN :recordIds];
+              List&lt;Book__c> booksToUpdate = [SELECT Id, Name, Author__c FROM Book__c WHERE Id IN :bookIds];
                   
-              for (Book__c book : recordsToUpdate) {
+              for(Book__c book : booksToUpdate) {
                   <em>// Perform updates, for example: </em>
                   book.Author__c = 'Anonymous';
               }
@@ -122,14 +122,14 @@
         <em> // Now, you can enqueue this Queueable job from anywhere in your Salesforce code, such as a trigger or another Apex class. </em>
         <div><code>
       trigger BookTrigger on Book__c (after update) {
-          List&lt;String> bookIds = new List&lt;String>();
+          Set&lt;Id> bookIds = new Set&lt;Id>();
           for(Book__c book : Trigger.new) {
               if(String.isBlank(book.Author__c)) {
                   bookIds.add(book.Id);
               }
           }
     
-          if ( !recordIds.isEmpty() ) {
+          if( !bookIds.isEmpty() ) {
               <em>// Enqueue the Queueable job </em>
               System.enqueueJob(new UpdateRecordsQueueable(bookIds));
           }
