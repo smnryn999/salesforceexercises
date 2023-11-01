@@ -129,7 +129,7 @@
               }
           }
     
-          if ( !recordIds.isEmpty()) {
+          if ( !recordIds.isEmpty() ) {
               //Enqueue the Queueable job
               System.enqueueJob(new UpdateRecordsQueueable(recordIds));
           }
@@ -173,11 +173,11 @@
               update listAcc;
            }
     
-            public void finish(Database.BatchableContext context) {
-                <em> // Optionally, perform any post-processing tasks here </em>
-            }
-        }
-          </code></div>
+           public void finish(Database.BatchableContext context) {
+               <em>// Optionally, perform any post-processing tasks here </em>
+           }
+       }
+         </code></div>
           <em>
             // We've created a class called UpdateAccountBatch that implements Database.Batchable&lt;sObject&gt;.
             // The start method returns a Database.QueryLocator that defines the set of records to be processed. In this case, it selects Account records meeting specific criteria.
@@ -192,8 +192,8 @@
             // We use Database.executeBatch to start the batch job. The second parameter, 200, is the batch size, indicating that each batch will process up to 200 records.
             // This initiates the batch job, and Salesforce will automatically break down the processing into manageable chunks, updating the custom field on all relevant Account records.
           </em>
-        </pre>
-      </div>
+       </pre>
+     </div>
 
     <!-- EXAMPLE 5 -->
     <div class="example">
