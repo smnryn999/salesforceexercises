@@ -94,9 +94,9 @@
       <pre>
         <em> // Salesforce Queueable Apex allows you to perform asynchronous processing of tasks in a more flexible manner compared to @future methods. </em>
         <div><code>
-      public class UpdateRecordsQueueable implements Queueable {
-          private List&lt;Id> bookIds;
-          public UpdateRecordsQueueable(List&lt;Id> ids) {
+      public class UpdateBooksQueueable implements Queueable {
+          private Set&lt;Id> bookIds;
+          public UpdateRecordsQueueable(Set&lt;Id> ids) {
               this.bookIds = ids;
           }
     
@@ -115,7 +115,7 @@
       }
         </code></div>
         <em>
-          // We've created a class called UpdateRecordsQueueable that implements the Queueable interface.
+          // We've created a class called UpdateBooksQueueable that implements the Queueable interface.
           // The class takes a list of record IDs as a parameter through its constructor.
           // Inside the execute method, we query and update records based on the provided IDs. This is where you can perform your specific logic.
         </em>
@@ -131,15 +131,16 @@
     
           if( !bookIds.isEmpty() ) {
               <em>// Enqueue the Queueable job </em>
-              System.enqueueJob(new UpdateRecordsQueueable(bookIds));
+              UpdateBooksQueueable ubq = new UpdateBooksQueueable(bookIds)
+              System.enqueueJob(ubq);
           }
       }
         </code></div>
         <em>
-          // We define a trigger on the MyObject__c object that runs after an update.
+          // We define a trigger on the Book__c object that runs after an update.
           // Inside the trigger, we collect the IDs of records that meet certain criteria.
-          // If there are records to update, we enqueue the UpdateRecordsQueueable job with the list of record IDs.
-          // The execute method of the UpdateRecordsQueueable class will be executed asynchronously, allowing you to update records without blocking the main transaction.
+          // If there are records to update, we enqueue the UpdateBooksQueueable job with the list of record IDs.
+          // The execute method of the UpdateBooksQueueable class will be executed asynchronously, allowing you to update records without blocking the main transaction.
           // This is a powerful way to handle long-running or resource-intensive tasks in Salesforce while maintaining good performance and flexibility.
         </em>
       </pre>
