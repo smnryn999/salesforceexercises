@@ -102,15 +102,15 @@
     
           public void execute(QueueableContext context) {
               <em>// Perform the record updates here </em>
-              List<MyObject__c> recordsToUpdate = [SELECT Id, Name FROM MyObject__c WHERE Id IN :recordIds];
+              List<Book__c> booksToUpdate = [SELECT Id, Name FROM Book__c WHERE Id IN :recordIds];
                   
-              for (MyObject__c record : recordsToUpdate) {
+              for (Book__c book : recordsToUpdate) {
                   <em>// Perform updates, for example: </em>
-                  record.Name = 'Updated Name';
+                  book.Author__c = 'Unknown';
               }
         
               <em>// Update the records </em>
-              update recordsToUpdate;
+              update booksToUpdate;
           }
       }
         </code></div>
@@ -121,17 +121,17 @@
         </em>
         <em> // Now, you can enqueue this Queueable job from anywhere in your Salesforce code, such as a trigger or another Apex class. </em>
         <div><code>
-      trigger MyObjectTrigger on MyObject__c (after update) {
-          List<Id> recordIds = new List<Id>();
-          for(MyObject__c obj : Trigger.new) {
-              if(String.isBlank(obj.Author__c)) {
-                  recordIds.add(obj.Id);
+      trigger BookTrigger on Book__c (after update) {
+          List<Id> bookIds = new List<Id>();
+          for(Book__c book : Trigger.new) {
+              if(String.isBlank(book.Author__c)) {
+                  bookIds.add(book.Id);
               }
           }
     
           if ( !recordIds.isEmpty() ) {
               <em>// Enqueue the Queueable job </em>
-              System.enqueueJob(new UpdateRecordsQueueable(recordIds));
+              System.enqueueJob(new UpdateRecordsQueueable(bookIds));
           }
       }
         </code></div>
