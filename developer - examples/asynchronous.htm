@@ -138,7 +138,7 @@
         </code></div>
         <em>
           // We define a trigger on the Book__c object that runs after an update.
-          // Inside the trigger, we collect the IDs of records that meet certain criteria.
+          // Inside the trigger, we collect the IDs of records that meet certain criteria (if Author field is empty).
           // If there are records to update, we enqueue the UpdateBooksQueueable job with the list of record IDs.
           // The execute method of the UpdateBooksQueueable class will be executed asynchronously, allowing you to update records without blocking the main transaction.
           // This is a powerful way to handle long-running or resource-intensive tasks in Salesforce while maintaining good performance and flexibility.
