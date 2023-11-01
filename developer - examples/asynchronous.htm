@@ -92,7 +92,7 @@
       <p><span class="counter"></span> - Queueable Apex </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <em> // Salesforce Queueable Apex allows you to perform asynchronous processing of tasks in a more flexible manner compared to @future methods </em>
+        <em> // Salesforce Queueable Apex allows you to perform asynchronous processing of tasks in a more flexible manner compared to @future methods. </em>
         <div><code>
       public class UpdateRecordsQueueable implements Queueable {
           private List<Id> recordIds;
@@ -150,32 +150,34 @@
       <p><span class="counter"></span> - Batchable Apex </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-         <em>
-           // Batch Apex allows you to process large sets of data in smaller, manageable chunks.
-           // Batch Apex is an excellent way to handle large-scale data processing in Salesforce while respecting platform limits and maintaining good performance.
-         </em> 
-         <em> // A Batchable class to update a custom field on all Account records </em>
-         public class UpdateAccountBatch implements Database.Batchable&lt;sObject&gt {
-            public Database.QueryLocator start(Database.BatchableContext context) {
-               <em> // Query all Account records that need to be updated </em>
-               return Database.getQueryLocator([SELECT Id, CustomField__c FROM Account WHERE SomeCriteria__c = true]);
-            }
-    
-            public void execute(Database.BatchableContext context, List&lt;Account&gt; listAcc) {
-               <em> // Process each batch of Account records </em>
-               for (Account acc : listAcc) {
-                  <em> // Update the custom field value, e.g., increment it </em>
-                  acc.CustomField__c += 1;
-               }
-        
-               <em> // Update the records in this batch </em>
-               update listAcc;
-             }
-    
-             public void finish(Database.BatchableContext context) {
-                <em> // Optionally, perform any post-processing tasks here </em>
-             }
+        <em>
+          // Batch Apex allows you to process large sets of data in smaller, manageable chunks.
+          // Batch Apex is an excellent way to handle large-scale data processing in Salesforce while respecting platform limits and maintaining good performance.
+        </em>
+        <div><code>
+        <em> // A Batchable class to update a custom field on all Account records </em>
+      public class UpdateAccountBatch implements Database.Batchable&lt;sObject&gt {
+          public Database.QueryLocator start(Database.BatchableContext context) {
+              <em>// Query all Account records that need to be updated </em>
+              return Database.getQueryLocator([SELECT Id, CustomField__c FROM Account WHERE SomeCriteria__c = true]);
           }
+    
+          public void execute(Database.BatchableContext context, List&lt;Account&gt; listAcc) {
+              <em>// Process each batch of Account records </em>
+              for (Account acc : listAcc) {
+                  <em>// Update the custom field value, e.g., increment it </em>
+                  acc.CustomField__c += 1;
+              }
+        
+              <em>// Update the records in this batch </em>
+              update listAcc;
+           }
+    
+            public void finish(Database.BatchableContext context) {
+                <em> // Optionally, perform any post-processing tasks here </em>
+            }
+        }
+          </code></div>
           <em>
             // We've created a class called UpdateAccountBatch that implements Database.Batchable&lt;sObject&gt;.
             // The start method returns a Database.QueryLocator that defines the set of records to be processed. In this case, it selects Account records meeting specific criteria.
@@ -190,9 +192,8 @@
             // We use Database.executeBatch to start the batch job. The second parameter, 200, is the batch size, indicating that each batch will process up to 200 records.
             // This initiates the batch job, and Salesforce will automatically break down the processing into manageable chunks, updating the custom field on all relevant Account records.
           </em>
-
-      </pre>
-    </div>
+        </pre>
+      </div>
 
     <!-- EXAMPLE 5 -->
     <div class="example">
