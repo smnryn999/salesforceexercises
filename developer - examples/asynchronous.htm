@@ -205,21 +205,22 @@
           // Schedulable Apex is useful for automating recurring tasks in Salesforce, such as data updates, cleanup, or integrations, at specific times or intervals.
         </em>
         <em> // A Schedulable class to update a custom field on Contact records. </em>
-        public class UpdateContactSchedulable implements Schedulable {
-    
-           public void execute(SchedulableContext context) {
-              <em> // Implement the logic to update Contact records here </em>
+        <div><code>
+      public class UpdateContactSchedulable implements Schedulable {
+          public void execute(SchedulableContext context) {
+              <em>// Implement the logic to update Contact records here </em>
               List<Contact> contactsToUpdate = [SELECT Id, CustomField__c FROM Contact WHERE SomeCriteria__c = true];
         
-              for (Contact con : contactsToUpdate) {
-                 <em> // Update the custom field value, e.g., increment it </em>
-                 con.CustomField__c += 1;
+              for(Contact con : contactsToUpdate) {
+                  <em>// Update the custom field value, e.g., increment it </em>
+                  con.CustomField__c += 1;
               }
         
-              <em> // Update the records </em>
+              <em>// Update the records </em>
               update contactsToUpdate;
-           }
-        }
+          }
+      }
+        </code></div>
         <em>
           // We've created a class called UpdateContactSchedulable that implements the Schedulable interface.
           // The execute method contains the logic that you want to run when the job is scheduled. In this case, it queries and updates Contact records that meet certain criteria.
