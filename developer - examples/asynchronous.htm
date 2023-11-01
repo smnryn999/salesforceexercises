@@ -124,7 +124,7 @@
       trigger MyObjectTrigger on MyObject__c (after update) {
           List<Id> recordIds = new List<Id>();
           for(MyObject__c obj : Trigger.new) {
-              if(obj.SomeCriteria__c) {
+              if(String.isBlank(obj.Author__c)) {
                   recordIds.add(obj.Id);
               }
           }
