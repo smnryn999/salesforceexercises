@@ -96,7 +96,7 @@
         <div><code>
       public class UpdateBooksQueueable implements Queueable {
           private Set&lt;Id> bookIds;
-          public UpdateRecordsQueueable(Set&lt;Id> ids) {
+          public UpdateBooksQueueable(Set&lt;Id> ids) { <em> // we use constructor method for getting data from outside </em>
               this.bookIds = ids;
           }
     
