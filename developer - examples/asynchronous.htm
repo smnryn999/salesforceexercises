@@ -122,7 +122,7 @@
         <em> // Now, you can enqueue this Queueable job from anywhere in your Salesforce code, such as a trigger or another Apex class. </em>
         <div><code>
       trigger BookTrigger on Book__c (after update) {
-          List<Id> bookIds = new List<Id>();
+          List&lt;String> bookIds = new List&lt;String>();
           for(Book__c book : Trigger.new) {
               if(String.isBlank(book.Author__c)) {
                   bookIds.add(book.Id);
