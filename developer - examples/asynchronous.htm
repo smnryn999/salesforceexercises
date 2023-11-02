@@ -199,7 +199,7 @@
 
     <!-- EXAMPLE 5 -->
     <div class="example">
-      <p><span class="counter"></span> - Scheduled Apex </p>
+      <p><span class="counter"></span> - Please update the contacts whose MailingCountry is Japan weekly. (Scheduled Apex) </p>
       <button class="showSolution">Show Solution</button>
       <pre>
         <em>
@@ -211,7 +211,7 @@
       public class UpdateContactSchedulable implements Schedulable {
           public void execute(SchedulableContext context) {
               <em>// Implement the logic to update Contact records here </em>
-              List<Contact> contactsToUpdate = [SELECT Id, CustomField__c FROM Contact WHERE SomeCriteria__c = true];
+              List<Contact> contactsToUpdate = [SELECT Id, CustomField__c FROM Contact WHERE MailingCountry = 'Japan'];
         
               for(Contact con : contactsToUpdate) {
                   <em>// Update the custom field value, e.g., increment it </em>
