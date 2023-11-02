@@ -155,12 +155,12 @@
           // Batch Apex allows you to process large sets of data in smaller, manageable chunks.
           // Batch Apex is an excellent way to handle large-scale data processing in Salesforce while respecting platform limits and maintaining good performance.
         </em>
-        <div><code>
         <em> // A Batchable class to update a custom field on all Account records </em>
+        <div><code>
       public class UpdateAccountBatch implements Database.Batchable&lt;sObject&gt {
           public Database.QueryLocator start(Database.BatchableContext context) {
               <em>// Query all Account records that need to be updated </em>
-              return Database.getQueryLocator([SELECT Id, CustomField__c FROM Account WHERE SomeCriteria__c = true]);
+              return Database.getQueryLocator([SELECT Id, CustomField__c FROM Account WHERE Active__c = true]);
           }
     
           public void execute(Database.BatchableContext context, List&lt;Account&gt; listAcc) {
