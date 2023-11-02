@@ -148,7 +148,7 @@
 
     <!-- EXAMPLE 4 -->
     <div class="example">
-      <p><span class="counter"></span> - Please update the active accounts via a Batchable Apex. </p>
+      <p><span class="counter"></span> - Please update all the active accounts via a Batchable Apex. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
         <em>
@@ -160,7 +160,7 @@
       public class UpdateAccountBatch implements Database.Batchable&lt;sObject&gt {
           public Database.QueryLocator start(Database.BatchableContext context) {
               <em>// Query all Account records that need to be updated </em>
-              return Database.getQueryLocator([SELECT Id, Description FROM Account WHERE Active__c = true]);
+              return Database.getQueryLocator([SELECT Id, Description FROM Account WHERE Active__c = true]); <em>// we can retrieve up to 50 million records </em>
           }
     
           public void execute(Database.BatchableContext context, List&lt;Account&gt; listAcc) {
