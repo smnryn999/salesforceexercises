@@ -159,7 +159,7 @@
         <div><code>
       public class UpdateAccountBatch implements Database.Batchable&lt;sObject&gt {
           public Database.QueryLocator start(Database.BatchableContext context) {
-              <em>// Query all Account records that need to be updated. We can retrieve up to 50 million records. </em>
+              <em>// Query all Account records that need to be updated </em>
               return Database.getQueryLocator([SELECT Id, Description FROM Account WHERE Active__c = true]);
           }
     
@@ -181,7 +181,7 @@
          </code></div>
           <em>
             // We've created a class called UpdateAccountBatch that implements Database.Batchable&lt;sObject&gt;.
-            // The start method returns a Database.QueryLocator that defines the set of records to be processed.
+            // The start method returns a Database.QueryLocator that defines the set of records to be processed. We can retrieve up to 50 million records.
             // In this case, the start method selects Account records meeting specific criteria. It gets the active ones.
             // The execute method processes each batch of records. It updates the Description on each Account record and then performs an update operation.
             // The finish method is called after all batches have been processed, allowing for any necessary post-processing.
