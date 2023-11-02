@@ -187,8 +187,8 @@
             // The finish method is called after all batches have been processed, allowing for any necessary post-processing.
           </em>
           <em> // To execute the batch job programmatically </em>
-           UpdateAccountBatch myBatch = new UpdateAccountBatch();
-           Database.executeBatch(myBatch, 200); <em> // The second parameter is the batch size. Its default  value is 200 and we can increase it to 2000.</em>
+           UpdateAccountBatch uab = new UpdateAccountBatch();
+           Database.executeBatch(uab, 200); <em> // The second parameter is the batch size. Its default  value is 200 and we can increase it to 2000.</em>
           <em>
             // We create an instance of the UpdateAccountBatch class.
             // We use Database.executeBatch to start the batch job. The second parameter, 200, is the batch size, indicating that each batch will process up to 200 records.
