@@ -160,7 +160,7 @@
       public class UpdateAccountBatch implements Database.Batchable&lt;sObject&gt {
           public Database.QueryLocator start(Database.BatchableContext context) {
               <em>// Query all Account records that need to be updated </em>
-              return Database.getQueryLocator([SELECT Id, CustomField__c FROM Account WHERE Active__c = true]);
+              return Database.getQueryLocator([SELECT Id, Description FROM Account WHERE Active__c = true]);
           }
     
           public void execute(Database.BatchableContext context, List&lt;Account&gt; listAcc) {
