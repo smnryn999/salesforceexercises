@@ -35,37 +35,40 @@
         data for a given location. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          <em> // creating an Apex class to handle the integration </em>
-          public with sharing class WeatherIntegration {
-             public static String getWeather(String location) {
-                <em> // Make an HTTP request to the external API here </em>
-                <em> // Parse the response and return weather information </em>
-                <em> // Example code below </em>
-                String apiUrl = 'https://api.example.com/weather?location=' + location;
-                HttpRequest req = new HttpRequest();
-                req.setEndpoint(apiUrl);
-                req.setMethod('GET');
-                Http http = new Http();
-                HttpResponse res = http.send(req);
-                return res.getBody();
-              }
-           }
-           <em>
-             Call the External API from Apex:
-             In the getWeather method, you can use the Salesforce HttpRequest and HttpResponse classes to make a GET request to the external weather API. Replace 'https://api.example.com/weather' with the actual API endpoint.
+        <em> // creating an Apex class to handle the integration </em>
+        <div><code> 
+      public with sharing class WeatherIntegration {
+          public static String getWeather(String location) {
+              <em>// Make an HTTP request to the external API here </em>
+              <em>// Parse the response and return weather information </em>
+              <em>// Example code below </em>
+              String apiUrl = 'https://api.example.com/weather?location=' + location;
+              HttpRequest req = new HttpRequest();
+              req.setEndpoint(apiUrl);
+              req.setMethod('GET');
+              Http http = new Http();
+              HttpResponse res = http.send(req);
+              return res.getBody();
+          }
+      }
+        </code></div>
+         <em>
+           // We call the External API from Apex:
+           // In the getWeather method, we can use the Salesforce HttpRequest and HttpResponse classes to make a GET request to the external weather API.
+           // We need to replace 'https://api.example.com/weather' with the actual API endpoint.
              
-             Invoke the Integration in a Trigger, Controller, or Flow:
-             You can invoke the WeatherIntegration.getWeather method from a trigger, custom controller, or even a Flow to retrieve weather data based on user interactions or record updates.
-           </em>
+           // Invoke the Integration in a Trigger, Controller, or Flow:
+           // We can invoke the WeatherIntegration.getWeather method from a trigger, custom controller, or even a Flow to retrieve weather data based on user interactions or record updates.
+         </em>
         
            String location = 'San Francisco';
            String weatherData = WeatherIntegration.getWeather(location);
            <em> // Handle the weather data or display it as needed </em>
-           <em>
-             Handle the API Response:
-             You can parse the response from the external API (in JSON, XML, or other formats) within your Apex code and use it to update Salesforce records or perform other actions as required.
-             This is a simplified example of integrating Salesforce Apex with an external REST API. In a real-world scenario, you would need to handle error handling, authentication, and other considerations based on the specific API you're integrating with. Additionally, you should consider Salesforce governor limits when making external API calls.
-           </em>
+          <em>
+            // Handle the API Response:
+            // We can parse the response from the external API (in JSON, XML, or other formats) within your Apex code and use it to update Salesforce records or perform other actions as required.
+            // This is a simplified example of integrating Salesforce Apex with an external REST API. In a real-world scenario, you would need to handle error handling, authentication, and other considerations based on the specific API you're integrating with. Additionally, you should consider Salesforce governor limits when making external API calls.
+          </em>
       </pre>
     </div>
 
