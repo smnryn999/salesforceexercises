@@ -211,7 +211,7 @@
       public class UpdateContactSchedulable implements Schedulable {
           public void execute(SchedulableContext context) {
               <em>// Implement the logic to update Contact records here </em>
-              List<Contact> contactsToUpdate = [SELECT Id, CustomField__c FROM Contact WHERE MailingCountry = 'Japan'];
+              List&lt;Contact> contactsToUpdate = [SELECT Id, CustomField__c FROM Contact WHERE MailingCountry = 'Japan'];
         
               for(Contact con : contactsToUpdate) {
                   <em>// Update the custom field value, e.g., increment it </em>
