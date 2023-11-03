@@ -228,8 +228,9 @@
           // The execute method contains the logic that you want to run when the job is scheduled. In this case, it queries and updates Contact records that meet certain criteria.
         </em>
         <em> // To schedule the job programmatically </em>
-         String cronExpression = '0 0 0 * * ?'; <em> // Run daily at midnight (UTC) </em>
-         System.schedule('Update Contact Job', cronExpression, new UpdateContactSchedulable());
+         UpdateContactSchedulable ucs = new UpdateContactSchedulable(); <em> // Create an instance </em>
+         String cronExpression = '0 0 10 SUN * ?'; <em> // Run weekly at 10 on Sunday </em>
+         System.schedule('Update Contact Job', cronExpression, ucs);
         <em>
           // We define a cronExpression string that specifies when the job should run. In this example, it's set to run daily at midnight (UTC).
           // We use System.schedule to schedule the job. The first parameter is the name of the job, the second is the cron expression, and the third is an instance of the UpdateContactSchedulable class.
