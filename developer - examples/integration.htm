@@ -129,50 +129,50 @@
       <pre>
         <em> // we are creating a RESTful Apex class that accepts JSON data with the updates. </em>
         <div><code>
-        @RestResource(urlMapping='/updateLead/*')
-        global with sharing class LeadUpdater {
-           @HttpPatch
-           global static String updateLead(String leadId, String firstName, String lastName) {
+      @RestResource(urlMapping='/updateLead/*')
+      global with sharing class LeadUpdater {
+          @HttpPatch
+          global static String updateLead(String leadId, String firstName, String lastName) {
               try {
-                 <em> // Retrieve the Lead record to update </em>
-                 Lead leadToUpdate = [SELECT Id FROM Lead WHERE Id = :leadId LIMIT 1];
+                  <em>// Retrieve the Lead record to update </em>
+                  Lead leadToUpdate = [SELECT Id FROM Lead WHERE Id = :leadId LIMIT 1];
             
-                 if (leadToUpdate != null) {
-                    <em> // Update the Lead fields </em>
-                    leadToUpdate.FirstName = firstName;
-                    leadToUpdate.LastName = lastName;
+                  if (leadToUpdate != null) {
+                      <em>// Update the Lead fields </em>
+                      leadToUpdate.FirstName = firstName;
+                      leadToUpdate.LastName = lastName;
                 
-                    <em> // Update the Lead record </em>
-                    update leadToUpdate;
+                      <em>// Update the Lead record </em>
+                      update leadToUpdate;
                 
-                   return 'Lead updated successfully.';
+                      return 'Lead updated successfully.';
                   }
                   else {
-                     RestResponse res = RestContext.response;
-                     res.statusCode = 404;
-                     return 'Lead not found with ID: ' + leadId;
+                      RestResponse res = RestContext.response;
+                      res.statusCode = 404;
+                      return 'Lead not found with ID: ' + leadId;
                   }
-            } catch (Exception e) {
-                RestResponse res = RestContext.response;
-                res.statusCode = 500;
-                return 'Error updating Lead: ' + e.getMessage();
-            }
-         }
+              } catch (Exception e) {
+                  RestResponse res = RestContext.response;
+                  res.statusCode = 500;
+                  return 'Error updating Lead: ' + e.getMessage();
+              }
+          }
       }
-      </code></div>
-        <em>
-          // We define a RESTful Apex class named LeadUpdater with a URL mapping of /updateLead/*.
-          // We create a updateLead method that accepts Lead ID, FirstName, and LastName as parameters.
-          // Inside the method, we first query for the Lead record based on the provided ID.
-          // If the Lead record is found, we update the FirstName and LastName fields with the provided values and then call update to save the changes.
-          // We handle exceptions and return appropriate responses with status codes.
-        </em>
-        <em> // To update a Lead record using this Apex class, you can make a PATCH request to the following URL format:</em>
-        https://your-salesforce-instance/services/apexrest/updateLead/LeadId
-        <em>
-          // Replace your-salesforce-instance with your Salesforce instance URL, and LeadId with the ID of the Lead record you want to update. Include the updated FirstName and LastName in the request body as JSON data.
-          // Please ensure that you have appropriate authentication and authorization mechanisms in place for your external system to access this Apex REST resource in your Salesforce org.
-        </em>
+        </code></div>
+         <em>
+           // We define a RESTful Apex class named LeadUpdater with a URL mapping of /updateLead/*.
+           // We create a updateLead method that accepts Lead ID, FirstName, and LastName as parameters.
+           // Inside the method, we first query for the Lead record based on the provided ID.
+           // If the Lead record is found, we update the FirstName and LastName fields with the provided values and then call update to save the changes.
+           // We handle exceptions and return appropriate responses with status codes.
+         </em>
+         <em> // To update a Lead record using this Apex class, you can make a PATCH request to the following URL format:</em>
+         https://your-salesforce-instance/services/apexrest/updateLead/LeadId
+         <em>
+           // Replace your-salesforce-instance with your Salesforce instance URL, and LeadId with the ID of the Lead record you want to update. Include the updated FirstName and LastName in the request body as JSON data.
+           // Please ensure that you have appropriate authentication and authorization mechanisms in place for your external system to access this Apex REST resource in your Salesforce org.
+         </em>
       </pre>
     </div>
 
