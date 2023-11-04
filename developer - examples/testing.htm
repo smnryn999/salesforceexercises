@@ -19,7 +19,7 @@
       <p><span class="counter"></span> - Please explain with a plain example how a test class use. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <em> // Apex test classes are used to test the functionality of your Apex code, ensuring that it works as expected. </em>
+        <em> // Apex test classes are used to test the functionality of your Apex code, ensuring that it works as expected and meets Salesforce's governor limits.</em>
         <em> //  a Calculator class with a method add that adds two numbers </em>
         <div><code>
       public class Calculator {
@@ -54,6 +54,60 @@
             // The Calculator.add() method is called with the test data, and the result is stored in the result variable.
             // System.assertEquals is used to assert that the result of the addition is equal to 8, and an optional message is provided.
             // As a result, this test class works with a 100 percent rate.
+        </em>
+      </pre>
+    </div>
+    
+    <!-- EXAMPLE 2 -->
+    <div class="example">
+      <p><span class="counter"></span> - Please explain with a plain example how a test class use. </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> //  Let's say we have an Apex class that calculates the factorial of a number, and we want to create a test class for it: </em>
+        <div><code>
+      public class MathOperations {
+          public static Integer factorial(Integer n) {
+              if (n <= 1) {
+                  return 1;
+              } else {
+                  return n * factorial(n - 1);
+              }
+          }
+      }
+        </code></div>
+        <em> // Now we are testing MathOperations class</em>
+        <div><code>
+      @isTest
+      public class MathOperationsTest {
+          @isTest
+          static void testFactorialPositive() {
+              Integer result = MathOperations.factorial(5);
+              System.assertEquals(120, result, 'Factorial of 5 should be 120');
+          }
+
+          @isTest
+          static void testFactorialZero() {
+              Integer result = MathOperations.factorial(0);
+              System.assertEquals(1, result, 'Factorial of 0 should be 1');
+          }
+
+          @isTest
+          static void testFactorialNegative() {
+              Integer result = MathOperations.factorial(-3);
+              System.assertEquals(1, result, 'Factorial of a negative number should be 1');
+          }
+      }
+        </code></div>
+        <em>
+           // The MathOperations class has a method factorial that calculates the factorial of a given number.
+           // The MathOperationsTest test class contains three test methods:
+           // testFactorialPositive tests the factorial of a positive number (5).
+           // testFactorialZero tests the factorial of zero.
+           // testFactorialNegative tests the factorial of a negative number (-3).
+           // In each test method, we call the factorial method from the MathOperations class and use System.assertEquals to assert that the expected result matches the actual result.
+           
+           // These test methods cover different scenarios, such as positive numbers, zero, and negative numbers.
+           // Running these tests helps ensure that the factorial method in the MathOperations class behaves as expected and provides accurate results under various conditions.
         </em>
       </pre>
     </div>
