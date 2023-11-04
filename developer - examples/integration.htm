@@ -237,37 +237,44 @@
       <p><span class="counter"></span> - How to make a DELETE request in Apex. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <em> // Define the endpoint URL </em>
-        String endpointUrl = 'https://api.example.com/resource/123';
+        <em></em>
+        <div><code>
+      public class IntegrationClass {
+          public static void deleteMethod(){
+              <em>// Define the endpoint URL </em>
+              String endpointUrl = 'https://api.example.com/resource/123';
         
-        <em> // Create an HTTP request </em>
-        HttpRequest request = new HttpRequest();
-        request.setEndpoint(endpointUrl);
-        request.setMethod('DELETE');
+              <em>// Create an HTTP request </em>
+              HttpRequest request = new HttpRequest();
+              request.setEndpoint(endpointUrl);
+              request.setMethod('DELETE');
 
-        <em>// Create an HTTP object to send the request </em>
-        Http http = new Http();
-        HttpResponse response = http.send(request);
+              <em>// Create an HTTP object to send the request </em>
+              Http http = new Http();
+              HttpResponse response = http.send(request);
         
-        <em>// Check the response </em>
-        if (response.getStatusCode() == 204) {
-            <em>// Successful DELETE request with no content </em>
-            System.debug('DELETE request was successful.');
-        } else if (response.getStatusCode() == 200) {
-            <em>// Successful DELETE request with a response body </em>
-            String responseBody = response.getBody();
-            System.debug('Response Body: ' + responseBody);
-        } else {
-            <em>// Error handling for non-204 and non-200 status codes </em>
-            System.debug('Error Status Code: ' + response.getStatusCode());
-            System.debug('Error Response: ' + response.getBody());
-        }
-        <em>
-          // You define the endpoint URL to which you want to make the DELETE request, typically including an identifier for the resource you want to delete (example.com/resource/123).
-          // Set up an HttpRequest object, specifying the method as DELETE and setting the endpoint URL.
-          // Use the Http class to send the request.
-          // Check the response status code. A common practice for successful DELETE requests is to return a 204 (No Content) status code if the resource was successfully deleted. However, some APIs may return a 200 status code with a response body. You should handle both cases accordingly.
-        </em>
+              <em>// Check the response </em>
+              if (response.getStatusCode() == 204) {
+                  <em>// Successful DELETE request with no content </em>
+                  System.debug('DELETE request was successful.');
+              } else if (response.getStatusCode() == 200) {
+                  <em>// Successful DELETE request with a response body </em>
+                  String responseBody = response.getBody();
+                  System.debug('Response Body: ' + responseBody);
+              } else {
+                  <em>// Error handling for non-204 and non-200 status codes </em>
+                  System.debug('Error Status Code: ' + response.getStatusCode());
+                  System.debug('Error Response: ' + response.getBody());
+              }
+          }
+      }
+        </code></div>
+         <em>
+           // You define the endpoint URL to which you want to make the DELETE request, typically including an identifier for the resource you want to delete (example.com/resource/123).
+           // Set up an HttpRequest object, specifying the method as DELETE and setting the endpoint URL.
+           // Use the Http class to send the request.
+           // Check the response status code. A common practice for successful DELETE requests is to return a 204 (No Content) status code if the resource was successfully deleted. However, some APIs may return a 200 status code with a response body. You should handle both cases accordingly.
+         </em>
       </pre>
     </div>
 
