@@ -229,7 +229,7 @@
         </em>
         <em> // To schedule the job programmatically </em>
          UpdateContactSchedulable ucs = new UpdateContactSchedulable(); <em> // Create an instance </em>
-         String cronExpression = '0 0 10 SUN * ?'; <em> // Run weekly at 10 on Sunday </em>
+         String cronExpression = '0 0 10 ? * SUN'; <em> // Run weekly at 10 on Sunday </em>
          System.schedule('Update Contact Job', cronExpression, ucs); <em> // job name, cron expression, the instance </em>
         <em>
           // We define a cronExpression string that specifies when the job should run. In this example, it's set to run daily at midnight (UTC).
