@@ -50,7 +50,7 @@ var showButtons = document.querySelectorAll(".showSolution");
       
       // Tags and Attributes
       var tags = ["template", "lightning-card", "lightning-input", "lightning-button", "lightning-record-form", "lightning-datatable",
-		 "LightningMessageChannel, "masterLabel", "isExposed", "description", "lightningMessageFields", "fieldName"];
+		 "LightningMessageChannel", "masterLabel", "isExposed", "description", "lightningMessageFields", "fieldName"];
        for(t of tags){
           content = content.replaceAll(t, `<span style='color:lightgreen'>${t}</span>`);
        }
