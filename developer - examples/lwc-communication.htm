@@ -304,72 +304,21 @@
         <em> // Sender Component: </em>
         <div><code>
         <em>&lt;!-- senderComponent.html --> </em>
-        &lt;template>
-            &lt;lightning-card title="Sender Component">
-                &lt;lightning-button label="Send Message" onclick={sendMessage}>&lt;/lightning-button>
-            &lt;/lightning-card>
-        &lt;/template>
+        
         </code></div>
         <div><code>
-        <em> // senderComponent.js --> </em>
-        import { LightningElement } from 'lwc';
-        import { publish, MessageContext } from 'lightning/messageService';
-        import SAMPLE_MESSAGE from '@salesforce/messageChannel/SampleMessageChannel__c';
-
-        export default class SenderComponent extends LightningElement {
-            @wire(MessageContext)
-            messageContext;
-            
-            sendMessage() {
-                const message = {
-                    messageToSend: "value",
-                    source: "From LWC"
-                };
-                publish(this.messageContext, SAMPLE_MESSAGE, message);
-            }
-        }
+        <em> // senderComponent.js --> </em>: "From LWC"
+        
         </code></div>
 
         <em> // Receiver Component: </em>
         <div><code>
         <em>&lt;!-- receiverComponent.html --> </em>
-        &lt;template>
-            &lt;lightning-card title="Receiver Component">
-                &lt;p>Received Message: {receivedMessage}&lt;/p>
-            &lt;/lightning-card>
-        &lt;/template>
+        
         </code></div>
         <div><code>
         <em> // receiverComponent.js --> </em>
-        import { LightningElement, wire } from 'lwc';
-        import { subscribe, MessageContext } from 'lightning/messageService';
-        import SAMPLE_MESSAGE from '@salesforce/messageChannel/SampleMessageChannel__c';
-          
-        export default class ReceiverComponent extends LightningElement {
-            @wire(MessageContext)
-            messageContext;
-
-            receivedMessage = '';
-            subscription = null;
-
-            connectedCallback() {
-                this.subscribeToMessageChannel();
-            }
-
-            subscribeToMessageChannel() {
-                this.subscription = subscribe(this.messageContext, SAMPLE_MESSAGE, (message) => {
-                    this.handleMessage(message);
-                });
-            }
-
-            handleMessage(message) {
-                this.receivedMessage = message.messageToSend;
-            }
-
-            disconnectedCallback() {
-                unsubscribe(this.subscription);
-            }
-        }
+        
         </code></div>   
         <em>
           // The sender component (senderComponent) contains a button that, when clicked, sends a message using the Lightning Message Service.
