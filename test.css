@@ -144,6 +144,7 @@ pre {
    margin: 20px;
    display: none;
 }
+pre a {color: blue;}
 pre div {
    background:black;
    margin: 0 45px;
