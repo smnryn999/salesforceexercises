@@ -187,25 +187,25 @@
         <em> // The Lightning Message Service (LMS) is a powerful way to enable communication between Lightning web components (LWC) in a Salesforce application. </em>
         <em> // Here's a simple example of using LMS to send and receive messages between two LWC: </em>
 
-        <em> // First, we need to create folder named messageChannel</em>
+        <em> // First, we need to create folder named messageChannel under default folder. And we need to create an xml file in it.</em>
         <div><code>
-      <?xml version="1.0" encoding="UTF-8"?>
-      <LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
-          <masterLabel>MyMessageChannel</masterLabel>
-          <isExposed>true</isExposed>
-          <description>This Lightning Message Channel sends information from VF to LWC</description>
+      &lt;?xml version="1.0" encoding="UTF-8"?>
+      &lt;LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+          &lt;masterLabel>MyMessageChannel&lt;/masterLabel>
+          &lt;isExposed>true&lt;/isExposed>
+          &lt;description>This Lightning Message Channel sends information from VF to LWC&lt;/description>
 
-          <lightningMessageFields>
-              <fieldName>messageToSend</fieldName>
-              <description>message To Send</description>
-          </lightningMessageFields>
+          &lt;lightningMessageFields>
+              &lt;fieldName>messageToSend&lt;/fieldName>
+              &lt;description>message To Send&lt;/description>
+          &lt;/lightningMessageFields>
 
-          <lightningMessageFields>
-              <fieldName>sourceSystem</fieldName>
-              <description>My source?</description>
-          </lightningMessageFields>
+          &lt;lightningMessageFields>
+              &lt;fieldName>sourceSystem&lt;/fieldName>
+              &lt;description>My source?&lt;/description>
+          &lt;/lightningMessageFields>
 
-      </LightningMessageChannel>
+      &lt;/LightningMessageChannel>
         </code></div>
         
         <em> // Sender Component: </em>
