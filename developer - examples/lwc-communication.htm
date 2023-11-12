@@ -186,6 +186,27 @@
       <pre>
         <em> // The Lightning Message Service (LMS) is a powerful way to enable communication between Lightning web components (LWC) in a Salesforce application. </em>
         <em> // Here's a simple example of using LMS to send and receive messages between two LWC: </em>
+
+        <em> // First, we need to create folder named messageChannel</em>
+        <div><code>
+      <?xml version="1.0" encoding="UTF-8"?>
+      <LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+          <masterLabel>MyMessageChannel</masterLabel>
+          <isExposed>true</isExposed>
+          <description>This Lightning Message Channel sends information from VF to LWC</description>
+
+          <lightningMessageFields>
+              <fieldName>messageToSend</fieldName>
+              <description>message To Send</description>
+          </lightningMessageFields>
+
+          <lightningMessageFields>
+              <fieldName>sourceSystem</fieldName>
+              <description>My source?</description>
+          </lightningMessageFields>
+
+      </LightningMessageChannel>
+        </code></div>
         
         <em> // Sender Component: </em>
         <div><code>
