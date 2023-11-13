@@ -312,13 +312,19 @@
         &lt;/template>
         </code></div>
         <div><code>
-        <em> // senderComponent.js --> </em>
+        <em>// senderComponent.js --> </em>
         import { LightningElement } from 'lwc';
         import {CurrentPageReference} from 'lightning/navigation';
         import { fireEvent } from "c/pubsub";
 
-        export default class Publisher extends LightningElement {}
-        
+        export default class Publisher extends LightningElement {
+            @wire(CurrentPageReference) pageRef; //pageRef variable ismidir. veri gonderirken kullanilir
+    
+            //pageRef, eventName, payload
+            handleChange(event) {
+                fireEvent(this.pageRef, 'publisher', event.target.value);
+            }
+        }       
         </code></div>
 
         <em> // Receiver Component: </em>
