@@ -320,8 +320,8 @@
         export default class Publisher extends LightningElement {
             @wire(CurrentPageReference) pageRef; //pageRef variable ismidir. veri gonderirken kullanilir
     
-            //pageRef, eventName, payload
             handleChange(event) {
+                //pageRef, eventName, payload are parameters of fireEvent function
                 fireEvent(this.pageRef, 'publisher', event.target.value);
             }
         }       
@@ -333,7 +333,7 @@
         &lt;template>
             &lt;lightning-card title="Receiver">
                 &lt;div class="slds-m-around_medium">
-                    &lt;lightning-badge>&lt;/lightning-badge>
+                    &lt;lightning-badge>{showValue}&lt;/lightning-badge>
                 &lt;/div>
             &lt;/lightning-card>
         &lt;/template>
@@ -344,8 +344,20 @@
         import {CurrentPageReference} from 'lightning/navigation';
         import { registerListener } from "c/pubsub";       
 
-        export default class Receiver extends LightningElement {}
-        
+        export default class Receiver extends LightningElement {
+            showValue;
+          
+            @wire(CurrentPageReference) pageRef;
+
+            //We need to use connectedCallback function
+            connectedCallback() {
+                //eventName, callback, thisArg are parameters of registerListener function
+                registerListener("publisher", this.showDetails, this);
+            }
+            showDetails(data) { //callback function
+                this.showValue = data;
+            }
+        }
         </code></div>   
         <em>
           // The sender component (senderComponent) contains a button that, when clicked, sends a message using the Lightning Message Service.
