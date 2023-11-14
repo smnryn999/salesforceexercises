@@ -219,7 +219,7 @@
         &lt;/template>
         </code></div>
         <div><code>
-        <em> // senderComponent.js --> </em>
+        <em>// senderComponent.js --> </em>
         import { LightningElement } from 'lwc';
         import { publish, MessageContext } from 'lightning/messageService';
         import SAMPLE_MESSAGE from '@salesforce/messageChannel/SampleMessageChannel__c';
@@ -248,7 +248,7 @@
         &lt;/template>
         </code></div>
         <div><code>
-        <em> // receiverComponent.js --> </em>
+        <em>// receiverComponent.js --> </em>
         import { LightningElement, wire } from 'lwc';
         import { subscribe, MessageContext } from 'lightning/messageService';
         import SAMPLE_MESSAGE from '@salesforce/messageChannel/SampleMessageChannel__c';
@@ -321,8 +321,8 @@
             @wire(CurrentPageReference) pageRef;
     
             handleChange(event) {
-                //pageRef, eventName, payload are parameters of fireEvent function
-                fireEvent(this.pageRef, 'publisher', event.target.value);
+                <em>// pageRef, eventName, payload are parameters of fireEvent function</em>
+                fireEvent(this.pageRef, "publisher", event.target.value);
             }
         }       
         </code></div>
@@ -339,7 +339,7 @@
         &lt;/template>
         </code></div>
         <div><code>
-        <em> // subscriberComponent.js --> </em>
+        <em>// subscriberComponent.js --> </em>
         import { LightningElement } from 'lwc';
         import {CurrentPageReference} from 'lightning/navigation';
         import { registerListener } from "c/pubsub";       
@@ -349,9 +349,9 @@
           
             @wire(CurrentPageReference) pageRef;
 
-            //We need to use connectedCallback function
+            <em>// We need to use connectedCallback function</em>
             connectedCallback() {
-                //eventName, callback, thisArg are parameters of registerListener function
+                <em>// eventName, callback, thisArg are parameters of registerListener function</em>
                 registerListener("publisher", this.showDetails, this);
             }
             showDetails(data) { //callback function
