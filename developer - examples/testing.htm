@@ -118,14 +118,31 @@
       <button class="showSolution">Show Solution</button>
       <pre>
         <em> // Apex test classes are used to test the functionality of your Apex code, ensuring that it works as expected and meets Salesforce's governor limits.</em>
-        <em> //  a Calculator class with a method add that adds two numbers </em>
+        <em> // a HandlerClass class with a method setParent that sets parents of duplicate accounts. </em>
+        re>
         <div><code>
-      public class Calculator {
-          public static Integer add(Integer num1, Integer num2) {
-              return num1 + num2;
+      public class HandlerClass {
+          public static void setParent(List<Account> newAccounts){
+              List&lt;Account> currentAccounts = [SELECT Id, Name FROM Account];
+        
+              for(Account newAcc:newAccounts){
+                  for(Account oldAcc:currentAccounts){
+                      if(newAcc.Name == oldAcc.Name){
+                          newAcc.ParentId = oldAcc.id;
+                          newAcc.Name = newAcc.Name + ' ' + (newAcc.BillingCountry != null ? newAcc.BillingCountry : 'Child');
+                      }
+                  }
+              }
           }
       }
-        </code></div>
+        </div></code>
+        <div><code>
+      trigger AccountTrigger on Account (before insert) {
+          if(Trigger.isBefore <span style='color:red'>&&</span> Trigger.isInsert){
+              HandlerClass.setParent(Trigger.new);
+          }
+      }      
+        </div></code>
         <em> // Now we are testing Calculator class</em>
         <div><code>
       @isTest
@@ -169,7 +186,8 @@
         </code></div>
         <em>
             // @isTest annotation indicates that this class is a test class.
-            // The testAdd() method tests the add method of the Calculator class.
+            // @testSetup annotation indicates that buildData() method creates data we need to use for testing.
+            // The test() method tests the add method of the HandlerClass class and AccountTrigger trigger.
             // Test data is defined with two integers, num1 and num2.
             // The Calculator.add() method is called with the test data, and the result is stored in the result variable.
             // System.assertEquals is used to assert that the result of the addition is equal to 8, and an optional message is provided.
