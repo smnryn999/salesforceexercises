@@ -114,7 +114,7 @@
 
     <!-- EXAMPLE 3 -->
     <div class="example">
-      <p><span class="counter"></span> - Please explain with a plain example how a test class use. </p>
+      <p><span class="counter"></span> - Please test a trigger and a handler class. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
         <em> // Apex test classes are used to test the functionality of your Apex code, ensuring that it works as expected and meets Salesforce's governor limits.</em>
@@ -188,9 +188,11 @@
             // @isTest annotation indicates that this class is a test class.
             // @testSetup annotation indicates that buildData() method creates data we need to use for testing.
             // The test() method tests the add method of the HandlerClass class and AccountTrigger trigger.
-            // Test data is defined with two integers, num1 and num2.
-            // The Calculator.add() method is called with the test data, and the result is stored in the result variable.
-            // System.assertEquals is used to assert that the result of the addition is equal to 8, and an optional message is provided.
+            // Test data is defined with two account records, "New Account" and "Test Account".
+            // We create two more records with the same name as the previous ones and one record with a completely different name (Not Existing Account).
+            // We expect to have one record named "New Account Spain" and one record named "Test Account Child". And their ParentId fields must be filled.
+            // We also expect to have a record named "Not Existing Account" with an empty ParentId field.
+            // We use System.assertEquals and System.assert to assert that the trigger and class work correctly.
             // As a result, this test class works with a 100 percent rate.
         </em>
       </pre>
