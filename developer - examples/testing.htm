@@ -112,6 +112,74 @@
       </pre>
     </div>
 
+    <!-- EXAMPLE 3 -->
+    <div class="example">
+      <p><span class="counter"></span> - Please explain with a plain example how a test class use. </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // Apex test classes are used to test the functionality of your Apex code, ensuring that it works as expected and meets Salesforce's governor limits.</em>
+        <em> //  a Calculator class with a method add that adds two numbers </em>
+        <div><code>
+      public class Calculator {
+          public static Integer add(Integer num1, Integer num2) {
+              return num1 + num2;
+          }
+      }
+        </code></div>
+        <em> // Now we are testing Calculator class</em>
+        <div><code>
+      @isTest
+      private class TestAccountTrigger {
+          @testSetup static void buildData(){
+              Account acc = new Account(Name='New Account');
+              insert acc;
+        
+              Account acc2 = new Account(Name='Test Account');
+              insert acc2;
+          } 
+    
+          @isTest static void test(){
+              List&lt;Account> listAcc = new List&lt;Account>();
+              Account acc = new Account(Name='New Account', BillingCountry='Spain');
+              listAcc.add(acc);
+        
+              Account acc2 = new Account(Name='Test Account');
+              listAcc.add(acc2);
+        
+              Account acc3 = new Account(Name='Not Existing Account', Industry='Banking');
+              listAcc.add(acc3);
+        
+              insert listAcc;
+        
+              System.assertEquals(5, [SELECT Count() FROM Account]);
+        
+              List&lt;Account> newAccount =  [SELECT Name, ParentId FROM Account WHERE Name='New Account Spain'];
+              System.assertEquals(1, newAccount.size());
+              System.assert(newAccount[0].ParentId != null);
+        
+              System.assertEquals(1, [SELECT Count() FROM Account WHERE Name='Test Account Child']);
+              System.assert([SELECT ParentId FROM Account WHERE Name='Test Account Child'].parentId != null);
+        
+              List&lt;Account> notExcistingAccount =  [SELECT Name, ParentId, Rating FROM Account WHERE Name='Not Existing Account'];
+              System.assertEquals(1, notExcistingAccount.size());
+              System.assert(notExcistingAccount[0].ParentId == null);
+              System.assert(notExistingAccount[0].Rating == 'Hot');
+          }
+      }
+        </code></div>
+        <em>
+            // @isTest annotation indicates that this class is a test class.
+            // The testAdd() method tests the add method of the Calculator class.
+            // Test data is defined with two integers, num1 and num2.
+            // The Calculator.add() method is called with the test data, and the result is stored in the result variable.
+            // System.assertEquals is used to assert that the result of the addition is equal to 8, and an optional message is provided.
+            // As a result, this test class works with a 100 percent rate.
+        </em>
+      </pre>
+    </div>
+
+    
+
   </section>
 
   <script src="examples.js"></script>
