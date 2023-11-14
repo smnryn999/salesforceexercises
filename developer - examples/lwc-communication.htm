@@ -295,14 +295,14 @@
       <p><span class="counter"></span> - Please explain how to send a value to a unrelated/sibling component in LWC with an example. (Pubsub)</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <em> // The Lightning Message Service (LMS) is a powerful way to enable communication between Lightning web components (LWC) in a Salesforce application. </em>
-        <em> // Here's a simple example of using LMS to send and receive messages between two LWC: </em>
+        <em> // The Publish - Subscribe (Pubsub) is a powerful way to enable communication between Lightning web components (LWC). It uses fireEvent and registerListener functions in pubsub.js.</em>
+        <em> // Here's a simple example of using Pubsub to send and receive messages between two LWC: </em>
 
         <em> // First, we need to create a component named pubsub under lwc folder. And we need to fill the JS file with this codes: <a href="https://github.com/developerforce/pubsub/blob/master/">force-app/main/default/lwc/pubsub/pubsub.js</a></em>
         
         <em> // Sender Component: </em>
         <div><code>
-        <em>&lt;!-- senderComponent.html --> </em>
+        <em>&lt;!-- publisherComponent.html --> </em>
         &lt;template>
             &lt;lightning-card title="Publisher">
                 &lt;div class="slds-m-around_medium">
@@ -312,13 +312,13 @@
         &lt;/template>
         </code></div>
         <div><code>
-        <em>// senderComponent.js --> </em>
+        <em>// publisherComponent.js --> </em>
         import { LightningElement } from 'lwc';
         import {CurrentPageReference} from 'lightning/navigation';
         import { fireEvent } from "c/pubsub";
 
-        export default class Publisher extends LightningElement {
-            @wire(CurrentPageReference) pageRef; //pageRef variable ismidir. veri gonderirken kullanilir
+        export default class PublisherComponent extends LightningElement {
+            @wire(CurrentPageReference) pageRef;
     
             handleChange(event) {
                 //pageRef, eventName, payload are parameters of fireEvent function
@@ -329,7 +329,7 @@
 
         <em> // Receiver Component: </em>
         <div><code>
-        <em>&lt;!-- receiverComponent.html --> </em>
+        <em>&lt;!-- subscriberComponent.html --> </em>
         &lt;template>
             &lt;lightning-card title="Receiver">
                 &lt;div class="slds-m-around_medium">
@@ -339,12 +339,12 @@
         &lt;/template>
         </code></div>
         <div><code>
-        <em> // receiverComponent.js --> </em>
+        <em> // subscriberComponent.js --> </em>
         import { LightningElement } from 'lwc';
         import {CurrentPageReference} from 'lightning/navigation';
         import { registerListener } from "c/pubsub";       
 
-        export default class Receiver extends LightningElement {
+        export default class SubscriberComponent extends LightningElement {
             showValue;
           
             @wire(CurrentPageReference) pageRef;
@@ -360,12 +360,12 @@
         }
         </code></div>   
         <em>
-          // The sender component (senderComponent) contains a button that, when clicked, sends a message using the Lightning Message Service.
-          It imports the publish function and the message channel from which messages are sent.
-          // The receiver component (receiverComponent) displays the received message. It imports the subscribe and unsubscribe functions and the message channel from which messages are received.
-          It also sets up a subscription when connected to the DOM and unsubscribes when disconnected.
-          // When we include both sender and receiver components in our Salesforce Lightning App, clicking the "Send Message" button in the sender component will send a message that the receiver component displays.
-          This demonstrates how LMS enables communication between different LWC in our Salesforce application.
+          // The sender component (publisherComponent) contains an input that, when changed, sends a message using the Pubsub.
+          // It imports the fireEvent function from which messages are sent and the CurrentPageReference that references the current page.
+          // The receiver component (subscriberComponent) displays the received message.
+          // It imports the registerListener function that receives messages and CurrentPageReference method.
+          // When we include both sender and receiver components in our Salesforce Lightning App, giving a value to the "Input Value" input in the sender component will send a message that the receiver component displays.
+          // This demonstrates how Pubsub enables communication between different LWC in our Salesforce application.
         </em>
       </pre>
     </div>
