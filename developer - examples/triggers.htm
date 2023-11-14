@@ -155,7 +155,7 @@
         <div><code>
       public class HandlerClass {
           public static void setParent(List<Account> newAccounts){
-              List<Account> currentAccounts = [SELECT Id, Name FROM Account];
+              List&lt;Account> currentAccounts = [SELECT Id, Name FROM Account];
         
               for(Account newAcc:newAccounts){
                   for(Account oldAcc:currentAccounts){
@@ -186,8 +186,8 @@
         <div><code>
        public class HandlerClass {
            <em>// After Insert </em>
-           public static void setIdForInsert(List<Book__c> listBook){
-               List<Book__c> books = new List<Book__c>();
+           public static void setIdForInsert(List&lt;Book__c> listBook){
+               List&lt;Book__c> books = new List&lt;Book__c>();
                for(Book__c b:listBook){
                    Book__c book = new Book__c();
                    book.Id = b.Id;
