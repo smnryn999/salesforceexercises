@@ -143,7 +143,7 @@
           }
       }      
         </div></code>
-        <em> // Now we are testing Calculator class</em>
+        <em> // Now we are testing HandlerClass and AccountTrigger</em>
         <div><code>
       @isTest
       private class TestAccountTrigger {
@@ -157,13 +157,17 @@
     
           @isTest static void test(){
               List&lt;Account> listAcc = new List&lt;Account>();
-              Account acc = new Account(Name='New Account', BillingCountry='Spain');
+
+              <em>// We are creating an account with the same name as one in buildData() method and its country is not null.</em>
+              Account acc = new Account(Name='New Account', BillingCountry='Spain'); <em>// we expect it will be "New Account Spain"</em>
               listAcc.add(acc);
-        
-              Account acc2 = new Account(Name='Test Account');
+
+              <em>// We are creating an account with the same name as one in buildData() method and its country is null.</em>
+              Account acc2 = new Account(Name='Test Account'); <em>// we expect it will be "Test Account Child"</em>
               listAcc.add(acc2);
-        
-              Account acc3 = new Account(Name='Not Existing Account', Industry='Banking');
+
+              <em>// We are creating an account with the different name from ones in buildData() method.</em>
+              Account acc3 = new Account(Name='Not Existing Account', Industry='Banking'); <em>// we expect its name will not change</em>
               listAcc.add(acc3);
         
               insert listAcc;
@@ -178,8 +182,8 @@
               System.assert([SELECT ParentId FROM Account WHERE Name='Test Account Child'].parentId != null);
         
               List&lt;Account> notExcistingAccount =  [SELECT Name, ParentId, Rating FROM Account WHERE Name='Not Existing Account'];
-              System.assertEquals(1, notExcistingAccount.size());
-              System.assert(notExcistingAccount[0].ParentId == null);
+              System.assertEquals(1, notExistingAccount.size());
+              System.assert(notExistingAccount[0].ParentId == null);
               System.assert(notExistingAccount[0].Rating == 'Hot');
           }
       }
@@ -193,6 +197,7 @@
             // We expect to have one record named "New Account Spain" and one record named "Test Account Child". And their ParentId fields must be filled.
             // We also expect to have a record named "Not Existing Account" with an empty ParentId field.
             // We use System.assertEquals and System.assert to assert that the trigger and class work correctly.
+            // Actually, we are also testing a trigger that updates the Rating field to "Hot" value when the Industry field is "Banking"
             // As a result, this test class works with a 100 percent rate.
         </em>
       </pre>
