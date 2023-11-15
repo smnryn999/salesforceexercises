@@ -42,7 +42,7 @@ section {
    display: flex;
    align-items: center;
    margin-top: 3em;
-   border: 1px solid darkblue;
+   /*border: 1px solid darkblue;*/
 }
 section div {
    flex: 1;
