@@ -14,10 +14,11 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test = ["Which summarize feature should we use if we want to display the value in the middle of all row values ​​in a column containing numerical values ​​in reports?"];
+const test = ["What is the purpose of a Scheduled Flow in Salesforce?", 'In Salesforce Reports, what does the "Group Rows" feature help you achieve?', "Which summarize feature should we use if we want to display the value in the middle of all row values ​​in a column containing numerical values ​​in reports?"];
 
-const options1 = [["","",""], ["Avg","Middle","Median","Min"]];
-const answers = [A,B];
+const options1 = [["Real-time data processing","Triggering automation based on user actions","Scheduling and automating repetitive tasks", "Managing user permissions and security"], ["Filter data based on specific criteria","Summarize data by categorizing records","Customize the report layout and design","Export data to an external system from a report"],
+                  ["Avg","Middle","Median","Min"]];
+const answers = [C, B,C];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
