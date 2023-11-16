@@ -16,7 +16,7 @@ var wrongs = 0, corrects = 0;
 // QUESTIONS AND OPTIONS CONTENTS
 const test = ["Which summarize feature should we use if we want to display the value in the middle of all row values ​​in a column containing numerical values ​​in reports?"];
 
-const options1 = [["","",""], ["","","",""]];
+const options1 = [["","",""], ["Avg","Middle","Median","Min"]];
 const answers = [A,B];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
