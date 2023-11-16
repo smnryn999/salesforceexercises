@@ -14,7 +14,7 @@ var i=0, n=0, m=0;
 var wrongs = 0, corrects = 0;
 
 // QUESTIONS AND OPTIONS CONTENTS
-const test = [""];
+const test = ["Which summarize feature should we use if we want to display the value in the middle of all row values ​​in a column containing numerical values ​​in reports?"];
 
 const options1 = [["","",""], ["","","",""]];
 const answers = [A,B];
