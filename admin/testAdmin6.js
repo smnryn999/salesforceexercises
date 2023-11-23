@@ -16,14 +16,15 @@ var wrongs = 0, corrects = 0;
 // QUESTIONS AND OPTIONS CONTENTS
 const test = ["What is the purpose of a Scheduled Flow in Salesforce?", 'In Salesforce Reports, what does the "Group Rows" feature help you achieve?', "What happens to the detail records when the master record in a master-detail relationship is deleted?",
               '"Automatically updates a field on a master record with aggregated values from related detail records." <br><br> What refers to the sentence above?', "In Salesforce automation, what is the purpose of a Decision element in a Flow?",
-              "What is the recommended method for bulk data migration into Salesforce?", "What is a Path used in Salesforce for?", "In App Builder, we can set which fields of a record appear in the related list. <br><br> True or false?",
+              "What is the recommended method for bulk data migration into Salesforce?", "What is a Path used in Salesforce for?", "In App Builder, we can set which fields of a record appear in the related list. True or false?",
+              'In the company called SalesWaves Inc., the sales team is using Salesforce to manage their opportunities. The company has a policy that all opportunities with a potential value greater than $1,000,000 should undergo additional review before they can be marked as "Closed-Won." To enforce this policy, the Salesforce administrator decides to implement a validation rule.<br><br> What would be an appropriate validation rule for the scenario described in SalesWaves Inc.?',
               "Which summarize feature should we use if we want to display the value in the middle of all row values ​​in a column containing numerical values ​​in reports?"];
 
 const options1 = [["Real-time data processing","Triggering automation based on user actions","Scheduling and automating repetitive tasks","Managing user permissions and security"], ["Filter data based on specific criteria","Summarize data by categorizing records","Customize the report layout and design","Export data to an external system from a report"],
                   ["Detail records are automatically deleted","Detail records remain unaffected","Detail records become read-only","Detail records are moved to the Recycle Bin"], ["Formula Fields","Validation Rules"," Lookup Filters","Roll-up Summary Fields"], ["Initiating the Flow","Executing a specific action","Evaluating some conditions","Determine starting criteria"],
                   ["Manually inputting data through the user interface","Using Data Loader or another bulk data loading tool","Writing custom Apex code for each data record","Importing data directly from external databases"], ["Defining the layout of record detail pages","Guiding users through a predefined process for a record","Setting up access permissions for different user profiles","Creating custom reports and dashboards on App Builder"],
-                  ["True","False"], ["Avg","Middle","Median","Min"]];
-const answers = [C,B,A,D,C,B,B,B,C];
+                  ["True","False"], ['<code>Amount > 1000000 && ISPICKVAL(StageName, "Closed-Won") &&  IsReviewed__c = False</code>','<code>Amount > 1000000 && StageName = "Closed-Won" &&  IsReviewed__c = True</code>','<code>IF(Amount > 1000000 && ISPICKVAL(StageName, "Closed-Won"), ERROR("Opportunity requires additional review"), FALSE)</code>','<code>TEXT(StageName) = "Closed-Won" || Amount < 1000000</code>'], ["Avg","Middle","Median","Min"]];
+const answers = [C,B,A,D,C,B,B,B,A,C];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
