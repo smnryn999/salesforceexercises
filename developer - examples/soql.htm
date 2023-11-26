@@ -81,7 +81,7 @@
        <em> // We use IN keyword because the parameter data type is List. </em>
        <div><code>
      public class GetRecords {
-         public static List&lt;Book__c&gt; getBook(List<string> strList){
+         public static List&lt;Book__c&gt; getBook(List&lt;String> strList){
              return [SELECT Name, Author__c FROM Book__c WHERE Language__c IN :strList];
          }   
      }     
