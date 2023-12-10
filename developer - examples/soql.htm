@@ -115,12 +115,12 @@
       <p><span class="counter"></span> - Update the opportunities that have expired but are still open.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        List&lt;Opportunity&gt; liste = [SELECT Name FROM Opportunity WHERE CloseDate < TODAY AND StageName NOT IN ('Closed Won','Closed Lost')];
+        List&lt;Opportunity&gt; listOpp = [SELECT Name FROM Opportunity WHERE CloseDate < TODAY AND StageName NOT IN ('Closed Won','Closed Lost')];
         
         List&lt;Opportunity&gt; emptyList = new List&lt;Opportunity&gt;();
-        for(opportunity opp:liste){
+        for(opportunity opp:listOpp){
             System.debug(opp.name);
-            opp.Description = 'Tarihi geçtiği için kapatılmıştır';
+            opp.Description = 'It has been closed because it has expired';
             opp.StageName = 'Closed Lost';
             emptyList.add(opp);
         }
