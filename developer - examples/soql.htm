@@ -81,7 +81,7 @@
        <em> // We use IN keyword because the parameter data type is List. </em>
        <div><code>
      public class GetRecords {
-         public static List&lt;Book__c&gt; getBook(List<string> strList){
+         public static List&lt;Book__c&gt; getBook(List&lt;String> strList){
              return [SELECT Name, Author__c FROM Book__c WHERE Language__c IN :strList];
          }   
      }     
@@ -115,12 +115,12 @@
       <p><span class="counter"></span> - Update the opportunities that have expired but are still open.</p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        List&lt;Opportunity&gt; liste = [SELECT Name FROM Opportunity WHERE CloseDate < TODAY AND StageName NOT IN ('Closed Won','Closed Lost')];
+        List&lt;Opportunity&gt; listOpp = [SELECT Name FROM Opportunity WHERE CloseDate < TODAY AND StageName NOT IN ('Closed Won','Closed Lost')];
         
         List&lt;Opportunity&gt; emptyList = new List&lt;Opportunity&gt;();
-        for(opportunity opp:liste){
+        for(opportunity opp:listOpp){
             System.debug(opp.name);
-            opp.Description = 'Tarihi geçtiği için kapatılmıştır';
+            opp.Description = 'It has been closed because it has expired';
             opp.StageName = 'Closed Lost';
             emptyList.add(opp);
         }
@@ -134,12 +134,12 @@
       <button class="showSolution">Show Solution</button>
       <pre>
         <em> // The DML limit in a thread is 150. We can do up to 10k operations using List. </em>
-        List<Contact> liste = new List<Contact>();
+        List&lt;Contact> listContact = new List&lt;Contact>();
         for(integer i=0; i<10000; i++){
             Contact con = new Contact(LastName='Contact '+i);
-            liste.add(con);
+            listContact.add(con);
         }
-        insert liste;
+        insert listContact;
 
         System.debug([SELECT Count() FROM Contact]);
         <em> // The SOQL limit in a thread is 100. We can fetch up to 50,000 records with SOQL. </em>
