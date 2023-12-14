@@ -248,8 +248,8 @@
       <p><span class="counter"></span> - Write the Titles of all files containing “Anna Karenina” to the console. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND 'Anna Karenina' IN ALL FIELDS RETURNING ContentDocument(Title)];
-        System.debug(searchResults); <em> // ((ContentDocument:{Title=Books, Id=0698e00000CezhFAAR})) </em>
+        List&lt;List&lt;SObject&gt;&gt; files = [FIND 'Anna Karenina' IN ALL FIELDS RETURNING ContentDocument(Title)];
+        System.debug(files); <em> // ((ContentDocument:{Title=Books, Id=0698e00000CezhFAAR})) </em>
 
         for(List&lt;sObject&gt; file:files){
             for(SObject f:file){
@@ -268,12 +268,12 @@
       <pre>
         <em> // NAME FIELDS contains FirstName, LastName, Company Name </em>
         String searchQuery = 'Gr?en*'; <em> // Graen, Green, Grien </em>
-        List&lt;List&lt;SObject&gt;&gt; searchResults = [FIND :searchQuery IN NAME FIELDS RETURNING Contact(Name, Email), Lead(Name, Company)];
+        List&lt;List&lt;SObject&gt;&gt; results = [FIND :searchQuery IN NAME FIELDS RETURNING Contact(Name, Email), Lead(Name, Company)];
           
         <em> // Loop through the search results and separate them based on the object type </em>
         for(List&lt;SObject&gt; result:results){
             for(SObject obj:result){
-                if(obj instanceof Contact){
+                if(obj instanceOf Contact){
                     Contact con = (Contact)obj;
                     System.debug('Contact Name: ' + con.Name + ', Contact Email: ' + con.Email);
                 }
