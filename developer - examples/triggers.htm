@@ -154,7 +154,7 @@
       <pre>
         <div><code>
       public class HandlerClass {
-          public static void setParent(List<Account> newAccounts){
+          public static void setParent(List&lt;Account> newAccounts){
               List&lt;Account> currentAccounts = [SELECT Id, Name FROM Account];
         
               for(Account newAcc:newAccounts){
@@ -200,7 +200,7 @@
             }
 
             <em>// Before Update </em>
-            public static void setIdForUpdate(List<Book__c> listBook){
+            public static void setIdForUpdate(List&lt;Book__c> listBook){
                 for(Book__c b:listBook){
                     b.Id__c = b.Id;
                 }
