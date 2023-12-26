@@ -130,7 +130,7 @@
                       notification.setTitle('Account Owner Changed');
                       notification.setBody(acc.Name + ' has been assigned to you.');
                       notification.setTargetId(acc.Id);
-                      notification.send(new Set<String>{acc.OwnerId});
+                      notification.send(new Set&lt;String>{acc.OwnerId});
                   }    
               }
           }
