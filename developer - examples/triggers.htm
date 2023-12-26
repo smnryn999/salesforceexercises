@@ -113,7 +113,7 @@
                       Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
                       email.setSubject('Account Owner');
                       email.setPlainTextBody(acc.Name + ' has been assigned to you.');
-                      email.setToAddresses(new List<String>{mapAccountOwners.get(acc.Id)});
+                      email.setToAddresses(new List&lt;String>{mapAccountOwners.get(acc.Id)});
                       emails.add(email);
                   }    
               }
