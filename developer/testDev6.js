@@ -16,7 +16,7 @@ var wrongs = 0, corrects = 0;
 // QUESTIONS AND OPTIONS CONTENTS
 const test = [""]; 
 const options1 = [["","","",""]];
-const answers = [D];
+const answers = [A];
 
 document.querySelector("#numberOfQuestion").innerHTML = test.length;
 
