@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Asynchronous Apex</title>
+  <link rel="stylesheet" href="../test.css">
+</head>
+
+<body>
+  <header>
+    <h1>Asynchronous Apex Examples</h1>
+  </header>
+
+  <section>
+
+    <!-- EXAMPLE 1 -->
+    <div class="example">
+      <p><span class="counter"></span> - What is the project? </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <span class="string">
+        We will create an application where we bring movies, TV series and book data from an external database and save it to salesforce org.
+
+        • Future Methods
+            - When you have a long-running method and need to prevent delaying an Apex transaction
+            - When you make callouts to external Web services
+            - To segregate DML operations and bypass the mixed save DML error
+        
+        • Queueable Apex
+            - To start a long-running operation and get an ID for it
+            - To pass complex types to a job
+            - To chain jobs
+        
+        • Batch Apex
+            - For long-running jobs with large data volumes that need to be performed in batches, such as database maintenance jobs
+            - For jobs that need larger query results than regular transactions allow
+        
+        • Scheduled Apex
+            - To schedule an Apex classes to run on a specific schedule
+        </span>
+      </pre>
+    </div>
+
+    
+
+  </section>
+
+  <script src="examples.js"></script>
+
+</body>
+
+</html>
