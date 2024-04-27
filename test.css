@@ -136,9 +136,10 @@ pre {
    line-height: 25px;
    padding-top: 30px;
    padding-left: 8px;
+   padding-right: 5px;
    border: 1px solid blue;
    border-radius: 5px;
-   overflow: scroll;
+   overflow: scroll; white-space: pre-wrap;
    color: whitesmoke;
    font-family: verdana;
    margin: 20px;
@@ -162,7 +163,7 @@ pre div code {
 var {color: rgb(204, 204, 255);}
 em, em span, em var {color: darkcyan !important;}
 .datatype, .datatype span {color: LightSalmon;} /* text-transform: capitalize; */
-.string, .string span {color: pink !important;}
+.string, .string span {color: lightgreen !important;}  /* pink */
 .loop {color: #DE3163;}
 .key {color: #9FE2BF;}
 .number {color: #FFBF00;}
