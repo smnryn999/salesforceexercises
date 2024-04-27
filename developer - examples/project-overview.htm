@@ -3,13 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Asynchronous Apex</title>
+  <title>The Project Summary</title>
   <link rel="stylesheet" href="../test.css">
 </head>
 
 <body>
   <header>
-    <h1>Asynchronous Apex Examples</h1>
+    <h1>The Project Summary</h1>
   </header>
 
   <section>
@@ -20,19 +20,35 @@
       <button class="showSolution">Show Solution</button>
       <pre>
         <span class="string">
-        We will create an application where we bring movies, TV series and book data from an external database and save it to salesforce org.
+        • We will create an application where we will bring the data of movies, TV series and books from an external database and save it to a developer edition org.
+        • This is just a practise about Data Modeling, Integration, Scheduleable Apex and LWC. You can adapt the processes here to many topics in the Salesforce CRM.
 
-        • Future Methods
+        • First, we will create the necessary objects and fields.
+        • Then we will create the classes we will use to fetch the data. We will use omdb and openlibrary as databases.
+        • Then we will create the Schedulable Class required for the update every month.
+        • Next, we will create Lightning Web components.
+        </span>
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 2 -->
+    <div class="example">
+      <p><span class="counter"></span> - What objects will we use? </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <span class="string">
+        
+        • Movies
             - When you have a long-running method and need to prevent delaying an Apex transaction
             - When you make callouts to external Web services
             - To segregate DML operations and bypass the mixed save DML error
         
-        • Queueable Apex
+        • Series
             - To start a long-running operation and get an ID for it
             - To pass complex types to a job
             - To chain jobs
         
-        • Batch Apex
+        • Books
             - For long-running jobs with large data volumes that need to be performed in batches, such as database maintenance jobs
             - For jobs that need larger query results than regular transactions allow
         
@@ -41,8 +57,6 @@
         </span>
       </pre>
     </div>
-
-    
 
   </section>
 
