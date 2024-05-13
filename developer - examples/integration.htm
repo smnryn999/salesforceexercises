@@ -29,13 +29,54 @@
       </pre>
     </div>
 
+    <!-- EXAMPLE 2 - Extra -->
+    <div class="example">
+      <p><span class="counter"></span> - Please integrate Salesforce with an external API and explain it step by step. </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // 1 - The first step is to determine the URL of the API with which we will communicate with the external system. This URL represents the address where the data we want to pull is located. For example: </em>
+        <div><code> 
+      String apiEndpoint = 'https://example.com/api/data';
+        </code></div>
+
+        <em> // 2 - Next, we must create an HTTP request. This specifies which HTTP method (GET, POST, etc.) and to which URL the request will be sent. For example: </em>
+        <div><code> 
+      HttpRequest request = new HttpRequest();
+      request.setEndpoint(apiEndpoint);
+      request.setMethod('GET');        
+        </code></div>
+
+        <em> // 3 - Next, we must send the HTTP request we created to the outside world and receive the response. This step is performed using the HTTP class. For example: </em>
+        <div><code> 
+      Http http = new Http();
+      HttpResponse response = http.send(request);                  
+        </code></div>
+
+        <em> // 4 - Finally, we should check and process the response we get. If the response is successful (HTTP status code 200), we can receive the data we want. For example: </em>
+        <div><code> 
+      if (response.getStatusCode() == 200) {
+          String responseBody = response.getBody();
+          System.debug('API Response: ' + responseBody);
+      } else {
+          // Appropriate action can be taken in case of error
+          System.debug('Error Code: ' + response.getStatusCode());
+          System.debug('Error Message: ' + response.getStatus());
+      }                         
+        </code></div>
+        
+         <em>
+           // By following these steps, we can pull data from an external system.        
+         </em>
+      </pre>
+    </div>
+
     <!-- EXAMPLE 2 -->
     <div class="example">
       <p><span class="counter"></span> - Please integrate Salesforce with an external weather API to retrieve weather
         data for a given location. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <em> // creating an Apex class to handle the integration </em>
+        <em> // Creating an Apex class to handle the integration </em>
         <div><code> 
       public with sharing class WeatherIntegration {
           public static String getWeather(String location) {
