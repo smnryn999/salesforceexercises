@@ -21,9 +21,9 @@
       <pre>
         <span class="string">
         • We will create an application where we will bring the data of movies, TV series and books from an external database and save it to a developer edition org.
-        • This is just a practise about Data Modeling, Integration, Scheduleable Apex and LWC. You can adapt the processes here to many topics in the Salesforce CRM.
+        • This is just a practise about Data Modeling, App Builder, Integration, Scheduleable Apex and LWC. You can adapt the processes here to many topics in the Salesforce CRM.
 
-        • First, we will create the necessary objects and fields.
+        • First, we will create the necessary app, objects, fields and lightning pages.
         • Then we will create the classes we will use to fetch the data. We will use omdb and openlibrary as databases.
         • Then we will create the Schedulable Class required for the update every month.
         • Next, we will create Lightning Web components.
@@ -36,24 +36,39 @@
       <p><span class="counter"></span> - What objects will we use? </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-        <span class="string">
-        
+        <span class="string">        
         • Movies
-            - When you have a long-running method and need to prevent delaying an Apex transaction
-            - When you make callouts to external Web services
-            - To segregate DML operations and bypass the mixed save DML error
+            - Title (Text)
+            - Genre (Multiselect Picklist)
+            - Writer (Text)
+            - Director (Text)
+            - Actors (Text)
+            - Released (Date)
+            - IMDB Rating (Number)
+            - Story (Long Text Area)
         
-        • Series
-            - To start a long-running operation and get an ID for it
-            - To pass complex types to a job
-            - To chain jobs
+        • TV Series
+            - Title (Text)
+            - Genre (Multiselect Picklist)
+            - Writer (Text)
+            - Director (Text)
+            - Actors (Text)
+            - Released (Date)
+            - Year (Text)
+            - IMDB Rating (Number)
+            - Story (Long Text Area)
         
         • Books
-            - For long-running jobs with large data volumes that need to be performed in batches, such as database maintenance jobs
-            - For jobs that need larger query results than regular transactions allow
-        
-        • Scheduled Apex
-            - To schedule an Apex classes to run on a specific schedule
+            - Book Name (Text)
+            - Author (Text)
+            - Number Of Pages (Number)
+            - Language (Text)
+            - First Publish Year (Text)
+            - Fictitious Characters (Text(255))
+            - When the Story Takes Place (Text)
+            - Rating (Number)
+
+        • After adding the objects to the App we created, we set the locations of the fields on the pages via App Builder.
         </span>
       </pre>
     </div>
