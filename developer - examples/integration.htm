@@ -141,15 +141,15 @@
               HttpResponse response = http.send(request);
           
               <em>// Check the response </em>
-              if (response.getStatusCode() == 200) {
+              if (response.getStatusCode() == 201) {
                   <em>// Successful POST request </em>
                   String responseBody = response.getBody();
                   System.debug('Response Body: ' + responseBody);
               }
               else {
-                  <em>// Error handling for non-200 status codes </em>
+                  <em>// Error handling for non-201 status codes </em>
                   System.debug('Error Status Code: ' + response.getStatusCode());
-                  System.debug('Error Response: ' + response.getBody());
+                  System.debug('Error Message: ' + response.getStatus());
               }
           }
       } 
