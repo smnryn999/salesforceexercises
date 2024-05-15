@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+   <meta charset="UTF-8">
+   <title>The Project - Apex Part</title>
+   <link rel="stylesheet" href="../test.css">
+</head>
+
+<body>
+   <header>
+      <h1>The Project - Apex Part</h1>
+   </header>
+
+   <section>
+
+      <!-- EXAMPLE 1 -->
+      <div class="example">
+        <p><span class="counter"></span> - Creating the class that will receive data from OMDB.</p>
+        <button class="showSolution">Show Solution</button>
+        <pre>
+         <em> // We are creating a handle method that will convert the data received from the external system into Apex format. </em>
+         <div><code>
+         private static List<string> httpHandle(string movieName){
+             movieName = movieName.replaceAll(' ', '+');
+             movieName = movieName.replaceAll('&', '%26');
+             string apikey;
+
+             Http http = new Http();
+             HttpRequest request = new HttpRequest();
+             request.setEndpoint('http://www.omdbapi.com/?apikey='+apikey+'&t='+movieName+'&plot=full');
+             request.setMethod('GET');
+             request.setTimeout(500);
+             HttpResponse response = http.send(request);
+             System.debug(response.getStatusCode()+' and '+response.getBody());
+        
+             Map&lt;string,object> theMovie =(Map&lt;string,object>) JSON.deserializeuntyped(response.getBody());
+        
+             string title = (string)theMovie.get('Title');
+             string genre = (string)theMovie.get('Genre');
+             genre = genre.replaceAll(',', ';');
+        
+             string released = (string)theMovie.get('Released'); // "10 Oct 2012"
+             string day = released.substring(0,2);
+             string year = released.substringAfterLast(' ');
+             string month = released.substringBetween(' ', ' ');
+             switch on month {
+                 when 'Jan' {month='01';}
+                 when 'Feb' {month='02';}
+                 when 'Mar' {month='03';}
+                 when 'Apr' {month='04';}
+                 when 'May' {month='05';}
+                 when 'Jun' {month='06';}
+                 when 'Jul' {month='07';}
+                 when 'Aug' {month='08';}
+                 when 'Sep' {month='09';}
+                 when 'Oct' {month='10';}
+                 when 'Nov' {month='11';}
+                 when 'Dec' {month='12';}            
+             }
+             released = released == 'N/A' ? null : (day + '/' + month + '/' + year);
+                
+             string yearAll = (string)theMovie.get('Year');
+             string writer = (string)theMovie.get('Writer');
+             string imdbRating = (string)theMovie.get('imdbRating');
+        
+             string actors = (string)theMovie.get('Actors');
+             string story = (string)theMovie.get('Plot');
+             string director = (string)theMovie.get('Director');
+            
+             List<string> listContent = new List<string>{title, genre, released, yearAll, writer, imdbRating, actors, story, director};
+             return listContent;
+         }
+         </code></div>
+          <em> // And we are creating three instances </em>
+            Cake orange = new Cake();
+            System.debug(orange); <em> // Cake:[cream=null, name=null, sugar=null] </em>
+       </pre>
+     </div>
+
+     <!-- EXAMPLE 2 -->
+     <div class="example">
+       <p><span class="counter"></span> - Creating the class that will receive data from Open Library.</p>
+       <button class="showSolution">Show Solution</button>
+       <pre>
+        <em> // We are creating a class called Cake </em>
+        <div><code>
+        public class Cake {
+            public string name;
+            public integer sugar;
+            private boolean cream = true; <em> // {get; private set;} readonly </em>
+         
+            <em>// getter method </em>
+            public boolean getCream(){
+                return this.cream;
+            }
+         
+            <em>// setter method </em>
+            public void setCream(Boolean cream){
+                this.cream = cream;
+            }
+        }
+        </code></div>
+         <em> // And we are creating some instances and using getCream() and setCream() methods </em>
+           Cake lemon = new Cake();
+           lemon.name = 'Lemon Cake';
+           lemon.sugar = 15;
+           System.debug(lemon); <em> // Cake:[cream=true, name=Lemon Cake, sugar=15] </em>
+
+           System.debug(lemon.getCream()); <em> // true </em>
+           lemon.setCream(false);
+           System.debug(lemon.getCream()); <em> // false </em>
+      
+           Cake apple = new Cake('Apple Cake', 18, false);
+           System.debug(apple); <em> // Cake:[cream=false, name=Apple Cake, sugar=18]</em>
+       </pre>
+     </div>
+
+   </section>
+
+   <script src="examples.js"></script>
+
+</body>
+
+</html>
