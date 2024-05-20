@@ -19,7 +19,13 @@
         <p><span class="counter"></span> - Creating the class that will receive data from OMDB.</p>
         <button class="showSolution">Show Solution</button>
         <pre>
-         <em> // We are creating a handle method that will convert the data received from the external system into Apex format. </em>
+         <em> // First, we create an apex class. </em>
+         <div><code>
+         public class GetMovies {
+
+         }
+         </code></div>
+         <em> // Then, we create a handle method that will convert the data received from the external system into Apex format. </em>
          <div><code>
          private static List<string> httpHandle(string movieName){
              movieName = movieName.replaceAll(' ', '+');
@@ -72,9 +78,37 @@
              return listContent;
          }
          </code></div>
-          <em> // And we are creating three instances </em>
-            Cake orange = new Cake();
-            System.debug(orange); <em> // Cake:[cream=null, name=null, sugar=null] </em>
+         <em> // And We are creating the method that inserts movies into the database by calling the httpHandle() method. </em>
+         <div><code>
+         public static void insertTheMovie(string mName){
+        
+            List&lt;String> listContent = httpHandle(mName);
+            
+            Date releasedDate = listContent[2] != null ? Date.parse(listContent[2]) : null;
+            decimal imdbRatingVal = Decimal.valueOf(listContent[5]);
+                
+            Movies__c theMovie = new Movies__c(Name=listContent[0], Genre__c=listContent[1], Released__c = releasedDate,
+                                               Writer__c = listContent[4], IMDB_Rating__c = imdbRatingVal,
+                                               Actors__c = listContent[6],
+                                               Story__c = listContent[7], Director__c = listContent[8]);
+            insert theMovie;      
+         }
+         </code></div>
+         <em> // We are doing the same process to save TV shows. </em>
+         <div><code>
+         public static void insertTheSeries(string sName){
+            List&lt;String> listContent = httpHandle(sName);
+            
+            Date releasedDate = listContent[2] != null ? Date.parse(listContent[2]) : null;
+            decimal imdbRatingVal = Decimal.valueOf(listContent[5]);
+                
+            Series__c theSeries = new Series__c(Name=listContent[0], Genre__c=listContent[1], Released__c = releasedDate,
+                                                Year__c = listContent[3], Writer__c = listContent[4], IMDB_Rating__c = imdbRatingVal,
+                                                Actors__c = listContent[6], Story__c = listContent[7], Director__c = listContent[8]);
+            insert theSeries;
+         }
+         </code></div>
+            
        </pre>
      </div>
 
@@ -83,21 +117,68 @@
        <p><span class="counter"></span> - Creating the class that will receive data from Open Library.</p>
        <button class="showSolution">Show Solution</button>
        <pre>
-        <em> // We are creating a class called Cake </em>
+        <em> // We are creating a class called GetBooks </em>
         <div><code>
-        public class Cake {
-            public string name;
-            public integer sugar;
-            private boolean cream = true; <em> // {get; private set;} readonly </em>
-         
-            <em>// getter method </em>
-            public boolean getCream(){
-                return this.cream;
-            }
-         
-            <em>// setter method </em>
-            public void setCream(Boolean cream){
-                this.cream = cream;
+          public class GetBooks {
+            @AuraEnabled
+            public static void getBook(String bookName){
+                
+                bookName = bookName.replaceAll(' ', '+');
+                
+                Http http = new Http();
+                HttpRequest request = new HttpRequest();
+                request.setEndpoint('https://openlibrary.org/search.json?title='+bookName);
+                request.setMethod('GET');
+                request.setHeader('content-type', 'application/json');
+                <em> // request.setHeader('authorization', 'apikey 1234567890abcdef'); </em>
+                HttpResponse response = http.send(request);
+                <em> // System.debug(response.getStatusCode() + ' and ' + response.getBody()); </em>
+                
+                Map&lt;String, Object> theBook =(Map&lt;String, Object>) JSON.deserializeuntyped(response.getBody());
+                       
+                List&lt;Object> documentsList = (List&lt;Object>)theBook.get('docs');
+                Map&lt;String, Object> documentsMap = (Map&lt;String, Object>)documentsList[0];
+                
+                String title = (String)documentsMap.get('title');
+                Object[] author = (Object[])documentsMap.get('author_name');
+                String first_publish_year = String.valueOf(documentsMap.get('first_publish_year'));
+                Object[] publishDate = (Object[])documentsMap.get('publish_date');
+                Object[] language = (Object[])documentsMap.get('language');
+                Object[] persons = (Object[])documentsMap.get('person');
+                Object[] timeOfStory = (Object[])documentsMap.get('time');
+                Integer number_of_pages = (Integer)documentsMap.get('number_of_pages_median');
+                Decimal rating = (Decimal)documentsMap.get('ratings_average');
+               
+                System.debug(title+', '+author[0]+', '+publishDate[0] + ', '+ first_publish_year);
+                System.debug(language); 
+                System.debug(persons);  
+                System.debug(timeOfStory); 
+                System.debug(number_of_pages + ', ' + rating); 
+                
+                String textPersons='';
+                if(persons != null){
+                    for(Object p:persons){
+                        textPersons += (String)p + ', ';
+                    }
+                }
+                
+                String textTime='';
+                if(timeOfStory != null){
+                    for(Object t:timeOfStory){
+                        textTime += (String)t;
+                    }
+                }
+                
+                Book__c book = new Book__c();
+                book.Name = title;
+                book.Author__c = (String)author[0];
+                book.First_Publish_Year__c = first_publish_year;
+                book.Language__c = language != null ? (String)language[0] : null;
+                book.Fictitious_Characters__c = textPersons.substringBeforeLast(',');
+                book.When_the_Story_Takes_Place__c = textTime;
+                book.Number_Of_Pages__c = number_of_pages;
+                book.Rating__c = rating;
+                insert book;
             }
         }
         </code></div>
