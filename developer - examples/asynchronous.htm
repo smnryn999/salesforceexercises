@@ -42,9 +42,56 @@
       </pre>
     </div>
 
+    <!-- EXAMPLE 2 - Extra 1 -->
+    <div class="example">
+      <p><span class="counter"></span> - What is Future Apex? What should we pay attention to when using Future Apex? </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <span class="string">
+        • What is Future Apex?
+            - Future Apex is a feature in the Salesforce platform that allows you to run long-running operations asynchronously in the background. This feature enables heavy operations to be executed at a later time or in the background, so the user doesn't have to wait while the operation completes. It is particularly useful for scenarios like integrations, large data processing, or time-consuming API calls to external systems.
+
+        • Considerations When Using Future Apex
+            - Static Methods: Future methods must always be static.
+            - Limitations: There are some limitations when calling future methods. For instance, a maximum of 50 future methods can be called within a single transaction.
+            - Parameters: Future methods only support primitive data types or lists of primitive data types as parameters.
+        </span>
+      </pre>
+    </div>
+
+    <!-- EXAMPLE 2 - Extra 2 -->
+    <div class="example">
+      <p><span class="counter"></span> - Please create a future method that retrieves data from an external system. </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // Future Apex (also known as @future methods) is used for performing long-running operations asynchronously, often used for tasks like sending emails, making external web service calls, or other operations that should not block the main transaction. </em>
+        <div><code>
+      public class FutureExample {
+          @future (callout = true)
+          public static void calloutToExternalService() {
+              HttpRequest req = new HttpRequest();
+              Http http = new Http();
+              req.setEndpoint('https://api.external-service.com');
+              req.setMethod('GET');
+                
+              try {
+                  HttpResponse response = http.send(req);
+                  System.debug('Response body: ' + response.getBody());
+              } catch (Exception e) {
+                  System.debug('Callout failed: ' + e.getMessage());
+              }
+          }
+      }
+        </code></div>       
+        <em>
+          // Since there is data exchange with an external system, we add the "callout = true" statement to the method.
+        </em>
+      </pre>
+    </div>
+
     <!-- EXAMPLE 2 -->
     <div class="example">
-      <p><span class="counter"></span> - Future Methods </p>
+      <p><span class="counter"></span> - Please create a future method that sends an email by taking the address, subject and body ​​from outside the method. Also create a trigger that fires this method after inserting any record. </p>
       <button class="showSolution">Show Solution</button>
       <pre>
         <em> // Future Apex (also known as @future methods) is used for performing long-running operations asynchronously, often used for tasks like sending emails, making external web service calls, or other operations that should not block the main transaction. </em>
