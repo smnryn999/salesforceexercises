@@ -193,6 +193,39 @@
       </pre>
     </div>
 
+    <!-- EXAMPLE 4 - Extra -->
+    <div class="example">
+      <p><span class="counter"></span> - Please explain the functions of the start, execute and finish methods in the Batch Apex class and how they are used. </p>
+      <button class="showSolution">Show Solution</button>
+      <pre>
+        <em> // The Batch Apex class is created by implementing the Database.Batchable interface and contains three main methods: </em>
+
+        <em> // 1 - start: This method prepares the data set to be processed. Returns Database.QueryLocator or an Iterable. Querying the data to be processed and starting the batch process is carried out in this method.</em>
+        <div><code>
+        public Database.QueryLocator start(Database.BatchableContext bc) {
+            return Database.getQueryLocator([SELECT Id, Name FROM Account]);
+        }
+        </code></div>
+
+        <em> // 2 - execute: This method divides the data into pieces and processes each piece. It takes Database.BatchableContext as parameters and a list (scope) of records to be processed. This method is called separately for each batch part. </em>
+        <div><code>
+        public void execute(Database.BatchableContext bc, List&lt;Account> scope) {
+            for (Account acc : scope) {
+                acc.Name = acc.Name + ' - Processed';
+            }
+            update scope;
+        }
+        </code></div>
+
+        <em> // 3 - finish: This method is called when all batch operations are completed. Cleaning or finishing operations that need to be done at the end of the batch process are performed here.</em>
+        <div><code>
+        public void finish(Database.BatchableContext bc) {
+            System.debug('Batch processing completed.');
+        }
+        </code></div>
+       </pre>
+     </div>
+
     <!-- EXAMPLE 4 -->
     <div class="example">
       <p><span class="counter"></span> - Please update all the active accounts via a Batchable Apex. </p>
