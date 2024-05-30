@@ -25,6 +25,7 @@
 
          }
          </code></div>
+
          <em> // Then, we create a handle method that will convert the data received from the external system into Apex format. </em>
          <div><code>
          private static List<string> httpHandle(string movieName){
@@ -78,6 +79,7 @@
              return listContent;
          }
          </code></div>
+
          <em> // And We are creating the method that inserts movies into the database by calling the httpHandle() method. </em>
          <div><code>
          public static void insertTheMovie(string mName){
@@ -94,6 +96,7 @@
             insert theMovie;      
          }
          </code></div>
+
          <em> // We are doing the same process to save TV shows. </em>
          <div><code>
          public static void insertTheSeries(string sName){
@@ -103,12 +106,110 @@
             decimal imdbRatingVal = Decimal.valueOf(listContent[5]);
                 
             Series__c theSeries = new Series__c(Name=listContent[0], Genre__c=listContent[1], Released__c = releasedDate,
-                                                Year__c = listContent[3], Writer__c = listContent[4], IMDB_Rating__c = imdbRatingVal,
-                                                Actors__c = listContent[6], Story__c = listContent[7], Director__c = listContent[8]);
+                                                Year__c = listContent[3], Writer__c = listContent[4],
+                                                IMDB_Rating__c = imdbRatingVal, Actors__c = listContent[6],
+                                                Story__c = listContent[7], Director__c = listContent[8]);
             insert theSeries;
          }
          </code></div>
-            
+
+         <em> // Last view of the class: </em>
+         <div><code>
+         public class GetMovies {
+
+            <em> // insertTheMovie method </em>
+            public static void insertTheMovie(string mName){
+        
+                List&lt;String> listContent = httpHandle(mName);
+              
+                Date releasedDate = listContent[2] != null ? Date.parse(listContent[2]) : null;
+                decimal imdbRatingVal = Decimal.valueOf(listContent[5]);
+                  
+                Movies__c theMovie = new Movies__c(Name=listContent[0], Genre__c=listContent[1], Released__c = releasedDate,
+                                                  Writer__c = listContent[4], IMDB_Rating__c = imdbRatingVal,
+                                                  Actors__c = listContent[6],
+                                                  Story__c = listContent[7], Director__c = listContent[8]);
+                insert theMovie;      
+            }
+
+            <em> // insertTheSeries method </em>
+            public static void insertTheSeries(string sName){
+              
+                List&lt;String> listContent = httpHandle(sName);
+              
+                Date releasedDate = listContent[2] != null ? Date.parse(listContent[2]) : null;
+                decimal imdbRatingVal = Decimal.valueOf(listContent[5]);
+                    
+                Series__c theSeries = new Series__c(Name=listContent[0], Genre__c=listContent[1], Released__c = releasedDate,
+                                                  Year__c = listContent[3], Writer__c = listContent[4],
+                                                  IMDB_Rating__c = imdbRatingVal, Actors__c = listContent[6],
+                                                  Story__c = listContent[7], Director__c = listContent[8]);
+                insert theSeries;
+            }
+
+            <em> // Handler method </em>
+            private static List<string> httpHandle(string movieName){
+
+                movieName = movieName.replaceAll(' ', '+');
+                movieName = movieName.replaceAll('&', '%26');
+                string apikey;
+ 
+                Http http = new Http();
+                HttpRequest request = new HttpRequest();
+                request.setEndpoint('http://www.omdbapi.com/?apikey='+apikey+'&t='+movieName+'&plot=full');
+                request.setMethod('GET');
+                request.setTimeout(500);
+                HttpResponse response = http.send(request);
+                System.debug(response.getStatusCode()+' and '+response.getBody());
+         
+                Map&lt;string,object> theMovie =(Map&lt;string,object>) JSON.deserializeuntyped(response.getBody());
+          
+                string title = (string)theMovie.get('Title');
+                string genre = (string)theMovie.get('Genre');
+                genre = genre.replaceAll(',', ';');
+          
+                string released = (string)theMovie.get('Released'); // "10 Oct 2012"
+                string day = released.substring(0,2);
+                string year = released.substringAfterLast(' ');
+                string month = released.substringBetween(' ', ' ');
+                switch on month {
+                    when 'Jan' {month='01';}
+                    when 'Feb' {month='02';}
+                    when 'Mar' {month='03';}
+                    when 'Apr' {month='04';}
+                    when 'May' {month='05';}
+                    when 'Jun' {month='06';}
+                    when 'Jul' {month='07';}
+                    when 'Aug' {month='08';}
+                    when 'Sep' {month='09';}
+                    when 'Oct' {month='10';}
+                    when 'Nov' {month='11';}
+                    when 'Dec' {month='12';}            
+                }
+                released = released == 'N/A' ? null : (day + '/' + month + '/' + year);
+                 
+                string yearAll = (string)theMovie.get('Year');
+                string writer = (string)theMovie.get('Writer');
+                string imdbRating = (string)theMovie.get('imdbRating');
+          
+                string actors = (string)theMovie.get('Actors');
+                string story = (string)theMovie.get('Plot');
+                string director = (string)theMovie.get('Director');
+              
+                List<string> listContent = new List<string>{title, genre, released, yearAll, writer, imdbRating, actors, story, director};
+                return listContent;
+            }
+
+         }
+         </code></div>
+
+         <em> // Now, we can add some movies and TV shows to the UI. </em>
+         <div><code>
+         GetMovies.insertTheMovie('Gladiator');
+         GetMovies.insertTheMovie('Secret Window');
+         GetMovies.insertTheSeries('Pretty Little Liars');
+         GetMovies.insertTheSeries('Veronica Mars');
+         </code></div>
        </pre>
      </div>
 
