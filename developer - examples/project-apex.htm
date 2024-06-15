@@ -296,6 +296,26 @@
        </pre>
      </div>
 
+     <!-- EXAMPLE 3 -->
+     <div class="example">
+        <p><span class="counter"></span> - Handling data renewal processes every month to keep the data up-to-date.</p>
+        <button class="showSolution">Show Solution</button>
+        <pre>
+         <em> // We are creating a class called GetBooks. This class has a method called getBook() that retrieves data from Open Library and convert them to Apex format. And then a Book__c record is created according to the retreiving data.</em>
+         <div><code>
+         public class GetBooks {
+             
+         }
+         </code></div>
+          <em> // Now, we can add some books to the UI. </em>
+          <div><code>
+          GetBooks.getBook('To Kill a Mockingbird', 'Harper Lee');
+          GetBooks.getBook('Baudolino', 'Umberto Eco');
+          GetBooks.getBook('Madame Bovary', 'Gustave Flaubert');
+          </code></div>     
+        </pre>
+      </div>
+
    </section>
 
    <script src="examples.js"></script>
