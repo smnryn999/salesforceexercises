@@ -218,23 +218,26 @@
        <p><span class="counter"></span> - Creating the class that will receive data from Open Library.</p>
        <button class="showSolution">Show Solution</button>
        <pre>
-        <em> // We are creating a class called GetBooks </em>
+        <em> // We are creating a class called GetBooks. This class has a method called getBook() that retrieves data from Open Library and convert them to Apex format. And then a Book__c record is created according to the retreiving data.</em>
         <div><code>
-          public class GetBooks {
+        public class GetBooks {
             @AuraEnabled
-            public static void getBook(String bookName){
+            public static void getBook(String bookName, String authorName){
                 
-                bookName = bookName.replaceAll(' ', '+');
+                bookName = bookName.trim().replaceAll(' ', '+');
+                authorName = authorName.trim().replaceAll(' ', '+');
                 
+                <em> // retreiving data </em>
                 Http http = new Http();
                 HttpRequest request = new HttpRequest();
-                request.setEndpoint('https://openlibrary.org/search.json?title='+bookName);
+                request.setEndpoint('https://openlibrary.org/search.json?title='+bookName+'&author='+authorName);
                 request.setMethod('GET');
                 request.setHeader('content-type', 'application/json');
                 <em> // request.setHeader('authorization', 'apikey 1234567890abcdef'); </em>
                 HttpResponse response = http.send(request);
                 <em> // System.debug(response.getStatusCode() + ' and ' + response.getBody()); </em>
                 
+                <em> // converting data </em>
                 Map&lt;String, Object> theBook =(Map&lt;String, Object>) JSON.deserializeuntyped(response.getBody());
                        
                 List&lt;Object> documentsList = (List&lt;Object>)theBook.get('docs');
@@ -270,6 +273,7 @@
                     }
                 }
                 
+                <em> // creating record </em>
                 Book__c book = new Book__c();
                 book.Name = title;
                 book.Author__c = (String)author[0];
@@ -283,18 +287,12 @@
             }
         }
         </code></div>
-         <em> // And we are creating some instances and using getCream() and setCream() methods </em>
-           Cake lemon = new Cake();
-           lemon.name = 'Lemon Cake';
-           lemon.sugar = 15;
-           System.debug(lemon); <em> // Cake:[cream=true, name=Lemon Cake, sugar=15] </em>
-
-           System.debug(lemon.getCream()); <em> // true </em>
-           lemon.setCream(false);
-           System.debug(lemon.getCream()); <em> // false </em>
-      
-           Cake apple = new Cake('Apple Cake', 18, false);
-           System.debug(apple); <em> // Cake:[cream=false, name=Apple Cake, sugar=18]</em>
+         <em> // Now, we can add some books to the UI. </em>
+         <div><code>
+         GetBooks.getBook('To Kill a Mockingbird', 'Harper Lee');
+         GetBooks.getBook('Baudolino', 'Umberto Eco');
+         GetBooks.getBook('Madame Bovary', 'Gustave Flaubert');
+         </code></div>     
        </pre>
      </div>
 
