@@ -301,18 +301,81 @@
         <p><span class="counter"></span> - Handling data renewal processes every month to keep the data up-to-date.</p>
         <button class="showSolution">Show Solution</button>
         <pre>
-         <em> // We are creating a class called GetBooks. This class has a method called getBook() that retrieves data from Open Library and convert them to Apex format. And then a Book__c record is created according to the retreiving data.</em>
+         <em> // We are creating two async methods to schedule for updates. We use @future(callout = true) because of integration.</em>
          <div><code>
-         public class GetBooks {
-             
+         <em> // for movies</em>
+         @future(callout = true)
+         public static void updateTheMovie(string mName){
+                
+             List<string> listContent = httpHandle(mName);
+                
+             Date releasedDate = listContent[2] != null ? Date.parse(listContent[2]) : null;
+             decimal imdbRatingVal = Decimal.valueOf(listContent[5]);
+                
+             Movies__c theMovie = [SELECT Name FROM Movies__c WHERE Name = :mName];
+             theMovie.Genre__c = listContent[1];
+             theMovie.Released__c = releasedDate;
+             theMovie.Writer__c = listContent[4];
+             theMovie.IMDB_Rating__c = imdbRatingVal;
+             theMovie.Actors__c = listContent[6];
+             theMovie.Story__c = listContent[7];
+             theMovie.Director__c = listContent[8];
+             update theMovie;
+         }
+
+         <em> // for TV shows</em>
+         @future(callout = true)
+         public static void updateTheSeries(string sName){
+        
+            List<string> listContent = httpHandle(sName);
+        
+            Date releasedDate = listContent[2] != null ? Date.parse(listContent[2]) : null;
+            decimal imdbRatingVal = Decimal.valueOf(listContent[5]);
+        
+            Series__c theSeries = [SELECT Name FROM Series__c WHERE Name = :sName];
+            theSeries.Genre__c = listContent[1];
+            theSeries.Released__c = releasedDate;
+            theSeries.Year__c = listContent[3];
+            theSeries.Writer__c = listContent[4];
+            theSeries.IMDB_Rating__c = imdbRatingVal;
+            theSeries.Actors__c = listContent[6];
+            theSeries.Story__c = listContent[7];
+            theSeries.Director__c = listContent[8];
+            update theSeries;    
          }
          </code></div>
-          <em> // Now, we can add some books to the UI. </em>
-          <div><code>
-          GetBooks.getBook('To Kill a Mockingbird', 'Harper Lee');
-          GetBooks.getBook('Baudolino', 'Umberto Eco');
-          GetBooks.getBook('Madame Bovary', 'Gustave Flaubert');
-          </code></div>     
+        <em> // These methods will run once a month. So we create a schedulable class.</em>
+         <div><code>
+         public class ScheduleMovies implements Schedulable {
+             public void execute(SchedulableContext context){
+                 List<Series__c> listShows = [SELECT Id, Name FROM Series__c];
+                 for(Series__c show:listShows){
+                     try{
+                         GetMovies.updateTheSeries(show.Name);
+                     }
+                     catch(Exception e){
+                         System.debug(e.getMessage());
+                     }
+                 }
+                    
+                 List<Movies__c> listMovies = [SELECT Id, Name FROM Movies__c];
+                 for(Movies__c movie:listMovies){
+                     try{
+                         GetMovies.updateTheMovie(movie.Name);
+                     }
+                     catch(Exception e){
+                         System.debug(e.getMessage());
+                     }
+                 }
+             }
+         }
+         </code></div>
+        <em> // Last, we can schedule them.</em>
+         <div><code>
+         <em> // It runs at 8 am on the 1st of every month. </em> 
+         ScheduleMovies sm = new ScheduleMovies();
+         System.schedule('Schedule Works', '0 0 8 1 * ? 2025', sm);
+         </code></div>     
         </pre>
       </div>
 
