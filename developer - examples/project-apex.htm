@@ -344,7 +344,7 @@
             update theSeries;    
          }
          </code></div>
-        <em> // These methods will run once a month. So we create a schedulable class.</em>
+         <em> // These methods will run once a month. So we create a schedulable class.</em>
          <div><code>
          public class ScheduleMovies implements Schedulable {
              public void execute(SchedulableContext context){
@@ -370,7 +370,34 @@
              }
          }
          </code></div>
-        <em> // Last, we can schedule them.</em>
+         <em> // Last, we can schedule them.</em>
+         <div><code>
+         <em> // It runs at 8 am on the 1st of every month. </em> 
+         ScheduleMovies sm = new ScheduleMovies();
+         System.schedule('Schedule Works', '0 0 8 1 * ? 2025', sm);
+         </code></div>     
+        </pre>
+      </div>
+
+      <!-- EXAMPLE 4 -->
+     <div class="example">
+        <p><span class="counter"></span> - Home search page.</p>
+        <button class="showSolution">Show Solution</button>
+        <pre>
+         <em> // We will create a component that has inputs as the picture.</em>
+
+         <img src="../pictures/screens/search.png" alt="">
+         <img src="../pictures/screens/search.jpg" alt="">
+
+         <em> // HTML, CSS, JS and XML codes.</em>
+         <div><code>
+         
+         </code></div>
+         <em> // These methods will run once a month. So we create a schedulable class.</em>
+         <div><code>
+         
+         </code></div>
+         <em> // Last, we can schedule them.</em>
          <div><code>
          <em> // It runs at 8 am on the 1st of every month. </em> 
          ScheduleMovies sm = new ScheduleMovies();
