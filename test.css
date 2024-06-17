@@ -148,7 +148,7 @@ pre {
 pre a {color: blue;}
 pre div {
    background:black;
-   margin: 0 45px;
+   margin: 0 50px;
    padding: 0;
    border: 1px solid lightyellow;
    border-radius: 5px;
@@ -157,7 +157,7 @@ pre div {
 pre div code {
    margin: 0;
    padding: 0;
-   font-size: 15px;
+   font-size: 15px;   
 }
 
 var {color: rgb(204, 204, 255);}
