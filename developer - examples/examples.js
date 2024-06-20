@@ -56,7 +56,7 @@ var showButtons = document.querySelectorAll(".showSolution");
        }
       var attributes = ["title", "icon-name", "label", "value=", "onchange", "onclick", "onsuccess", "@api", "@wire", "object-api-name", "record-id", "fields=", "columns=",
 		       "for:each", "for:item", "if:true", "if:false", "lwc:if", "lwc:elseif", "lwc:else", "iterator:it", "key=", "type", "message=", "variant", "name=",
-			"@AuraEnabled", "key-field", "data=", "version=", "encoding", "xmlns"];
+			    "@AuraEnabled", "key-field", "data=", "version=", "encoding", "xmlns"];
        for(a of attributes){
           content = content.replaceAll(a, `<span style='color:lightcoral'>${a}</span>`);
        }
