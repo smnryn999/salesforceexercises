@@ -36,7 +36,6 @@
              &lt;/targets>
          &lt;/LightningComponentBundle>
          </code></div>
-
          <em> // homeSearch.html </em>
          <div><code>
          &lt;template>
@@ -178,15 +177,31 @@
 
          <img src="../pictures/screens/tabs.png" alt="">
 
-         <em> // Next are HTML, CSS, JS and XML codes.</em>
+         <em> // Now we make the transactions showing the top 5 movies and TV series according to IMDB score.</em>
+         <em> // To do this, we first need to fetch the necessary data from the database. So we will use Apex.</em>
 
-         <em> // homeSearch.js-meta.xml </em>
+         <em> // We create a class and two methods that retrieve TV series and movie data from the database. </em>
          <div><code>
-         
+         public with sharing class GetWorksForLWC {
+             <em>// Since we will call it in LWC, we annotate it with @AuraEnabled.</em>
+             @AuraEnabled(cacheable=true)
+             public static list<series__c> getSeries(){
+                 List&lt;Series__c> topShows = [SELECT Name, Genre__c, Released__c, Year__c, Writer__c, Actors__c, IMDB_Rating__c FROM Series__c ORDER BY IMDB_Rating__c DESC LIMIT 5];
+                 return topShows;
+             }
+        
+             @AuraEnabled(cacheable=true)
+             public static list<movies__c> getMovies(){
+                List&lt;Movies__c> topMovies = [SELECT Name, Genre__c, Released__c, Writer__c, Actors__c, IMDB_Rating__c FROM Movies__c ORDER BY IMDB_Rating__c DESC LIMIT 5];
+                 return topMovies;
+             }
+         }
          </code></div>
-
          
-         <em> // homeSearch.css </em>
+         <em> // Next, we need to create a component like in the image. </em>
+
+         <img src="../pictures/screens/topList.jpg" alt="">
+
          <div><code>
          lightning-button {
             display: block;
