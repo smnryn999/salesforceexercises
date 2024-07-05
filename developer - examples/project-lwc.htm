@@ -177,7 +177,7 @@
 
          <img src="../pictures/screens/tabs.png" alt="">
 
-         <em> // Now we make the transactions showing the top 5 movies and TV series according to IMDB score.</em>
+         <em> // Now we make the transactions showing the top 5 movies and TV series according to IMDB rating.</em>
          <em> // To do this, we first need to fetch the necessary data from the database. So we will use Apex.</em>
 
          <em> // We create a class and two methods that retrieve TV series and movie data from the database. </em>
@@ -202,11 +202,69 @@
 
          <img src="../pictures/screens/topList.jpg" alt="">
 
+         <em> // listMovies.html</em>
          <div><code>
-         lightning-button {
-            display: block;
-            margin-top: 10px;
-         }
+         &lt;template>
+
+            &lt;lightning-card title="Series" icon-name="custom:custom21">
+                &lt;table class="slds-table slds-table_cell-buffer slds-table_bordered series">
+                    &lt;thead>
+                        &lt;tr class="slds-line-height_reset">
+                            &lt;th class="" scope="col">&lt;div class="slds-truncate">Title&lt;/div>&lt;/th>
+                            &lt;th class="" scope="col">&lt;div class="slds-truncate">Genre&lt;/div>&lt;/th>
+                            &lt;th class="" scope="col">&lt;div class="slds-truncate">Released&lt;/div>&lt;/th>
+                            &lt;th class="" scope="col">&lt;div class="slds-truncate">Year&lt;/div>&lt;/th>
+                            &lt;th class="" scope="col">&lt;div class="slds-truncate">Writer&lt;/div>&lt;/th>
+                            &lt;th class="" scope="col">&lt;div class="slds-truncate">Actors&lt;/div>&lt;/th>
+                            &lt;th class="" scope="col">&lt;div class="slds-truncate">IMDB Rating&lt;/div>&lt;/th>
+                        &lt;/tr>
+                    &lt;/thead>
+                      
+                    &lt;template for:each={series.data} for:item="serial">
+                        &lt;tbody key={serial.Id}>
+                            &lt;tr class="slds-hint-parent">
+                                &lt;th scope="row">&lt;div class="slds-truncate">&lt;a name={serial.Id} tabindex="-1" onclick={goToTVShow}>{serial.Name}&lt;/a>&lt;/div>&lt;/th>
+                                &lt;td>&lt;div class="slds-truncate">{serial.Genre__c}&lt;/div>&lt;/td>
+                                &lt;td>&lt;div class="slds-truncate">{serial.Released__c}&lt;/div>&lt;/td>
+                                &lt;td>&lt;div class="slds-truncate">{serial.Year__c}&lt;/div>&lt;/td>
+                                &lt;td>&lt;div class="slds-truncate">{serial.Writer__c}&lt;/div>&lt;/td>
+                                &lt;td>&lt;div class="slds-truncate">{serial.Actors__c}&lt;/div>&lt;/td>
+                                &lt;td>&lt;div class="slds-truncate slds-text-color_destructive">{serial.IMDB_Rating__c}&lt;/div>&lt;/td>
+                            &lt;/tr>
+                        &lt;/tbody>
+                    &lt;/template>
+                &lt;/table>
+            &lt;/lightning-card>
+              
+            &lt;lightning-card title="Movies" icon-name="custom:custom27">
+                &lt;table class="slds-table slds-table_cell-buffer slds-table_bordered movies">
+                    &lt;thead>
+                        &lt;tr class="slds-line-height_reset">
+                            &lt;th class="" scope="col">&lt;div class="slds-truncate">Title&lt;/div>&lt;/th>
+                            &lt;th class="" scope="col">&lt;div class="slds-truncate">Genre&lt;/div>&lt;/th>
+                            &lt;th class="" scope="col">&lt;div class="slds-truncate">Released&lt;/div>&lt;/th>
+                            &lt;th class="" scope="col">&lt;div class="slds-truncate">Writer&lt;/div>&lt;/th>
+                            &lt;th class="" scope="col">&lt;div class="slds-truncate">Actors&lt;/div>&lt;/th>
+                            &lt;th class="" scope="col">&lt;div class="slds-truncate">IMDB Rating&lt;/div>&lt;/th>
+                        &lt;/tr>
+                    &lt;/thead>
+                    
+                    &lt;template for:each={movies.data} for:item="movie">
+                        &lt;tbody key={movie.Id}>
+                            &lt;tr class="slds-hint-parent">
+                                &lt;th scope="row">&lt;div class="slds-truncate">&lt;a name={movie.Id} tabindex="-1" onclick={goToMovie}>{movie.Name}&lt;/a>&lt;/div>&lt;/th>
+                                &lt;td>&lt;div class="slds-truncate">{movie.Genre__c}&lt;/div>&lt;/td>
+                                &lt;td>&lt;div class="slds-truncate">{movie.Released__c}&lt;/div>&lt;/td>
+                                &lt;td>&lt;div class="slds-truncate">{movie.Writer__c}&lt;/div>&lt;/td>
+                                &lt;td>&lt;div class="slds-truncate">{movie.Actors__c}&lt;/div>&lt;/td>
+                                &lt;td>&lt;div class="slds-truncate slds-text-color_destructive">{movie.IMDB_Rating__c}&lt;/div>&lt;/td>
+                            &lt;/tr>
+                        &lt;/tbody>
+                    &lt;/template>
+                &lt;/table>
+            &lt;/lightning-card>
+              
+         &lt;/template>
          </code></div>
         </pre>
       </div>
