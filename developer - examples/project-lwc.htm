@@ -168,9 +168,9 @@
         </pre>
       </div>
 
-      <!-- EXAMPLE 2 -->
+     <!-- EXAMPLE 2 -->
      <div class="example">
-        <p><span class="counter"></span> - Creating top list and select randomly constructor.</p>
+        <p><span class="counter"></span> - Creating top list.</p>
         <button class="showSolution">Show Solution</button>
         <pre>
          <em> // First, we create a tab from App Builder and add it to the app.</em>
@@ -201,6 +201,18 @@
          <em> // Next, we need to create a component like in the image. </em>
 
          <img src="../pictures/screens/topList.jpg" alt="">
+
+         <em> // listMovies.js-meta.xml</em>
+         <div><code>
+         &lt;?xml version="1.0" encoding="UTF-8"?>
+            &lt;LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+                &lt;apiVersion>55.0&lt;/apiVersion>
+                &lt;isExposed>true&lt;/isExposed>
+                &lt;targets>
+                    &lt;target>lightning__AppPage&lt;/target>
+                &lt;/targets>
+         &lt;/LightningComponentBundle>
+         </code></div>
 
          <em> // listMovies.html</em>
          <div><code>
@@ -265,6 +277,114 @@
             &lt;/lightning-card>
               
          &lt;/template>
+         </code></div>
+
+         <em> // listMovies.css</em>
+         <div><code>
+         table.series thead tr th {background-color:antiquewhite;}
+         table.movies thead tr th {background-color:lightyellow;}
+         </code></div>
+
+         <em> // listMovies.js</em>
+         <div><code>
+        import { LightningElement, wire } from 'lwc';
+        import getSeries from '@salesforce/apex/GetWorksForLWC.getSeries';
+        import getMovies from '@salesforce/apex/GetWorksForLWC.getMovies';
+        import { NavigationMixin } from 'lightning/navigation';
+        
+        export default class ListMovies extends NavigationMixin(LightningElement) {
+            
+            @wire(getSeries) series;
+            @wire(getMovies) movies;
+        
+            goToTVShow(event){
+                const recId = event.target.name;
+                this[NavigationMixin.Navigate]({
+                    type: 'standard__recordPage',
+                    attributes: {
+                        recordId: recId,
+                        objectApiName: 'Series__c',
+                        actionName: 'view',
+                    },
+                });
+            }
+        
+            goToMovie(event){
+                const recId = event.target.name;
+                this[NavigationMixin.Navigate]({
+                    type: 'standard__recordPage',
+                    attributes: {
+                        recordId: recId,
+                        objectApiName: 'Movies__c',
+                        actionName: 'view',
+                    },
+                });
+            }
+        }
+         </code></div>
+        </pre>
+     </div>
+
+     <!-- EXAMPLE 3 -->
+     <div class="example">
+        <p><span class="counter"></span> - Creating select randomly constructor.</p>
+        <button class="showSolution">Show Solution</button>
+        <pre>
+
+         <em> // Now we make the transactions showing a random movie and TV series.</em>
+         <em> // To do this, we first need to fetch the necessary data from the database. So we will use Apex.</em>
+
+         <em> // We create a class and two methods that retrieve TV series and movie data from the database. </em>
+         <div><code>
+         public with sharing class GetWorksForLWC {
+             <em>// Since we will call it in LWC, we annotate it with @AuraEnabled.</em>
+             @AuraEnabled(cacheable=true)
+             public static list<series__c> getSeries(){
+                 List&lt;Series__c> topShows = [SELECT Name, Genre__c, Released__c, Year__c, Writer__c, Actors__c, IMDB_Rating__c FROM Series__c ORDER BY IMDB_Rating__c DESC LIMIT 5];
+                 return topShows;
+             }
+        
+             @AuraEnabled(cacheable=true)
+             public static list<movies__c> getMovies(){
+                List&lt;Movies__c> topMovies = [SELECT Name, Genre__c, Released__c, Writer__c, Actors__c, IMDB_Rating__c FROM Movies__c ORDER BY IMDB_Rating__c DESC LIMIT 5];
+                 return topMovies;
+             }
+         }
+         </code></div>
+         
+         <em> // Next, we need to create a component like in the image. </em>
+
+         <img src="../pictures/screens/topList.jpg" alt="">
+
+         <em> // listMovies.js-meta.xml</em>
+         <div><code>
+         &lt;?xml version="1.0" encoding="UTF-8"?>
+            &lt;LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+                &lt;apiVersion>55.0&lt;/apiVersion>
+                &lt;isExposed>true&lt;/isExposed>
+                &lt;targets>
+                    &lt;target>lightning__AppPage&lt;/target>
+                &lt;/targets>
+         &lt;/LightningComponentBundle>
+         </code></div>
+
+         <em> // listMovies.html</em>
+         <div><code>
+         &lt;template>
+
+            
+              
+         &lt;/template>
+         </code></div>
+
+         <em> // listMovies.css</em>
+         <div><code>
+         
+         </code></div>
+
+         <em> // listMovies.js</em>
+         <div><code>
+        
          </code></div>
         </pre>
       </div>
