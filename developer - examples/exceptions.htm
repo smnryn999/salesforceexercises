@@ -93,7 +93,7 @@
       <p><span class="counter"></span> - ListException </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          List<String> colors = new List<String>{'white'};
+          List&lt;String> colors = new List<String>{'white'};
         
           try{
               colors[1] = 'green';
@@ -123,7 +123,7 @@
       <p><span class="counter"></span> - sObjectException </p>
       <button class="showSolution">Show Solution</button>
       <pre>
-          List<Account> accounts = [SELECT Id FROM Account WHERE Name = 'New Acc']; <em> // We did not get Description field. </em>
+          List&lt;Account> accounts = [SELECT Id FROM Account WHERE Name = 'New Acc']; <em> // We did not get Description field. </em>
           
           try{
               String str = accounts[0].Description;
